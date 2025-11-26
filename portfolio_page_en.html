@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Portfolio | eCode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --lavender-light: #A99BFF;
+      --lavender-dark: #8B7FFF;
+      --sky-blue: #5BC0F8;
+      --mint-green: #7EDDA3;
+      --soft-orange: #FFB86C;
+      --coral-pink: #FF79C6;
+      --bg-primary: #0F1419;
+      --bg-secondary: #1A1F2E;
+      --bg-elevated: #242B3D;
+      --text-primary: #E6EDF3;
+      --text-secondary: #9DA5B4;
+      --text-muted: #6B7280;
+      --border-color: #2D3748;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --radius-base: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      --transition-base: 250ms ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 20, 25, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+
+    .logo-container:hover { transform: scale(1.02); }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .logo-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    .logo-text .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-text .brand-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      transition: var(--transition-base);
+    }
+
+    .nav a:hover {
+      color: var(--lavender-light);
+    }
+
+    .nav a.active {
+      color: var(--lavender-light);
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+      text-decoration: none;
+    }
+
+    .lang-switcher:hover {
+      background: var(--bg-secondary);
+      border-color: var(--lavender-dark);
+      color: var(--lavender-light);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: var(--transition-base);
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+    }
+
+    .page-hero {
+      background: linear-gradient(135deg, #1A1F2E, #242B3D, #2D3748);
+      padding: 100px var(--space-6) 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .page-hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero p {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .portfolio-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-12);
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--lavender-dark);
+      color: var(--lavender-light);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #fff;
+      border: none;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-16);
+    }
+
+    .portfolio-item {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+      cursor: pointer;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--lavender-dark);
+    }
+
+    .portfolio-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, var(--bg-elevated), var(--bg-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-image::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(139, 127, 255, 0.1), rgba(91, 192, 248, 0.1));
+    }
+
+    .portfolio-image i {
+      font-size: 64px;
+      color: var(--lavender-light);
+      position: relative;
+      z-index: 1;
+    }
+
+    .portfolio-content {
+      padding: var(--space-6);
+    }
+
+    .portfolio-category {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      background: rgba(139, 127, 255, 0.15);
+      color: var(--lavender-light);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .portfolio-item h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .portfolio-item p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .portfolio-tag {
+      padding: var(--space-1) var(--space-3);
+      background: var(--bg-elevated);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .stats-section {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12);
+      border: 1px solid var(--border-color);
+      margin-top: var(--space-16);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-8);
+      text-align: center;
+    }
+
+    .stat-item {
+      transition: var(--transition-base);
+    }
+
+    .stat-item:hover {
+      transform: scale(1.05);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: var(--space-2);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .footer {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: var(--space-16) var(--space-6) var(--space-6);
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-16);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer h4 {
+      margin-bottom: var(--space-4);
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .footer p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2);
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+
+    .footer a:hover {
+      color: var(--lavender-light);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--space-2);
+    }
+
+    .social-bar {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: rgba(139, 127, 255, 0.05);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-base);
+      font-size: 18px;
+      border: 1px solid var(--border-color);
+    }
+
+    .social-link:hover {
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      border-color: transparent;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-8);
+      padding-top: var(--space-4);
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 968px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 40px; }
+      .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="index-en.html" class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="brand-name">eCode</div>
+          <div class="brand-tagline">Making an Impact</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index-en.html#hero">Home</a>
+        <a href="services-en.html">Services</a>
+        <a href="plans-en.html">Plans</a>
+        <a href="portfolio-en.html" class="active">Portfolio</a>
+        <a href="#" class="lang-switcher">
+          <i class="fas fa-globe"></i>
+          <span>العربية</span>
+        </a>
+        <a href="contact-en.html" class="btn-primary">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <h1>Our Portfolio</h1>
+    <p>Examples of our successful projects that contributed to our clients' business growth</p>
+  </section>
+
+  <section class="portfolio-section">
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="social">Social Media</button>
+      <button class="filter-btn" data-filter="photography">Photography</button>
+      <button class="filter-btn" data-filter="web">Websites</button>
+      <button class="filter-btn" data-filter="campaigns">Ad Campaigns</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-item" data-category="branding">
+        <div class="portfolio-image">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Branding</span>
+          <h3>E-commerce Store Project</h3>
+          <p>Complete visual identity design for an e-commerce store specializing in local products with professional logo and usage guidelines</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Logo</span>
+            <span class="portfolio-tag">Colors</span>
+            <span class="portfolio-tag">Typography</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="social">
+        <div class="portfolio-image">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Social Media</span>
+          <h3>Restaurant Account Management</h3>
+          <p>Comprehensive social media account management with 250% increase in engagement within 3 months</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Instagram</span>
+            <span class="portfolio-tag">TikTok</span>
+            <span class="portfolio-tag">Content</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="photography">
+        <div class="portfolio-image">
+          <i class="fas fa-camera"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Photography</span>
+          <h3>Product Photography Session</h3>
+          <p>Professional photography for skincare product collection with studio lighting and professional editing</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Products</span>
+            <span class="portfolio-tag">Studio</span>
+            <span class="portfolio-tag">Editing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-image">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Website</span>
+          <h3>Consulting Company Website</h3>
+          <p>Professional responsive website design and development optimized for search engines</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Design</span>
+            <span class="portfolio-tag">Development</span>
+            <span class="portfolio-tag">SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="campaigns">
+        <div class="portfolio-image">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Ad Campaign</span>
+          <h3>New Product Launch Campaign</h3>
+          <p>Integrated ad campaign on social platforms achieved 150K views and 500+ conversions</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Facebook</span>
+            <span class="portfolio-tag">Instagram</span>
+            <span class="portfolio-tag">Snapchat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="branding social">
+        <div class="portfolio-image">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Branding + Content</span>
+          <h3>Coffee Shop Project</h3>
+          <p>Complete visual identity with account creation and management, and distinctive daily content production</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Logo</span>
+            <span class="portfolio-tag">Templates</span>
+            <span class="portfolio-tag">Photography</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="photography">
+        <div class="portfolio-image">
+          <i class="fas fa-video"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Video</span>
+          <h3>Product Promotional Video</h3>
+          <p>Professional promotional video production in 4K quality with creative editing and distinctive music</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Filming</span>
+            <span class="portfolio-tag">Editing</span>
+            <span class="portfolio-tag">4K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-image">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">E-commerce</span>
+          <h3>Sports Products Store</h3>
+          <p>Complete e-commerce store with secure payment system, inventory management, and shipping platform integration</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Commerce</span>
+            <span class="portfolio-tag">Payment</span>
+            <span class="portfolio-tag">Shipping</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="campaigns social">
+        <div class="portfolio-image">
+          <i class="fas fa-gift"></i>
+        </div>
+        <div class="portfolio-content">
+          <span class="portfolio-category">Seasonal Campaign</span>
+          <h3>Ramadan Campaign</h3>
+          <p>Complete seasonal marketing campaign with special daily content and exclusive promotional offers</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Seasonal</span>
+            <span class="portfolio-tag">Offers</span>
+            <span class="portfolio-tag">Content</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">+250</span>
+          <span class="stat-label">Completed Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">+120</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Satisfaction Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">+5</span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h4>eCode – Electronic Code</h4>
+          <p>Making an Impact</p>
+          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
+          
+          <div class="social-bar">
+            <a class="social-link" href="mailto:ecode_sa@outlook.sa" title="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index-en.html#hero">Home</a></li>
+            <li><a href="services-en.html">Services</a></li>
+            <li><a href="plans-en.html">Plans</a></li>
+            <li><a href="portfolio-en.html">Portfolio</a></li>
+            <li><a href="contact-en.html">Contact</a></li>
+            <li><a href="terms-en.html">Terms & Conditions</a></li>
+            <li><a href="privacy-en.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact Us</h4>
+          <p>Riyadh – Kingdom of Saudi Arabia</p>
+          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
+          <p>Email: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Electronic Code Company. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        portfolioItems.forEach(item => {
+          if (filter === 'all') {
+            item.style.display = 'block';
+          } else {
+            const categories = item.getAttribute('data-category').split(' ');
+            if (categories.includes(filter)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

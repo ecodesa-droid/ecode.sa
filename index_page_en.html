@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eCode | Electronic Code - Making an Impact</title>
+  <meta name="description" content="A Saudi company offering digital marketing solutions, content management, creative production, and technical solutions">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --lavender-light: #A99BFF;
+      --lavender-dark: #8B7FFF;
+      --sky-blue: #5BC0F8;
+      --mint-green: #7EDDA3;
+      --soft-orange: #FFB86C;
+      --coral-pink: #FF79C6;
+      --bg-primary: #0F1419;
+      --bg-secondary: #1A1F2E;
+      --bg-elevated: #242B3D;
+      --text-primary: #E6EDF3;
+      --text-secondary: #9DA5B4;
+      --text-muted: #6B7280;
+      --border-color: #2D3748;
+      --border-hover: #4A5568;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --radius-base: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
+    h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
+    h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
+    p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
+    
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 20, 25, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-base);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      transition: var(--transition-base);
+      text-decoration: none;
+    }
+
+    .logo-container:hover { transform: scale(1.02); }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .logo-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-text .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text .brand-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      position: relative;
+      transition: var(--transition-fast);
+      padding: var(--space-2) 0;
+      font-weight: 600;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      transition: var(--transition-base);
+    }
+
+    .nav a:hover {
+      color: var(--lavender-light);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+      text-decoration: none;
+    }
+
+    .lang-switcher:hover {
+      background: var(--bg-secondary);
+      border-color: var(--lavender-dark);
+      color: var(--lavender-light);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #fff !important;
+      text-decoration: none;
+      transition: var(--transition-base);
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      filter: brightness(1.1);
+      color: #fff !important;
+    }
+
+    .btn-secondary {
+      padding: 10px var(--space-6);
+      border-radius: var(--radius-full);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: var(--transition-base);
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--lavender-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1A1F2E 0%, #242B3D 50%, #2D3748 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 100px var(--space-6) 120px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(139, 127, 255, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 25s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-80px, 60px) scale(1.1); }
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 56px;
+      margin-bottom: var(--space-4);
+      animation: slideInLeft 0.8s ease-out;
+      color: var(--text-primary);
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: var(--space-8);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      animation: slideInLeft 0.8s ease-out 0.2s both;
+    }
+
+    .hero-tagline {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      background: rgba(139, 127, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-base);
+      border: 1px solid rgba(139, 127, 255, 0.2);
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: var(--space-4);
+      animation: slideInLeft 0.8s ease-out 0.6s both;
+      color: var(--lavender-light);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      animation: slideInLeft 0.8s ease-out 0.4s both;
+    }
+
+    .hero-visual {
+      background: rgba(139, 127, 255, 0.05);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      border: 1px solid var(--border-color);
+      animation: slideInRight 0.8s ease-out 0.3s both;
+      transition: var(--transition-base);
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .hero-visual:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--lavender-dark);
+    }
+
+    .hero-visual h3 {
+      margin-bottom: var(--space-2);
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .hero-visual > p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .hero-stat {
+      padding: var(--space-4);
+      border-radius: var(--radius-base);
+      background: rgba(139, 127, 255, 0.08);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+    }
+
+    .hero-stat:hover {
+      background: rgba(139, 127, 255, 0.15);
+      border-color: var(--lavender-dark);
+      transform: scale(1.03);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: var(--space-1);
+      color: var(--text-primary);
+    }
+
+    .hero-stat span {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .stats-bar {
+      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-elevated));
+      padding: var(--space-12) var(--space-6);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-8);
+      text-align: center;
+    }
+
+    .stat-item { transition: var(--transition-base); }
+    .stat-item:hover { transform: scale(1.08); }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: var(--space-2);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 18px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    section {
+      padding: 80px var(--space-6);
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 40px;
+      margin-bottom: var(--space-3);
+      text-align: center;
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-8);
+      font-weight: 500;
+    }
+
+    .features-grid, .plans-grid, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .why-grid, .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-card, .why-item, .step-card, .plan-card, .portfolio-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before, .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition-base);
+    }
+
+    .feature-card:hover, .why-item:hover, .step-card:hover, .plan-card:hover, .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--lavender-dark);
+    }
+
+    .feature-card:hover::before, .plan-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-card h3, .plan-card h3, .portfolio-card h3 {
+      margin-bottom: var(--space-3);
+      color: var(--text-primary);
+      font-size: 20px;
+    }
+
+    .feature-card ul {
+      list-style: none;
+      margin-bottom: var(--space-4);
+    }
+
+    .feature-card ul li {
+      padding: var(--space-2) 0;
+      font-size: 16px;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: var(--space-6);
+    }
+
+    .feature-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--lavender-light);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--lavender-light);
+    }
+
+    .feature-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--lavender-light);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+
+    .feature-link:hover {
+      gap: var(--space-3);
+      color: var(--sky-blue);
+    }
+
+    .step-card h3 {
+      font-size: 20px;
+      margin-bottom: var(--space-3);
+      font-weight: 700;
+      color: var(--lavender-light);
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+    }
+
+    .step-card h3 .step-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--lavender-light);
+      line-height: 1;
+    }
+
+    .step-card p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .plan-tag {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      background: rgba(139, 127, 255, 0.15);
+      color: var(--lavender-light);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+      border: 1px solid rgba(139, 127, 255, 0.3);
+    }
+
+    .plan-card p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-3);
+    }
+
+    .portfolio-card span {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--sky-blue);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .portfolio-card p {
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    .faq-grid {
+      max-width: 900px;
+      margin: var(--space-8) auto 0;
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .faq-item {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-base);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--border-hover);
+    }
+
+    .faq-q {
+      padding: var(--space-6);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-fast);
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .faq-q:hover {
+      background: var(--bg-elevated);
+      color: var(--lavender-light);
+    }
+
+    .faq-q::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--lavender-light);
+      transition: var(--transition-base);
+      font-weight: 300;
+    }
+
+    .faq-item.active .faq-q::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 var(--space-6);
+      color: var(--text-secondary);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 16px;
+    }
+
+    .faq-item.active .faq-a {
+      max-height: 300px;
+      padding: 0 var(--space-6) var(--space-6);
+    }
+
+    .contact-form {
+      max-width: 700px;
+      margin: var(--space-8) auto 0;
+      background: var(--bg-secondary);
+      padding: var(--space-12);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: var(--space-2);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 16px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: var(--space-4);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-base);
+      font-family: inherit;
+      font-size: 16px;
+      transition: var(--transition-fast);
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--lavender-dark);
+      background: var(--bg-secondary);
+      box-shadow: 0 0 0 4px rgba(139, 127, 255, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .footer {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: var(--space-16) var(--space-6) var(--space-6);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer h4 {
+      margin-bottom: var(--space-4);
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .footer p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2);
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .footer a:hover {
+      color: var(--lavender-light);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--space-2);
+    }
+
+    .social-bar {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(139, 127, 255, 0.1), rgba(91, 192, 248, 0.1));
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-base);
+      font-size: 18px;
+      border: 1px solid var(--border-color);
+    }
+
+    .social-link:hover {
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      border-color: transparent;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-8);
+      padding-top: var(--space-4);
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 968px) {
+      .hero-inner { grid-template-columns: 1fr; gap: var(--space-8); }
+      .hero-content h1 { font-size: 40px; }
+      .nav { flex-wrap: wrap; font-size: 14px; gap: var(--space-4); }
+      .section-title { font-size: 32px; }
+      .features-grid, .plans-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-content h1 { font-size: 32px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="#hero" class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="brand-name">eCode</div>
+          <div class="brand-tagline">Making an Impact</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#hero">Home</a>
+        <a href="#services">Our Services</a>
+        <a href="#plans">Plans</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#" class="lang-switcher" onclick="switchLanguage()">
+          <i class="fas fa-globe"></i>
+          <span>العربية</span>
+        </a>
+        <a href="#contact" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>We Develop. We Innovate. We Grow Your Business.</h1>
+        <p>We provide modern technical and marketing solutions that elevate business quality and support company growth through innovation, speed, and precision.</p>
+        
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get Started</a>
+          <a href="#services" class="btn-secondary">Explore Services</a>
+        </div>
+
+        <div class="hero-tagline">
+          <strong>eCode</strong> Making an Impact — Clear Technology. Solid Performance. Professional Experience.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <h3>Integrated Solutions in One Platform</h3>
+        <p>Digital marketing, content, photography, and web design — we execute everything your brand needs.</p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>Full Flexibility</strong>
+            <span>Business model based on collaborative network</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Organized Execution</strong>
+            <span>Clear phases until delivery</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Consistent Identity</strong>
+            <span>Unified approach across all platforms</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Continuous Support</strong>
+            <span>Direct communication during project</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">+250</span>
+        <span class="stat-label">Completed Projects</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">+120</span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Satisfaction Rate</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Continuous Support</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="section-inner">
+      <h2 class="section-title">What Do We Offer?</h2>
+      <p class="section-subtitle">Comprehensive technical and marketing solutions for sustainable growth</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Digital Marketing & Account Management</h3>
+          <ul>
+            <li>Daily management of social media accounts</li>
+            <li>Preparation and execution of paid campaigns</li>
+            <li>Periodic performance reports and improvement suggestions</li>
+          </ul>
+          <a href="#plans" class="feature-link">View Plans →</a>
+        </div>
+
+        <div class="feature-card">
+          <h3>Content & Creative Production</h3>
+          <ul>
+            <li>Post, banner, and visual identity design</li>
+            <li>Product, event, and social content photography</li>
+            <li>Short and long video editing</li>
+          </ul>
+          <a href="#portfolio" class="feature-link">View Portfolio →</a>
+        </div>
+
+        <div class="feature-card">
+          <h3>Technical Solutions & Digital Enablement</h3>
+          <ul>
+            <li>Professional and e-commerce website design</li>
+            <li>Payment gateway and interactive form integration</li>
+            <li>Basic SEO setup</li>
+          </ul>
+          <a href="#contact" class="feature-link">Request Consultation →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2 class="section-title">Why eCode?</h2>
+      <p class="section-subtitle">Flexible business model, professional execution, and clear communication</p>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>Specialized Collaborative Network</h3>
+          <p>We work with selected designers, photographers, and content writers for each project type.</p>
+        </div>
+        <div class="why-item">
+          <h3>Clear Agreement Before Execution</h3>
+          <p>We define scope of work, number of revisions, and expected timeline before we start.</p>
+        </div>
+        <div class="why-item">
+          <h3>Legal Protection for Both Parties</h3>
+          <p>Terms & Conditions and Privacy Policy protect your rights and ours.</p>
+        </div>
+        <div class="why-item">
+          <h3>Ready-to-Use Outputs</h3>
+          <p>We deliver final optimized files for platform publishing or printing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2 class="section-title">How Do We Execute Your Project?</h2>
+      <p class="section-subtitle">Clear steps from first message to final delivery</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3><span class="step-number">1.</span> Request Receipt & Business Understanding</h3>
+          <p>Fill out the request form or send us your project details so we understand the business nature and your goals.</p>
+        </div>
+        <div class="step-card">
+          <h3><span class="step-number">2.</span> Proposal & Agreement</h3>
+          <p>We send you a proposal including scope of work, estimated timeline, and cost, then the deposit is approved.</p>
+        </div>
+        <div class="step-card">
+          <h3><span class="step-number">3.</span> Execution & Revisions</h3>
+          <p>We start execution, send you drafts, and handle feedback within the agreed revision count.</p>
+        </div>
+        <div class="step-card">
+          <h3><span class="step-number">4.</span> Delivery & Follow-up</h3>
+          <p>We deliver final files after payment completion, with possibility of simple post-delivery support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="section-inner">
+      <h2 class="section-title">Plans That Suit Your Needs</h2>
+      <p class="section-subtitle">Any plan can be customized according to your business nature</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-tag">For Small Projects</div>
+          <h3>Single Account Management Plan</h3>
+          <p>Management of one social account with limited number of monthly designs.</p>
+          <p>Suitable for startups and small stores.</p>
+          <a href="#contact" class="feature-link">Get Quote →</a>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-tag">Most Requested</div>
+          <h3>Content & Campaigns Plan</h3>
+          <p>Management of 2 accounts + content production + monthly ad campaigns.</p>
+          <p>Suitable for brands seeking continuous growth.</p>
+          <a href="#contact" class="feature-link">Try Our Services →</a>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-tag">Project Launch</div>
+          <h3>Brand Launch Plan</h3>
+          <p>Visual identity + introductory content + landing page or simple website.</p>
+          <p>Ideal when starting a new project or relaunch.</p>
+          <a href="#contact" class="feature-link">Start Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-inner">
+      <h2 class="section-title">Portfolio Samples</h2>
+      <p class="section-subtitle">Real projects we executed for our clients</p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <span>Social Media</span>
+          <h3>E-store Account Management</h3>
+          <p>Monthly content plan, diverse designs, and fixed identity templates to ensure post consistency.</p>
+        </div>
+        <div class="portfolio-card">
+          <span>Content Production</span>
+          <h3>Product Photography & Short Video</h3>
+          <p>Dedicated product photoshoot session with short video editing for Reels and TikTok publishing.</p>
+        </div>
+        <div class="portfolio-card">
+          <span>Technical Solutions</span>
+          <h3>Landing Page for New Service</h3>
+          <p>Simple professional page design and development that connects ads with contact requests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Quick answers to the most common questions</p>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">How is payment done?</div>
+          <div class="faq-a">A non-refundable deposit is paid upon proposal approval, then payments are completed according to phases or before final delivery as agreed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How long does project execution take?</div>
+          <div class="faq-a">It varies according to service type and content volume, and an estimated timeline is mentioned in the proposal. Any delay in responses or material provision from client affects the timeline.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I get a refund after starting?</div>
+          <div class="faq-a">The deposit reserves team time and effort, so it's non-refundable after work begins, as stated in Terms & Conditions.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I receive editable files?</div>
+          <div class="faq-a">Final publication-ready files are delivered, and editable files can be delivered for additional fees agreed upon in advance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Ready to Start?</h2>
+      <p class="section-subtitle">Fill out the form and we'll contact you within 24 hours</p>
+
+      <form class="contact-form" action="https://formsubmit.co/ecode_sa@outlook.sa" method="POST">
+        <input type="hidden" name="_subject" value="New Request from eCode Website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+        
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" name="name" required placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" required placeholder="example@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" required placeholder="05X XXX XXXX">
+        </div>
+
+        <div class="form-group">
+          <label>Service Type *</label>
+          <select name="service" required>
+            <option value="">Select Service</option>
+            <option>Social Media Account Management</option>
+            <option>Visual Identity Design</option>
+            <option>Content Production</option>
+            <option>Website Design</option>
+            <option>Ad Campaigns</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Project Details</label>
+          <textarea name="message" placeholder="Write about your project and needs..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
+          Get Quote
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h4>eCode – Electronic Code</h4>
+          <p>Making an Impact</p>
+          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
+          
+          <div class="social-bar">
+            <a class="social-link" href="mailto:ecode_sa@outlook.sa" title="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
+              <i class="fa-brands fa-snapchat"></i>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="terms-en.html">Terms & Conditions</a></li>
+            <li><a href="privacy-en.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact Us</h4>
+          <p>Riyadh – Kingdom of Saudi Arabia</p>
+          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
+          <p>Email: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Electronic Code Company. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Language Switcher
+    function switchLanguage() {
+      localStorage.setItem('preferred_lang', 'ar');
+      window.location.href = 'index.html';
+    }
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

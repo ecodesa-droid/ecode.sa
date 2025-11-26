@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خدماتنا | eCode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --lavender-light: #A99BFF;
+      --lavender-dark: #8B7FFF;
+      --sky-blue: #5BC0F8;
+      --mint-green: #7EDDA3;
+      --bg-primary: #0F1419;
+      --bg-secondary: #1A1F2E;
+      --bg-elevated: #242B3D;
+      --text-primary: #E6EDF3;
+      --text-secondary: #9DA5B4;
+      --text-muted: #6B7280;
+      --border-color: #2D3748;
+      --border-hover: #4A5568;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --radius-base: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      --transition-base: 250ms ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Tajawal", system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 20, 25, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+
+    .logo-container:hover { transform: scale(1.02); }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .logo-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    .logo-text .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-text .brand-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      transition: var(--transition-base);
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: var(--lavender-light);
+    }
+
+    .nav a.active {
+      color: var(--lavender-light);
+    }
+
+    .nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+      text-decoration: none;
+    }
+
+    .lang-switcher:hover {
+      background: var(--bg-secondary);
+      border-color: var(--lavender-dark);
+      color: var(--lavender-light);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: var(--transition-base);
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      color: #fff !important;
+    }
+
+    .page-hero {
+      background: linear-gradient(135deg, #1A1F2E, #242B3D, #2D3748);
+      padding: 100px var(--space-6) 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .page-hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero p {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .section-title {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: var(--space-3);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-12);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-16);
+    }
+
+    .service-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: var(--transition-base);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--lavender-dark);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+      font-size: 32px;
+      color: #fff;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    .service-card p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+      line-height: 1.8;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: var(--space-6);
+    }
+
+    .service-features li {
+      padding: var(--space-2) 0;
+      padding-right: var(--space-6);
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      position: absolute;
+      right: 0;
+      color: var(--mint-green);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--lavender-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-base);
+    }
+
+    .service-link:hover {
+      color: var(--sky-blue);
+      gap: var(--space-3);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-elevated));
+      border-radius: var(--radius-lg);
+      padding: var(--space-16);
+      text-align: center;
+      border: 1px solid var(--border-color);
+      margin-top: var(--space-16);
+    }
+
+    .cta-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-8);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--lavender-dark);
+      background: transparent;
+      color: var(--lavender-light);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: var(--transition-base);
+    }
+
+    .btn-secondary:hover {
+      background: var(--lavender-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: var(--space-16) var(--space-6) var(--space-6);
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-16);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer h4 {
+      margin-bottom: var(--space-4);
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .footer p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2);
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+
+    .footer a:hover {
+      color: var(--lavender-light);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--space-2);
+    }
+
+    .social-bar {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: rgba(139, 127, 255, 0.05);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-base);
+      font-size: 18px;
+      border: 1px solid var(--border-color);
+    }
+
+    .social-link:hover {
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      border-color: transparent;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-8);
+      padding-top: var(--space-4);
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 968px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 40px; }
+      .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="brand-name">eCode</div>
+          <div class="brand-tagline">تصنع الأثر</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#hero">الرئيسية</a>
+        <a href="services.html" class="active">خدماتنا</a>
+        <a href="plans.html">الباقات</a>
+        <a href="portfolio.html">أعمالنا</a>
+        <a href="#" class="lang-switcher" onclick="switchLanguage()">
+          <i class="fas fa-globe"></i>
+          <span>English</span>
+        </a>
+        <a href="contact.html" class="btn-primary">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <h1>خدماتنا المتكاملة</h1>
+    <p>نقدم مجموعة شاملة من الحلول التقنية والتسويقية التي تساعدك على تحقيق أهدافك وتنمية أعمالك</p>
+  </section>
+
+  <section class="services-section">
+    <h2 class="section-title">ماذا نقدم لك؟</h2>
+    <p class="section-subtitle">حلول متكاملة تغطي كل احتياجاتك الرقمية</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+        <h3>التسويق الرقمي</h3>
+        <p>نبني استراتيجيات تسويقية متكاملة تصل بعلامتك التجارية للجمهور المستهدف وتحقق نتائج قابلة للقياس.</p>
+        <ul class="service-features">
+          <li>إدارة حسابات التواصل الاجتماعي</li>
+          <li>إعداد وتنفيذ الحملات الإعلانية</li>
+          <li>تحليل البيانات وتقارير الأداء</li>
+          <li>استراتيجيات النمو والتفاعل</li>
+          <li>إدارة المحتوى والجدولة</li>
+        </ul>
+        <a href="contact.html" class="service-link">
+          اطلب الخدمة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-palette"></i>
+        </div>
+        <h3>التصميم والهوية البصرية</h3>
+        <p>نصمم هويات بصرية مميزة تعكس قيم علامتك وتترك انطباعًا قويًا لدى جمهورك.</p>
+        <ul class="service-features">
+          <li>تصميم الشعارات والهويات المتكاملة</li>
+          <li>تصميم البوستات والبنرات</li>
+          <li>تصميم المطبوعات والبروشورات</li>
+          <li>تصميم الإنفوجرافيك</li>
+          <li>دليل الهوية البصرية الشامل</li>
+        </ul>
+        <a href="contact.html" class="service-link">
+          اطلب الخدمة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-camera"></i>
+        </div>
+        <h3>التصوير وإنتاج المحتوى</h3>
+        <p>ننتج محتوى مرئي احترافي يحكي قصة علامتك ويجذب انتباه جمهورك على كل المنصات.</p>
+        <ul class="service-features">
+          <li>تصوير المنتجات والخدمات</li>
+          <li>تصوير الفعاليات والمناسبات</li>
+          <li>إنتاج محتوى السوشال ميديا</li>
+          <li>مونتاج الفيديوهات القصيرة والطويلة</li>
+          <li>إنتاج الفيديوهات الترويجية</li>
+        </ul>
+        <a href="contact.html" class="service-link">
+          اطلب الخدمة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>تطوير المواقع والتطبيقات</h3>
+        <p>نبني مواقع ومتاجر إلكترونية احترافية سريعة وآمنة ومحسّنة لمحركات البحث.</p>
+        <ul class="service-features">
+          <li>تصميم وتطوير المواقع التعريفية</li>
+          <li>المتاجر الإلكترونية المتكاملة</li>
+          <li>صفحات الهبوط (Landing Pages)</li>
+          <li>ربط بوابات الدفع الإلكتروني</li>
+          <li>تهيئة محركات البحث SEO</li>
+        </ul>
+        <a href="contact.html" class="service-link">
+          اطلب الخدمة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-pen-fancy"></i>
+        </div>
+        <h3>كتابة المحتوى</h3>
+        <p>نكتب محتوى إبداعي واحترافي يعبّر عن رسالة علامتك ويتفاعل مع جمهورك المستهدف.</p>
+        <ul class="service-features">
+          <li>كتابة النصوص التسويقية</li>
+          <li>محتوى السوشال ميديا</li>
+          <li>المقالات والمدونات</li>
+          <li>كتابة وصف المنتجات</li>
+          <li>السيناريوهات والنصوص الإعلانية</li>
+        </ul>
+        <a href="contact.html" class="service-link">
+          اطلب الخدمة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>الاستشارات التسويقية</h3>
+        <p>نقدم استشارات متخصصة تساعدك على بناء استراتيجية تسويقية ناجحة وتحقيق أهدافك.</p>
+        <ul class="service-features">
+          <li>تحليل السوق والمنافسين</li>
+          <li>بناء استراتيجيات التسويق</li>
+          <li>تطوير خطط المحتوى</li>
+          <li>تحسين الأداء الرقمي</li>
+          <li>استشارات النمو والتوسع</li>
+        </ul>
+        <a href="contact.html" class="service-link">
+          اطلب الخدمة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>جاهز للبدء؟</h2>
+      <p>تواصل معنا الآن واحصل على استشارة مجانية لتحديد الخدمات المناسبة لمشروعك</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">تواصل معنا الآن</a>
+        <a href="plans.html" class="btn-secondary">شاهد الباقات</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h4>eCode — إلكترونيك كود</h4>
+          <p>تصنع الأثر</p>
+          <p style="margin-top: 16px;">شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية.</p>
+          
+          <div class="social-bar">
+            <a class="social-link" href="mailto:ecode_sa@outlook.sa" title="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
+              <i class="fa-brands fa-snapchat"></i>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="index.html#hero">الرئيسية</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+            <li><a href="plans.html">الباقات</a></li>
+            <li><a href="portfolio.html">أعمالنا</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>تواصل معنا</h4>
+          <p>الرياض — المملكة العربية السعودية</p>
+          <p>جوال: <a href="tel:0503666316">0503666316</a></p>
+          <p>البريد: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchLanguage() {
+      localStorage.setItem('preferred_lang', 'en');
+      window.location.href = 'services-en.html';
+    }
+  </script>
+
+</body>
+</html>
