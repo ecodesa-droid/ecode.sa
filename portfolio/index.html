@@ -8,57 +8,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     :root {
-  --lavender-light: #A99BFF;
-  --lavender-dark: #8B7FFF;
-  --sky-blue: #5BC0F8;
-  --mint-green: #7EDDA3;
-  --soft-orange: #FFB86C;
-  --coral-pink: #FF79C6;
-  --bg-primary: #0F1419;
-  --bg-secondary: #1A1F2E;
-  --bg-elevated: #242B3D;
-  --text-primary: #E6EDF3;
-  --text-secondary: #9DA5B4;
-  --text-muted: #6B7280;
-  --border-color: #2D3748;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --radius-base: 16px;
-  --radius-lg: 24px;
-  --radius-full: 999px;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
-  --transition-base: 250ms ease;
-}
-
-/* ----------------------- */
-/*   إضافة تنسيق الصور     */
-/* ----------------------- */
-
-.portfolio-image {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* مربع */
-  border-radius: 22px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #363C4A, #1F2430);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.portfolio-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* يخلي الصورة تطلع نظيفة */
-  border-radius: 22px;
-}
+      --lavender-light: #A99BFF;
+      --lavender-dark: #8B7FFF;
+      --sky-blue: #5BC0F8;
+      --mint-green: #7EDDA3;
+      --soft-orange: #FFB86C;
+      --coral-pink: #FF79C6;
+      --bg-primary: #0F1419;
+      --bg-secondary: #1A1F2E;
+      --bg-elevated: #242B3D;
+      --text-primary: #E6EDF3;
+      --text-secondary: #9DA5B4;
+      --text-muted: #6B7280;
+      --border-color: #2D3748;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --radius-base: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      --transition-base: 250ms ease;
+    }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -103,18 +82,16 @@
     .logo-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      border-radius: var(--radius-base);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--shadow-glow);
+      overflow: visible;
     }
 
-    .logo-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: white;
+    .logo-icon img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
     }
 
     .logo-text .brand-name {
@@ -303,12 +280,20 @@
       overflow: hidden;
     }
 
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
     .portfolio-image::before {
       content: '';
       position: absolute;
       width: 100%;
       height: 100%;
       background: linear-gradient(135deg, rgba(139, 127, 255, 0.1), rgba(91, 192, 248, 0.1));
+      z-index: 0;
     }
 
     .portfolio-image i {
@@ -509,9 +494,7 @@
     <div class="header-inner">
       <a href="https://ecode.sa/" class="logo-container">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
         </div>
         <div class="logo-text">
           <div class="brand-name">eCode</div>
@@ -519,21 +502,17 @@
         </div>
       </a>
 
-     <nav class="nav">
-  <a href="https://ecode.sa/ar/">الرئيسية</a>
-  <a href="https://ecode.sa/services/">خدماتنا</a>
-  <a href="https://ecode.sa/plans/">الباقات</a>
-  <a href="https://ecode.sa/portfolio/">أعمالنا</a>
-
-  <a href="https://ecode.sa/en/" class="lang-switcher">
-    <i class="fas fa-globe"></i>
-    <span>English</span>
-  </a>
-
-  <a href="https://ecode.sa/contact/" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
-    تواصل معنا
-  </a>
-</nav>
+      <nav class="nav">
+        <a href="https://ecode.sa/ar/">الرئيسية</a>
+        <a href="https://ecode.sa/services/">خدماتنا</a>
+        <a href="https://ecode.sa/plans/">الباقات</a>
+        <a href="https://ecode.sa/portfolio/" class="active">أعمالنا</a>
+        <a href="https://ecode.sa/en/" class="lang-switcher">
+          <i class="fas fa-globe"></i>
+          <span>English</span>
+        </a>
+        <a href="https://ecode.sa/contact/" class="btn-primary">تواصل معنا</a>
+      </nav>
     </div>
   </header>
 
@@ -552,9 +531,11 @@
       <button class="filter-btn" data-filter="campaigns">حملات إعلانية</button>
     </div>
 
-    <div class="portfolio-image">
-  <img src="https://ecode.sa/E-commerce-Store-Project.png" alt="مشروع متجر إلكتروني">
-</div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="branding">
+        <div class="portfolio-image">
+          <img src="https://ecode.sa/E-commerce-Store-Project.png" alt="مشروع متجر إلكتروني">
+        </div>
         <div class="portfolio-content">
           <span class="portfolio-category">هوية بصرية</span>
           <h3>مشروع متجر إلكتروني</h3>
