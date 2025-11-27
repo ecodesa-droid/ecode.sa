@@ -495,7 +495,7 @@
 
   <header class="main-header">
     <div class="header-inner">
-      <a href="index-en.html" class="logo-container">
+      <a href="#hero" class="logo-container">
         <div class="logo-icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
@@ -508,15 +508,16 @@
       </a>
 
 <nav class="nav">
-  <a href="index_en.html">Home</a>
-  <a href="services_en.html">Our Services</a>
-  <a href="plans_en.html">Plans</a>
-  <a href="portfolio_en.html">Portfolio</a>
+  <a href="https://ecode.sa/en/">Home</a>
+  <a href="https://ecode.sa/en/services/">Our Services</a>
+  <a href="https://ecode.sa/en/plans/">Plans</a>
+  <a href="https://ecode.sa/en/portfolio/">Portfolio</a>
 
-  <a href="index.html" class="lang-switcher">
+  <a href="https://ecode.sa/ar/" class="lang-switcher">
     <i class="fas fa-globe"></i>
     <span>العربية</span>
   </a>
+</nav>
 
   <a href="contact_en.html" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
     Contact Us
