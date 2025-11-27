@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eCode | إلكترونيك كود - تصنع الأثر</title>
-  <meta name="description" content="شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية">
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>eCode | Electronic Code - Making an Impact</title>
+  <meta name="description" content="A Saudi company offering digital marketing solutions, content management, creative production, and technical solutions">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
     :root {
       --lavender-light: #A99BFF;
@@ -16,7 +15,6 @@
       --mint-green: #7EDDA3;
       --soft-orange: #FFB86C;
       --coral-pink: #FF79C6;
-      
       --bg-primary: #0F1419;
       --bg-secondary: #1A1F2E;
       --bg-elevated: #242B3D;
@@ -25,7 +23,6 @@
       --text-muted: #6B7280;
       --border-color: #2D3748;
       --border-hover: #4A5568;
-      
       --space-1: 4px;
       --space-2: 8px;
       --space-3: 12px;
@@ -34,41 +31,26 @@
       --space-8: 32px;
       --space-12: 48px;
       --space-16: 64px;
-      
       --radius-base: 16px;
       --radius-lg: 24px;
       --radius-full: 999px;
-      
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
       --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
-      
       --transition-fast: 150ms ease;
       --transition-base: 250ms ease;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Tajawal", system-ui, sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.7;
       font-size: 16px;
       overflow-x: hidden;
-    }
-
-    body.lang-en {
-      font-family: "Inter", "Tajawal", system-ui, sans-serif;
     }
 
     h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
@@ -105,9 +87,7 @@
       text-decoration: none;
     }
 
-    .logo-container:hover {
-      transform: scale(1.02);
-    }
+    .logo-container:hover { transform: scale(1.02); }
 
     .logo-icon {
       width: 48px;
@@ -115,7 +95,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       overflow: visible;
     }
 
@@ -123,14 +102,9 @@
       width: 48px;
       height: 48px;
       object-fit: contain;
-      position: relative;
-      z-index: 1;
     }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
+    .logo-text { display: flex; flex-direction: column; }
 
     .logo-text .brand-name {
       font-size: 24px;
@@ -168,7 +142,7 @@
       content: '';
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 0;
       width: 0;
       height: 2px;
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
@@ -262,7 +236,7 @@
       content: '';
       position: absolute;
       top: -50%;
-      right: -20%;
+      left: -20%;
       width: 800px;
       height: 800px;
       background: radial-gradient(circle, rgba(139, 127, 255, 0.15) 0%, transparent 70%);
@@ -289,12 +263,12 @@
     .hero-content h1 {
       font-size: 56px;
       margin-bottom: var(--space-4);
-      animation: slideInRight 0.8s ease-out;
+      animation: slideInLeft 0.8s ease-out;
       color: var(--text-primary);
     }
 
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(50px); }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
       to { opacity: 1; transform: translateX(0); }
     }
 
@@ -303,7 +277,7 @@
       margin-bottom: var(--space-8);
       color: var(--text-secondary);
       line-height: 1.8;
-      animation: slideInRight 0.8s ease-out 0.2s both;
+      animation: slideInLeft 0.8s ease-out 0.2s both;
     }
 
     .hero-tagline {
@@ -316,7 +290,7 @@
       font-size: 14px;
       font-weight: 600;
       margin-top: var(--space-4);
-      animation: slideInRight 0.8s ease-out 0.6s both;
+      animation: slideInLeft 0.8s ease-out 0.6s both;
       color: var(--lavender-light);
     }
 
@@ -324,7 +298,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-3);
-      animation: slideInRight 0.8s ease-out 0.4s both;
+      animation: slideInLeft 0.8s ease-out 0.4s both;
     }
 
     .hero-visual {
@@ -333,12 +307,12 @@
       border-radius: var(--radius-lg);
       padding: var(--space-8);
       border: 1px solid var(--border-color);
-      animation: slideInLeft 0.8s ease-out 0.3s both;
+      animation: slideInRight 0.8s ease-out 0.3s both;
       transition: var(--transition-base);
     }
 
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-50px); }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
       to { opacity: 1; transform: translateX(0); }
     }
 
@@ -409,13 +383,8 @@
       text-align: center;
     }
 
-    .stat-item {
-      transition: var(--transition-base);
-    }
-
-    .stat-item:hover {
-      transform: scale(1.08);
-    }
+    .stat-item { transition: var(--transition-base); }
+    .stat-item:hover { transform: scale(1.08); }
 
     .stat-number {
       font-size: 48px;
@@ -500,12 +469,12 @@
       content: '';
       position: absolute;
       top: 0;
-      right: 0;
+      left: 0;
       width: 100%;
       height: 4px;
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
       transform: scaleX(0);
-      transform-origin: right;
+      transform-origin: left;
       transition: var(--transition-base);
     }
 
@@ -535,13 +504,13 @@
       font-size: 16px;
       color: var(--text-secondary);
       position: relative;
-      padding-right: var(--space-6);
+      padding-left: var(--space-6);
     }
 
     .feature-card ul li::before {
       content: '';
       position: absolute;
-      right: 0;
+      left: 0;
       top: 14px;
       width: 6px;
       height: 6px;
@@ -843,27 +812,29 @@
 
   <header class="main-header">
     <div class="header-inner">
-      <a href="https://ecode.sa/" class="logo-container">
+      <a href="https://ecode.sa/en/" class="logo-container">
         <div class="logo-icon">
           <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
         </div>
         <div class="logo-text">
           <div class="brand-name">eCode</div>
-          <div class="brand-tagline">تصنع الأثر</div>
+          <div class="brand-tagline">Making an Impact</div>
         </div>
       </a>
 
       <nav class="nav">
-        <a href="https://ecode.sa/">الرئيسية</a>
-        <a href="https://ecode.sa/services/">خدماتنا</a>
-        <a href="https://ecode.sa/plans/">الباقات</a>
-        <a href="https://ecode.sa/portfolio/">أعمالنا</a>
-        <a href="https://ecode.sa/en/" class="lang-switcher">
+        <a href="https://ecode.sa/en/">Home</a>
+        <a href="https://ecode.sa/services-en/">Our Services</a>
+        <a href="https://ecode.sa/plans-en/">Plans</a>
+        <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
+
+        <a href="https://ecode.sa/ar/" class="lang-switcher">
           <i class="fas fa-globe"></i>
-          <span>English</span>
+          <span>العربية</span>
         </a>
-        <a href="https://ecode.sa/contact/" class="btn-primary" style="padding: 10px 20px; font-size: 15px;">
-          تواصل معنا
+
+        <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
+          Contact Us
         </a>
       </nav>
     </div>
@@ -872,39 +843,39 @@
   <section id="hero" class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>نطوّر. نبتكر. ننمّي أعمالك.</h1>
-        <p>نقدم حلول تقنية وتسويقية حديثة ترفع جودة الأعمال، وتدعم نمو الشركات عبر الابتكار، السرعة، والدقة.</p>
+        <h1>We Develop. We Innovate. We Grow Your Business.</h1>
+        <p>We provide modern technical and marketing solutions that elevate business quality and support company growth through innovation, speed, and precision.</p>
         
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">ابدأ الآن</a>
-          <a href="#services" class="btn-secondary">استعراض الخدمات</a>
+          <a href="#contact" class="btn-primary">Get Started</a>
+          <a href="#services" class="btn-secondary">Explore Services</a>
         </div>
 
         <div class="hero-tagline">
-          <strong>eCode</strong> تصنع الأثر — تقنية واضحة. أداء ثابت. تجربة محترفة.
+          <strong>eCode</strong> Making an Impact — Clear Technology. Solid Performance. Professional Experience.
         </div>
       </div>
 
       <div class="hero-visual">
-        <h3>حلول متكاملة في منصة واحدة</h3>
-        <p>تسويق رقمي، محتوى، تصوير، وتصميم مواقع — ننفّذ كل ما تحتاجه علامتك.</p>
+        <h3>Integrated Solutions in One Platform</h3>
+        <p>Digital marketing, content, photography, and web design — we execute everything your brand needs.</p>
 
         <div class="hero-stats">
           <div class="hero-stat">
-            <strong>مرونة كاملة</strong>
-            <span>نموذج عمل يعتمد على شبكة متعاونين</span>
+            <strong>Full Flexibility</strong>
+            <span>Business model based on collaborative network</span>
           </div>
           <div class="hero-stat">
-            <strong>تنفيذ منظم</strong>
-            <span>مراحل واضحة حتى التسليم</span>
+            <strong>Organized Execution</strong>
+            <span>Clear phases until delivery</span>
           </div>
           <div class="hero-stat">
-            <strong>هوية متناسقة</strong>
-            <span>أسلوب موحد عبر كل المنصات</span>
+            <strong>Consistent Identity</strong>
+            <span>Unified approach across all platforms</span>
           </div>
           <div class="hero-stat">
-            <strong>دعم مستمر</strong>
-            <span>تواصل مباشر خلال المشروع</span>
+            <strong>Continuous Support</strong>
+            <span>Direct communication during project</span>
           </div>
         </div>
       </div>
@@ -915,57 +886,57 @@
     <div class="stats-grid">
       <div class="stat-item">
         <span class="stat-number">+250</span>
-        <span class="stat-label">مشروع منجز</span>
+        <span class="stat-label">Completed Projects</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">+120</span>
-        <span class="stat-label">عميل راضي</span>
+        <span class="stat-label">Happy Clients</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">98%</span>
-        <span class="stat-label">نسبة الرضا</span>
+        <span class="stat-label">Satisfaction Rate</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">24/7</span>
-        <span class="stat-label">دعم مستمر</span>
+        <span class="stat-label">Continuous Support</span>
       </div>
     </div>
   </div>
 
   <section id="services">
     <div class="section-inner">
-      <h2 class="section-title">ماذا نقدم؟</h2>
-      <p class="section-subtitle">حلول تقنية وتسويقية شاملة لنمو مستدام</p>
+      <h2 class="section-title">What Do We Offer?</h2>
+      <p class="section-subtitle">Comprehensive technical and marketing solutions for sustainable growth</p>
 
       <div class="features-grid">
         <div class="feature-card">
-          <h3>التسويق الرقمي وإدارة الحسابات</h3>
+          <h3>Digital Marketing & Account Management</h3>
           <ul>
-            <li>إدارة يومية لحسابات التواصل الاجتماعي</li>
-            <li>إعداد وتنفيذ الحملات الإعلانية المدفوعة</li>
-            <li>تقارير أداء دورية واقتراحات تحسين</li>
+            <li>Daily management of social media accounts</li>
+            <li>Preparation and execution of paid campaigns</li>
+            <li>Periodic performance reports and improvement suggestions</li>
           </ul>
-          <a href="#plans" class="feature-link">عرض الباقات المناسبة ←</a>
+          <a href="#plans" class="feature-link">View Plans →</a>
         </div>
 
         <div class="feature-card">
-          <h3>المحتوى والإنتاج الإبداعي</h3>
+          <h3>Content & Creative Production</h3>
           <ul>
-            <li>تصميم بوستات، بنرات، وهويات بصرية</li>
-            <li>تصوير منتجات، فعاليات، ومحتوى سوشال</li>
-            <li>مونتاج فيديوهات قصيرة وطويلة</li>
+            <li>Post, banner, and visual identity design</li>
+            <li>Product, event, and social content photography</li>
+            <li>Short and long video editing</li>
           </ul>
-          <a href="#portfolio" class="feature-link">شاهد نماذج من الأعمال ←</a>
+          <a href="#portfolio" class="feature-link">View Portfolio →</a>
         </div>
 
         <div class="feature-card">
-          <h3>الحلول التقنية والتمكين الرقمي</h3>
+          <h3>Technical Solutions & Digital Enablement</h3>
           <ul>
-            <li>تصميم مواقع تعريفية ومتاجر إلكترونية</li>
-            <li>ربط بوابات الدفع والنماذج التفاعلية</li>
-            <li>تهيئة أساسية لمحركات البحث SEO</li>
+            <li>Professional and e-commerce website design</li>
+            <li>Payment gateway and interactive form integration</li>
+            <li>Basic SEO setup</li>
           </ul>
-          <a href="#contact" class="feature-link">اطلب استشارة أولية ←</a>
+          <a href="#contact" class="feature-link">Request Consultation →</a>
         </div>
       </div>
     </div>
@@ -973,25 +944,25 @@
 
   <section>
     <div class="section-inner">
-      <h2 class="section-title">لماذا eCode؟</h2>
-      <p class="section-subtitle">نموذج عمل مرن، تنفيذ احترافي، وتواصل واضح</p>
+      <h2 class="section-title">Why eCode?</h2>
+      <p class="section-subtitle">Flexible business model, professional execution, and clear communication</p>
 
       <div class="why-grid">
         <div class="why-item">
-          <h3>شبكة متعاونين متخصصين</h3>
-          <p>نعمل مع مصممين، مصورين، وكتّاب محتوى مختارين لكل نوع مشروع.</p>
+          <h3>Specialized Collaborative Network</h3>
+          <p>We work with selected designers, photographers, and content writers for each project type.</p>
         </div>
         <div class="why-item">
-          <h3>اتفاق واضح قبل التنفيذ</h3>
-          <p>نحدد نطاق العمل، عدد التعديلات، والمدة المتوقعة قبل أن نبدأ.</p>
+          <h3>Clear Agreement Before Execution</h3>
+          <p>We define scope of work, number of revisions, and expected timeline before we start.</p>
         </div>
         <div class="why-item">
-          <h3>حماية قانونية للطرفين</h3>
-          <p>الشروط والأحكام وسياسة الخصوصية تحمي حقوقك وحقوقنا.</p>
+          <h3>Legal Protection for Both Parties</h3>
+          <p>Terms & Conditions and Privacy Policy protect your rights and ours.</p>
         </div>
         <div class="why-item">
-          <h3>مخرجات جاهزة للاستخدام</h3>
-          <p>نسلّم ملفات نهائية محسّنة للنشر على المنصات أو الطباعة.</p>
+          <h3>Ready-to-Use Outputs</h3>
+          <p>We deliver final optimized files for platform publishing or printing.</p>
         </div>
       </div>
     </div>
@@ -999,25 +970,25 @@
 
   <section>
     <div class="section-inner">
-      <h2 class="section-title">كيف ننفّذ مشروعك؟</h2>
-      <p class="section-subtitle">خطوات واضحة من أول رسالة إلى التسليم النهائي</p>
+      <h2 class="section-title">How Do We Execute Your Project?</h2>
+      <p class="section-subtitle">Clear steps from first message to final delivery</p>
 
       <div class="steps-grid">
         <div class="step-card">
-          <h3><span class="step-number">1.</span> استلام الطلب وفهم النشاط</h3>
-          <p>تعبّي نموذج الطلب أو ترسل لنا تفاصيل مشروعك لنفهم طبيعة النشاط وأهدافك.</p>
+          <h3><span class="step-number">1.</span> Request Receipt & Business Understanding</h3>
+          <p>Fill out the request form or send us your project details so we understand the business nature and your goals.</p>
         </div>
         <div class="step-card">
-          <h3><span class="step-number">2.</span> العرض والاتفاق</h3>
-          <p>نرسل لك عرضًا يشمل نطاق العمل، المدة التقديرية، والتكلفة، ويتم اعتماد العربون.</p>
+          <h3><span class="step-number">2.</span> Proposal & Agreement</h3>
+          <p>We send you a proposal including scope of work, estimated timeline, and cost, then the deposit is approved.</p>
         </div>
         <div class="step-card">
-          <h3><span class="step-number">3.</span> التنفيذ والتعديلات</h3>
-          <p>نبدأ التنفيذ، نرسل لك المسودات، ونتعامل مع الملاحظات ضمن عدد التعديلات المتفق عليه.</p>
+          <h3><span class="step-number">3.</span> Execution & Revisions</h3>
+          <p>We start execution, send you drafts, and handle feedback within the agreed revision count.</p>
         </div>
         <div class="step-card">
-          <h3><span class="step-number">4.</span> التسليم والمتابعة</h3>
-          <p>نسلّم الملفات النهائية بعد استكمال الدفعات، مع إمكانية تقديم دعم بسيط بعد التسليم.</p>
+          <h3><span class="step-number">4.</span> Delivery & Follow-up</h3>
+          <p>We deliver final files after payment completion, with possibility of simple post-delivery support.</p>
         </div>
       </div>
     </div>
@@ -1025,32 +996,32 @@
 
   <section id="plans">
     <div class="section-inner">
-      <h2 class="section-title">باقات تناسب احتياجك</h2>
-      <p class="section-subtitle">يمكن تخصيص أي باقة حسب طبيعة نشاطك</p>
+      <h2 class="section-title">Plans That Suit Your Needs</h2>
+      <p class="section-subtitle">Any plan can be customized according to your business nature</p>
 
       <div class="plans-grid">
         <div class="plan-card">
-          <div class="plan-tag">للمشاريع الصغيرة</div>
-          <h3>باقة إدارة حساب واحد</h3>
-          <p>إدارة حساب سوشال واحد مع عدد محدد من التصاميم الشهرية.</p>
-          <p>مناسبة للبدايات والمتاجر الصغيرة.</p>
-          <a href="#contact" class="feature-link">احصل على عرض ←</a>
+          <div class="plan-tag">For Small Projects</div>
+          <h3>Single Account Management Plan</h3>
+          <p>Management of one social account with limited number of monthly designs.</p>
+          <p>Suitable for startups and small stores.</p>
+          <a href="#contact" class="feature-link">Get Quote →</a>
         </div>
 
         <div class="plan-card">
-          <div class="plan-tag">الأكثر طلبًا</div>
-          <h3>باقة محتوى وحملات</h3>
-          <p>إدارة حسابين + إنتاج محتوى + حملات إعلانية شهرية.</p>
-          <p>مناسبة للعلامات التي ترغب في نمو مستمر.</p>
-          <a href="#contact" class="feature-link">جرّب خدماتنا ←</a>
+          <div class="plan-tag">Most Requested</div>
+          <h3>Content & Campaigns Plan</h3>
+          <p>Management of 2 accounts + content production + monthly ad campaigns.</p>
+          <p>Suitable for brands seeking continuous growth.</p>
+          <a href="#contact" class="feature-link">Try Our Services →</a>
         </div>
 
         <div class="plan-card">
-          <div class="plan-tag">إطلاق مشروع</div>
-          <h3>باقة إطلاق العلامة</h3>
-          <p>هوية بصرية + محتوى تعريفي + صفحة هبوط أو موقع بسيط.</p>
-          <p>مثالية عند بدء مشروع جديد أو إعادة إطلاق.</p>
-          <a href="#contact" class="feature-link">ابدأ الآن ←</a>
+          <div class="plan-tag">Project Launch</div>
+          <h3>Brand Launch Plan</h3>
+          <p>Visual identity + introductory content + landing page or simple website.</p>
+          <p>Ideal when starting a new project or relaunch.</p>
+          <a href="#contact" class="feature-link">Start Now →</a>
         </div>
       </div>
     </div>
@@ -1058,24 +1029,24 @@
 
   <section id="portfolio">
     <div class="section-inner">
-      <h2 class="section-title">نماذج من الأعمال</h2>
-      <p class="section-subtitle">مشاريع حقيقية نفذناها لعملائنا</p>
+      <h2 class="section-title">Portfolio Samples</h2>
+      <p class="section-subtitle">Real projects we executed for our clients</p>
 
       <div class="portfolio-grid">
         <div class="portfolio-card">
-          <span>سوشال ميديا</span>
-          <h3>إدارة حسابات لمتجر إلكتروني</h3>
-          <p>خطة محتوى شهرية، تصاميم متنوعة، وقوالب ثابتة للهوية لضمان تناسق البوستات.</p>
+          <span>Social Media</span>
+          <h3>E-store Account Management</h3>
+          <p>Monthly content plan, diverse designs, and fixed identity templates to ensure post consistency.</p>
         </div>
         <div class="portfolio-card">
-          <span>إنتاج محتوى</span>
-          <h3>تصوير منتجات ومونتاج قصير</h3>
-          <p>جلسة تصوير مخصصة للمنتجات مع مونتاج فيديوهات قصيرة للنشر على Reels وTikTok.</p>
+          <span>Content Production</span>
+          <h3>Product Photography & Short Video</h3>
+          <p>Dedicated product photoshoot session with short video editing for Reels and TikTok publishing.</p>
         </div>
         <div class="portfolio-card">
-          <span>حلول تقنية</span>
-          <h3>صفحة هبوط لخدمة جديدة</h3>
-          <p>تصميم وبرمجة صفحة تعريفية بسيطة تربط بين الإعلانات وطلبات التواصل.</p>
+          <span>Technical Solutions</span>
+          <h3>Landing Page for New Service</h3>
+          <p>Simple professional page design and development that connects ads with contact requests.</p>
         </div>
       </div>
     </div>
@@ -1083,25 +1054,25 @@
 
   <section>
     <div class="section-inner">
-      <h2 class="section-title">الأسئلة المتكررة</h2>
-      <p class="section-subtitle">إجابات سريعة على أكثر الأسئلة شيوعًا</p>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Quick answers to the most common questions</p>
 
       <div class="faq-grid">
         <div class="faq-item">
-          <div class="faq-q">كيف تتم طريقة الدفع؟</div>
-          <div class="faq-a">يتم دفع عربون غير قابل للاسترداد عند اعتماد العرض، ثم استكمال الدفعات حسب المراحل أو قبل التسليم النهائي حسب ما يتم الاتفاق عليه.</div>
+          <div class="faq-q">How is payment done?</div>
+          <div class="faq-a">A non-refundable deposit is paid upon proposal approval, then payments are completed according to phases or before final delivery as agreed.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">كم مدة تنفيذ المشروع؟</div>
-          <div class="faq-a">تختلف حسب نوع الخدمة وحجم المحتوى، ويتم ذكر مدة تقديرية في العرض. أي تأخير في الردود أو تزويد المواد من جهة العميل يؤثر على المدة.</div>
+          <div class="faq-q">How long does project execution take?</div>
+          <div class="faq-a">It varies according to service type and content volume, and an estimated timeline is mentioned in the proposal. Any delay in responses or material provision from client affects the timeline.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">هل أستطيع استرجاع العربون بعد البدء؟</div>
-          <div class="faq-a">العربون يحجز وقت وجهد الفريق، ولذلك فهو غير قابل للاسترداد بعد بدء العمل، كما هو موضح في الشروط والأحكام.</div>
+          <div class="faq-q">Can I get a refund after starting?</div>
+          <div class="faq-a">The deposit reserves team time and effort, so it's non-refundable after work begins, as stated in Terms & Conditions.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">هل أستلم الملفات المفتوحة (Editable)؟</div>
-          <div class="faq-a">يتم تسليم الملفات النهائية الجاهزة للنشر، ويمكن تسليم الملفات المفتوحة برسوم إضافية يتم الاتفاق عليها مسبقًا.</div>
+          <div class="faq-q">Do I receive editable files?</div>
+          <div class="faq-a">Final publication-ready files are delivered, and editable files can be delivered for additional fees agreed upon in advance.</div>
         </div>
       </div>
     </div>
@@ -1109,50 +1080,50 @@
 
   <section id="contact">
     <div class="section-inner">
-      <h2 class="section-title">جاهز للبدء؟</h2>
-      <p class="section-subtitle">عبّي النموذج وراح نتواصل معك خلال 24 ساعة</p>
+      <h2 class="section-title">Ready to Start?</h2>
+      <p class="section-subtitle">Fill out the form and we'll contact you within 24 hours</p>
 
       <form class="contact-form" action="https://formsubmit.co/ecode_sa@outlook.sa" method="POST">
-        <input type="hidden" name="_subject" value="طلب جديد من موقع eCode">
+        <input type="hidden" name="_subject" value="New Request from eCode Website">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" style="display:none">
         
         <div class="form-group">
-          <label>الاسم الكامل *</label>
-          <input type="text" name="name" required placeholder="أدخل اسمك الكامل">
+          <label>Full Name *</label>
+          <input type="text" name="name" required placeholder="Enter your full name">
         </div>
 
         <div class="form-group">
-          <label>البريد الإلكتروني *</label>
+          <label>Email *</label>
           <input type="email" name="email" required placeholder="example@email.com">
         </div>
 
         <div class="form-group">
-          <label>رقم الجوال *</label>
+          <label>Phone Number *</label>
           <input type="tel" name="phone" required placeholder="05X XXX XXXX">
         </div>
 
         <div class="form-group">
-          <label>نوع الخدمة المطلوبة *</label>
+          <label>Service Type *</label>
           <select name="service" required>
-            <option value="">اختر الخدمة</option>
-            <option>إدارة حسابات التواصل</option>
-            <option>تصميم هوية بصرية</option>
-            <option>إنتاج محتوى</option>
-            <option>تصميم موقع إلكتروني</option>
-            <option>حملات إعلانية</option>
-            <option>أخرى</option>
+            <option value="">Select Service</option>
+            <option>Social Media Account Management</option>
+            <option>Visual Identity Design</option>
+            <option>Content Production</option>
+            <option>Website Design</option>
+            <option>Ad Campaigns</option>
+            <option>Other</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>تفاصيل المشروع</label>
-          <textarea name="message" placeholder="اكتب نبذة عن مشروعك واحتياجاتك..."></textarea>
+          <label>Project Details</label>
+          <textarea name="message" placeholder="Write about your project and needs..."></textarea>
         </div>
 
         <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
-          احصل على عرض
+          Get Quote
         </button>
       </form>
     </div>
@@ -1162,9 +1133,9 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <h4>eCode — إلكترونيك كود</h4>
-          <p>تصنع الأثر</p>
-          <p style="margin-top: 16px;">شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية.</p>
+          <h4>eCode – Electronic Code</h4>
+          <p>Making an Impact</p>
+          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
           
           <div class="social-bar">
             <a class="social-link" href="mailto:ecode_sa@outlook.sa" title="Email">
@@ -1198,33 +1169,39 @@
         </div>
 
         <div class="footer-links">
-          <h4>روابط سريعة</h4>
+          <h4>Quick Links</h4>
           <ul>
-            <li><a href="https://ecode.sa/ar">الرئيسية</a></li>
-            <li><a href="https://ecode.sa/services">خدماتنا</a></li>
-            <li><a href="https://ecode.sa/plans">الباقات</a></li>
-            <li><a href="https://ecode.sa/portfolio">أعمالنا</a></li>
-            <li><a href="https://ecode.sa/contact">تواصل معنا</a></li>
-            <li><a href="https://ecode.sa/terms">الشروط والأحكام</a></li>
-            <li><a href="https://ecode.sa/privacy">سياسة الخصوصية</a></li>
+            <li><a href="https://ecode.sa/en/">Home</a></li>
+            <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
+            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
+            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
+            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
+            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
+            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>تواصل معنا</h4>
-          <p>الرياض — المملكة العربية السعودية</p>
-          <p>جوال: <a href="tel:0503666316">0503666316</a></p>
-          <p>البريد: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
+          <h4>Contact Us</h4>
+          <p>Riyadh – Kingdom of Saudi Arabia</p>
+          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
+          <p>Email: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        © 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
+        © 2025 Electronic Code Company. All rights reserved.
       </div>
     </div>
   </footer>
 
   <script>
+    // Language Switcher
+    function switchLanguage() {
+      localStorage.setItem('preferred_lang', 'ar');
+      window.location.href = 'index.html';
+    }
+
     // FAQ Accordion
     document.querySelectorAll('.faq-q').forEach(q => {
       q.addEventListener('click', () => {
