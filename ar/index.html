@@ -854,7 +854,7 @@
       </a>
 
       <nav class="nav">
-        <a href="https://ecode.sa/">الرئيسية</a>
+        <a href="https://ecode.sa/ar/">الرئيسية</a>
         <a href="https://ecode.sa/services/">خدماتنا</a>
         <a href="https://ecode.sa/plans/">الباقات</a>
         <a href="https://ecode.sa/portfolio/">أعمالنا</a>
@@ -914,11 +914,11 @@
   <div class="stats-bar">
     <div class="stats-grid">
       <div class="stat-item">
-        <span class="stat-number">+250</span>
+        <span class="stat-number">+20</span>
         <span class="stat-label">مشروع منجز</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">+120</span>
+        <span class="stat-number">+15</span>
         <span class="stat-label">عميل راضي</span>
       </div>
       <div class="stat-item">
@@ -1107,56 +1107,96 @@
     </div>
   </section>
 
-  <section id="contact">
-    <div class="section-inner">
-      <h2 class="section-title">جاهز للبدء؟</h2>
-      <p class="section-subtitle">عبّي النموذج وراح نتواصل معك خلال 24 ساعة</p>
+<section id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">جاهز للبدء؟</h2>
+    <p class="section-subtitle">عبّي النموذج وراح نتواصل معك خلال 24 ساعة</p>
+    <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+      
+      <div class="form-group">
+        <label>الاسم الكامل *</label>
+        <input type="text" name="name" id="name" required placeholder="أدخل اسمك الكامل">
+      </div>
+      
+      <div class="form-group">
+        <label>البريد الإلكتروني *</label>
+        <input type="email" name="email" id="email" required placeholder="example@email.com">
+      </div>
+      
+      <div class="form-group">
+        <label>رقم الجوال *</label>
+        <input type="tel" name="phone" id="phone" required placeholder="05X XXX XXXX">
+      </div>
+      
+      <div class="form-group">
+        <label>نوع الخدمة المطلوبة *</label>
+        <select name="service" id="service" required>
+          <option value="">اختر الخدمة</option>
+          <option>إدارة حسابات التواصل</option>
+          <option>تصميم هوية بصرية</option>
+          <option>إنتاج محتوى</option>
+          <option>تصميم موقع إلكتروني</option>
+          <option>حملات إعلانية</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>تفاصيل المشروع</label>
+        <textarea name="message" id="message" placeholder="اكتب نبذة عن مشروعك واحتياجاتك..."></textarea>
+      </div>
 
-      <form class="contact-form" action="https://formsubmit.co/ecode_sa@outlook.sa" method="POST">
-        <input type="hidden" name="_subject" value="طلب جديد من موقع eCode">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
-        
-        <div class="form-group">
-          <label>الاسم الكامل *</label>
-          <input type="text" name="name" required placeholder="أدخل اسمك الكامل">
-        </div>
+      <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
+        احصل على عرض
+      </button>
+    </form>
+  </div>
+</section>
 
-        <div class="form-group">
-          <label>البريد الإلكتروني *</label>
-          <input type="email" name="email" required placeholder="example@email.com">
-        </div>
+<script>
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value || 'لا يوجد';
+    
+    // تكوين نص الرسالة
+    const subject = encodeURIComponent('طلب عرض سعر جديد من ' + name);
+    const body = encodeURIComponent(`
+مرحباً فريق eCode،
 
-        <div class="form-group">
-          <label>رقم الجوال *</label>
-          <input type="tel" name="phone" required placeholder="05X XXX XXXX">
-        </div>
+أرغب في الحصول على عرض سعر للخدمة التالية:
 
-        <div class="form-group">
-          <label>نوع الخدمة المطلوبة *</label>
-          <select name="service" required>
-            <option value="">اختر الخدمة</option>
-            <option>إدارة حسابات التواصل</option>
-            <option>تصميم هوية بصرية</option>
-            <option>إنتاج محتوى</option>
-            <option>تصميم موقع إلكتروني</option>
-            <option>حملات إعلانية</option>
-            <option>أخرى</option>
-          </select>
-        </div>
+━━━━━━━━━━━━━━━━━━━
+📋 بيانات العميل:
+━━━━━━━━━━━━━━━━━━━
 
-        <div class="form-group">
-          <label>تفاصيل المشروع</label>
-          <textarea name="message" placeholder="اكتب نبذة عن مشروعك واحتياجاتك..."></textarea>
-        </div>
+👤 الاسم: ${name}
+📧 البريد الإلكتروني: ${email}
+📱 رقم الجوال: ${phone}
 
-        <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
-          احصل على عرض
-        </button>
-      </form>
-    </div>
-  </section>
+━━━━━━━━━━━━━━━━━━━
+🎯 تفاصيل الطلب:
+━━━━━━━━━━━━━━━━━━━
+
+🔹 الخدمة المطلوبة: ${service}
+
+📝 تفاصيل المشروع:
+${message}
+
+━━━━━━━━━━━━━━━━━━━
+
+شكراً لكم،
+${name}
+    `.trim());
+    
+    // فتح تطبيق البريد مع البيانات معبأة
+    window.location.href = `mailto:ecode_sa@outlook.sa?subject=${subject}&body=${body}`;
+  }
+</script>
 
   <footer class="footer">
     <div class="footer-inner">
