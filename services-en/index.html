@@ -80,18 +80,16 @@
     .logo-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      border-radius: var(--radius-base);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--shadow-glow);
+      overflow: visible;
     }
 
-    .logo-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: white;
+    .logo-icon img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
     }
 
     .logo-text .brand-name {
@@ -504,9 +502,7 @@
     <div class="header-inner">
       <a href="https://ecode.sa/en/" class="logo-container">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
         </div>
         <div class="logo-text">
           <div class="brand-name">eCode</div>
@@ -514,22 +510,21 @@
         </div>
       </a>
 
-<nav class="nav">
-  <a href="https://ecode.sa/en/">Home</a>
-  <a href="https://ecode.sa/services-en/">Our Services</a>
-  <a href="https://ecode.sa/plans-en/">Plans</a>
-  <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
+      <nav class="nav">
+        <a href="https://ecode.sa/en/">Home</a>
+        <a href="https://ecode.sa/services-en/" class="active">Our Services</a>
+        <a href="https://ecode.sa/plans-en/">Plans</a>
+        <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
 
-  <a href="https://ecode.sa/ar/" class="lang-switcher">
-    <i class="fas fa-globe"></i>
-    <span>العربية</span>
-  </a>
-</nav>
+        <a href="https://ecode.sa/ar/" class="lang-switcher">
+          <i class="fas fa-globe"></i>
+          <span>العربية</span>
+        </a>
 
-  <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
-    Contact Us
-  </a>
-</nav>
+        <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
+          Contact Us
+        </a>
+      </nav>
     </div>
   </header>
 
@@ -556,7 +551,7 @@
           <li>Growth and engagement strategies</li>
           <li>Content management and scheduling</li>
         </ul>
-        <a href="contact-en.html" class="service-link">
+        <a href="https://ecode.sa/contact-en/" class="service-link">
           Request Service <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -574,7 +569,7 @@
           <li>Infographic design</li>
           <li>Comprehensive brand guidelines</li>
         </ul>
-        <a href="contact-en.html" class="service-link">
+        <a href="https://ecode.sa/contact-en/" class="service-link">
           Request Service <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -592,7 +587,7 @@
           <li>Short and long video editing</li>
           <li>Promotional video production</li>
         </ul>
-        <a href="contact-en.html" class="service-link">
+        <a href="https://ecode.sa/contact-en/" class="service-link">
           Request Service <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -610,7 +605,7 @@
           <li>Payment gateway integration</li>
           <li>SEO optimization</li>
         </ul>
-        <a href="contact-en.html" class="service-link">
+        <a href="https://ecode.sa/contact-en/" class="service-link">
           Request Service <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -628,7 +623,7 @@
           <li>Product descriptions</li>
           <li>Scripts and ad copy</li>
         </ul>
-        <a href="contact-en.html" class="service-link">
+        <a href="https://ecode.sa/contact-en/" class="service-link">
           Request Service <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -646,7 +641,7 @@
           <li>Digital performance improvement</li>
           <li>Growth and expansion consulting</li>
         </ul>
-        <a href="contact-en.html" class="service-link">
+        <a href="https://ecode.sa/contact-en/" class="service-link">
           Request Service <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -656,8 +651,8 @@
       <h2>Ready to Get Started?</h2>
       <p>Contact us now and get a free consultation to determine the right services for your project</p>
       <div class="cta-buttons">
-        <a href="contact-en.html" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">Contact Us Now</a>
-        <a href="plans-en.html" class="btn-secondary">View Plans</a>
+        <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">Contact Us Now</a>
+        <a href="https://ecode.sa/plans-en/" class="btn-secondary">View Plans</a>
       </div>
     </div>
   </section>
@@ -689,20 +684,29 @@
             <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
+            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
+              <i class="fa-brands fa-snapchat"></i>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
           </div>
         </div>
 
         <div class="footer-links">
           <h4>Quick Links</h4>
-         <ul>
-    <li><a href="https://ecode.sa/en/">Home</a></li>
-    <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
-    <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
-    <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
-    <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
-    <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
-    <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
-  </ul>
+          <ul>
+            <li><a href="https://ecode.sa/en/">Home</a></li>
+            <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
+            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
+            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
+            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
+            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
+            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
+          </ul>
         </div>
 
         <div>
