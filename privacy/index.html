@@ -34,7 +34,6 @@
       --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
       --transition-base: 250ms ease;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -44,7 +43,6 @@
       line-height: 1.7;
       font-size: 16px;
     }
-
     .main-header {
       position: sticky;
       top: 0;
@@ -54,7 +52,6 @@
       box-shadow: var(--shadow-sm);
       border-bottom: 1px solid var(--border-color);
     }
-
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -64,7 +61,6 @@
       justify-content: space-between;
       gap: var(--space-4);
     }
-
     .logo-container {
       display: flex;
       align-items: center;
@@ -72,26 +68,20 @@
       text-decoration: none;
       transition: var(--transition-base);
     }
-
     .logo-container:hover { transform: scale(1.02); }
-
     .logo-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      border-radius: var(--radius-base);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--shadow-glow);
+      overflow: visible;
     }
-
-    .logo-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: white;
+    .logo-icon img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
     }
-
     .logo-text .brand-name {
       font-size: 24px;
       font-weight: 700;
@@ -99,30 +89,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .logo-text .brand-tagline {
       font-size: 13px;
       color: var(--text-muted);
       font-weight: 500;
     }
-
     .nav {
       display: flex;
       align-items: center;
       gap: var(--space-6);
     }
-
     .nav a {
       text-decoration: none;
       color: var(--text-secondary);
       font-weight: 600;
       transition: var(--transition-base);
     }
-
     .nav a:hover {
       color: var(--lavender-light);
     }
-
     .lang-switcher {
       display: flex;
       align-items: center;
@@ -138,14 +123,12 @@
       transition: var(--transition-base);
       text-decoration: none;
     }
-
     .lang-switcher:hover {
       background: var(--bg-secondary);
       border-color: var(--lavender-dark);
       color: var(--lavender-light);
       box-shadow: var(--shadow-glow);
     }
-
     .btn-primary {
       padding: 12px 24px;
       border-radius: var(--radius-full);
@@ -157,20 +140,17 @@
       transition: var(--transition-base);
       box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
     }
-
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
       color: #fff !important;
     }
-
     .page-hero {
       background: linear-gradient(135deg, #1A1F2E, #242B3D, #2D3748);
       padding: 80px var(--space-6) 60px;
       text-align: center;
       border-bottom: 1px solid var(--border-color);
     }
-
     .page-hero h1 {
       font-size: 48px;
       font-weight: 700;
@@ -179,18 +159,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .page-hero p {
       font-size: 18px;
       color: var(--text-secondary);
     }
-
     .content-section {
       max-width: 900px;
       margin: 0 auto;
       padding: var(--space-16) var(--space-6);
     }
-
     .content-card {
       background: var(--bg-secondary);
       border-radius: var(--radius-lg);
@@ -199,7 +176,6 @@
       margin-bottom: var(--space-8);
       border: 1px solid var(--border-color);
     }
-
     .content-card h2 {
       font-size: 28px;
       font-weight: 700;
@@ -208,7 +184,6 @@
       padding-bottom: var(--space-3);
       border-bottom: 2px solid var(--border-color);
     }
-
     .content-card h3 {
       font-size: 22px;
       font-weight: 600;
@@ -216,31 +191,26 @@
       margin-top: var(--space-8);
       margin-bottom: var(--space-4);
     }
-
     .content-card p {
       font-size: 17px;
       line-height: 1.8;
       margin-bottom: var(--space-4);
       color: var(--text-secondary);
     }
-
     .content-card ul {
       margin: var(--space-4) 0 var(--space-6);
       padding-right: var(--space-8);
     }
-
     .content-card li {
       font-size: 17px;
       line-height: 1.8;
       margin-bottom: var(--space-3);
       color: var(--text-secondary);
     }
-
     .content-card strong {
       color: var(--lavender-light);
       font-weight: 600;
     }
-
     .highlight-box {
       background: rgba(139, 127, 255, 0.08);
       border-right: 4px solid var(--lavender-dark);
@@ -248,66 +218,54 @@
       border-radius: var(--radius-base);
       margin: var(--space-6) 0;
     }
-
     .highlight-box a {
       color: var(--sky-blue);
       text-decoration: none;
       font-weight: 600;
     }
-
     .highlight-box a:hover {
       color: var(--lavender-light);
     }
-
     .footer {
       background: var(--bg-secondary);
       color: var(--text-primary);
       padding: var(--space-16) var(--space-6) var(--space-6);
       border-top: 1px solid var(--border-color);
     }
-
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: var(--space-8);
       margin-bottom: var(--space-8);
     }
-
     .footer h4 {
       margin-bottom: var(--space-4);
       font-size: 20px;
       color: var(--text-primary);
     }
-
     .footer p {
       color: var(--text-secondary);
       margin-bottom: var(--space-2);
       font-size: 16px;
     }
-
     .footer a {
       color: var(--text-secondary);
       text-decoration: none;
       transition: var(--transition-base);
     }
-
     .footer a:hover {
       color: var(--lavender-light);
     }
-
     .footer-links ul {
       list-style: none;
     }
-
     .footer-links li {
       margin-bottom: var(--space-2);
     }
-
     .social-bar {
       margin-top: var(--space-4);
       padding: var(--space-4);
@@ -318,7 +276,6 @@
       flex-wrap: wrap;
       gap: var(--space-3);
     }
-
     .social-link {
       width: 40px;
       height: 40px;
@@ -333,7 +290,6 @@
       font-size: 18px;
       border: 1px solid var(--border-color);
     }
-
     .social-link:hover {
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
       color: #fff;
@@ -341,7 +297,6 @@
       box-shadow: var(--shadow-glow);
       border-color: transparent;
     }
-
     .footer-bottom {
       border-top: 1px solid var(--border-color);
       margin-top: var(--space-8);
@@ -350,7 +305,6 @@
       font-size: 14px;
       color: var(--text-muted);
     }
-
     @media (max-width: 768px) {
       .page-hero h1 { font-size: 32px; }
       .content-card { padding: var(--space-6); }
@@ -359,51 +313,42 @@
   </style>
 </head>
 <body>
-
   <header class="main-header">
     <div class="header-inner">
-      <a href="index.html" class="logo-container">
+      <a href="https://ecode.sa/ar/" class="logo-container">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
         </div>
         <div class="logo-text">
           <div class="brand-name">eCode</div>
           <div class="brand-tagline">تصنع الأثر</div>
         </div>
       </a>
-
       <nav class="nav">
-  <a href="https://ecode.sa/ar/">الرئيسية</a>
-  <a href="https://ecode.sa/services/">خدماتنا</a>
-  <a href="https://ecode.sa/plans/">الباقات</a>
-  <a href="https://ecode.sa/portfolio/">أعمالنا</a>
-
-  <a href="https://ecode.sa/en/" class="lang-switcher">
-    <i class="fas fa-globe"></i>
-    <span>English</span>
-  </a>
-
-  <a href="https://ecode.sa/contact/" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
-    تواصل معنا
-  </a>
-</nav>
+        <a href="https://ecode.sa/ar/">الرئيسية</a>
+        <a href="https://ecode.sa/services/">خدماتنا</a>
+        <a href="https://ecode.sa/plans/">الباقات</a>
+        <a href="https://ecode.sa/portfolio/">أعمالنا</a>
+        <a href="https://ecode.sa/en/" class="lang-switcher">
+          <i class="fas fa-globe"></i>
+          <span>English</span>
+        </a>
+        <a href="https://ecode.sa/contact/" class="btn-primary" style="padding: 10px 20px; font-size: 15px; color: #fff !important;">
+          تواصل معنا
+        </a>
+      </nav>
     </div>
   </header>
-
   <section class="page-hero">
     <h1>سياسة الخصوصية</h1>
     <p>آخر تحديث: فبراير 2025</p>
   </section>
-
   <section class="content-section">
     <div class="content-card">
       <div class="highlight-box">
         <p><strong>تم إعداد هذه السياسة</strong> لضمان التزام شركة إلكترونيك كود – Electronic Code Company (eCode) بمعايير حماية البيانات، وتنظيم معالجة المعلومات المقدمة من العملاء ومستخدمي الموقع.</p>
         <p>استخدامك لموقعنا أو خدماتنا يعني موافقتك على جميع البنود المذكورة في هذه السياسة.</p>
       </div>
-
       <h2>أولًا: نطاق السياسة وتطبيقها</h2>
       <p>تنطبق هذه السياسة على جميع البيانات التي تقوم eCode بجمعها أو معالجتها أو تخزينها، سواء عند استخدام موقع الشركة، أو النماذج الإلكترونية، أو التواصل المباشر عبر البريد الإلكتروني أو الواتساب أو أي وسيلة اتصال أخرى.</p>
       
@@ -414,9 +359,7 @@
         <li>المتقدمين بطلبات الخدمات</li>
         <li>الأفراد الظاهرين في الصور أو المواد المصورة ضمن المشاريع</li>
       </ul>
-
       <h2>ثانيًا: البيانات التي نجمعها</h2>
-
       <h3>1. البيانات الشخصية التي يقدمها العميل مباشرة</h3>
       <p>عند تعبئة النماذج أو طلب خدمة، قد نجمع:</p>
       <ul>
@@ -428,7 +371,6 @@
         <li>الصور والفيديوهات والملفات المطلوبة لتنفيذ الأعمال</li>
         <li>موقع العميل (اختياري)</li>
       </ul>
-
       <h3>2. البيانات الفنية التي تُجمع تلقائيًا</h3>
       <p>عند الدخول للموقع يتم جمع بيانات تقنية بهدف تحسين الأداء:</p>
       <ul>
@@ -439,7 +381,6 @@
         <li>بيانات التحليلات (Analytics)</li>
         <li>ملفات الكوكيز Cookies</li>
       </ul>
-
       <h3>3. بيانات التصوير والإنتاج الإعلامي</h3>
       <p>في حال طلب العميل خدمة تصوير أو إنتاج محتوى، فقد تشمل البيانات:</p>
       <ul>
@@ -450,7 +391,6 @@
         <li>بيانات الجلسات الإبداعية</li>
       </ul>
       <p><strong>ملاحظة هامة:</strong> يقتصر استخدام هذه المواد على الغرض المتفق عليه داخل المشروع فقط، ولا يحق لـ eCode نشرها أو استخدامها في أعمال أخرى دون موافقة خطية من العميل.</p>
-
       <h2>ثالثًا: كيفية استخدام البيانات</h2>
       <p>تستخدم eCode البيانات للأغراض التالية:</p>
       <ul>
@@ -463,7 +403,6 @@
         <li>حماية حقوق الشركة من إساءة الاستخدام</li>
       </ul>
       <p><strong>لا نستخدم البيانات في أي أغراض تسويقية دون موافقة صريحة من العميل.</strong></p>
-
       <h2>رابعًا: مشاركة البيانات مع أطراف ثالثة</h2>
       <p>قد نشارك بعض البيانات مع الأطراف التالية حسب الحاجة:</p>
       <ul>
@@ -473,7 +412,6 @@
         <li>جهات قانونية أو حكومية عند الطلب</li>
       </ul>
       <p>جميع الأطراف ملتزمون بسرية البيانات وبحدود الاستخدام اللازمة فقط.</p>
-
       <h2>خامسًا: تخزين البيانات وحمايتها</h2>
       <p>تقوم eCode بتخزين البيانات بطرق آمنة، وتستخدم:</p>
       <ul>
@@ -482,7 +420,6 @@
         <li>نسخ احتياطية دورية</li>
       </ul>
       <p>وتتخذ جميع الإجراءات اللازمة وفقًا لنظام حماية البيانات الشخصية في المملكة العربية السعودية.</p>
-
       <h2>سادسًا: الحقوق المتعلقة بالبيانات</h2>
       <p><strong>يحق للعميل:</strong></p>
       <ul>
@@ -492,22 +429,18 @@
         <li>سحب الموافقة على معالجة بياناته المستقبلية</li>
       </ul>
       <p>تتم الاستجابة خلال مدة لا تتجاوز 30 يومًا.</p>
-
       <h2>سابعًا: حذف البيانات</h2>
       <p>تحذف eCode بيانات العميل بعد:</p>
       <ul>
         <li>انتهاء المشروع + 6 أشهر</li>
       </ul>
       <p>ما لم تنص الأنظمة أو العقود على مدة أطول.</p>
-
       <h2>ثامنًا: الروابط الخارجية</h2>
       <p>قد يحتوي موقعنا على روابط لجهات خارجية.</p>
       <p>لا تتحمل eCode أي مسؤولية عن محتوى أو أمان أو سياسات تلك المواقع.</p>
-
       <h2>تاسعًا: التعديلات على السياسة</h2>
       <p>يحق لـ eCode تعديل هذه السياسة في أي وقت.</p>
       <p>ويُعد استمرارك في استخدام الموقع موافقة على التعديلات.</p>
-
       <div class="highlight-box" style="margin-top: 48px;">
         <p><strong>للاستفسارات حول سياسة الخصوصية:</strong></p>
         <p>البريد الإلكتروني: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
@@ -515,7 +448,6 @@
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-grid">
@@ -554,20 +486,18 @@
             </a>
           </div>
         </div>
-
         <div class="footer-links">
-  <h4>روابط سريعة</h4>
-  <ul>
-    <li><a href="https://ecode.sa/ar/">الرئيسية</a></li>
-    <li><a href="https://ecode.sa/services/">خدماتنا</a></li>
-    <li><a href="https://ecode.sa/plans/">الباقات</a></li>
-    <li><a href="https://ecode.sa/portfolio/">أعمالنا</a></li>
-    <li><a href="https://ecode.sa/contact/">تواصل معنا</a></li>
-    <li><a href="https://ecode.sa/terms/">الشروط والأحكام</a></li>
-    <li><a href="https://ecode.sa/privacy/">سياسة الخصوصية</a></li>
-  </ul>
-</div>
-
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="https://ecode.sa/ar/">الرئيسية</a></li>
+            <li><a href="https://ecode.sa/services/">خدماتنا</a></li>
+            <li><a href="https://ecode.sa/plans/">الباقات</a></li>
+            <li><a href="https://ecode.sa/portfolio/">أعمالنا</a></li>
+            <li><a href="https://ecode.sa/contact/">تواصل معنا</a></li>
+            <li><a href="https://ecode.sa/terms/">الشروط والأحكام</a></li>
+            <li><a href="https://ecode.sa/privacy/">سياسة الخصوصية</a></li>
+          </ul>
+        </div>
         <div>
           <h4>تواصل معنا</h4>
           <p>الرياض — المملكة العربية السعودية</p>
@@ -575,19 +505,16 @@
           <p>البريد: <a href="mailto:ecode_sa@outlook.sa">ecode_sa@outlook.sa</a></p>
         </div>
       </div>
-
       <div class="footer-bottom">
         © 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
       </div>
     </div>
   </footer>
-
   <script>
     function switchLanguage() {
       localStorage.setItem('preferred_lang', 'en');
       window.location.href = 'privacy-en.html';
     }
   </script>
-
 </body>
 </html>
