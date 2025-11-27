@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الصفحة غير موجودة | eCode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    :root {
+      --lavender-light: #A99BFF;
+      --lavender-dark: #8B7FFF;
+      --sky-blue: #5BC0F8;
+      --bg-primary: #0F1419;
+      --bg-secondary: #1A1F2E;
+      --bg-elevated: #242B3D;
+      --text-primary: #E6EDF3;
+      --text-secondary: #9DA5B4;
+      --border-color: #2D3748;
+      --radius-base: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Tajawal", system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ========== Header ========== */
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 20, 25, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      transition: 250ms ease;
+    }
+
+    .logo-container:hover { transform: scale(1.02); }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .logo-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: #9DA5B4;
+      font-weight: 500;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      position: relative;
+      padding: var(--space-2) 0;
+      transition: 200ms ease;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      transition: 250ms ease;
+    }
+
+    .nav a:hover {
+      color: var(--lavender-light);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #fff;
+      text-decoration: none;
+      transition: 250ms ease;
+      box-shadow: 0 4px 20px rgba(139,127,255,0.4);
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(139,127,255,0.6);
+      filter: brightness(1.08);
+    }
+
+    /* ========== 404 Section ========== */
+    .error-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-12) var(--space-6);
+      background: radial-gradient(circle at top left,
+                 rgba(139,127,255,0.18) 0,
+                 transparent 55%),
+                 radial-gradient(circle at bottom right,
+                 rgba(91,192,248,0.18) 0,
+                 transparent 55%),
+                 var(--bg-secondary);
+    }
+
+    .error-card {
+      max-width: 620px;
+      width: 100%;
+      padding: var(--space-12);
+      border-radius: var(--radius-lg);
+      background: rgba(15, 20, 25, 0.9);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .error-code {
+      font-size: 72px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-bottom: var(--space-2);
+      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .error-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      color: var(--text-primary);
+    }
+
+    .error-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-8);
+    }
+
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+    }
+
+    .btn-outline {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 250ms ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--lavender-dark);
+      color: var(--lavender-light);
+      background: rgba(36, 43, 61, 0.9);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: var(--space-6);
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+      }
+      .nav {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .error-card {
+        padding: var(--space-8);
+      }
+      .error-code {
+        font-size: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="https://ecode.sa/ar" class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="brand-name">eCode</div>
+          <div class="brand-tagline">تصنع الأثر</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="https://ecode.sa/ar">الرئيسية</a>
+        <a href="https://ecode.sa/services">خدماتنا</a>
+        <a href="https://ecode.sa/plans">الباقات</a>
+        <a href="https://ecode.sa/portfolio">أعمالنا</a>
+        <a href="https://ecode.sa/contact" class="btn-primary">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="error-wrapper">
+    <div class="error-card">
+      <div class="error-code">404</div>
+      <div class="error-title">الصفحة غير موجودة</div>
+      <p class="error-text">
+        يبدو إن الرابط اللي دخلته غير صحيح أو الصفحة تم نقلها أو حذفها.<br>
+        تقدر ترجع للرئيسية أو تواصل معنا لو تحب نساعِدك.
+      </p>
+
+      <div class="error-actions">
+        <a href="https://ecode.sa/ar" class="btn-primary">
+          <i class="fa-solid fa-house"></i>
+          الرجوع للرئيسية
+        </a>
+        <a href="https://ecode.sa/contact" class="btn-outline">
+          <i class="fa-solid fa-envelope"></i>
+          تواصل معنا
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <div class="footer-bottom">
+    © 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
+  </div>
+
+</body>
+</html>
