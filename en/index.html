@@ -1079,55 +1079,95 @@
   </section>
 
   <section id="contact">
-    <div class="section-inner">
-      <h2 class="section-title">Ready to Start?</h2>
-      <p class="section-subtitle">Fill out the form and we'll contact you within 24 hours</p>
+  <div class="section-inner">
+    <h2 class="section-title">Ready to Start?</h2>
+    <p class="section-subtitle">Fill out the form and we'll contact you within 24 hours</p>
+    <form class="contact-form" id="contactFormEN2" onsubmit="handleFormSubmitEN2(event)">
+      
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" name="name" id="nameEN2" required placeholder="Enter your full name">
+      </div>
+      
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" name="email" id="emailEN2" required placeholder="example@email.com">
+      </div>
+      
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" name="phone" id="phoneEN2" required placeholder="05X XXX XXXX">
+      </div>
+      
+      <div class="form-group">
+        <label>Service Type *</label>
+        <select name="service" id="serviceEN2" required>
+          <option value="">Select Service</option>
+          <option>Social Media Account Management</option>
+          <option>Visual Identity Design</option>
+          <option>Content Production</option>
+          <option>Website Design</option>
+          <option>Ad Campaigns</option>
+          <option>Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Project Details</label>
+        <textarea name="message" id="messageEN2" placeholder="Write about your project and needs..."></textarea>
+      </div>
+      
+      <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
+        Get Quote
+      </button>
+    </form>
+  </div>
+</section>
 
-      <form class="contact-form" action="https://formsubmit.co/ecode_sa@outlook.sa" method="POST">
-        <input type="hidden" name="_subject" value="New Request from eCode Website">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
-        
-        <div class="form-group">
-          <label>Full Name *</label>
-          <input type="text" name="name" required placeholder="Enter your full name">
-        </div>
+<script>
+  function handleFormSubmitEN2(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('nameEN2').value;
+    const email = document.getElementById('emailEN2').value;
+    const phone = document.getElementById('phoneEN2').value;
+    const service = document.getElementById('serviceEN2').value;
+    const message = document.getElementById('messageEN2').value || 'None';
+    
+    // Compose email message
+    const subject = encodeURIComponent('Quote Request from ' + name);
+    const body = encodeURIComponent(`
+Hello eCode Team,
 
-        <div class="form-group">
-          <label>Email *</label>
-          <input type="email" name="email" required placeholder="example@email.com">
-        </div>
+I would like to request a quote for the following service:
 
-        <div class="form-group">
-          <label>Phone Number *</label>
-          <input type="tel" name="phone" required placeholder="05X XXX XXXX">
-        </div>
+━━━━━━━━━━━━━━━━━━━
+📋 Client Information:
+━━━━━━━━━━━━━━━━━━━
 
-        <div class="form-group">
-          <label>Service Type *</label>
-          <select name="service" required>
-            <option value="">Select Service</option>
-            <option>Social Media Account Management</option>
-            <option>Visual Identity Design</option>
-            <option>Content Production</option>
-            <option>Website Design</option>
-            <option>Ad Campaigns</option>
-            <option>Other</option>
-          </select>
-        </div>
+👤 Name: ${name}
+📧 Email: ${email}
+📱 Phone: ${phone}
 
-        <div class="form-group">
-          <label>Project Details</label>
-          <textarea name="message" placeholder="Write about your project and needs..."></textarea>
-        </div>
+━━━━━━━━━━━━━━━━━━━
+🎯 Request Details:
+━━━━━━━━━━━━━━━━━━━
 
-        <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
-          Get Quote
-        </button>
-      </form>
-    </div>
-  </section>
+🔹 Service Type: ${service}
+
+📝 Project Details:
+${message}
+
+━━━━━━━━━━━━━━━━━━━
+
+Thank you,
+${name}
+    `.trim());
+    
+    // Open email client with pre-filled data
+    window.location.href = `mailto:ecode_sa@outlook.sa?subject=${subject}&body=${body}`;
+  }
+</script>
 
   <footer class="footer">
     <div class="footer-inner">
