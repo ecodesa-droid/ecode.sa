@@ -1259,47 +1259,76 @@
 </section>
 
 <script>
-  function handleFormSubmit(event) {
-    event.preventDefault();
+  async function handleFormSubmit(event) {
+    event.preventDefault(); // منع تحديث الصفحة
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const service = document.getElementById('service').value;
-    const message = document.getElementById('message').value || 'لا يوجد';
+    // تعريف الزر لتغيير شكله أثناء التحميل
+    const btn = event.target.querySelector('button[type="submit"]');
+    const originalText = btn.innerText;
     
-    // تكوين نص الرسالة
-    const subject = encodeURIComponent('طلب عرض سعر جديد من ' + name);
-    const body = encodeURIComponent(`
-مرحباً فريق eCode،
+    // تغيير حالة الزر (جاري الإرسال)
+    btn.innerText = 'جاري الإرسال... ⏳';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
 
-أرغب في الحصول على عرض سعر للخدمة التالية:
+    // تجميع البيانات من النموذج
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value || 'لا يوجد تفاصيل إضافية',
+        date: new Date().toLocaleDateString('ar-SA')
+    };
 
-━━━━━━━━━━━━━━━━━━━
-📋 بيانات العميل:
-━━━━━━━━━━━━━━━━━━━
+    try {
+        // رابط الويب هوك الخاص بك في Make.com
+        const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
 
-👤 الاسم: ${name}
-📧 البريد الإلكتروني: ${email}
-📱 رقم الجوال: ${phone}
+        // إرسال البيانات
+        const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
 
-━━━━━━━━━━━━━━━━━━━
-🎯 تفاصيل الطلب:
-━━━━━━━━━━━━━━━━━━━
+        if (response.ok) {
+            // حالة النجاح
+            btn.innerText = 'تم الإرسال بنجاح ✅';
+            btn.style.backgroundColor = '#7EDDA3'; // لون أخضر للتأكيد
+            btn.style.color = '#000';
+            btn.style.border = 'none';
+            
+            // تفريغ الخانات
+            document.getElementById('contactForm').reset();
+            
+            // إرجاع الزر لحالته الطبيعية بعد 3 ثواني
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                btn.style.backgroundColor = ''; 
+                btn.style.color = '';
+                btn.style.border = '';
+            }, 3000);
+        } else {
+            throw new Error('Server response not ok');
+        }
 
-🔹 الخدمة المطلوبة: ${service}
-
-📝 تفاصيل المشروع:
-${message}
-
-━━━━━━━━━━━━━━━━━━━
-
-شكراً لكم،
-${name}
-    `.trim());
-    
-    // فتح تطبيق البريد مع البيانات معبأة
-    window.location.href = `mailto:info@ecode.sa?subject=${subject}&body=${body}`;
+    } catch (error) {
+        // حالة الخطأ
+        console.error('Error:', error);
+        btn.innerText = 'حدث خطأ! ❌';
+        btn.style.backgroundColor = '#ff6b6b';
+        
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+            btn.style.backgroundColor = '';
+        }, 3000);
+        
+        alert("عذراً، حدث خطأ في الاتصال. يرجى المحاولة لاحقاً أو التواصل عبر الواتساب.");
+    }
   }
 </script>
 
