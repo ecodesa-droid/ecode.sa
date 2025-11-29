@@ -1145,47 +1145,79 @@
 </section>
 
 <script>
-  function handleFormSubmitEN2(event) {
-    event.preventDefault();
+  async function handleFormSubmitEN2(event) {
+    event.preventDefault(); // Prevent page reload
     
-    const name = document.getElementById('nameEN2').value;
-    const email = document.getElementById('emailEN2').value;
-    const phone = document.getElementById('phoneEN2').value;
-    const service = document.getElementById('serviceEN2').value;
-    const message = document.getElementById('messageEN2').value || 'None';
+    // Get the submit button to change its state
+    const btn = event.target.querySelector('button[type="submit"]');
+    const originalText = btn.innerText;
     
-    // Compose email message
-    const subject = encodeURIComponent('Quote Request from ' + name);
-    const body = encodeURIComponent(`
-Hello eCode Team,
+    // Change button state to loading
+    btn.innerText = 'Sending... ⏳';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
 
-I would like to request a quote for the following service:
+    // Collect data using English IDs (EN2)
+    const formData = {
+        name: document.getElementById('nameEN2').value,
+        email: document.getElementById('emailEN2').value,
+        phone: document.getElementById('phoneEN2').value,
+        service: document.getElementById('serviceEN2').value,
+        message: document.getElementById('messageEN2').value || 'None',
+        date: new Date().toLocaleDateString('en-US'),
+        language: 'English' // Added this so you know it came from EN site
+    };
 
-━━━━━━━━━━━━━━━━━━━
-📋 Client Information:
-━━━━━━━━━━━━━━━━━━━
+    try {
+        // Your Make.com Webhook URL
+        const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
 
-👤 Name: ${name}
-📧 Email: ${email}
-📱 Phone: ${phone}
+        // Send data
+        const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
 
-━━━━━━━━━━━━━━━━━━━
-🎯 Request Details:
-━━━━━━━━━━━━━━━━━━━
+        if (response.ok) {
+            // Success State
+            btn.innerText = 'Sent Successfully ✅';
+            btn.style.backgroundColor = '#7EDDA3';
+            btn.style.color = '#000';
+            btn.style.border = 'none';
+            
+            // Reset form
+            // Note: Assuming form ID is contactFormEN2 based on pattern, 
+            // if not, use event.target.reset();
+            event.target.reset(); 
+            
+            // Revert button after 3 seconds
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                btn.style.backgroundColor = ''; 
+                btn.style.color = '';
+                btn.style.border = '';
+            }, 3000);
+        } else {
+            throw new Error('Server response not ok');
+        }
 
-🔹 Service Type: ${service}
-
-📝 Project Details:
-${message}
-
-━━━━━━━━━━━━━━━━━━━
-
-Thank you,
-${name}
-    `.trim());
-    
-    // Open email client with pre-filled data
-    window.location.href = `mailto:info@ecode.sa?subject=${subject}&body=${body}`;
+    } catch (error) {
+        // Error State
+        console.error('Error:', error);
+        btn.innerText = 'Error! ❌';
+        btn.style.backgroundColor = '#ff6b6b';
+        
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+            btn.style.backgroundColor = '';
+        }, 3000);
+        
+        alert("Sorry, there was a connection error. Please try again later or contact us via WhatsApp.");
+    }
   }
 </script>
 
