@@ -923,6 +923,48 @@
       color: var(--text-muted);
     }
 
+    /* زر واتساب عائم */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition-base);
+      animation: pulse-whatsapp 2s infinite;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      color: #FFF;
+      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(139, 127, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0);
+      }
+    }
+
     @media (max-width: 968px) {
       .hero-inner { grid-template-columns: 1fr; gap: var(--space-8); }
       .hero-content h1 { font-size: 40px; }
@@ -935,6 +977,14 @@
       .hero-content h1 { font-size: 32px; }
       .hero-stats { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+        bottom: 20px;
+        left: 20px;
+      }
     }
   </style>
 </head>
@@ -962,15 +1012,14 @@
           <span>English</span>
         </a>
         <!-- زر التثبيت -->
-<button id="installButton" class="btn-primary" style="display: none;">
-  <i class="fas fa-download"></i>
-  ثبت التطبيق
-</button>
+        <button id="installButton" class="btn-primary" style="display: none;">
+          <i class="fas fa-download"></i>
+          ثبّت التطبيق
+        </button>
         <a href="https://ecode.sa/contact/" class="btn-primary" style="padding: 10px 20px; font-size: 15px;">
           تواصل معنا
         </a>
       </nav>
-    
     </div>
   </header>
 
@@ -1212,127 +1261,53 @@
     </div>
   </section>
 
-<section id="contact">
-  <div class="section-inner">
-    <h2 class="section-title">جاهز للبدء؟</h2>
-    <p class="section-subtitle">عبّي النموذج وراح نتواصل معك خلال 24 ساعة</p>
-    <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
-      
-      <div class="form-group">
-        <label>الاسم الكامل *</label>
-        <input type="text" name="name" id="name" required placeholder="أدخل اسمك الكامل">
-      </div>
-      
-      <div class="form-group">
-        <label>البريد الإلكتروني *</label>
-        <input type="email" name="email" id="email" required placeholder="example@email.com">
-      </div>
-      
-      <div class="form-group">
-        <label>رقم الجوال *</label>
-        <input type="tel" name="phone" id="phone" required placeholder="05X XXX XXXX">
-      </div>
-      
-      <div class="form-group">
-        <label>نوع الخدمة المطلوبة *</label>
-        <select name="service" id="service" required>
-          <option value="">اختر الخدمة</option>
-          <option>إدارة حسابات التواصل</option>
-          <option>تصميم هوية بصرية</option>
-          <option>إنتاج محتوى</option>
-          <option>تصميم موقع إلكتروني</option>
-          <option>حملات إعلانية</option>
-          <option>أخرى</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label>تفاصيل المشروع</label>
-        <textarea name="message" id="message" placeholder="اكتب نبذة عن مشروعك واحتياجاتك..."></textarea>
-      </div>
-
-      <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
-        احصل على عرض
-      </button>
-    </form>
-  </div>
-</section>
-
-<script>
-  async function handleFormSubmit(event) {
-    event.preventDefault(); // منع تحديث الصفحة
-    
-    // تعريف الزر لتغيير شكله أثناء التحميل
-    const btn = event.target.querySelector('button[type="submit"]');
-    const originalText = btn.innerText;
-    
-    // تغيير حالة الزر (جاري الإرسال)
-    btn.innerText = 'جاري الإرسال... ⏳';
-    btn.disabled = true;
-    btn.style.opacity = '0.7';
-
-    // تجميع البيانات من النموذج
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        service: document.getElementById('service').value,
-        message: document.getElementById('message').value || 'لا يوجد تفاصيل إضافية',
-        date: new Date().toLocaleDateString('ar-SA')
-    };
-
-    try {
-        // رابط الويب هوك الخاص بك في Make.com
-        const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
-
-        // إرسال البيانات
-        const response = await fetch(webhookUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-            // حالة النجاح
-            btn.innerText = 'تم الإرسال بنجاح ✅';
-            btn.style.backgroundColor = '#7EDDA3'; // لون أخضر للتأكيد
-            btn.style.color = '#000';
-            btn.style.border = 'none';
-            
-            // تفريغ الخانات
-            document.getElementById('contactForm').reset();
-            
-            // إرجاع الزر لحالته الطبيعية بعد 3 ثواني
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.disabled = false;
-                btn.style.opacity = '1';
-                btn.style.backgroundColor = ''; 
-                btn.style.color = '';
-                btn.style.border = '';
-            }, 3000);
-        } else {
-            throw new Error('Server response not ok');
-        }
-
-    } catch (error) {
-        // حالة الخطأ
-        console.error('Error:', error);
-        btn.innerText = 'حدث خطأ! ❌';
-        btn.style.backgroundColor = '#ff6b6b';
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">جاهز للبدء؟</h2>
+      <p class="section-subtitle">عبّي النموذج وراح نتواصل معك خلال 24 ساعة</p>
+      <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
         
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.disabled = false;
-            btn.style.backgroundColor = '';
-        }, 3000);
+        <div class="form-group">
+          <label>الاسم الكامل *</label>
+          <input type="text" name="name" id="name" required placeholder="أدخل اسمك الكامل">
+        </div>
         
-        alert("عذراً، حدث خطأ في الاتصال. يرجى المحاولة لاحقاً أو التواصل عبر الواتساب.");
-    }
-  }
-</script>
+        <div class="form-group">
+          <label>البريد الإلكتروني *</label>
+          <input type="email" name="email" id="email" required placeholder="example@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label>رقم الجوال *</label>
+          <input type="tel" name="phone" id="phone" required placeholder="05X XXX XXXX">
+        </div>
+        
+        <div class="form-group">
+          <label>نوع الخدمة المطلوبة *</label>
+          <select name="service" id="service" required>
+            <option value="">اختر الخدمة</option>
+            <option>إدارة حسابات التواصل</option>
+            <option>تصميم هوية بصرية</option>
+            <option>إنتاج محتوى</option>
+            <option>تصميم موقع إلكتروني</option>
+            <option>حملات إعلانية</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>تفاصيل المشروع</label>
+          <textarea name="message" id="message" placeholder="اكتب نبذة عن مشروعك واحتياجاتك..."></textarea>
+        </div>
 
-<footer class="footer">
+        <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
+          احصل على عرض
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
@@ -1384,7 +1359,7 @@
           </ul>
         </div>
 
-        <div>
+<div>
           <h4>تواصل معنا</h4>
           <p>الرياض — المملكة العربية السعودية</p>
           <p>جوال: <a href="tel:0503666316">0503666316</a></p>
@@ -1398,7 +1373,75 @@
     </div>
   </footer>
 
+  <!-- زر واتساب عائم -->
+  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <script>
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const btn = event.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerText;
+      
+      btn.innerText = 'جاري الإرسال... ⏳';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          service: document.getElementById('service').value,
+          message: document.getElementById('message').value || 'لا يوجد تفاصيل إضافية',
+          date: new Date().toLocaleDateString('ar-SA')
+      };
+
+      try {
+          const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
+
+          const response = await fetch(webhookUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+              btn.innerText = 'تم الإرسال بنجاح ✅';
+              btn.style.backgroundColor = '#7EDDA3';
+              btn.style.color = '#000';
+              btn.style.border = 'none';
+              
+              document.getElementById('contactForm').reset();
+              
+              setTimeout(() => {
+                  btn.innerText = originalText;
+                  btn.disabled = false;
+                  btn.style.opacity = '1';
+                  btn.style.backgroundColor = ''; 
+                  btn.style.color = '';
+                  btn.style.border = '';
+              }, 3000);
+          } else {
+              throw new Error('Server response not ok');
+          }
+
+      } catch (error) {
+          console.error('Error:', error);
+          btn.innerText = 'حدث خطأ! ❌';
+          btn.style.backgroundColor = '#ff6b6b';
+          
+          setTimeout(() => {
+              btn.innerText = originalText;
+              btn.disabled = false;
+              btn.style.backgroundColor = '';
+          }, 3000);
+          
+          alert("عذرًا، حدث خطأ في الاتصال. يرجى المحاولة لاحقًا أو التواصل عبر الواتساب.");
+      }
+    }
+
     // FAQ Accordion
     document.querySelectorAll('.faq-q').forEach(q => {
       q.addEventListener('click', () => {
@@ -1434,12 +1477,10 @@
           .then((registration) => {
             console.log('✅ Service Worker registered:', registration.scope);
             
-            // التحقق من وجود تحديثات
             registration.addEventListener('updatefound', () => {
               const newWorker = registration.installing;
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // يوجد تحديث جديد
                   if (confirm('يوجد تحديث جديد! هل تريد التحديث الآن؟')) {
                     window.location.reload();
                   }
@@ -1453,7 +1494,7 @@
       });
     }
 
-    // Install Prompt - زر "أضف للشاشة الرئيسية"
+    // Install Prompt
     let deferredPrompt;
     const installButton = document.getElementById('installButton');
 
@@ -1461,7 +1502,6 @@
       e.preventDefault();
       deferredPrompt = e;
       
-      // إظهار زر التثبيت
       if (installButton) {
         installButton.style.display = 'block';
         
@@ -1477,7 +1517,6 @@
       }
     });
 
-    // عند التثبيت بنجاح
     window.addEventListener('appinstalled', () => {
       console.log('✅ PWA installed successfully');
       deferredPrompt = null;
