@@ -1281,13 +1281,81 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
+<div class="footer-bottom">
         © 2025 Electronic Code Company. All rights reserved.
       </div>
     </div>
   </footer>
 
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <script>
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const btn = event.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerText;
+      
+      btn.innerText = 'Sending... ⏳';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          service: document.getElementById('service').value,
+          message: document.getElementById('message').value || 'No additional details',
+          date: new Date().toLocaleDateString('en-US')
+      };
+
+      try {
+          const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
+
+          const response = await fetch(webhookUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+              btn.innerText = 'Sent Successfully ✅';
+              btn.style.backgroundColor = '#7EDDA3';
+              btn.style.color = '#000';
+              btn.style.border = 'none';
+              
+              document.getElementById('contactForm').reset();
+              
+              setTimeout(() => {
+                  btn.innerText = originalText;
+                  btn.disabled = false;
+                  btn.style.opacity = '1';
+                  btn.style.backgroundColor = ''; 
+                  btn.style.color = '';
+                  btn.style.border = '';
+              }, 3000);
+          } else {
+              throw new Error('Server response not ok');
+          }
+
+      } catch (error) {
+          console.error('Error:', error);
+          btn.innerText = 'Error! ❌';
+          btn.style.backgroundColor = '#ff6b6b';
+          
+          setTimeout(() => {
+              btn.innerText = originalText;
+              btn.disabled = false;
+              btn.style.backgroundColor = '';
+          }, 3000);
+          
+          alert("Sorry, connection error. Please try again later or contact us via WhatsApp.");
+      }
+    }
+
     // Language Switcher
     function switchLanguage() {
       localStorage.setItem('preferred_lang', 'ar');
@@ -1321,7 +1389,58 @@
     document.querySelectorAll('section').forEach(section => {
       observer.observe(section);
     });
-  </script>
 
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('✅ Service Worker registered:', registration.scope);
+            
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  if (confirm('New update available! Update now?')) {
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
+          .catch((error) => {
+            console.error('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+
+    // Install Prompt
+    let deferredPrompt;
+    const installButton = document.getElementById('installButton');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      
+      if (installButton) {
+        installButton.style.display = 'block';
+        
+        installButton.addEventListener('click', async () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            deferredPrompt = null;
+            installButton.style.display = 'none';
+          }
+        });
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('✅ PWA installed successfully');
+      deferredPrompt = null;
+    });
+  </script>
 </body>
 </html>
