@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,7 @@
   <link rel="icon" type="image/png" href="https://ecode.sa/favicon.png" />
   <style>
     :root {
+      /* Base Colors (Dark Mode - Default) */
       --lavender-light: #A99BFF;
       --lavender-dark: #8B7FFF;
       --sky-blue: #5BC0F8;
@@ -33,8 +34,24 @@
       --space-6: 24px;
       --space-8: 32px;
       --space-12: 48px;
+      
       --transition-fast: 150ms ease;
       --transition-base: 250ms ease;
+    }
+
+    /* === Light Mode Settings === */
+    [data-theme="light"] {
+      --bg-primary: #F3F4F6;
+      --bg-secondary: #FFFFFF;
+      --bg-elevated: #FFFFFF;
+      --text-primary: #1F2937;
+      --text-secondary: #4B5563;
+      --text-muted: #9CA3AF;
+      --border-color: #E5E7EB;
+      
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,6 +67,8 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* ========== Header ========== */
@@ -57,10 +76,16 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(15, 20, 25, 0.95);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-sm);
+      background: var(--bg-primary);
       border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-base);
+    }
+
+    @supports (backdrop-filter: blur(12px)) {
+        .main-header {
+            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
+            backdrop-filter: blur(12px);
+        }
     }
 
     .header-inner {
@@ -157,38 +182,39 @@
       width: 100%;
     }
 
-    .lang-switcher {
-      display: inline-flex;
+    /* === Circular Buttons (Language & Theme) === */
+    .lang-switcher, .theme-toggle {
+      display: flex;
       align-items: center;
-      gap: var(--space-2);
-      padding: 8px 16px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--border-color);
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 50%;
       background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition-base);
       cursor: pointer;
+      transition: var(--transition-base);
+      text-decoration: none;
     }
 
-    .lang-switcher:hover {
+    .lang-switcher:hover, .theme-toggle:hover {
+      background: var(--bg-secondary);
       border-color: var(--lavender-dark);
       color: var(--lavender-light);
-      background: var(--bg-secondary);
       box-shadow: var(--shadow-glow);
     }
 
-    .lang-switcher i {
-      font-size: 14px;
-    }
-
+    /* === "Contact Us" Button (Wide) === */
     .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 28px;
+      padding: 14px 32px;
+      min-width: 140px;
       border-radius: var(--radius-full);
       border: none;
       cursor: pointer;
@@ -222,10 +248,10 @@
       justify-content: center;
       padding: var(--space-12) var(--space-6);
       background: radial-gradient(circle at top left,
-                 rgba(139,127,255,0.18) 0,
+                 rgba(139,127,255,0.15) 0,
                  transparent 55%),
                  radial-gradient(circle at bottom right,
-                 rgba(91,192,248,0.18) 0,
+                 rgba(91,192,248,0.15) 0,
                  transparent 55%),
                  var(--bg-secondary);
     }
@@ -235,7 +261,7 @@
       width: 100%;
       padding: var(--space-12);
       border-radius: var(--radius-lg);
-      background: rgba(15, 20, 25, 0.9);
+      background: var(--bg-elevated); /* Updated for theme consistency */
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-lg);
       text-align: center;
@@ -298,7 +324,7 @@
     }
 
     .btn-outline {
-      padding: 10px 22px;
+      padding: 12px 24px;
       border-radius: var(--radius-full);
       border: 1px solid var(--border-color);
       background: transparent;
@@ -316,7 +342,7 @@
     .btn-outline:hover {
       border-color: var(--lavender-dark);
       color: var(--lavender-light);
-      background: rgba(36, 43, 61, 0.9);
+      background: var(--bg-secondary);
       transform: translateY(-1px);
     }
 
@@ -346,7 +372,7 @@
       padding: 10px 16px;
       border-radius: var(--radius-full);
       border: 1px solid var(--border-color);
-      background: var(--bg-elevated);
+      background: var(--bg-primary);
       color: var(--text-primary);
       font-size: 14px;
       outline: none;
@@ -378,8 +404,9 @@
     .main-footer {
       background: var(--bg-secondary);
       color: var(--text-secondary);
-      padding: var(--space-12) 0 0;
+      padding: var(--space-16) var(--space-6) var(--space-6);
       border-top: 1px solid var(--border-color);
+      margin-top: 0;
     }
 
     .footer-inner {
@@ -408,33 +435,44 @@
       margin-bottom: var(--space-3);
     }
 
+    /* Standardized Footer Social Bar */
     .social-bar {
-      display: flex;
-      gap: var(--space-2);
       margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: rgba(139, 127, 255, 0.05); 
+      border: 1px solid var(--border-color);
+      display: flex;
       flex-wrap: wrap;
+      gap: var(--space-3);
     }
 
     .social-link {
       width: 40px;
       height: 40px;
-      border-radius: var(--radius-base);
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-color);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--bg-elevated);
       color: var(--text-secondary);
-      font-size: 16px;
-      transition: 250ms ease;
       text-decoration: none;
+      transition: var(--transition-base);
+      font-size: 18px;
+      border: 1px solid var(--border-color);
     }
 
-    .social-link:hover {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff;
+    /* Fix hover contrast: Icon becomes white */
+    .main-footer .social-bar .social-link:hover {
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      color: #ffffff !important;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
       border-color: transparent;
-      transform: translateY(-2px);
+    }
+    
+    .main-footer .social-bar .social-link:hover i {
+      color: #ffffff !important;
     }
 
     .footer-links {
@@ -469,6 +507,42 @@
       font-size: 13px;
       color: var(--text-muted);
       border-top: 1px solid var(--border-color);
+    }
+    
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition-base);
+      animation: pulse-whatsapp 2s infinite;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      color: #FFF;
+      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
+    }
+
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(139, 127, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0); }
     }
 
     /* ========== Responsive ========== */
@@ -529,6 +603,14 @@
       .footer-links a:hover {
         transform: translateX(0);
       }
+      
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+        bottom: 20px;
+        right: 20px;
+      }
     }
   </style>
 </head>
@@ -548,14 +630,20 @@
 
       <nav class="nav">
         <a href="https://ecode.sa/en/">Home</a>
-        <a href="https://ecode.sa/services/">Services</a>
-        <a href="https://ecode.sa/plans/">Plans</a>
-        <a href="https://ecode.sa/portfolio/">Portfolio</a>
-        <a href="https://ecode.sa/404/" class="lang-switcher">
-          <i class="fas fa-globe"></i>
-          <span>العربية</span>
+        <a href="https://ecode.sa/services-en/">Services</a>
+        <a href="https://ecode.sa/plans-en/">Plans</a>
+        <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <a href="https://ecode.sa/ar/404" class="lang-switcher" aria-label="العربية">
+          <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
         </a>
-        <a href="https://ecode.sa/contact/" class="btn-primary" style="padding: 10px 20px; font-size: 15px;">
+        
+        <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">
           Contact Us
         </a>
       </nav>
@@ -580,7 +668,7 @@
           <i class="fa-solid fa-arrow-left"></i>
           Go Back
         </a>
-        <a href="https://ecode.sa/contact/" class="btn-outline">
+        <a href="https://ecode.sa/contact-en/" class="btn-outline">
           <i class="fa-solid fa-envelope"></i>
           Contact Us
         </a>
@@ -647,12 +735,12 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="https://ecode.sa/en/">Home</a></li>
-            <li><a href="https://ecode.sa/services/">Services</a></li>
-            <li><a href="https://ecode.sa/plans/">Plans</a></li>
-            <li><a href="https://ecode.sa/portfolio/">Portfolio</a></li>
-            <li><a href="https://ecode.sa/contact/">Contact Us</a></li>
-            <li><a href="https://ecode.sa/terms/">Terms & Conditions</a></li>
-            <li><a href="https://ecode.sa/privacy/">Privacy Policy</a></li>
+            <li><a href="https://ecode.sa/services-en/">Services</a></li>
+            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
+            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
+            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
+            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
+            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -669,6 +757,44 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // --- Theme Toggle Logic ---
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('theme', nextTheme);
+        updateThemeIcon(nextTheme);
+    }
+
+    function updateThemeIcon(theme) {
+        const icon = document.querySelector('.theme-toggle i');
+        if (!icon) return; 
+        
+        if (theme === 'light') {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+
+    // Initialize Theme
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+    });
+  </script>
 
 </body>
 </html>
