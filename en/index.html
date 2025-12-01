@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,12 +29,14 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
     :root {
+      /* Base Colors (Dark Mode - Default) */
       --lavender-light: #A99BFF;
       --lavender-dark: #8B7FFF;
       --sky-blue: #5BC0F8;
       --mint-green: #7EDDA3;
       --soft-orange: #FFB86C;
       --coral-pink: #FF79C6;
+      
       --bg-primary: #0F1419;
       --bg-secondary: #1A1F2E;
       --bg-elevated: #242B3D;
@@ -43,6 +45,7 @@
       --text-muted: #6B7280;
       --border-color: #2D3748;
       --border-hover: #4A5568;
+      
       --space-1: 4px;
       --space-2: 8px;
       --space-3: 12px;
@@ -51,15 +54,35 @@
       --space-8: 32px;
       --space-12: 48px;
       --space-16: 64px;
+      
       --radius-base: 16px;
       --radius-lg: 24px;
       --radius-full: 999px;
+      
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
       --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      
       --transition-fast: 150ms ease;
       --transition-base: 250ms ease;
+    }
+
+    /* === Light Mode Settings === */
+    [data-theme="light"] {
+      --bg-primary: #F3F4F6;
+      --bg-secondary: #FFFFFF;
+      --bg-elevated: #FFFFFF;
+      --text-primary: #1F2937;
+      --text-secondary: #4B5563;
+      --text-muted: #9CA3AF;
+      --border-color: #E5E7EB;
+      --border-hover: #D1D5DB;
+      
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -71,6 +94,7 @@
       line-height: 1.7;
       font-size: 16px;
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
@@ -82,11 +106,16 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(15, 20, 25, 0.95);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-sm);
+      background: var(--bg-primary);
       border-bottom: 1px solid var(--border-color);
       transition: var(--transition-base);
+    }
+
+    @supports (backdrop-filter: blur(12px)) {
+        .main-header {
+            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
+            backdrop-filter: blur(12px);
+        }
     }
 
     .header-inner {
@@ -177,9 +206,10 @@
       width: 100%;
     }
 
-    .lang-switcher {
+    .lang-switcher, .theme-toggle {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: var(--space-2);
       padding: 8px 16px;
       border-radius: var(--radius-full);
@@ -193,7 +223,13 @@
       text-decoration: none;
     }
 
-    .lang-switcher:hover {
+    .theme-toggle {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lang-switcher:hover, .theme-toggle:hover {
       background: var(--bg-secondary);
       border-color: var(--lavender-dark);
       color: var(--lavender-light);
@@ -229,9 +265,9 @@
     .btn-secondary {
       padding: 10px var(--space-6);
       border-radius: var(--radius-full);
-      border: 2px solid rgba(255, 255, 255, 0.8);
+      border: 2px solid var(--text-primary);
       background: transparent;
-      color: #fff;
+      color: var(--text-primary);
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
@@ -240,16 +276,17 @@
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.95);
-      color: var(--lavender-dark);
+      background: var(--text-primary);
+      color: var(--bg-primary);
       transform: translateY(-2px);
     }
 
     .hero {
-      background: linear-gradient(135deg, #1A1F2E 0%, #242B3D 50%, #2D3748 100%);
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
       position: relative;
       overflow: hidden;
       padding: 100px var(--space-6) 120px;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .hero::before {
@@ -312,6 +349,12 @@
       margin-top: var(--space-4);
       animation: slideInLeft 0.8s ease-out 0.6s both;
       color: var(--lavender-light);
+    }
+
+    [data-theme="light"] .hero-tagline {
+        background: rgba(139, 127, 255, 0.15);
+        border-color: var(--lavender-dark);
+        color: var(--lavender-dark);
     }
 
     .hero-actions {
@@ -590,6 +633,11 @@
       border: 1px solid rgba(139, 127, 255, 0.3);
     }
 
+    [data-theme="light"] .plan-tag {
+        color: var(--lavender-dark);
+        border-color: var(--lavender-dark);
+    }
+
     .plan-card p {
       font-size: 16px;
       color: var(--text-secondary);
@@ -720,11 +768,174 @@
       min-height: 120px;
     }
 
+    /* === AI Tool Styles === */
+    .ai-section {
+      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-elevated));
+      padding: var(--space-16) 0;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .ai-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ai-textarea {
+      width: 100%;
+      padding: var(--space-4);
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-color);
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 16px;
+      min-height: 120px;
+      margin-bottom: var(--space-4);
+      resize: vertical;
+    }
+
+    .ai-textarea:focus {
+      outline: none;
+      border-color: var(--lavender-light);
+      box-shadow: 0 0 0 3px rgba(139, 127, 255, 0.1);
+    }
+
+    .ai-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      color: white;
+      padding: 12px 32px;
+      border-radius: var(--radius-full);
+      border: none;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .ai-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 127, 255, 0.4);
+    }
+
+    .ai-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .ai-result {
+      margin-top: var(--space-8);
+      text-align: left;
+      background: var(--bg-elevated);
+      padding: var(--space-6);
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-color);
+      display: none; /* Hidden initially */
+    }
+
+    .ai-result h3 {
+      color: var(--lavender-light);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ai-result-content {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      white-space: pre-wrap; /* Maintains formatting */
+    }
+
+    /* === Partners Section Styles (Fixed for smooth scroll) === */
+    .partners-section {
+      padding: 80px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    /* Important: Use LTR logic for seamless infinite scroll even in RTL site */
+    .partners-slider {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .partners-track {
+      display: flex;
+      width: max-content; /* Ensure items don't wrap and width is calculated correctly */
+      gap: 40px;
+      padding: 20px 0;
+      
+      /* Animation logic */
+      animation: scrollLeft 30s linear infinite;
+    }
+
+    .partners-slider:hover .partners-track {
+      animation-play-state: paused;
+    }
+
+    .partner-item {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+      padding: 15px;
+    }
+
+    .partner-item:hover {
+      border-color: var(--lavender-light);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .partner-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: var(--transition-base);
+    }
+
+    .partner-item:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Keyframes for standard marquee:
+       Moves from 0 to -50% (half width because we duplicated items).
+       Because the container is set to LTR, this moves Left visually.
+    */
+    @keyframes scrollLeft {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
     .footer {
       background: var(--bg-secondary);
       color: var(--text-primary);
       padding: var(--space-16) var(--space-6) var(--space-6);
       border-top: 1px solid var(--border-color);
+      margin-top: 0;
     }
 
     .footer-inner {
@@ -813,6 +1024,48 @@
       color: var(--text-muted);
     }
 
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px; /* Changed to right for LTR */
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition-base);
+      animation: pulse-whatsapp 2s infinite;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      color: #FFF;
+      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(139, 127, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0);
+      }
+    }
+
     @media (max-width: 968px) {
       .hero-inner { grid-template-columns: 1fr; gap: var(--space-8); }
       .hero-content h1 { font-size: 40px; }
@@ -825,6 +1078,14 @@
       .hero-content h1 { font-size: 32px; }
       .hero-stats { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+        bottom: 20px;
+        right: 20px;
+      }
     }
   </style>
 </head>
@@ -847,6 +1108,11 @@
         <a href="https://ecode.sa/services-en/">Our Services</a>
         <a href="https://ecode.sa/plans-en/">Plans</a>
         <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
 
         <a href="https://ecode.sa/ar/" class="lang-switcher">
           <i class="fas fa-globe"></i>
@@ -1072,6 +1338,63 @@
     </div>
   </section>
 
+  <!-- Success Partners Section -->
+  <section class="partners-section">
+    <div class="section-inner">
+      <h2 class="section-title">Success Partners</h2>
+      <p class="section-subtitle">We are proud to partner with elite brands</p>
+      
+      <div class="partners-slider">
+        <div class="partners-track">
+          <!-- First set of logos -->
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+1" alt="Partner 1"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+2" alt="Partner 2"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+3" alt="Partner 3"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+4" alt="Partner 4"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+5" alt="Partner 5"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+6" alt="Partner 6"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+7" alt="Partner 7"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+8" alt="Partner 8"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+9" alt="Partner 9"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+10" alt="Partner 10"></div>
+          
+          <!-- Duplicate set for continuous scroll -->
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+1" alt="Partner 1"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+2" alt="Partner 2"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+3" alt="Partner 3"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+4" alt="Partner 4"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+5" alt="Partner 5"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+6" alt="Partner 6"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+7" alt="Partner 7"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+8" alt="Partner 8"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+9" alt="Partner 9"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+10" alt="Partner 10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Tool Section -->
+  <section class="ai-section" id="ai-tool">
+    <div class="section-inner">
+      <h2 class="section-title">Smart Marketing Consultant ✨</h2>
+      <p class="section-subtitle">Get an initial marketing plan for your project in seconds using AI</p>
+      
+      <div class="ai-card">
+        <textarea id="ai-project-desc" class="ai-textarea" placeholder="Enter a brief description of your project (e.g., An online store selling luxury perfumes targeting youth in Saudi Arabia)"></textarea>
+        <button onclick="analyzeProjectWithAI()" id="ai-btn" class="ai-btn">
+          <span>Analyze My Project</span>
+          <i class="fas fa-magic"></i>
+        </button>
+        
+        <div id="ai-result" class="ai-result">
+          <h3><i class="fas fa-lightbulb"></i> AI Suggestions:</h3>
+          <div id="ai-result-content" class="ai-result-content"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="section-inner">
       <h2 class="section-title">Frequently Asked Questions</h2>
@@ -1145,19 +1468,111 @@
 </section>
 
 <script>
-  async function handleFormSubmitEN2(event) {
-    event.preventDefault(); // Prevent page reload
+  // --- Theme Toggle Logic ---
+  function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme', nextTheme);
+      updateThemeIcon(nextTheme);
+  }
+
+  function updateThemeIcon(theme) {
+      const icon = document.querySelector('.theme-toggle i');
+      if (!icon) return; 
+      
+      if (theme === 'light') {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+      } else {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+      }
+  }
+
+  // Initialize Theme
+  document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+  });
+
+  // --- Gemini API Integration ---
+  async function analyzeProjectWithAI() {
+    const input = document.getElementById('ai-project-desc').value;
+    const resultBox = document.getElementById('ai-result');
+    const resultContent = document.getElementById('ai-result-content');
+    const btn = document.getElementById('ai-btn');
     
-    // Get the submit button to change its state
+    if (!input || input.trim() === "") {
+      alert("Please enter a project description first");
+      return;
+    }
+
+    // UI Loading State
+    const originalBtnText = btn.innerHTML;
+    btn.innerHTML = '<span>Analyzing...</span> <i class="fas fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+    resultBox.style.display = 'none';
+
+    const apiKey = ""; // Environment will provide key
+    const prompt = `As a professional digital marketing expert, analyze the following project and suggest 3 strategic, innovative, and actionable marketing tips. 
+    Project Description: "${input}"
+    
+    Please provide the answer as concise and clear bullet points in English.`;
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: prompt
+            }]
+          }]
+        })
+      });
+
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (text) {
+          resultContent.innerHTML = text.replace(/\n/g, '<br>').replace(/\*/g, '');
+          resultBox.style.display = 'block';
+          resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+          throw new Error("No text returned");
+      }
+
+    } catch (error) {
+      console.error("AI Error:", error);
+      alert("Sorry, an error occurred while connecting to the smart consultant. Please try again later.");
+    } finally {
+      btn.innerHTML = originalBtnText;
+      btn.disabled = false;
+    }
+  }
+
+  // --- Form Handling ---
+  async function handleFormSubmitEN2(event) {
+    event.preventDefault(); 
+    
     const btn = event.target.querySelector('button[type="submit"]');
     const originalText = btn.innerText;
     
-    // Change button state to loading
     btn.innerText = 'Sending... ⏳';
     btn.disabled = true;
     btn.style.opacity = '0.7';
 
-    // Collect data using English IDs (EN2)
     const formData = {
         name: document.getElementById('nameEN2').value,
         email: document.getElementById('emailEN2').value,
@@ -1165,14 +1580,12 @@
         service: document.getElementById('serviceEN2').value,
         message: document.getElementById('messageEN2').value || 'None',
         date: new Date().toLocaleDateString('en-US'),
-        language: 'English' // Added this so you know it came from EN site
+        language: 'English' 
     };
 
     try {
-        // Your Make.com Webhook URL
         const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
 
-        // Send data
         const response = await fetch(webhookUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -1180,18 +1593,13 @@
         });
 
         if (response.ok) {
-            // Success State
             btn.innerText = 'Sent Successfully ✅';
             btn.style.backgroundColor = '#7EDDA3';
             btn.style.color = '#000';
             btn.style.border = 'none';
             
-            // Reset form
-            // Note: Assuming form ID is contactFormEN2 based on pattern, 
-            // if not, use event.target.reset();
             event.target.reset(); 
             
-            // Revert button after 3 seconds
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.disabled = false;
@@ -1205,7 +1613,6 @@
         }
 
     } catch (error) {
-        // Error State
         console.error('Error:', error);
         btn.innerText = 'Error! ❌';
         btn.style.backgroundColor = '#ff6b6b';
@@ -1219,6 +1626,87 @@
         alert("Sorry, there was a connection error. Please try again later or contact us via WhatsApp.");
     }
   }
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasActive = item.classList.contains('active');
+      
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // Smooth scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+
+  // Service Worker Registration (Fixed Path)
+  if ('serviceWorker' in navigator && window.location.protocol.indexOf('http') === 0) {
+    window.addEventListener('load', () => {
+      // Use relative path to point to root directory
+      navigator.serviceWorker.register('../service-worker.js')
+        .then((registration) => {
+          console.log('✅ Service Worker registered:', registration.scope);
+          
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                if (confirm('New update available! Update now?')) {
+                  window.location.reload();
+                }
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          console.error('❌ Service Worker registration failed:', error);
+        });
+    });
+  }
+
+  // Install Prompt
+  let deferredPrompt;
+  const installButton = document.getElementById('installButton');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    
+    if (installButton) {
+      installButton.style.display = 'block';
+      
+      installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`User response: ${outcome}`);
+          deferredPrompt = null;
+          installButton.style.display = 'none';
+        }
+      });
+    }
+  });
+
+  window.addEventListener('appinstalled', () => {
+    console.log('✅ PWA installed successfully');
+    deferredPrompt = null;
+  });
 </script>
 
   <footer class="footer">
@@ -1292,155 +1780,5 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <script>
-    async function handleFormSubmit(event) {
-      event.preventDefault();
-      
-      const btn = event.target.querySelector('button[type="submit"]');
-      const originalText = btn.innerText;
-      
-      btn.innerText = 'Sending... ⏳';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-
-      const formData = {
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          service: document.getElementById('service').value,
-          message: document.getElementById('message').value || 'No additional details',
-          date: new Date().toLocaleDateString('en-US')
-      };
-
-      try {
-          const webhookUrl = "https://hook.eu1.make.com/m0r5843oyetl2f111beqnydz3yd3uust"; 
-
-          const response = await fetch(webhookUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(formData)
-          });
-
-          if (response.ok) {
-              btn.innerText = 'Sent Successfully ✅';
-              btn.style.backgroundColor = '#7EDDA3';
-              btn.style.color = '#000';
-              btn.style.border = 'none';
-              
-              document.getElementById('contactForm').reset();
-              
-              setTimeout(() => {
-                  btn.innerText = originalText;
-                  btn.disabled = false;
-                  btn.style.opacity = '1';
-                  btn.style.backgroundColor = ''; 
-                  btn.style.color = '';
-                  btn.style.border = '';
-              }, 3000);
-          } else {
-              throw new Error('Server response not ok');
-          }
-
-      } catch (error) {
-          console.error('Error:', error);
-          btn.innerText = 'Error! ❌';
-          btn.style.backgroundColor = '#ff6b6b';
-          
-          setTimeout(() => {
-              btn.innerText = originalText;
-              btn.disabled = false;
-              btn.style.backgroundColor = '';
-          }, 3000);
-          
-          alert("Sorry, connection error. Please try again later or contact us via WhatsApp.");
-      }
-    }
-
-    // Language Switcher
-    function switchLanguage() {
-      localStorage.setItem('preferred_lang', 'ar');
-      window.location.href = 'index.html';
-    }
-
-    // FAQ Accordion
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const wasActive = item.classList.contains('active');
-        
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        
-        if (!wasActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-
-    // Smooth scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
-
-    // Service Worker Registration
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then((registration) => {
-            console.log('✅ Service Worker registered:', registration.scope);
-            
-            registration.addEventListener('updatefound', () => {
-              const newWorker = registration.installing;
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  if (confirm('New update available! Update now?')) {
-                    window.location.reload();
-                  }
-                }
-              });
-            });
-          })
-          .catch((error) => {
-            console.error('❌ Service Worker registration failed:', error);
-          });
-      });
-    }
-
-    // Install Prompt
-    let deferredPrompt;
-    const installButton = document.getElementById('installButton');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      
-      if (installButton) {
-        installButton.style.display = 'block';
-        
-        installButton.addEventListener('click', async () => {
-          if (deferredPrompt) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response: ${outcome}`);
-            deferredPrompt = null;
-            installButton.style.display = 'none';
-          }
-        });
-      }
-    });
-
-    window.addEventListener('appinstalled', () => {
-      console.log('✅ PWA installed successfully');
-      deferredPrompt = null;
-    });
-  </script>
 </body>
 </html>
