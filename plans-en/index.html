@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,6 +29,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
     :root {
+      /* Base Colors (Dark Mode - Default) */
       --lavender-light: #A99BFF;
       --lavender-dark: #8B7FFF;
       --sky-blue: #5BC0F8;
@@ -41,6 +42,9 @@
       --text-secondary: #9DA5B4;
       --text-muted: #6B7280;
       --border-color: #2D3748;
+      --border-hover: #4A5568;
+      
+      --space-1: 4px;
       --space-2: 8px;
       --space-3: 12px;
       --space-4: 16px;
@@ -48,14 +52,35 @@
       --space-8: 32px;
       --space-12: 48px;
       --space-16: 64px;
+      
       --radius-base: 16px;
       --radius-lg: 24px;
       --radius-full: 999px;
+      
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
       --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
+      
+      --transition-fast: 150ms ease;
       --transition-base: 250ms ease;
+    }
+
+    /* === Light Mode Settings === */
+    [data-theme="light"] {
+      --bg-primary: #F3F4F6;
+      --bg-secondary: #FFFFFF;
+      --bg-elevated: #FFFFFF;
+      --text-primary: #1F2937;
+      --text-secondary: #4B5563;
+      --text-muted: #9CA3AF;
+      --border-color: #E5E7EB;
+      --border-hover: #D1D5DB;
+      
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -66,16 +91,30 @@
       color: var(--text-primary);
       line-height: 1.7;
       font-size: 16px;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
+    h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
+    h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
+    p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
+
+    /* ========== Header ========== */
     .main-header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(15, 20, 25, 0.95);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-sm);
+      background: var(--bg-primary);
       border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-base);
+    }
+
+    @supports (backdrop-filter: blur(12px)) {
+        .main-header {
+            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
+            backdrop-filter: blur(12px);
+        }
     }
 
     .header-inner {
@@ -113,12 +152,15 @@
       object-fit: contain;
     }
 
+    .logo-text { display: flex; flex-direction: column; }
+
     .logo-text .brand-name {
       font-size: 24px;
       font-weight: 700;
       background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .logo-text .brand-tagline {
@@ -131,65 +173,91 @@
       display: flex;
       align-items: center;
       gap: var(--space-6);
+      font-size: 16px;
+      font-weight: 500;
     }
 
     .nav a {
       text-decoration: none;
       color: var(--text-secondary);
+      position: relative;
+      padding: var(--space-2) 0;
+      transition: var(--transition-fast);
       font-weight: 600;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
       transition: var(--transition-base);
     }
 
-    .nav a:hover {
-      color: var(--lavender-light);
-    }
+    .nav a:hover { color: var(--lavender-light); }
+    .nav a:hover::after { width: 100%; }
+    .nav a.active { color: var(--lavender-light); }
+    .nav a.active::after { width: 100%; }
 
-    .nav a.active {
-      color: var(--lavender-light);
-    }
-
-    .lang-switcher {
+    /* === Circular Buttons (Language & Theme) === */
+    .lang-switcher, .theme-toggle {
       display: flex;
       align-items: center;
-      gap: var(--space-2);
-      padding: 8px 16px;
-      border-radius: var(--radius-full);
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 50%;
       background: var(--bg-elevated);
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition-base);
       text-decoration: none;
     }
 
-    .lang-switcher:hover {
+    .lang-switcher:hover, .theme-toggle:hover {
       background: var(--bg-secondary);
       border-color: var(--lavender-dark);
       color: var(--lavender-light);
       box-shadow: var(--shadow-glow);
     }
 
+    /* === "Contact Us" Button (Wide) === */
     .btn-primary {
-      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      min-width: 140px;
       border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
       background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
       color: #fff !important;
       text-decoration: none;
-      font-size: 15px;
-      font-weight: 700;
       transition: var(--transition-base);
       box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+      white-space: nowrap;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      filter: brightness(1.1);
+      color: #fff !important;
     }
 
     .page-hero {
-      background: linear-gradient(135deg, #1A1F2E, #242B3D, #2D3748);
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
       padding: 100px var(--space-6) 80px;
       text-align: center;
       border-bottom: 1px solid var(--border-color);
@@ -206,6 +274,12 @@
       height: 600px;
       background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
       border-radius: 50%;
+      animation: float 25s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-80px, 60px) scale(1.1); }
     }
 
     .page-hero h1 {
@@ -215,6 +289,7 @@
       background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       position: relative;
       z-index: 1;
     }
@@ -242,6 +317,7 @@
       background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .section-subtitle {
@@ -310,10 +386,19 @@
       border: 1px solid rgba(139, 127, 255, 0.3);
     }
 
+    [data-theme="light"] .plan-tag {
+        color: var(--lavender-dark);
+        border-color: var(--lavender-dark);
+    }
+
     .plan-card.featured .plan-tag {
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
       color: #fff;
       border: none;
+    }
+
+    [data-theme="light"] .plan-card.featured .plan-tag {
+        color: #fff;
     }
 
     .plan-icon {
@@ -388,6 +473,7 @@
     .plan-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      color: #fff;
     }
 
     .comparison-section {
@@ -396,6 +482,7 @@
       border-radius: var(--radius-lg);
       padding: var(--space-12);
       border: 1px solid var(--border-color);
+      overflow-x: auto; /* Added for small screens */
     }
 
     .comparison-section h2 {
@@ -406,13 +493,10 @@
       text-align: center;
     }
 
-    .comparison-table {
-      overflow-x: auto;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 600px; /* Ensure table doesn't squash */
     }
 
     th, td {
@@ -438,6 +522,7 @@
       font-size: 20px;
     }
 
+    /* === Footer Styles (Standardized) === */
     .footer {
       background: var(--bg-secondary);
       color: var(--text-primary);
@@ -488,11 +573,12 @@
       margin-bottom: var(--space-2);
     }
 
+    /* Standardized Footer Social Bar */
     .social-bar {
       margin-top: var(--space-4);
       padding: var(--space-4);
       border-radius: var(--radius-lg);
-      background: rgba(139, 127, 255, 0.05);
+      background: rgba(139, 127, 255, 0.05); /* Same as main page */
       border: 1px solid var(--border-color);
       display: flex;
       flex-wrap: wrap;
@@ -514,12 +600,17 @@
       border: 1px solid var(--border-color);
     }
 
-    .social-link:hover {
+    /* Correct hover contrast: White Icon + Gradient Bg */
+    .footer .social-bar .social-link:hover {
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      color: #fff;
+      color: #ffffff !important;
       transform: translateY(-4px);
       box-shadow: var(--shadow-glow);
       border-color: transparent;
+    }
+    
+    .footer .social-bar .social-link:hover i {
+      color: #ffffff !important;
     }
 
     .footer-bottom {
@@ -531,10 +622,62 @@
       color: var(--text-muted);
     }
 
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px; /* Right for LTR */
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition-base);
+      animation: pulse-whatsapp 2s infinite;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+      color: #FFF;
+      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(139, 127, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0);
+      }
+    }
+
     @media (max-width: 968px) {
       .plans-grid { grid-template-columns: 1fr; }
       .page-hero h1 { font-size: 40px; }
       .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
+    }
+    
+    @media (max-width: 640px) {
+        .whatsapp-float {
+            width: 55px;
+            height: 55px;
+            font-size: 28px;
+            bottom: 20px;
+            right: 20px;
+        }
     }
   </style>
 </head>
@@ -557,11 +700,19 @@
         <a href="https://ecode.sa/services-en/">Our Services</a>
         <a href="https://ecode.sa/plans-en/" class="active">Plans</a>
         <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
-        <a href="https://ecode.sa/ar/" class="lang-switcher">
-          <i class="fas fa-globe"></i>
-          <span>العربية</span>
+        
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <a href="https://ecode.sa/ar/" class="lang-switcher" aria-label="Arabic">
+          <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
         </a>
-        <a href="https://ecode.sa/contact-en/" class="btn-primary">Contact Us</a>
+
+        <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 14px 32px; font-size: 16px; color: #fff !important;">
+          Contact Us
+        </a>
       </nav>
     </div>
   </header>
@@ -749,6 +900,15 @@
             <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
+            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
+              <i class="fa-brands fa-snapchat"></i>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
           </div>
         </div>
 
@@ -778,6 +938,44 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // --- Theme Toggle Logic ---
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('theme', nextTheme);
+        updateThemeIcon(nextTheme);
+    }
+
+    function updateThemeIcon(theme) {
+        const icon = document.querySelector('.theme-toggle i');
+        if (!icon) return; 
+        
+        if (theme === 'light') {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+
+    // Initialize Theme
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+    });
+  </script>
 
 </body>
 </html>
