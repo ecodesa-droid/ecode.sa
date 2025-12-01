@@ -798,7 +798,7 @@
       min-height: 120px;
     }
 
-    /* === Partners Section Styles (New) === */
+    /* === Partners Section Styles (Fixed for smooth scroll) === */
     .partners-section {
       padding: 80px 0;
       background: var(--bg-secondary);
@@ -807,6 +807,7 @@
       overflow: hidden;
     }
 
+    /* Important: Use LTR logic for seamless infinite scroll even in RTL site */
     .partners-slider {
       width: 100%;
       overflow: hidden;
@@ -816,10 +817,12 @@
 
     .partners-track {
       display: flex;
-      width: fit-content;
-      animation: scroll 25s linear infinite;
+      width: max-content; /* Ensure items don't wrap and width is calculated correctly */
       gap: 40px;
       padding: 20px 0;
+      
+      /* Animation logic */
+      animation: scrollLeft 30s linear infinite;
     }
 
     .partners-slider:hover .partners-track {
@@ -860,29 +863,10 @@
       opacity: 1;
     }
 
-    /* Animation for RTL (Right to Left Scrolling) */
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(50%); } 
-      /* In RTL, positive translateX moves to the Left visually relative to start? 
-         Let's test: normally in LTR, -50% moves left. 
-         In RTL, the coordinate system flips. 
-         Usually for infinite scroll, we duplicate items.
-         If we have 2 sets of items, we move by 50% of the total track width.
-      */
-    }
-
-    /* Force LTR direction for the slider track to make math easier, 
-       or adjust keyframes carefully. 
-       Let's stick to standard marquee logic:
-       We want items to move Right -> Left.
-       In CSS Transform, translateX(-100%) moves element left.
+    /* Keyframes for standard marquee:
+       Moves from 0 to -50% (half width because we duplicated items).
+       Because the container is set to LTR, this moves Left visually.
     */
-    .partners-track {
-        direction: ltr; /* Force LTR so negative TranslateX moves Left */
-        animation: scrollLeft 30s linear infinite;
-    }
-    
     @keyframes scrollLeft {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
@@ -893,7 +877,7 @@
       color: var(--text-primary);
       padding: var(--space-16) var(--space-6) var(--space-6);
       border-top: 1px solid var(--border-color);
-      margin-top: 0; /* Adjusted because partners section is above */
+      margin-top: 0;
     }
 
     .footer-inner {
@@ -1302,27 +1286,32 @@
       <h2 class="section-title">شركاء النجاح</h2>
       <p class="section-subtitle">نسعد بشراكتنا مع نخبة من العلامات التجارية</p>
       
-      <div class="partners-slider">
+      <!-- إضافة dir="ltr" مهمة جداً لضبط اتجاه السلايدر -->
+      <div class="partners-slider" dir="ltr">
         <div class="partners-track">
           <!-- المجموعة الأولى من الشعارات -->
-          <div class="partner-item"><img src="https://sadq-sa.com/assets/images/sadq-landing-page/logo-white-png-en.png/200x100?text=Partner+1" alt="شريك 1"></div>
-          <div class="partner-item"><img src="https://https://ait.sa/wp-content/uploads/2024/03/Androhealth-Logo@3x-1024x256.png/200x100?text=Partner+2" alt="شريك 2"></div>
-          <div class="partner-item"><img src="https://ecode.sa/favicon.png/200x100?text=Partner+3" alt="شريك 3"></div>
-          <div class="partner-item"><img src="https://play-lh.googleusercontent.com/l07XZUSDlnn2ceMGOx3KWIfWH622RFKBZWZr50u_46qg3VfRTp0Rzu2501dF5u23AQ=w600-h300-pc0xffffff-pd/200x100?text=Partner+4" alt="شريك 4"></div>
-          <div class="partner-item"><img src="https://signit.sa/wp-content/uploads/2023/05/Logo.png/200x100?text=Partner+5" alt="شريك 5"></div>
-          <div class="partner-item"><img src="https://realestate.bqauctions.com/images/bq-app-logo.svg/200x100?text=Partner+6" alt="شريك 6"></div>
-          <div class="partner-item"><img src="https://nexus.ingroupe.com/wp-content/uploads/2020/03/alibaba-cloud-logo.png/200x100?text=Partner+7" alt="شريك 7"></div>
-          <div class="partner-item"><img src="https://images.deliveryhero.io/image/hungerstation/restaurant/logo_ar/6a7fdb4be17927d882358a14d96fbfb2.jpg?width=256&quality=75&webp=true/200x100?text=Partner+8" alt="شريك 8"></div>
-  
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+1" alt="شريك 1"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+2" alt="شريك 2"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+3" alt="شريك 3"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+4" alt="شريك 4"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+5" alt="شريك 5"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+6" alt="شريك 6"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+7" alt="شريك 7"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+8" alt="شريك 8"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+9" alt="شريك 9"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+10" alt="شريك 10"></div>
+          
           <!-- تكرار المجموعة لضمان الحركة المستمرة -->
-          <div class="partner-item"><img src="https://sadq-sa.com/assets/images/sadq-landing-page/logo-white-png-en.png/200x100?text=Partner+1" alt="شريك 1"></div>
-          <div class="partner-item"><img src="https://https://ait.sa/wp-content/uploads/2024/03/Androhealth-Logo@3x-1024x256.png/200x100?text=Partner+2" alt="شريك 2"></div>
-          <div class="partner-item"><img src="https://ecode.sa/favicon.png/200x100?text=Partner+3" alt="شريك 3"></div>
-          <div class="partner-item"><img src="https://play-lh.googleusercontent.com/l07XZUSDlnn2ceMGOx3KWIfWH622RFKBZWZr50u_46qg3VfRTp0Rzu2501dF5u23AQ=w600-h300-pc0xffffff-pd/200x100?text=Partner+4" alt="شريك 4"></div>
-          <div class="partner-item"><img src="https://signit.sa/wp-content/uploads/2023/05/Logo.png/200x100?text=Partner+5" alt="شريك 5"></div>
-          <div class="partner-item"><img src="https://realestate.bqauctions.com/images/bq-app-logo.svg/200x100?text=Partner+6" alt="شريك 6"></div>
-          <div class="partner-item"><img src="https://nexus.ingroupe.com/wp-content/uploads/2020/03/alibaba-cloud-logo.png/200x100?text=Partner+7" alt="شريك 7"></div>
-          <div class="partner-item"><img src="https://images.deliveryhero.io/image/hungerstation/restaurant/logo_ar/6a7fdb4be17927d882358a14d96fbfb2.jpg?width=256&quality=75&webp=true/200x100?text=Partner+8" alt="شريك 8"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+1" alt="شريك 1"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+2" alt="شريك 2"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+3" alt="شريك 3"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+4" alt="شريك 4"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+5" alt="شريك 5"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+6" alt="شريك 6"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+7" alt="شريك 7"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+8" alt="شريك 8"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+9" alt="شريك 9"></div>
+          <div class="partner-item"><img src="https://placehold.co/200x100?text=Partner+10" alt="شريك 10"></div>
         </div>
       </div>
     </div>
