@@ -1,1098 +1,1106 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services | eCode</title>
-  <meta name="description" content="Discover eCode's comprehensive services in digital marketing, content management, creative production, and technical solutions to grow your business in Saudi Arabia">
-  
-  <!-- SEO Tags -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <link rel="canonical" href="https://ecode.sa/services/">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Our Services | eCode">
-  <meta property="og:description" content="Discover eCode's comprehensive services in digital marketing, content management, creative production, and technical solutions to grow your business in Saudi Arabia">
-  <meta property="og:image" content="https://ecode.sa/favicon.png">
-  <meta property="og:url" content="https://ecode.sa/services/">
-  <meta property="og:type" content="website">
-  
-  <!-- Favicons -->
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  
-  <style>
-    :root {
-      /* Base Colors (Dark Mode - Default) */
-      --lavender-light: #A99BFF;
-      --lavender-dark: #8B7FFF;
-      --sky-blue: #5BC0F8;
-      --mint-green: #7EDDA3;
-      --soft-orange: #FFB86C;
-      --coral-pink: #FF79C6;
-      
-      --bg-primary: #0F1419;
-      --bg-secondary: #1A1F2E;
-      --bg-elevated: #242B3D;
-      --text-primary: #E6EDF3;
-      --text-secondary: #9DA5B4;
-      --text-muted: #6B7280;
-      --border-color: #2D3748;
-      --border-hover: #4A5568;
-      
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-12: 48px;
-      --space-16: 64px;
-      
-      --radius-base: 16px;
-      --radius-lg: 24px;
-      --radius-full: 999px;
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
-      
-      --transition-fast: 150ms ease;
-      --transition-base: 250ms ease;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>خدماتنا | eCode</title>
+<meta name="description" content="اكتشف خدمات eCode الشاملة في التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية لنمو أعمالك في السعودية">
 
-    /* === Light Mode Settings === */
-    [data-theme="light"] {
-      --bg-primary: #F3F4F6;
-      --bg-secondary: #FFFFFF;
-      --bg-elevated: #FFFFFF;
-      --text-primary: #1F2937;
-      --text-secondary: #4B5563;
-      --text-muted: #9CA3AF;
-      --border-color: #E5E7EB;
-      --border-hover: #D1D5DB;
-      
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
-    }
+<!-- SEO Tags -->
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://ecode.sa/services/">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+<!-- Open Graph -->
+<meta property="og:title" content="خدماتنا | eCode">
+<meta property="og:description" content="اكتشف خدمات eCode الشاملة في التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية لنمو أعمالك في السعودية">
+<meta property="og:image" content="https://ecode.sa/favicon.png">
+<meta property="og:url" content="https://ecode.sa/services/">
+<meta property="og:type" content="website">
 
-    /* ========== Header ========== */
-    .main-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-color);
-      transition: var(--transition-base);
-    }
+<!-- Favicons -->
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="/favicon.png" />
 
-    @supports (backdrop-filter: blur(12px)) {
-        .main-header {
-            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
-            backdrop-filter: blur(12px);
-        }
-    }
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-4) var(--space-6);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
+<style>
+:root {
+/* الألوان الأساسية (الوضع الداكن - الافتراضي) */
+--lavender-light: #A99BFF;
+--lavender-dark: #8B7FFF;
+--sky-blue: #5BC0F8;
+--mint-green: #7EDDA3;
+--soft-orange: #FFB86C;
+--coral-pink: #FF79C6;
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-    .logo-container:hover { transform: scale(1.02); }
+--bg-primary: #0F1419;
+--bg-secondary: #1A1F2E;
+--bg-elevated: #242B3D;
+--text-primary: #E6EDF3;
+--text-secondary: #9DA5B4;
+--text-muted: #6B7280;
+--border-color: #2D3748;
+--border-hover: #4A5568;
 
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-icon img { width: 48px; height: 48px; object-fit: contain; }
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-6: 24px;
+--space-8: 32px;
+--space-12: 48px;
+--space-16: 64px;
 
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-text .brand-name {
-      font-size: 24px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .logo-text .brand-tagline {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+--radius-base: 16px;
+--radius-lg: 24px;
+--radius-full: 999px;
 
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-6);
-      font-size: 16px;
-      font-weight: 500;
-    }
+--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+--shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
 
-    .nav a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-weight: 600;
-      transition: var(--transition-base);
-      padding: var(--space-2) 0;
-      position: relative;
-    }
-    
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      transition: var(--transition-base);
-    }
+--transition-fast: 150ms ease;
+--transition-base: 250ms ease;
+}
 
-    .nav a:hover { color: var(--lavender-light); }
-    .nav a:hover::after { width: 100%; }
-    .nav a.active { color: var(--lavender-light); }
-    .nav a.active::after { width: 100%; }
+/* === إعدادات الوضع المضيء === */
+[data-theme="light"] {
+--bg-primary: #F3F4F6;
+--bg-secondary: #FFFFFF;
+--bg-elevated: #FFFFFF;
+--text-primary: #1F2937;
+--text-secondary: #4B5563;
+--text-muted: #9CA3AF;
+--border-color: #E5E7EB;
+--border-hover: #D1D5DB;
 
-    .lang-switcher, .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      border-radius: 50%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
+--shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+--shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+--shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+--shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
+}
 
-    .lang-switcher:hover, .theme-toggle:hover {
-      background: var(--bg-secondary);
-      border-color: var(--lavender-dark);
-      color: var(--lavender-light);
-      box-shadow: var(--shadow-glow);
-    }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+font-family: "Tajawal", system-ui, sans-serif;
+background: var(--bg-primary);
+color: var(--text-primary);
+line-height: 1.7;
+font-size: 16px;
+overflow-x: hidden;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      min-width: 140px;
-      border-radius: var(--radius-full);
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff !important;
-      text-decoration: none;
-      transition: var(--transition-base);
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      white-space: nowrap;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      filter: brightness(1.1);
-    }
+h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
+h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
+h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
+p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
 
-    .btn-secondary {
-      padding: 10px var(--space-6);
-      border-radius: var(--radius-full);
-      border: 2px solid var(--text-primary);
-      background: transparent;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
-      transition: var(--transition-base);
-      display: inline-block;
-    }
+/* ========== Header ========== */
+.main-header {
+position: sticky;
+top: 0;
+z-index: 50;
+background: var(--bg-primary);
+border-bottom: 1px solid var(--border-color);
+transition: var(--transition-base);
+}
 
-    .btn-secondary:hover {
-      background: var(--text-primary);
-      color: var(--bg-primary);
-      transform: translateY(-2px);
-    }
+@supports (backdrop-filter: blur(12px)) {
+.main-header {
+background: color-mix(in srgb, var(--bg-primary), transparent 10%);
+backdrop-filter: blur(12px);
+}
+}
 
-    /* ========== Page Hero ========== */
-    .page-hero {
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
-      padding: 100px var(--space-6) 80px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-color);
-      position: relative;
-      overflow: hidden;
-    }
+.header-inner {
+max-width: 1200px;
+margin: 0 auto;
+padding: var(--space-4) var(--space-6);
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: var(--space-4);
+}
 
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 25s ease-in-out infinite;
-    }
+.logo-container {
+display: flex;
+align-items: center;
+gap: var(--space-3);
+text-decoration: none;
+transition: var(--transition-base);
+}
+.logo-container:hover { transform: scale(1.02); }
 
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-80px, 60px) scale(1.1); }
-    }
+.logo-icon {
+width: 48px;
+height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo-icon img { width: 48px; height: 48px; object-fit: contain; }
 
-    .page-hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      z-index: 1;
-    }
+.logo-text { display: flex; flex-direction: column; }
+.logo-text .brand-name {
+font-size: 24px;
+font-weight: 700;
+background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.logo-text .brand-tagline {
+font-size: 13px;
+color: var(--text-muted);
+font-weight: 500;
+}
 
-    .page-hero p {
-      font-size: 20px;
-      color: var(--text-secondary);
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+.nav {
+display: flex;
+align-items: center;
+gap: var(--space-6);
+font-size: 16px;
+font-weight: 500;
+}
 
-    /* ========== Services Section ========== */
-    .services-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-16) var(--space-6);
-    }
+.nav a {
+text-decoration: none;
+color: var(--text-secondary);
+font-weight: 600;
+transition: var(--transition-base);
+padding: var(--space-2) 0;
+position: relative;
+}
 
-    .section-title {
-      font-size: 40px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: var(--space-3);
-      color: var(--text-primary);
-    }
+.nav a::after {
+content: '';
+position: absolute;
+bottom: 0;
+right: 0;
+width: 0;
+height: 2px;
+background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+transition: var(--transition-base);
+}
 
-    .section-subtitle {
-      text-align: center;
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: var(--space-12);
-    }
+.nav a:hover { color: var(--lavender-light); }
+.nav a:hover::after { width: 100%; }
+.nav a.active { color: var(--lavender-light); }
+.nav a.active::after { width: 100%; }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-16);
-    }
+.lang-switcher, .theme-toggle {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 42px;
+height: 42px;
+padding: 0;
+border-radius: 50%;
+background: var(--bg-elevated);
+border: 1px solid var(--border-color);
+color: var(--text-secondary);
+font-size: 16px;
+cursor: pointer;
+text-decoration: none;
+transition: var(--transition-base);
+}
 
-    .service-card {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      border: 1px solid var(--border-color);
-      transition: var(--transition-base);
-      position: relative;
-      overflow: hidden;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+.lang-switcher:hover, .theme-toggle:hover {
+background: var(--bg-secondary);
+border-color: var(--lavender-dark);
+color: var(--lavender-light);
+box-shadow: var(--shadow-glow);
+}
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: var(--transition-base);
-    }
+.btn-primary {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 14px 32px;
+min-width: 140px;
+border-radius: var(--radius-full);
+border: none;
+cursor: pointer;
+font-size: 16px;
+font-weight: 700;
+background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+color: #fff !important;
+text-decoration: none;
+transition: var(--transition-base);
+box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+white-space: nowrap;
+}
+.btn-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+filter: brightness(1.1);
+}
 
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--lavender-dark);
-    }
-    .service-card:hover::before { transform: scaleX(1); }
+/* ========== Page Hero ========== */
+.page-hero {
+background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+padding: 100px var(--space-6) 80px;
+text-align: center;
+border-bottom: 1px solid var(--border-color);
+position: relative;
+overflow: hidden;
+}
 
-    /* Special Style for Coming Soon Cards */
-    .service-card.coming-soon {
-        opacity: 0.85;
-        border-style: dashed;
-    }
+.page-hero::before {
+content: '';
+position: absolute;
+top: -50%;
+right: -20%;
+width: 600px;
+height: 600px;
+background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
+border-radius: 50%;
+animation: float 25s ease-in-out infinite;
+}
 
-    .service-header {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-4);
-        margin-bottom: var(--space-4);
-    }
+@keyframes float {
+0%, 100% { transform: translate(0, 0) scale(1); }
+50% { transform: translate(-80px, 60px) scale(1.1); }
+}
 
-    .service-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(139, 127, 255, 0.1);
-      border-radius: var(--radius-base);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: var(--lavender-light);
-      border: 1px solid rgba(139, 127, 255, 0.2);
-      flex-shrink: 0;
-    }
+.page-hero h1 {
+font-size: 48px;
+font-weight: 700;
+margin-bottom: var(--space-4);
+background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+position: relative;
+z-index: 1;
+}
 
-    [data-theme="light"] .service-icon {
-        background: rgba(139, 127, 255, 0.1);
-        color: var(--lavender-dark);
-        border-color: rgba(139, 127, 255, 0.2);
-    }
+.page-hero p {
+font-size: 20px;
+color: var(--text-secondary);
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+z-index: 1;
+}
 
-    .service-title-group {
-        display: flex;
-        flex-direction: column;
-    }
+/* ========== Services Section ========== */
+.services-section {
+max-width: 1200px;
+margin: 0 auto;
+padding: var(--space-16) var(--space-6);
+}
 
-    .service-card h3 {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.3;
-    }
+.section-title {
+font-size: 40px;
+font-weight: 700;
+text-align: center;
+margin-bottom: var(--space-3);
+color: var(--text-primary);
+}
 
-    .service-tag {
-        font-size: 12px;
-        color: var(--mint-green);
-        font-weight: 600;
-        margin-top: 4px;
-    }
-    
-    .service-tag.advanced {
-        color: var(--soft-orange);
-    }
-    
-    .service-tag.coming-soon-tag {
-        color: var(--text-muted);
-    }
+.section-subtitle {
+text-align: center;
+font-size: 18px;
+color: var(--text-muted);
+margin-bottom: var(--space-12);
+}
 
-    .service-card p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: var(--space-6);
-      line-height: 1.7;
-      flex-grow: 1;
-    }
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: var(--space-8);
+margin-bottom: var(--space-16);
+}
 
-    .service-features {
-      list-style: none;
-      margin-top: auto; /* Push to bottom */
-      padding: 0;
-      margin-bottom: var(--space-6);
-      background: var(--bg-elevated);
-      border-radius: var(--radius-base);
-      padding: var(--space-4);
-    }
+.service-card {
+background: var(--bg-secondary);
+border-radius: var(--radius-lg);
+padding: var(--space-8);
+border: 1px solid var(--border-color);
+transition: var(--transition-base);
+position: relative;
+overflow: hidden;
+height: 100%;
+display: flex;
+flex-direction: column;
+}
 
-    .service-features li {
-      padding: var(--space-2) 0;
-      padding-left: 24px;
-      position: relative;
-      color: var(--text-secondary);
-      font-size: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .service-features li:last-child { border-bottom: none; }
+.service-card::before {
+content: '';
+position: absolute;
+top: 0;
+right: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+transform: scaleX(0);
+transform-origin: right;
+transition: var(--transition-base);
+}
 
-    .service-features li::before {
-      content: '•';
-      position: absolute;
-      left: 8px;
-      color: var(--lavender-light);
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 1;
-      top: 8px;
-    }
+.service-card:hover {
+transform: translateY(-8px);
+box-shadow: var(--shadow-lg);
+border-color: var(--lavender-dark);
+}
+.service-card:hover::before { transform: scaleX(1); }
 
-    .service-link {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      color: var(--lavender-light);
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition-fast);
-      margin-top: auto;
-    }
+/* Special Style for Coming Soon Cards */
+.service-card.coming-soon {
+opacity: 0.85;
+border-style: dashed;
+}
 
-    .service-link:hover {
-      color: var(--sky-blue);
-      gap: var(--space-3);
-    }
+.service-header {
+display: flex;
+align-items: flex-start;
+gap: var(--space-4);
+margin-bottom: var(--space-4);
+}
 
-    /* Disabled Button Style for Coming Soon */
-    .service-link.disabled {
-        color: var(--text-muted);
-        cursor: default;
-        pointer-events: none;
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-elevated));
-      border-radius: var(--radius-lg);
-      padding: var(--space-16) var(--space-6);
-      text-align: center;
-      border: 1px solid var(--border-color);
-      margin-top: var(--space-16);
-    }
+.service-icon {
+width: 50px;
+height: 50px;
+background: rgba(139, 127, 255, 0.1);
+border-radius: var(--radius-base);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+color: var(--lavender-light);
+border: 1px solid rgba(139, 127, 255, 0.2);
+flex-shrink: 0;
+}
 
-    .cta-section h2 {
-        font-size: 32px;
-        margin-bottom: var(--space-4);
-    }
-    
-    .cta-section p {
-        max-width: 600px;
-        margin: 0 auto var(--space-8);
-    }
-    
-    .btn-secondary {
-      padding: 14px 28px;
-      border-radius: var(--radius-full);
-      border: 2px solid var(--lavender-dark);
-      background: transparent;
-      color: var(--lavender-light);
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 700;
-      transition: var(--transition-base);
-    }
+.service-title-group {
+display: flex;
+flex-direction: column;
+}
 
-    .btn-secondary:hover {
-      background: var(--lavender-dark);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: var(--space-4);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.service-card h3 {
+font-size: 22px;
+font-weight: 700;
+color: var(--text-primary);
+line-height: 1.3;
+}
 
-    /* ========== Footer ========== */
-    .footer {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      padding: var(--space-16) var(--space-6) var(--space-6);
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-16);
-    }
+.service-tag {
+font-size: 12px;
+color: var(--mint-green);
+font-weight: 600;
+margin-top: 4px;
+}
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
+.service-tag.advanced {
+color: var(--soft-orange);
+}
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-8);
-    }
+.service-card p {
+font-size: 16px;
+color: var(--text-secondary);
+margin-bottom: var(--space-6);
+line-height: 1.7;
+flex-grow: 1;
+}
 
-    .footer h4 { margin-bottom: var(--space-4); font-size: 20px; color: var(--text-primary); }
-    .footer p { color: var(--text-secondary); margin-bottom: var(--space-2); font-size: 16px; }
-    .footer a { color: var(--text-secondary); text-decoration: none; transition: var(--transition-base); }
-    .footer a:hover { color: var(--lavender-light); }
+.service-features {
+list-style: none;
+margin-top: auto; /* Push to bottom */
+padding: 0;
+margin-bottom: var(--space-6);
+background: var(--bg-elevated);
+border-radius: var(--radius-base);
+padding: var(--space-4);
+}
 
-    .footer-links ul { list-style: none; padding: 0; }
-    .footer-links li { margin-bottom: var(--space-2); }
+.service-features li {
+padding: var(--space-2) 0;
+padding-right: 24px;
+position: relative;
+color: var(--text-secondary);
+font-size: 14px;
+border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 
-    .social-bar {
-      margin-top: var(--space-4);
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
-      background: rgba(139, 127, 255, 0.05);
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
+.service-features li:last-child { border-bottom: none; }
 
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-elevated);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-      font-size: 18px;
-      border: 1px solid var(--border-color);
-    }
+.service-features li::before {
+content: '•';
+position: absolute;
+right: 8px;
+color: var(--lavender-light);
+font-weight: bold;
+font-size: 18px;
+line-height: 1;
+top: 8px;
+}
 
-    .footer .social-bar .social-link:hover {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      color: #ffffff !important;
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-      border-color: transparent;
-    }
-    .footer .social-bar .social-link:hover i { color: #ffffff !important; }
+.service-link {
+display: inline-flex;
+align-items: center;
+gap: var(--space-2);
+color: var(--lavender-light);
+text-decoration: none;
+font-weight: 600;
+transition: var(--transition-fast);
+margin-top: auto;
+}
 
-    .footer-bottom {
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-8);
-      padding-top: var(--space-4);
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
+.service-link:hover {
+color: var(--sky-blue);
+gap: var(--space-3);
+}
 
-    /* WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px; /* Right for LTR */
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 32px;
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition-base);
-      animation: pulse-whatsapp 2s infinite;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-    .whatsapp-float:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      color: #FFF;
-      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
-    }
-    @keyframes pulse-whatsapp {
-      0% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(139, 127, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0); }
-    }
+/* Disabled Button Style for Coming Soon */
+.service-link.disabled {
+color: var(--text-muted);
+cursor: default;
+pointer-events: none;
+}
 
-    @media (max-width: 968px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .page-hero h1 { font-size: 40px; }
-      .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
-    }
-    @media (max-width: 640px) {
-        .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; }
-    }
-  </style>
+/* CTA Section */
+.cta-section {
+background: linear-gradient(135deg, var(--bg-secondary), var(--bg-elevated));
+border-radius: var(--radius-lg);
+padding: var(--space-16) var(--space-6);
+text-align: center;
+border: 1px solid var(--border-color);
+margin-top: var(--space-16);
+}
+
+.cta-section h2 {
+font-size: 32px;
+margin-bottom: var(--space-4);
+}
+
+.cta-section p {
+max-width: 600px;
+margin: 0 auto var(--space-8);
+}
+
+.btn-secondary {
+padding: 14px 28px;
+border-radius: var(--radius-full);
+border: 2px solid var(--lavender-dark);
+background: transparent;
+color: var(--lavender-light);
+text-decoration: none;
+font-size: 16px;
+font-weight: 700;
+transition: var(--transition-base);
+}
+
+.btn-secondary:hover {
+background: var(--lavender-dark);
+color: #fff;
+transform: translateY(-2px);
+}
+
+.cta-buttons {
+display: flex;
+gap: var(--space-4);
+justify-content: center;
+flex-wrap: wrap;
+}
+
+/* ========== Footer ========== */
+.footer {
+background: var(--bg-secondary);
+color: var(--text-primary);
+padding: var(--space-16) var(--space-6) var(--space-6);
+border-top: 1px solid var(--border-color);
+margin-top: var(--space-16);
+}
+
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: var(--space-8);
+margin-bottom: var(--space-8);
+}
+
+.footer h4 { margin-bottom: var(--space-4); font-size: 20px; color: var(--text-primary); }
+.footer p { color: var(--text-secondary); margin-bottom: var(--space-2); font-size: 16px; }
+.footer a { color: var(--text-secondary); text-decoration: none; transition: var(--transition-base); }
+.footer a:hover { color: var(--lavender-light); }
+
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: var(--space-2); }
+
+.social-bar {
+margin-top: var(--space-4);
+padding: var(--space-4);
+border-radius: var(--radius-lg);
+background: rgba(139, 127, 255, 0.05);
+border: 1px solid var(--border-color);
+display: flex;
+flex-wrap: wrap;
+gap: var(--space-3);
+}
+
+.social-link {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--bg-elevated);
+color: var(--text-secondary);
+text-decoration: none;
+transition: var(--transition-base);
+font-size: 18px;
+border: 1px solid var(--border-color);
+}
+
+.footer .social-bar .social-link:hover {
+background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+color: #ffffff !important;
+transform: translateY(-4px);
+box-shadow: var(--shadow-glow);
+border-color: transparent;
+}
+.footer .social-bar .social-link:hover i { color: #ffffff !important; }
+
+.footer-bottom {
+border-top: 1px solid var(--border-color);
+margin-top: var(--space-8);
+padding-top: var(--space-4);
+text-align: center;
+font-size: 14px;
+color: var(--text-muted);
+}
+
+/* WhatsApp Button */
+.whatsapp-float {
+position: fixed;
+bottom: 30px;
+left: 30px;
+width: 60px;
+height: 60px;
+background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
+color: #FFF;
+border-radius: 50%;
+text-align: center;
+font-size: 32px;
+box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
+z-index: 1000;
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+transition: var(--transition-base);
+animation: pulse-whatsapp 2s infinite;
+border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.whatsapp-float:hover {
+transform: translateY(-5px) scale(1.1);
+box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
+color: #FFF;
+background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
+}
+@keyframes pulse-whatsapp {
+0% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7); }
+70% { box-shadow: 0 0 0 15px rgba(139, 127, 255, 0); }
+100% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0); }
+}
+
+@media (max-width: 968px) {
+.services-grid { grid-template-columns: 1fr; }
+.page-hero h1 { font-size: 40px; }
+.nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
+}
+@media (max-width: 640px) {
+.whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; left: 20px; }
+}
+</style>
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="https://ecode.sa/en/" class="logo-container">
-        <div class="logo-icon">
-          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
-        </div>
-        <div class="logo-text">
-          <div class="brand-name">eCode</div>
-          <div class="brand-tagline">Making an Impact</div>
-        </div>
-      </a>
+<header class="main-header">
+<div class="header-inner">
+<a href="https://ecode.sa/" class="logo-container">
+<div class="logo-icon">
+<img src="https://ecode.sa/favicon.png" alt="eCode Logo">
+</div>
+<div class="logo-text">
+<div class="brand-name">eCode</div>
+<div class="brand-tagline">تصنع الأثر</div>
+</div>
+</a>
 
-      <nav class="nav">
-        <a href="https://ecode.sa/en/">Home</a>
-        <a href="https://ecode.sa/services-en/" class="active">Our Services</a>
-        <a href="https://ecode.sa/plans-en/">Plans</a>
-        <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
-        
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
-            <i class="fas fa-sun"></i>
-        </button>
+<nav class="nav">
+<a href="https://ecode.sa/ar/">الرئيسية</a>
+<a href="https://ecode.sa/services/" class="active">خدماتنا</a>
+<a href="https://ecode.sa/plans/">الباقات</a>
+<a href="https://ecode.sa/portfolio/">أعمالنا</a>
 
-        <!-- Circular Language Button -->
-        <a href="https://ecode.sa/ar/" class="lang-switcher" aria-label="Arabic">
-          <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
-        </a>
-        
-        <a href="https://ecode.sa/contact-en/" class="btn-primary">Contact Us</a>
-      </nav>
-    </div>
-  </header>
+<!-- Theme Toggle -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="تغيير المظهر">
+<i class="fas fa-sun"></i>
+</button>
 
-  <section class="page-hero">
-    <h1>Our Comprehensive Services</h1>
-    <p>Integrated solutions covering all your digital needs, from concept to execution and growth</p>
-  </section>
+<!-- Circular Language Button -->
+<a href="https://ecode.sa/services-en/" class="lang-switcher" aria-label="English">
+<span style="font-size: 20px; line-height: 1;">🇬🇧</span>
+</a>
 
-  <section class="services-section">
-    <h2 class="section-title">What Do We Offer?</h2>
-    <p class="section-subtitle">A diverse list of services to meet all your project needs</p>
+<a href="https://ecode.sa/contact/" class="btn-primary">تواصل معنا</a>
+</nav>
+</div>
+</header>
 
-    <div class="services-grid">
-      
-      <!-- 1. Social Media Management -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-share-alt"></i></div>
-            <div class="service-title-group">
-                <h3>Social Media Management</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Comprehensive management of your presence on social platforms (Instagram, TikTok, X, Snapchat, LinkedIn, Facebook).</p>
-        <ul class="service-features">
-          <li>Monthly content plans</li>
-          <li>Marketing & advertising copywriting</li>
-          <li>Professional post design</li>
-          <li>Story & Reels/TikTok creation</li>
-          <li>Community management (Comments/Messages)</li>
-          <li>Periodic performance reports & recommendations</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<section class="page-hero">
+<h1>خدماتنا الشاملة</h1>
+<p>حلول متكاملة تغطي جميع احتياجاتك الرقمية، من الفكرة إلى التنفيذ والنمو</p>
+</section>
 
-      <!-- 2. Branding & Visual Identity -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
-            <div class="service-title-group">
-                <h3>Branding & Visual Identity</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Building an integrated identity that expresses your project's personality, including logo design and various identity applications.</p>
-        <ul class="service-features">
-          <li>Main logo + icon design</li>
-          <li>Color palette & font selection</li>
-          <li>Identity application mockups</li>
-          <li>Brand Guidelines book</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<section class="services-section">
+<h2 class="section-title">ماذا نقدم لك؟</h2>
+<p class="section-subtitle">قائمة خدماتنا المتنوعة لتلبية كافة احتياجات مشروعك</p>
 
-      <!-- 3. Motion Graphics -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-video"></i></div>
-            <div class="service-title-group">
-                <h3>Motion Graphics Video</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Introductory and marketing motion graphic videos (15-120s), including scriptwriting, design, and professional animation.</p>
-        <ul class="service-features">
-          <li>Scriptwriting & scene breakdown</li>
-          <li>Graphic elements design</li>
-          <li>Animation & transitions</li>
-          <li>Sound effects & voiceover</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<div class="services-grid">
 
-      <!-- 4. Product Photography -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-box-open"></i></div>
-            <div class="service-title-group">
-                <h3>Product Photography</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Professional photography for e-commerce and brand products to highlight quality and increase appeal.</p>
-        <ul class="service-features">
-          <li>White or custom background shots</li>
-          <li>Multiple angles per product</li>
-          <li>Lighting & color retouching</li>
-          <li>Lifestyle shots for products</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<!-- 1. إدارة حسابات التواصل الاجتماعي -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-share-alt"></i></div>
+<div class="service-title-group">
+<h3>إدارة حسابات التواصل الاجتماعي</h3>
+                <span class="service-tag">Social Media Management</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>إدارة شاملة لحضور العميل على منصات التواصل (Instagram, TikTok, X, Snapchat, LinkedIn, Facebook).</p>
+<ul class="service-features">
+<li>إعداد خطط محتوى شهرية</li>
+<li>كتابة المحتوى التسويقي والإعلاني</li>
+<li>تصميم منشورات احترافية</li>
+<li>إعداد ونشر الستوري و Reels</li>
+<li>إدارة التعليقات والرسائل</li>
+<li>تقارير أداء دورية</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
 
-      <!-- 5. Corporate/Portrait Photography -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-            <div class="service-title-group">
-                <h3>Corporate & Portrait Photography</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>On-site photography sessions at client location, including team portraits, offices, and stores.</p>
-        <ul class="service-features">
-          <li>People photography (Profile/Team)</li>
-          <li>Office/Store/Clinic shots</li>
-          <li>On-site lighting setup</li>
-          <li>Professional photo editing</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<!-- 2. تصميم الهوية البصرية -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-fingerprint"></i></div>
+<div class="service-title-group">
+<h3>تصميم الهوية البصرية</h3>
+                <span class="service-tag">Branding & Identity</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>بناء هوية متكاملة تعبر عن شخصية المشروع، وتشمل تصميم الشعار وتطبيقات الهوية المختلفة.</p>
+<ul class="service-features">
+<li>تصميم شعار رئيسي + أيقونة</li>
+<li>اختيار الألوان والخطوط</li>
+<li>إعداد نماذج تطبيقات للهوية</li>
+<li>إعداد دليل الهوية (Brand Book)</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
 
-      <!-- 6. Video Intro -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-film"></i></div>
-            <div class="service-title-group">
-                <h3>Video Intro Production</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Real footage video to introduce a place or service, showcasing your work details professionally and attractively.</p>
-        <ul class="service-features">
-          <li>General shots & B-roll details</li>
-          <li>Staff/Client filming options</li>
-          <li>Script & on-screen text titles</li>
-          <li>Professional editing & music</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<!-- 3. إنتاج فيديو موشن جرافيك -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-video"></i></div>
+<div class="service-title-group">
+<h3>إنتاج فيديو موشن جرافيك</h3>
+                <span class="service-tag">Motion Graphics</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>فيديوهات موشن جرافيك تعريفية وتسويقية، تشمل كتابة السكربت، التصميم، والتحريك الاحترافي.</p>
+<ul class="service-features">
+<li>كتابة السكربت وتقسيم المشاهد</li>
+<li>تصميم العناصر الرسومية</li>
+<li>تحريك العناصر والانتقالات</li>
+<li>إضافة مؤثرات صوتية وتعليق صوتي</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
 
-      <!-- 7. Ads Management -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-ad"></i></div>
-            <div class="service-title-group">
-                <h3>Ads Management</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Managing paid ad campaigns on digital platforms (Meta, TikTok, Snapchat, Google) to achieve your marketing goals.</p>
-        <ul class="service-features">
-          <li>Campaign setup & planning</li>
-          <li>Ad design & copywriting</li>
-          <li>Targeting & audience setup</li>
-          <li>Ongoing optimization</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<!-- 4. تصوير المنتجات -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-box-open"></i></div>
+<div class="service-title-group">
+<h3>تصوير المنتجات</h3>
+                <span class="service-tag">Product Photography</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>تصوير احترافي لمنتجات المتاجر الإلكترونية والعلامات التجارية لإبراز جودتها وزيادة جاذبيتها.</p>
+<ul class="service-features">
+<li>تصوير بخلفيات بيضاء أو مخصصة</li>
+<li>زوايا متعددة لكل منتج</li>
+<li>تحسين الإضاءة والألوان</li>
+<li>لقطات Lifestyle للمنتج</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
 
-      <!-- 8. Website Design & Development -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-            <div class="service-title-group">
-                <h3>Website Design & Development</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Designing and programming professional corporate websites, aligned with identity and responsive across all devices.</p>
-        <ul class="service-features">
-          <li>Main & inner page design</li>
-          <li>Responsive design</li>
-          <li>Contact forms setup</li>
-          <li>UX improvement & Basic SEO</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<!-- 5. التصوير الفوتوغرافي للمواقع والأشخاص -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-user-tie"></i></div>
+<div class="service-title-group">
+<h3>تصوير المواقع والأشخاص</h3>
+                <span class="service-tag">Corporate Photography</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>جلسات تصوير ميدانية في موقع العميل، تشمل تصوير فريق العمل والمكاتب والمتاجر.</p>
+<ul class="service-features">
+<li>تصوير الأشخاص (بروفايل - فريق العمل)</li>
+<li>تصوير المكاتب والعيادات والمتاجر</li>
+<li>تجهيز الإضاءة والمعدات</li>
+<li>تعديل ومعالجة الصور</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
 
-      <!-- 9. E-Commerce Setup (Salla) - Coming Soon -->
+<!-- 6. تصوير الفيديو التعريفي -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-film"></i></div>
+<div class="service-title-group">
+<h3>تصوير الفيديو التعريفي</h3>
+                <span class="service-tag">Video Intro</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>فيديو تصوير حقيقي للتعريف بالمكان أو الخدمة، يعرض تفاصيل عملك بشكل احترافي وجذاب.</p>
+<ul class="service-features">
+<li>تصوير لقطات عامة وتفاصيل (B-roll)</li>
+<li>إمكانية تصوير الموظفين أو العملاء</li>
+<li>كتابة نص وإضافة نصوص على الشاشة</li>
+<li>مونتاج احترافي مع موسيقى</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
+
+<!-- 7. إدارة الحملات الإعلانية -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-ad"></i></div>
+<div class="service-title-group">
+<h3>إدارة الحملات الإعلانية</h3>
+                <span class="service-tag">Ads Management</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>إدارة الحملات الإعلانية على المنصات الرقمية (Meta, TikTok, Snapchat, Google) لتحقيق أهدافك التسويقية.</p>
+<ul class="service-features">
+<li>إعداد وتخطيط الحملات</li>
+<li>تصميم الإعلانات وكتابة النصوص</li>
+<li>ضبط الاستهداف والجمهور</li>
+<li>المتابعة والتحسين المستمر</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
+
+<!-- 8. تصميم وتطوير المواقع التعريفية -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+<div class="service-title-group">
+<h3>تصميم وتطوير المواقع</h3>
+                <span class="service-tag">Website Development</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>تصميم وبرمجة مواقع تعريفية للشركات والمشاريع، متوافقة مع الهوية ومتجاوبة مع جميع الأجهزة.</p>
+<ul class="service-features">
+<li>تصميم صفحات رئيسية وداخلية</li>
+<li>تصميم متجاوب (Responsive)</li>
+<li>إعداد نماذج التواصل</li>
+<li>تحسين تجربة المستخدم (UX)</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
+
+      <!-- 9. إنشاء المتاجر الإلكترونية (سلة) - قريبًا -->
       <div class="service-card coming-soon">
-        <div class="service-header">
+      <!-- 9. موشن جرافيك كامل - مستوى متقدم -->
+      <div class="service-card">
+<div class="service-header">
             <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-            <div class="service-title-group">
-                <h3>E-Commerce Setup (Salla)</h3>
-                <span class="service-tag coming-soon-tag">Coming Soon</span>
-            </div>
-        </div>
-        <p>Setting up a complete e-commerce store via Salla platform, including settings, interface design, and adding products.</p>
-        <ul class="service-features">
-          <li>Account creation & settings</li>
-          <li>Store interface design</li>
-          <li>Product addition & payment/shipping setup</li>
-          <li>Policy pages setup</li>
-        </ul>
-        <a href="#" class="service-link disabled">Coming Soon</a>
-      </div>
-
-      <!-- 10. Digital Analytics -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
-            <div class="service-title-group">
-                <h3>Digital Analytics</h3>
-                <span class="service-tag">Available</span>
-            </div>
-        </div>
-        <p>Analyzing account performance on social and ad platforms to provide insights and recommendations for better results.</p>
-        <ul class="service-features">
-          <li>Post & campaign performance analysis</li>
-          <li>Target audience analysis</li>
-          <li>Competitor comparison</li>
-          <li>Comprehensive report & recommendations</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
-
-      <!-- 11. UX Audit - Coming Soon -->
-      <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-mouse-pointer"></i></div>
-            <div class="service-title-group">
-                <h3>UX Audit</h3>
-                <span class="service-tag coming-soon-tag">Coming Soon</span>
-            </div>
-        </div>
-        <p>Evaluating user experience on digital sites and stores to improve usability and increase conversion rates.</p>
-        <ul class="service-features">
-          <li>User journey review</li>
-          <li>Mobile experience analysis</li>
-          <li>Ease of access evaluation</li>
-          <li>Strengths & weaknesses report</li>
-        </ul>
-        <a href="#" class="service-link disabled">Coming Soon</a>
-      </div>
-
-      <!-- 12. Privacy & Cookies Policy - Coming Soon -->
-      <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-file-contract"></i></div>
-            <div class="service-title-group">
-                <h3>Privacy & Cookies Policy</h3>
-                <span class="service-tag coming-soon-tag">Coming Soon</span>
-            </div>
-        </div>
-        <p>Drafting legal policies for websites and stores, including privacy policy, cookies policy, and terms & conditions.</p>
-        <ul class="service-features">
-          <li>PDPL-compliant privacy policy</li>
-          <li>Cookies policy drafting</li>
-          <li>Custom clauses per activity</li>
-          <li>Ready-to-publish texts</li>
-        </ul>
-        <a href="#" class="service-link disabled">Coming Soon</a>
-      </div>
-
-      <!-- 13. Events Coverage - Coming Soon -->
-      <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
-            <div class="service-title-group">
-                <h3>Events Coverage</h3>
-                <span class="service-tag coming-soon-tag">Coming Soon</span>
-            </div>
-        </div>
-        <p>On-site media coverage for events and conferences via photo and video to document the event for marketing use.</p>
-        <ul class="service-features">
-          <li>Event photography coverage</li>
-          <li>Video coverage + Highlight reel</li>
-          <li>Editing & delivery</li>
-        </ul>
-        <a href="#" class="service-link disabled">Coming Soon</a>
-      </div>
-
-      <!-- 14. Full Animation (Explainer Video) - Advanced -->
-      <div class="service-card">
-        <div class="service-header">
             <div class="service-icon"><i class="fas fa-magic"></i></div>
-            <div class="service-title-group">
-                <h3>Full Animation (Explainer)</h3>
-                <span class="service-tag advanced">Advanced Level</span>
-            </div>
-        </div>
-        <p>Full explainer animation video to explain a service, product, or platform with storytelling and advanced visual effects.</p>
-        <ul class="service-features">
-          <li>Script & Storyboard preparation</li>
-          <li>Custom style & character design</li>
-          <li>Advanced animation</li>
-          <li>Professional voiceover</li>
-        </ul>
-        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
-      </div>
+<div class="service-title-group">
+                <h3>إنشاء المتاجر (سلة)</h3>
+                <span class="service-tag advanced">قريبا</span>
+                <h3>موشن جرافيك كامل</h3>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+        <p>تأسيس متجر إلكتروني كامل عبر منصة سلة، يشمل ضبط الإعدادات وتصميم الواجهة وإضافة المنتجات.</p>
+        <p>فيديو أنيميشن كامل (Explainer Video) لشرح خدمة أو منتج بأسلوب قصصي ومؤثرات بصرية متقدمة.</p>
+<ul class="service-features">
+          <li>إنشاء الحساب وضبط الإعدادات</li>
+          <li>تصميم واجهة المتجر</li>
+          <li>إضافة المنتجات وربط الدفع والشحن</li>
+          <li>إعداد صفحات السياسات</li>
+          <li>إعداد سكربت و Storyboard</li>
+          <li>تصميم Style خاص وتصميم شخصيات</li>
+          <li>تحريك متقدم (Character Animation)</li>
+          <li>تعليق صوتي احترافي</li>
+</ul>
+        <a href="#" class="service-link disabled">قريباً</a>
+        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
+      
 
-      <!-- 15. Mobile App Development - Coming Soon -->
+<!-- 10. تحليل الحسابات الرقمية -->
+<div class="service-card">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+<div class="service-title-group">
+<h3>تحليل الحسابات الرقمية</h3>
+                <span class="service-tag">Digital Analytics</span>
+                <span class="service-tag">متاح</span>
+</div>
+</div>
+<p>تحليل أداء الحسابات على السوشيال والمنصات الإعلانية لتقديم رؤى وتوصيات لتحسين النتائج.</p>
+<ul class="service-features">
+<li>تحليل أداء المنشورات والحملات</li>
+<li>تحليل الجمهور المستهدف</li>
+<li>مقارنة مع المنافسين</li>
+<li>إعداد تقرير شامل مع التوصيات</li>
+</ul>
+<a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+</div>
+
+<!-- 11. تحسين تجربة المستخدم - قريبًا -->
+<div class="service-card coming-soon">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-mouse-pointer"></i></div>
+<div class="service-title-group">
+<h3>تحسين تجربة المستخدم</h3>
+<span class="service-tag advanced">قريبا</span>
+</div>
+</div>
+<p>تقييم تجربة المستخدم على المواقع والمتاجر الرقمية لتحسين سهولة الاستخدام وزيادة معدلات التحويل.</p>
+<ul class="service-features">
+<li>مراجعة مسار المستخدم</li>
+<li>تحليل تجربة الجوال</li>
+<li>تقييم سهولة الوصول للمعلومات</li>
+<li>تقرير بنقاط القوة والضعف</li>
+</ul>
+<a href="#" class="service-link disabled">قريباً</a>
+</div>
+
+<!-- 12. إعداد سياسة الخصوصية والكوكيز - قريبًا -->
+<div class="service-card coming-soon">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-file-contract"></i></div>
+<div class="service-title-group">
+<h3>السياسات القانونية</h3>
+<span class="service-tag advanced">قريبا</span>
+</div>
+</div>
+<p>صياغة سياسات قانونية للمواقع والمتاجر، تشمل سياسة الخصوصية والكوكيز والشروط والأحكام.</p>
+<ul class="service-features">
+<li>إعداد سياسة خصوصية متوافقة (PDPL)</li>
+<li>إعداد سياسة الكوكيز</li>
+<li>تخصيص البنود حسب النشاط</li>
+<li>تسليم نصوص جاهزة للنشر</li>
+</ul>
+<a href="#" class="service-link disabled">قريباً</a>
+</div>
+
+<!-- 13. تغطية الفعاليات - قريبًا -->
+<div class="service-card coming-soon">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+<div class="service-title-group">
+<h3>تغطية الفعاليات</h3>
+<span class="service-tag advanced">قريبا</span>
+</div>
+</div>
+<p>تغطية إعلامية للفعاليات حضورياً بالصور والفيديو لتوثيق الحدث واستخدامه في التسويق.</p>
+<ul class="service-features">
+<li>تغطية فوتوغرافية للحدث</li>
+<li>تصوير فيديو مع Highlight</li>
+<li>تعديل وتسليم المواد</li>
+</ul>
+<a href="#" class="service-link disabled">قريباً</a>
+</div>
+
+      <!-- 14. موشن جرافيك كامل - مستوى متقدم -->
+      <div class="service-card">
+      <!-- 14. إنشاء المتاجر الإلكترونية (سلة) - قريبًا -->
       <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-            <div class="service-title-group">
-                <h3>Mobile App Development</h3>
-                <span class="service-tag coming-soon-tag">Coming Soon</span>
-            </div>
-        </div>
-        <p>Development service for simple or medium-complexity mobile apps, including design, programming, and store upload.</p>
-        <ul class="service-features">
-          <li>UI/UX design</li>
-          <li>Core screens development</li>
-          <li>Database integration (if needed)</li>
-          <li>App store upload</li>
-        </ul>
-        <a href="#" class="service-link disabled">Coming Soon</a>
-      </div>
-    </div>
+<div class="service-header">
+            <div class="service-icon"><i class="fas fa-magic"></i></div>
+            <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+<div class="service-title-group">
+                <h3>موشن جرافيك كامل</h3>
+                <span class="service-tag">Explainer Video</span>
+                <h3>إنشاء المتاجر (سلة)</h3>
+                <span class="service-tag advanced">قريبا</span>
+</div>
+</div>
+        <p>فيديو أنيميشن كامل (Explainer Video) لشرح خدمة أو منتج بأسلوب قصصي ومؤثرات بصرية متقدمة.</p>
+        <p>تأسيس متجر إلكتروني كامل عبر منصة سلة، يشمل ضبط الإعدادات وتصميم الواجهة وإضافة المنتجات.</p>
+<ul class="service-features">
+          <li>إعداد سكربت و Storyboard</li>
+          <li>تصميم Style خاص وتصميم شخصيات</li>
+          <li>تحريك متقدم (Character Animation)</li>
+          <li>تعليق صوتي احترافي</li>
+          <li>إنشاء الحساب وضبط الإعدادات</li>
+          <li>تصميم واجهة المتجر</li>
+          <li>إضافة المنتجات وربط الدفع والشحن</li>
+          <li>إعداد صفحات السياسات</li>
+</ul>
+        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="#" class="service-link disabled">قريباً</a>
+</div>
 
-    <div class="cta-section">
-      <h2>Have a Project in Mind?</h2>
-      <p>Contact us now for a free consultation and discuss how we can turn your idea into reality.</p>
-      <div class="cta-buttons">
-        <a href="https://ecode.sa/contact-en/" class="btn-primary">Start Your Project</a>
-        <a href="https://ecode.sa/plans-en/" class="btn-secondary">View Plans</a>
-      </div>
-    </div>
-  </section>
+<!-- 15. تصميم وبرمجة تطبيقات الجوال - قريبًا -->
+<div class="service-card coming-soon">
+<div class="service-header">
+<div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+<div class="service-title-group">
+<h3>تطبيقات الجوال</h3>
+<span class="service-tag advanced">قريبا</span>
+</div>
+</div>
+<p>خدمة تطوير تطبيقات جوال بسيطة أو متوسطة التعقيد، تشمل التصميم والبرمجة والرفع على المتاجر.</p>
+<ul class="service-features">
+<li>تصميم واجهات UI/UX</li>
+<li>بناء شاشات التطبيق الأساسية</li>
+<li>ربط بقاعدة بيانات (عند الحاجة)</li>
+<li>الرفع على متاجر التطبيقات</li>
+</ul>
+<a href="#" class="service-link disabled">قريباً</a>
+</div>
+</div>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <h4>eCode – Electronic Code</h4>
-          <p>Making an Impact</p>
-          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
-          
-          <div class="social-bar">
-            <a class="social-link" href="mailto:info@ecode.sa" title="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
-              <i class="fa-brands fa-snapchat"></i>
-            </a>
-            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-          </div>
-        </div>
+<div class="cta-section">
+<h2>هل لديك مشروع في ذهنك؟</h2>
+<p>تواصل معنا الآن للحصول على استشارة مجانية ومناقشة كيف يمكننا تحويل فكرتك إلى واقع.</p>
+<div class="cta-buttons">
+<a href="https://ecode.sa/contact/" class="btn-primary">ابدأ مشروعك الآن</a>
+<a href="https://ecode.sa/plans/" class="btn-secondary">شاهد الباقات</a>
+</div>
+</div>
+</section>
 
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="https://ecode.sa/en/">Home</a></li>
-            <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
-            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
-            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
-            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
-            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
-            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
-          </ul>
-        </div>
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-grid">
+<div>
+<h4>eCode — إلكترونيك كود</h4>
+<p>تصنع الأثر</p>
+<p style="margin-top: 16px;">شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية.</p>
 
-        <div>
-          <h4>Contact Us</h4>
-          <p>Riyadh – Kingdom of Saudi Arabia</p>
-          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
-          <p>Email: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
-        </div>
-      </div>
+<div class="social-bar">
+<a class="social-link" href="mailto:info@ecode.sa" title="Email">
+<i class="fa-solid fa-envelope"></i>
+</a>
+<a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
+<i class="fa-brands fa-youtube"></i>
+</a>
+<a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+<a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
+<i class="fa-brands fa-snapchat"></i>
+</a>
+<a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+<a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+</div>
+</div>
 
-      <div class="footer-bottom">
-        © 2025 Electronic Code Company. All rights reserved.
-      </div>
-    </div>
-  </footer>
+<div class="footer-links">
+<h4>روابط سريعة</h4>
+<ul>
+<li><a href="https://ecode.sa/ar/">الرئيسية</a></li>
+<li><a href="https://ecode.sa/services/">خدماتنا</a></li>
+<li><a href="https://ecode.sa/plans/">الباقات</a></li>
+<li><a href="https://ecode.sa/portfolio/">أعمالنا</a></li>
+<li><a href="https://ecode.sa/contact/">تواصل معنا</a></li>
+<li><a href="https://ecode.sa/terms/">الشروط والأحكام</a></li>
+<li><a href="https://ecode.sa/privacy/">سياسة الخصوصية</a></li>
+</ul>
+</div>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+<div>
+<h4>تواصل معنا</h4>
+<p>الرياض — المملكة العربية السعودية</p>
+<p>جوال: <a href="tel:0503666316">0503666316</a></p>
+<p>البريد: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
+</div>
+</div>
 
-  <script>
-    // --- Theme Toggle Logic ---
-    function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        html.setAttribute('data-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        updateThemeIcon(nextTheme);
-    }
+<div class="footer-bottom">
+© 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
+</div>
+</div>
+</footer>
 
-    function updateThemeIcon(theme) {
-        const icon = document.querySelector('.theme-toggle i');
-        if (!icon) return; 
-        
-        if (theme === 'light') {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
 
-    // Initialize Theme
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-    });
-  </script>
+<script>
+// --- Theme Toggle Logic ---
+function toggleTheme() {
+const html = document.documentElement;
+const currentTheme = html.getAttribute('data-theme');
+const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+html.setAttribute('data-theme', nextTheme);
+localStorage.setItem('theme', nextTheme);
+updateThemeIcon(nextTheme);
+}
+
+function updateThemeIcon(theme) {
+const icon = document.querySelector('.theme-toggle i');
+if (!icon) return; 
+
+if (theme === 'light') {
+icon.classList.remove('fa-sun');
+icon.classList.add('fa-moon');
+} else {
+icon.classList.remove('fa-moon');
+icon.classList.add('fa-sun');
+}
+}
+
+// Initialize Theme
+document.addEventListener('DOMContentLoaded', () => {
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
+});
+</script>
 
 </body>
 </html>
