@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>خدماتنا | eCode</title>
-  <meta name="description" content="اكتشف خدمات eCode الشاملة في التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية لنمو أعمالك في السعودية">
+  <title>Our Services | eCode</title>
+  <meta name="description" content="Discover eCode's comprehensive services in digital marketing, content management, creative production, and technical solutions to grow your business in Saudi Arabia">
   
   <!-- SEO Tags -->
   <meta name="robots" content="index, follow">
@@ -12,8 +12,8 @@
   <link rel="canonical" href="https://ecode.sa/services/">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="خدماتنا | eCode">
-  <meta property="og:description" content="اكتشف خدمات eCode الشاملة في التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية لنمو أعمالك في السعودية">
+  <meta property="og:title" content="Our Services | eCode">
+  <meta property="og:description" content="Discover eCode's comprehensive services in digital marketing, content management, creative production, and technical solutions to grow your business in Saudi Arabia">
   <meta property="og:image" content="https://ecode.sa/favicon.png">
   <meta property="og:url" content="https://ecode.sa/services/">
   <meta property="og:type" content="website">
@@ -22,12 +22,12 @@
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   
   <style>
     :root {
-      /* الألوان الأساسية (الوضع الداكن - الافتراضي) */
+      /* Base Colors (Dark Mode - Default) */
       --lavender-light: #A99BFF;
       --lavender-dark: #8B7FFF;
       --sky-blue: #5BC0F8;
@@ -66,7 +66,7 @@
       --transition-base: 250ms ease;
     }
 
-    /* === إعدادات الوضع المضيء === */
+    /* === Light Mode Settings === */
     [data-theme="light"] {
       --bg-primary: #F3F4F6;
       --bg-secondary: #FFFFFF;
@@ -86,7 +86,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "Tajawal", system-ui, sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.7;
@@ -94,11 +94,6 @@
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-
-    h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
-    h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
-    h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
-    p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
 
     /* ========== Header ========== */
     .main-header {
@@ -181,7 +176,7 @@
       content: '';
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 0;
       width: 0;
       height: 2px;
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
@@ -241,6 +236,25 @@
       filter: brightness(1.1);
     }
 
+    .btn-secondary {
+      padding: 10px var(--space-6);
+      border-radius: var(--radius-full);
+      border: 2px solid var(--text-primary);
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: var(--transition-base);
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+    }
+
     /* ========== Page Hero ========== */
     .page-hero {
       background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
@@ -255,7 +269,7 @@
       content: '';
       position: absolute;
       top: -50%;
-      right: -20%;
+      left: -20%;
       width: 600px;
       height: 600px;
       background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
@@ -335,12 +349,12 @@
       content: '';
       position: absolute;
       top: 0;
-      right: 0;
+      left: 0;
       width: 100%;
       height: 4px;
       background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
       transform: scaleX(0);
-      transform-origin: right;
+      transform-origin: left;
       transition: var(--transition-base);
     }
 
@@ -378,6 +392,12 @@
       flex-shrink: 0;
     }
 
+    [data-theme="light"] .service-icon {
+        background: rgba(139, 127, 255, 0.1);
+        color: var(--lavender-dark);
+        border-color: rgba(139, 127, 255, 0.2);
+    }
+
     .service-title-group {
         display: flex;
         flex-direction: column;
@@ -400,6 +420,10 @@
     .service-tag.advanced {
         color: var(--soft-orange);
     }
+    
+    .service-tag.coming-soon-tag {
+        color: var(--text-muted);
+    }
 
     .service-card p {
       font-size: 16px;
@@ -421,7 +445,7 @@
 
     .service-features li {
       padding: var(--space-2) 0;
-      padding-right: 24px;
+      padding-left: 24px;
       position: relative;
       color: var(--text-secondary);
       font-size: 14px;
@@ -433,7 +457,7 @@
     .service-features li::before {
       content: '•';
       position: absolute;
-      right: 8px;
+      left: 8px;
       color: var(--lavender-light);
       font-weight: bold;
       font-size: 18px;
@@ -583,7 +607,7 @@
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
-      left: 30px;
+      right: 30px; /* Right for LTR */
       width: 60px;
       height: 60px;
       background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
@@ -619,7 +643,7 @@
       .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
     }
     @media (max-width: 640px) {
-        .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; left: 20px; }
+        .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; }
     }
   </style>
 </head>
@@ -627,342 +651,341 @@
 
   <header class="main-header">
     <div class="header-inner">
-      <a href="https://ecode.sa/" class="logo-container">
+      <a href="https://ecode.sa/en/" class="logo-container">
         <div class="logo-icon">
           <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
         </div>
         <div class="logo-text">
           <div class="brand-name">eCode</div>
-          <div class="brand-tagline">تصنع الأثر</div>
+          <div class="brand-tagline">Making an Impact</div>
         </div>
       </a>
 
       <nav class="nav">
-        <a href="https://ecode.sa/ar/">الرئيسية</a>
-        <a href="https://ecode.sa/services/" class="active">خدماتنا</a>
-        <a href="https://ecode.sa/plans/">الباقات</a>
-        <a href="https://ecode.sa/portfolio/">أعمالنا</a>
+        <a href="https://ecode.sa/en/">Home</a>
+        <a href="https://ecode.sa/services-en/" class="active">Our Services</a>
+        <a href="https://ecode.sa/plans-en/">Plans</a>
+        <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
         
         <!-- Theme Toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="تغيير المظهر">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
             <i class="fas fa-sun"></i>
         </button>
 
         <!-- Circular Language Button -->
-        <a href="https://ecode.sa/services-en/" class="lang-switcher" aria-label="English">
-          <span style="font-size: 20px; line-height: 1;">🇬🇧</span>
+        <a href="https://ecode.sa/ar/" class="lang-switcher" aria-label="Arabic">
+          <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
         </a>
         
-        <a href="https://ecode.sa/contact/" class="btn-primary">تواصل معنا</a>
+        <a href="https://ecode.sa/contact-en/" class="btn-primary">Contact Us</a>
       </nav>
     </div>
   </header>
 
   <section class="page-hero">
-    <h1>خدماتنا الشاملة</h1>
-    <p>حلول متكاملة تغطي جميع احتياجاتك الرقمية، من الفكرة إلى التنفيذ والنمو</p>
+    <h1>Our Comprehensive Services</h1>
+    <p>Integrated solutions covering all your digital needs, from concept to execution and growth</p>
   </section>
 
   <section class="services-section">
-    <h2 class="section-title">ماذا نقدم لك؟</h2>
-    <p class="section-subtitle">قائمة خدماتنا المتنوعة لتلبية كافة احتياجات مشروعك</p>
+    <h2 class="section-title">What Do We Offer?</h2>
+    <p class="section-subtitle">A diverse list of services to meet all your project needs</p>
 
     <div class="services-grid">
       
-      <!-- 1. إدارة حسابات التواصل الاجتماعي -->
+      <!-- 1. Social Media Management -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-share-alt"></i></div>
             <div class="service-title-group">
-                <h3>إدارة حسابات التواصل الاجتماعي</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Social Media Management</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>إدارة شاملة لحضور العميل على منصات التواصل (Instagram, TikTok, X, Snapchat, LinkedIn, Facebook).</p>
+        <p>Comprehensive management of your presence on social platforms (Instagram, TikTok, X, Snapchat, LinkedIn, Facebook).</p>
         <ul class="service-features">
-          <li>إعداد خطط محتوى شهرية</li>
-          <li>كتابة المحتوى التسويقي والإعلاني</li>
-          <li>تصميم منشورات احترافية</li>
-          <li>إعداد ونشر الستوري و Reels</li>
-          <li>إدارة التعليقات والرسائل</li>
-          <li>تقارير أداء دورية</li>
+          <li>Monthly content plans</li>
+          <li>Marketing & advertising copywriting</li>
+          <li>Professional post design</li>
+          <li>Story & Reels/TikTok creation</li>
+          <li>Community management (Comments/Messages)</li>
+          <li>Periodic performance reports & recommendations</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 2. تصميم الهوية البصرية -->
+      <!-- 2. Branding & Visual Identity -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
             <div class="service-title-group">
-                <h3>تصميم الهوية البصرية</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Branding & Visual Identity</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>بناء هوية متكاملة تعبر عن شخصية المشروع، وتشمل تصميم الشعار وتطبيقات الهوية المختلفة.</p>
+        <p>Building an integrated identity that expresses your project's personality, including logo design and various identity applications.</p>
         <ul class="service-features">
-          <li>تصميم شعار رئيسي + أيقونة</li>
-          <li>اختيار الألوان والخطوط</li>
-          <li>إعداد نماذج تطبيقات للهوية</li>
-          <li>إعداد دليل الهوية (Brand Book)</li>
+          <li>Main logo + icon design</li>
+          <li>Color palette & font selection</li>
+          <li>Identity application mockups</li>
+          <li>Brand Guidelines book</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 3. إنتاج فيديو موشن جرافيك -->
+      <!-- 3. Motion Graphics -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-video"></i></div>
             <div class="service-title-group">
-                <h3>إنتاج فيديو موشن جرافيك</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Motion Graphics Video</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>فيديوهات موشن جرافيك تعريفية وتسويقية، تشمل كتابة السكربت، التصميم، والتحريك الاحترافي.</p>
+        <p>Introductory and marketing motion graphic videos (15-120s), including scriptwriting, design, and professional animation.</p>
         <ul class="service-features">
-          <li>كتابة السكربت وتقسيم المشاهد</li>
-          <li>تصميم العناصر الرسومية</li>
-          <li>تحريك العناصر والانتقالات</li>
-          <li>إضافة مؤثرات صوتية وتعليق صوتي</li>
+          <li>Scriptwriting & scene breakdown</li>
+          <li>Graphic elements design</li>
+          <li>Animation & transitions</li>
+          <li>Sound effects & voiceover</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 4. تصوير المنتجات -->
+      <!-- 4. Product Photography -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-box-open"></i></div>
             <div class="service-title-group">
-                <h3>تصوير المنتجات</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Product Photography</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>تصوير احترافي لمنتجات المتاجر الإلكترونية والعلامات التجارية لإبراز جودتها وزيادة جاذبيتها.</p>
+        <p>Professional photography for e-commerce and brand products to highlight quality and increase appeal.</p>
         <ul class="service-features">
-          <li>تصوير بخلفيات بيضاء أو مخصصة</li>
-          <li>زوايا متعددة لكل منتج</li>
-          <li>تحسين الإضاءة والألوان</li>
-          <li>لقطات Lifestyle للمنتج</li>
+          <li>White or custom background shots</li>
+          <li>Multiple angles per product</li>
+          <li>Lighting & color retouching</li>
+          <li>Lifestyle shots for products</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 5. التصوير الفوتوغرافي للمواقع والأشخاص -->
+      <!-- 5. Corporate/Portrait Photography -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-user-tie"></i></div>
             <div class="service-title-group">
-                <h3>تصوير المواقع والأشخاص</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Corporate & Portrait Photography</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>جلسات تصوير ميدانية في موقع العميل، تشمل تصوير فريق العمل والمكاتب والمتاجر.</p>
+        <p>On-site photography sessions at client location, including team portraits, offices, and stores.</p>
         <ul class="service-features">
-          <li>تصوير الأشخاص (بروفايل - فريق العمل)</li>
-          <li>تصوير المكاتب والعيادات والمتاجر</li>
-          <li>تجهيز الإضاءة والمعدات</li>
-          <li>تعديل ومعالجة الصور</li>
+          <li>People photography (Profile/Team)</li>
+          <li>Office/Store/Clinic shots</li>
+          <li>On-site lighting setup</li>
+          <li>Professional photo editing</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 6. تصوير الفيديو التعريفي -->
+      <!-- 6. Video Intro -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-film"></i></div>
             <div class="service-title-group">
-                <h3>تصوير الفيديو التعريفي</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Video Intro Production</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>فيديو تصوير حقيقي للتعريف بالمكان أو الخدمة، يعرض تفاصيل عملك بشكل احترافي وجذاب.</p>
+        <p>Real footage video to introduce a place or service, showcasing your work details professionally and attractively.</p>
         <ul class="service-features">
-          <li>تصوير لقطات عامة وتفاصيل (B-roll)</li>
-          <li>إمكانية تصوير الموظفين أو العملاء</li>
-          <li>كتابة نص وإضافة نصوص على الشاشة</li>
-          <li>مونتاج احترافي مع موسيقى</li>
+          <li>General shots & B-roll details</li>
+          <li>Staff/Client filming options</li>
+          <li>Script & on-screen text titles</li>
+          <li>Professional editing & music</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 7. إدارة الحملات الإعلانية -->
+      <!-- 7. Ads Management -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-ad"></i></div>
             <div class="service-title-group">
-                <h3>إدارة الحملات الإعلانية</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Ads Management</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>إدارة الحملات الإعلانية على المنصات الرقمية (Meta, TikTok, Snapchat, Google) لتحقيق أهدافك التسويقية.</p>
+        <p>Managing paid ad campaigns on digital platforms (Meta, TikTok, Snapchat, Google) to achieve your marketing goals.</p>
         <ul class="service-features">
-          <li>إعداد وتخطيط الحملات</li>
-          <li>تصميم الإعلانات وكتابة النصوص</li>
-          <li>ضبط الاستهداف والجمهور</li>
-          <li>المتابعة والتحسين المستمر</li>
+          <li>Campaign setup & planning</li>
+          <li>Ad design & copywriting</li>
+          <li>Targeting & audience setup</li>
+          <li>Ongoing optimization</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 8. تصميم وتطوير المواقع التعريفية -->
+      <!-- 8. Website Design & Development -->
       <div class="service-card">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
             <div class="service-title-group">
-                <h3>تصميم وتطوير المواقع</h3>
-                <span class="service-tag">متاح</span>
+                <h3>Website Design & Development</h3>
+                <span class="service-tag">Available</span>
             </div>
         </div>
-        <p>تصميم وبرمجة مواقع تعريفية للشركات والمشاريع، متوافقة مع الهوية ومتجاوبة مع جميع الأجهزة.</p>
+        <p>Designing and programming professional corporate websites, aligned with identity and responsive across all devices.</p>
         <ul class="service-features">
-          <li>تصميم صفحات رئيسية وداخلية</li>
-          <li>تصميم متجاوب (Responsive)</li>
-          <li>إعداد نماذج التواصل</li>
-          <li>تحسين تجربة المستخدم (UX)</li>
+          <li>Main & inner page design</li>
+          <li>Responsive design</li>
+          <li>Contact forms setup</li>
+          <li>UX improvement & Basic SEO</li>
         </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
       </div>
 
-      <!-- 9. موشن جرافيك كامل - مستوى متقدم -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-magic"></i></div>
-            <div class="service-title-group">
-                <h3>موشن جرافيك كامل</h3>
-                <span class="service-tag">متاح</span>
-            </div>
-        </div>
-        <p>فيديو أنيميشن كامل (Explainer Video) لشرح خدمة أو منتج بأسلوب قصصي ومؤثرات بصرية متقدمة.</p>
-        <ul class="service-features">
-          <li>إعداد سكربت و Storyboard</li>
-          <li>تصميم Style خاص وتصميم شخصيات</li>
-          <li>تحريك متقدم (Character Animation)</li>
-          <li>تعليق صوتي احترافي</li>
-        </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
-      </div>
-      
-
-      <!-- 10. تحليل الحسابات الرقمية -->
-      <div class="service-card">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
-            <div class="service-title-group">
-                <h3>تحليل الحسابات الرقمية</h3>
-                <span class="service-tag">متاح</span>
-            </div>
-        </div>
-        <p>تحليل أداء الحسابات على السوشيال والمنصات الإعلانية لتقديم رؤى وتوصيات لتحسين النتائج.</p>
-        <ul class="service-features">
-          <li>تحليل أداء المنشورات والحملات</li>
-          <li>تحليل الجمهور المستهدف</li>
-          <li>مقارنة مع المنافسين</li>
-          <li>إعداد تقرير شامل مع التوصيات</li>
-        </ul>
-        <a href="https://ecode.sa/contact/" class="service-link">اطلب الخدمة ←</a>
-      </div>
-
-      <!-- 11. تحسين تجربة المستخدم - قريبًا -->
-      <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-mouse-pointer"></i></div>
-            <div class="service-title-group">
-                <h3>تحسين تجربة المستخدم</h3>
-                <span class="service-tag advanced">قريبا</span>
-            </div>
-        </div>
-        <p>تقييم تجربة المستخدم على المواقع والمتاجر الرقمية لتحسين سهولة الاستخدام وزيادة معدلات التحويل.</p>
-        <ul class="service-features">
-          <li>مراجعة مسار المستخدم</li>
-          <li>تحليل تجربة الجوال</li>
-          <li>تقييم سهولة الوصول للمعلومات</li>
-          <li>تقرير بنقاط القوة والضعف</li>
-        </ul>
-        <a href="#" class="service-link disabled">قريباً</a>
-      </div>
-
-      <!-- 12. إعداد سياسة الخصوصية والكوكيز - قريبًا -->
-      <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-file-contract"></i></div>
-            <div class="service-title-group">
-                <h3>السياسات القانونية</h3>
-                <span class="service-tag advanced">قريبا</span>
-            </div>
-        </div>
-        <p>صياغة سياسات قانونية للمواقع والمتاجر، تشمل سياسة الخصوصية والكوكيز والشروط والأحكام.</p>
-        <ul class="service-features">
-          <li>إعداد سياسة خصوصية متوافقة (PDPL)</li>
-          <li>إعداد سياسة الكوكيز</li>
-          <li>تخصيص البنود حسب النشاط</li>
-          <li>تسليم نصوص جاهزة للنشر</li>
-        </ul>
-        <a href="#" class="service-link disabled">قريباً</a>
-      </div>
-
-      <!-- 13. تغطية الفعاليات - قريبًا -->
-      <div class="service-card coming-soon">
-        <div class="service-header">
-            <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
-            <div class="service-title-group">
-                <h3>تغطية الفعاليات</h3>
-                <span class="service-tag advanced">قريبا</span>
-            </div>
-        </div>
-        <p>تغطية إعلامية للفعاليات حضورياً بالصور والفيديو لتوثيق الحدث واستخدامه في التسويق.</p>
-        <ul class="service-features">
-          <li>تغطية فوتوغرافية للحدث</li>
-          <li>تصوير فيديو مع Highlight</li>
-          <li>تعديل وتسليم المواد</li>
-        </ul>
-        <a href="#" class="service-link disabled">قريباً</a>
-      </div>
-
-      <!-- 14. إنشاء المتاجر الإلكترونية (سلة) - قريبًا -->
+      <!-- 9. E-Commerce Setup (Salla) - Coming Soon -->
       <div class="service-card coming-soon">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
             <div class="service-title-group">
-                <h3>إنشاء المتاجر (سلة)</h3>
-                <span class="service-tag advanced">قريبا</span>
+                <h3>E-Commerce Setup (Salla)</h3>
+                <span class="service-tag coming-soon-tag">Coming Soon</span>
             </div>
         </div>
-        <p>تأسيس متجر إلكتروني كامل عبر منصة سلة، يشمل ضبط الإعدادات وتصميم الواجهة وإضافة المنتجات.</p>
+        <p>Setting up a complete e-commerce store via Salla platform, including settings, interface design, and adding products.</p>
         <ul class="service-features">
-          <li>إنشاء الحساب وضبط الإعدادات</li>
-          <li>تصميم واجهة المتجر</li>
-          <li>إضافة المنتجات وربط الدفع والشحن</li>
-          <li>إعداد صفحات السياسات</li>
+          <li>Account creation & settings</li>
+          <li>Store interface design</li>
+          <li>Product addition & payment/shipping setup</li>
+          <li>Policy pages setup</li>
         </ul>
-        <a href="#" class="service-link disabled">قريباً</a>
+        <a href="#" class="service-link disabled">Coming Soon</a>
       </div>
 
-      <!-- 15. تصميم وبرمجة تطبيقات الجوال - قريبًا -->
+      <!-- 10. Digital Analytics -->
+      <div class="service-card">
+        <div class="service-header">
+            <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="service-title-group">
+                <h3>Digital Analytics</h3>
+                <span class="service-tag">Available</span>
+            </div>
+        </div>
+        <p>Analyzing account performance on social and ad platforms to provide insights and recommendations for better results.</p>
+        <ul class="service-features">
+          <li>Post & campaign performance analysis</li>
+          <li>Target audience analysis</li>
+          <li>Competitor comparison</li>
+          <li>Comprehensive report & recommendations</li>
+        </ul>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
+      </div>
+
+      <!-- 11. UX Audit - Coming Soon -->
+      <div class="service-card coming-soon">
+        <div class="service-header">
+            <div class="service-icon"><i class="fas fa-mouse-pointer"></i></div>
+            <div class="service-title-group">
+                <h3>UX Audit</h3>
+                <span class="service-tag coming-soon-tag">Coming Soon</span>
+            </div>
+        </div>
+        <p>Evaluating user experience on digital sites and stores to improve usability and increase conversion rates.</p>
+        <ul class="service-features">
+          <li>User journey review</li>
+          <li>Mobile experience analysis</li>
+          <li>Ease of access evaluation</li>
+          <li>Strengths & weaknesses report</li>
+        </ul>
+        <a href="#" class="service-link disabled">Coming Soon</a>
+      </div>
+
+      <!-- 12. Privacy & Cookies Policy - Coming Soon -->
+      <div class="service-card coming-soon">
+        <div class="service-header">
+            <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+            <div class="service-title-group">
+                <h3>Privacy & Cookies Policy</h3>
+                <span class="service-tag coming-soon-tag">Coming Soon</span>
+            </div>
+        </div>
+        <p>Drafting legal policies for websites and stores, including privacy policy, cookies policy, and terms & conditions.</p>
+        <ul class="service-features">
+          <li>PDPL-compliant privacy policy</li>
+          <li>Cookies policy drafting</li>
+          <li>Custom clauses per activity</li>
+          <li>Ready-to-publish texts</li>
+        </ul>
+        <a href="#" class="service-link disabled">Coming Soon</a>
+      </div>
+
+      <!-- 13. Events Coverage - Coming Soon -->
+      <div class="service-card coming-soon">
+        <div class="service-header">
+            <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="service-title-group">
+                <h3>Events Coverage</h3>
+                <span class="service-tag coming-soon-tag">Coming Soon</span>
+            </div>
+        </div>
+        <p>On-site media coverage for events and conferences via photo and video to document the event for marketing use.</p>
+        <ul class="service-features">
+          <li>Event photography coverage</li>
+          <li>Video coverage + Highlight reel</li>
+          <li>Editing & delivery</li>
+        </ul>
+        <a href="#" class="service-link disabled">Coming Soon</a>
+      </div>
+
+      <!-- 14. Full Animation (Explainer Video) - Advanced -->
+      <div class="service-card">
+        <div class="service-header">
+            <div class="service-icon"><i class="fas fa-magic"></i></div>
+            <div class="service-title-group">
+                <h3>Full Animation (Explainer)</h3>
+                <span class="service-tag advanced">Advanced Level</span>
+            </div>
+        </div>
+        <p>Full explainer animation video to explain a service, product, or platform with storytelling and advanced visual effects.</p>
+        <ul class="service-features">
+          <li>Script & Storyboard preparation</li>
+          <li>Custom style & character design</li>
+          <li>Advanced animation</li>
+          <li>Professional voiceover</li>
+        </ul>
+        <a href="https://ecode.sa/contact-en/" class="service-link">Request Service →</a>
+      </div>
+
+      <!-- 15. Mobile App Development - Coming Soon -->
       <div class="service-card coming-soon">
         <div class="service-header">
             <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
             <div class="service-title-group">
-                <h3>تطبيقات الجوال</h3>
-                <span class="service-tag advanced">قريبا</span>
+                <h3>Mobile App Development</h3>
+                <span class="service-tag coming-soon-tag">Coming Soon</span>
             </div>
         </div>
-        <p>خدمة تطوير تطبيقات جوال بسيطة أو متوسطة التعقيد، تشمل التصميم والبرمجة والرفع على المتاجر.</p>
+        <p>Development service for simple or medium-complexity mobile apps, including design, programming, and store upload.</p>
         <ul class="service-features">
-          <li>تصميم واجهات UI/UX</li>
-          <li>بناء شاشات التطبيق الأساسية</li>
-          <li>ربط بقاعدة بيانات (عند الحاجة)</li>
-          <li>الرفع على متاجر التطبيقات</li>
+          <li>UI/UX design</li>
+          <li>Core screens development</li>
+          <li>Database integration (if needed)</li>
+          <li>App store upload</li>
         </ul>
-        <a href="#" class="service-link disabled">قريباً</a>
+        <a href="#" class="service-link disabled">Coming Soon</a>
       </div>
     </div>
 
     <div class="cta-section">
-      <h2>هل لديك مشروع في ذهنك؟</h2>
-      <p>تواصل معنا الآن للحصول على استشارة مجانية ومناقشة كيف يمكننا تحويل فكرتك إلى واقع.</p>
+      <h2>Have a Project in Mind?</h2>
+      <p>Contact us now for a free consultation and discuss how we can turn your idea into reality.</p>
       <div class="cta-buttons">
-        <a href="https://ecode.sa/contact/" class="btn-primary">ابدأ مشروعك الآن</a>
-        <a href="https://ecode.sa/plans/" class="btn-secondary">شاهد الباقات</a>
+        <a href="https://ecode.sa/contact-en/" class="btn-primary">Start Your Project</a>
+        <a href="https://ecode.sa/plans-en/" class="btn-secondary">View Plans</a>
       </div>
     </div>
   </section>
@@ -971,9 +994,9 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <h4>eCode — إلكترونيك كود</h4>
-          <p>تصنع الأثر</p>
-          <p style="margin-top: 16px;">شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية.</p>
+          <h4>eCode – Electronic Code</h4>
+          <p>Making an Impact</p>
+          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
           
           <div class="social-bar">
             <a class="social-link" href="mailto:info@ecode.sa" title="Email">
@@ -1007,34 +1030,34 @@
         </div>
 
         <div class="footer-links">
-          <h4>روابط سريعة</h4>
+          <h4>Quick Links</h4>
           <ul>
-            <li><a href="https://ecode.sa/ar/">الرئيسية</a></li>
-            <li><a href="https://ecode.sa/services/">خدماتنا</a></li>
-            <li><a href="https://ecode.sa/plans/">الباقات</a></li>
-            <li><a href="https://ecode.sa/portfolio/">أعمالنا</a></li>
-            <li><a href="https://ecode.sa/contact/">تواصل معنا</a></li>
-            <li><a href="https://ecode.sa/terms/">الشروط والأحكام</a></li>
-            <li><a href="https://ecode.sa/privacy/">سياسة الخصوصية</a></li>
+            <li><a href="https://ecode.sa/en/">Home</a></li>
+            <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
+            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
+            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
+            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
+            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
+            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>تواصل معنا</h4>
-          <p>الرياض — المملكة العربية السعودية</p>
-          <p>جوال: <a href="tel:0503666316">0503666316</a></p>
-          <p>البريد: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
+          <h4>Contact Us</h4>
+          <p>Riyadh – Kingdom of Saudi Arabia</p>
+          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
+          <p>Email: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        © 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
+        © 2025 Electronic Code Company. All rights reserved.
       </div>
     </div>
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
