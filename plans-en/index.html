@@ -11,25 +11,22 @@
   <meta name="googlebot" content="index, follow">
   <link rel="canonical" href="https://ecode.sa/plans/">
   
-  <!-- Open Graph for Social Media -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Our Plans | eCode">
   <meta property="og:description" content="eCode plans for digital marketing and content management. Choose the right plan for your business with flexible solutions and competitive pricing">
   <meta property="og:image" content="https://ecode.sa/favicon.png">
   <meta property="og:url" content="https://ecode.sa/plans/">
   <meta property="og:type" content="website">
   
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Our Plans | eCode">
-  <meta name="twitter:description" content="eCode plans for digital marketing and content management. Choose the right plan for your business with flexible solutions and competitive pricing">
-  <meta name="twitter:image" content="https://ecode.sa/favicon.png">
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  
   <style>
     :root {
-      /* Base Colors (Dark Mode - Default) */
       --lavender-light: #A99BFF;
       --lavender-dark: #8B7FFF;
       --sky-blue: #5BC0F8;
@@ -42,31 +39,14 @@
       --text-secondary: #9DA5B4;
       --text-muted: #6B7280;
       --border-color: #2D3748;
-      --border-hover: #4A5568;
-      
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-12: 48px;
-      --space-16: 64px;
-      
       --radius-base: 16px;
       --radius-lg: 24px;
       --radius-full: 999px;
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
       --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
-      
-      --transition-fast: 150ms ease;
       --transition-base: 250ms ease;
     }
 
-    /* === Light Mode Settings === */
     [data-theme="light"] {
       --bg-primary: #F3F4F6;
       --bg-secondary: #FFFFFF;
@@ -75,804 +55,1077 @@
       --text-secondary: #4B5563;
       --text-muted: #9CA3AF;
       --border-color: #E5E7EB;
-      --border-hover: #D1D5DB;
-      
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
       --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body {
       font-family: "Inter", system-ui, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
+      line-height: 1.6;
       overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
-    h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
-    h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
-    p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
-
-    /* ========== Header ========== */
-    .main-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-color);
-      transition: var(--transition-base);
-    }
-
-    @supports (backdrop-filter: blur(12px)) {
-        .main-header {
-            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
-            backdrop-filter: blur(12px);
-        }
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-4) var(--space-6);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-
-    .logo-container:hover { transform: scale(1.02); }
-
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    .logo-icon img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
+    /* Header Styles */
+    .main-header { position: sticky; top: 0; z-index: 50; background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon img { width: 48px; height: 48px; object-fit: contain; }
     .logo-text { display: flex; flex-direction: column; }
+    .logo-text .brand-name { font-size: 24px; font-weight: 700; background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .logo-text .brand-tagline { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+    .nav { display: flex; align-items: center; gap: 24px; }
+    .nav a { text-decoration: none; color: var(--text-secondary); font-weight: 600; transition: 0.3s; }
+    .nav a:hover, .nav a.active { color: var(--lavender-light); }
 
-    .logo-text .brand-name {
-      font-size: 24px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* Circular Buttons */
+    .theme-toggle, .lang-switcher {
+      width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: var(--bg-elevated); border: 1px solid var(--border-color); color: var(--text-secondary);
+      cursor: pointer; text-decoration: none; transition: 0.3s;
+    }
+    .theme-toggle:hover, .lang-switcher:hover {
+      background: var(--bg-secondary); border-color: var(--lavender-dark); color: var(--lavender-light); box-shadow: var(--shadow-glow);
     }
 
-    .logo-text .brand-tagline {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-6);
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      position: relative;
-      padding: var(--space-2) 0;
-      transition: var(--transition-fast);
-      font-weight: 600;
-    }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      transition: var(--transition-base);
-    }
-
-    .nav a:hover { color: var(--lavender-light); }
-    .nav a:hover::after { width: 100%; }
-    .nav a.active { color: var(--lavender-light); }
-    .nav a.active::after { width: 100%; }
-
-    /* === Circular Buttons (Language & Theme) === */
-    .lang-switcher, .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      border-radius: 50%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition-base);
-      text-decoration: none;
-    }
-
-    .lang-switcher:hover, .theme-toggle:hover {
-      background: var(--bg-secondary);
-      border-color: var(--lavender-dark);
-      color: var(--lavender-light);
-      box-shadow: var(--shadow-glow);
-    }
-
-    /* === "Contact Us" Button (Wide) === */
+    /* Wide Contact Button */
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      min-width: 140px;
-      border-radius: var(--radius-full);
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: inherit;
+      padding: 14px 32px; min-width: 140px; border-radius: var(--radius-full);
       background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff !important;
-      text-decoration: none;
-      transition: var(--transition-base);
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      white-space: nowrap;
+      color: #fff !important; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: 0.3s;
     }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6); }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      filter: brightness(1.1);
-      color: #fff !important;
-    }
-
+    /* Page Hero */
     .page-hero {
       background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
-      padding: 100px var(--space-6) 80px;
+      padding: 80px 24px;
       text-align: center;
       border-bottom: 1px solid var(--border-color);
       position: relative;
       overflow: hidden;
     }
-
     .page-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -20%;
-      width: 600px;
-      height: 600px;
+      content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 25s ease-in-out infinite;
+      border-radius: 50%; animation: float 25s ease-in-out infinite;
     }
+    @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-80px, 60px) scale(1.1); } }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
+    .page-hero p { font-size: 20px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
 
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-80px, 60px) scale(1.1); }
-    }
+    .plans-container { max-width: 1200px; margin: 0 auto; padding: 64px 24px; }
 
-    .page-hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page-hero p {
-      font-size: 20px;
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .plans-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-16) var(--space-6);
-    }
-
-    .section-title {
-      font-size: 40px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: var(--space-3);
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: var(--space-12);
-    }
-
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-16);
-    }
-
-    .plan-card {
+    /* Accordion Styles */
+    .category-accordion {
+      margin-bottom: 24px;
       background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-12);
       border: 1px solid var(--border-color);
-      transition: var(--transition-base);
-      position: relative;
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
+    .category-summary {
+      padding: 24px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg-elevated); transition: background 0.3s;
+    }
+    .category-summary:hover { background: var(--bg-secondary); }
+    .category-summary::-webkit-details-marker { display: none; }
+    .category-header { display: flex; align-items: center; gap: 16px; flex-grow: 1; }
+    .category-icon {
+      width: 50px; height: 50px; background: rgba(139, 127, 255, 0.1); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--lavender-light);
+      border: 1px solid rgba(139, 127, 255, 0.2);
+    }
+    [data-theme="light"] .category-icon { background: rgba(139, 127, 255, 0.1); color: var(--lavender-dark); border-color: rgba(139, 127, 255, 0.2); }
+    .category-title { font-size: 20px; font-weight: 700; color: var(--text-primary); }
+    .category-subtitle { font-size: 14px; color: var(--text-secondary); display: block; margin-top: 4px; }
+    .accordion-icon { font-size: 20px; color: var(--text-muted); transition: transform 0.3s ease; }
+    details[open] .accordion-icon { transform: rotate(180deg); }
+    .category-content {
+        padding: 32px; border-top: 1px solid var(--border-color); background: var(--bg-primary);
+        animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .plan-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: var(--transition-base);
+    /* Plans Grid */
+    .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .plan-card {
+      background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 32px;
+      border: 1px solid var(--border-color); transition: var(--transition-base);
+      position: relative; overflow: hidden; display: flex; flex-direction: column;
     }
-
-    .plan-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--lavender-dark);
-    }
-
-    .plan-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .plan-card.featured {
-      border: 2px solid var(--lavender-dark);
-      box-shadow: 0 0 30px rgba(139, 127, 255, 0.2);
-    }
-
-    .plan-tag {
-      display: inline-block;
-      padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-full);
-      background: rgba(139, 127, 255, 0.15);
-      color: var(--lavender-light);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: var(--space-4);
-      border: 1px solid rgba(139, 127, 255, 0.3);
-    }
-
-    [data-theme="light"] .plan-tag {
-        color: var(--lavender-dark);
-        border-color: var(--lavender-dark);
-    }
-
-    .plan-card.featured .plan-tag {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      color: #fff;
-      border: none;
-    }
-
-    [data-theme="light"] .plan-card.featured .plan-tag {
-        color: #fff;
-    }
-
-    .plan-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      border-radius: var(--radius-base);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-6);
-      font-size: 32px;
-      color: #fff;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .plan-card h3 {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--space-4);
-    }
-
-    .plan-card p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: var(--space-8);
-      line-height: 1.8;
-    }
-
-    .plan-features {
-      list-style: none;
-      margin-bottom: var(--space-8);
-      flex-grow: 1;
-    }
-
-    .plan-features li {
-      padding: var(--space-3) 0;
-      padding-left: var(--space-8);
-      position: relative;
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .plan-features li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--mint-green);
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .plan-cta {
-      width: 100%;
-      padding: 14px 24px;
-      border-radius: var(--radius-full);
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 700;
-      transition: var(--transition-base);
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      display: block;
-    }
-
-    .plan-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      color: #fff;
-    }
-
-    .comparison-section {
-      margin-top: var(--space-16);
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-12);
-      border: 1px solid var(--border-color);
-      overflow-x: auto; /* Added for small screens */
-    }
-
-    .comparison-section h2 {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--lavender-light);
-      margin-bottom: var(--space-8);
-      text-align: center;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 600px; /* Ensure table doesn't squash */
-    }
-
-    th, td {
-      padding: var(--space-4);
-      text-align: left;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    th {
-      background: var(--bg-elevated);
-      color: var(--lavender-light);
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    td {
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    .check-icon {
-      color: var(--mint-green);
-      font-size: 20px;
-    }
-
-    /* === Footer Styles (Standardized) === */
-    .footer {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      padding: var(--space-16) var(--space-6) var(--space-6);
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-16);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-8);
-    }
-
-    .footer h4 {
-      margin-bottom: var(--space-4);
-      font-size: 20px;
-      color: var(--text-primary);
-    }
-
-    .footer p {
-      color: var(--text-secondary);
-      margin-bottom: var(--space-2);
-      font-size: 16px;
-    }
-
-    .footer a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-
-    .footer a:hover {
-      color: var(--lavender-light);
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: var(--space-2);
-    }
-
-    /* Standardized Footer Social Bar */
-    .social-bar {
-      margin-top: var(--space-4);
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
-      background: rgba(139, 127, 255, 0.05); /* Same as main page */
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-elevated);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-      font-size: 18px;
-      border: 1px solid var(--border-color);
-    }
-
-    /* Correct hover contrast: White Icon + Gradient Bg */
-    .footer .social-bar .social-link:hover {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      color: #ffffff !important;
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-      border-color: transparent;
-    }
+    .plan-card:hover { transform: translateY(-5px); border-color: var(--lavender-dark); box-shadow: var(--shadow-lg); }
     
-    .footer .social-bar .social-link:hover i {
-      color: #ffffff !important;
-    }
+    .plan-header { margin-bottom: 24px; text-align: center; }
+    .plan-name { font-size: 24px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+    .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; min-height: 40px;}
+    .plan-price { font-size: 32px; font-weight: 800; color: var(--lavender-light); margin-bottom: 8px; }
+    .plan-period { font-size: 14px; color: var(--text-secondary); font-weight: normal; }
 
-    .footer-bottom {
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-8);
-      padding-top: var(--space-4);
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
+    .plan-features { list-style: none; margin-bottom: 32px; flex-grow: 1; padding: 0; }
+    .plan-features li { 
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 15px; color: var(--text-secondary); 
+      display: flex; align-items: flex-start; gap: 10px; 
     }
+    .plan-features li::before { content: '✓'; color: var(--mint-green); font-weight: bold; flex-shrink: 0; }
+    .plan-features li:last-child { border-bottom: none; }
 
-    /* Floating WhatsApp Button */
+    .plan-btn {
+      display: block; width: 100%; padding: 12px; text-align: center; background: transparent;
+      border: 2px solid var(--lavender-dark); color: var(--text-primary); border-radius: var(--radius-full);
+      font-weight: 700; text-decoration: none; transition: 0.3s; cursor: pointer;
+    }
+    .plan-btn:hover { background: var(--lavender-dark); color: #fff; }
+
+    /* Featured & Badges */
+    .plan-card.featured { border: 2px solid var(--lavender-dark); background: rgba(139, 127, 255, 0.03); }
+    .plan-card.featured .plan-btn { background: var(--lavender-dark); color: #fff; border: none; }
+    .plan-card.featured .plan-btn:hover { background: var(--lavender-light); }
+    .coming-soon-badge { background: rgba(255, 184, 108, 0.2); color: var(--soft-orange); padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 600; margin-left: 10px; }
+
+    /* Footer Styles */
+    .footer { background: var(--bg-secondary); padding: 64px 24px 24px; border-top: 1px solid var(--border-color); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; margin-bottom: 32px; }
+    .footer h4 { margin-bottom: 16px; font-size: 20px; color: var(--text-primary); }
+    .footer p { color: var(--text-secondary); margin-bottom: 8px; font-size: 16px; }
+    .footer a { color: var(--text-secondary); text-decoration: none; transition: var(--transition-base); }
+    .footer a:hover { color: var(--lavender-light); }
+    .footer-links ul { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 8px; }
+
+    .social-bar { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+    .social-link { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-color); text-decoration: none; transition: 0.3s; }
+    .footer .social-bar .social-link:hover { background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue)); color: #ffffff !important; transform: translateY(-4px); box-shadow: var(--shadow-glow); border-color: transparent; }
+    .footer .social-bar .social-link:hover i { color: #ffffff !important; }
+    .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 16px; text-align: center; font-size: 14px; color: var(--text-muted); }
+
+    /* WhatsApp Float */
     .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px; /* Right for LTR */
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 32px;
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition-base);
-      animation: pulse-whatsapp 2s infinite;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light)); color: #FFF;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 100; text-decoration: none;
+      transition: var(--transition-base); animation: pulse-whatsapp 2s infinite; border: 2px solid rgba(255, 255, 255, 0.2);
     }
-
-    .whatsapp-float:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      color: #FFF;
-      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
-    }
-
-    @keyframes pulse-whatsapp {
-      0% {
-        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(139, 127, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0);
-      }
-    }
+    .whatsapp-float:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6); color: #FFF; background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light)); }
+    @keyframes pulse-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(139, 127, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(139, 127, 255, 0); } }
 
     @media (max-width: 968px) {
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .nav { width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 12px; }
       .plans-grid { grid-template-columns: 1fr; }
       .page-hero h1 { font-size: 40px; }
-      .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
     }
-    
-    @media (max-width: 640px) {
-        .whatsapp-float {
-            width: 55px;
-            height: 55px;
-            font-size: 28px;
-            bottom: 20px;
-            right: 20px;
-        }
-    }
+    @media (max-width: 640px) { .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; } }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header class="main-header">
     <div class="header-inner">
       <a href="https://ecode.sa/en/" class="logo-container">
-        <div class="logo-icon">
-          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
-        </div>
+        <div class="logo-icon"><img src="https://ecode.sa/favicon.png" alt="eCode"></div>
         <div class="logo-text">
           <div class="brand-name">eCode</div>
           <div class="brand-tagline">Making an Impact</div>
         </div>
       </a>
-
       <nav class="nav">
         <a href="https://ecode.sa/en/">Home</a>
         <a href="https://ecode.sa/services-en/">Our Services</a>
         <a href="https://ecode.sa/plans-en/" class="active">Plans</a>
         <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
         
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
-            <i class="fas fa-sun"></i>
-        </button>
-
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme"><i class="fas fa-sun"></i></button>
+        
         <a href="https://ecode.sa/plans/" class="lang-switcher" aria-label="Arabic">
-          <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
+            <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
         </a>
-
-        <a href="https://ecode.sa/contact-en/" class="btn-primary" style="padding: 14px 32px; font-size: 16px; color: #fff !important;">
-          Contact Us
-        </a>
+        
+        <a href="https://ecode.sa/contact-en/" class="btn-primary">Contact Us</a>
       </nav>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="page-hero">
-    <h1>Plans for Every Need</h1>
-    <p>Choose the perfect plan for your business and get integrated solutions that drive your growth forward</p>
+    <h1>eCode Plans & Solutions</h1>
+    <p>Choose the plan that suits your project needs, designed to give you the best value for money</p>
   </section>
 
-  <section class="plans-section">
-    <h2 class="section-title">Choose Your Perfect Plan</h2>
-    <p class="section-subtitle">All plans are customizable according to your needs</p>
+  <div class="plans-container">
 
-    <div class="plans-grid">
-      <div class="plan-card">
-        <span class="plan-tag">For Startups</span>
-        <div class="plan-icon">
-          <i class="fas fa-rocket"></i>
+    <!-- 1. Social Media -->
+    <details class="category-accordion" open>
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-share-alt"></i></div>
+          <div>
+            <div class="category-title">Social Media Management</div>
+            <div class="category-subtitle">Monthly management for your social presence</div>
+          </div>
         </div>
-        <h3>Launch Plan</h3>
-        <p>Perfect solution to start with a professional digital presence and launch your brand distinctively</p>
-        
-        <ul class="plan-features">
-          <li>Professional logo design</li>
-          <li>Basic visual identity</li>
-          <li>One account management (1 month)</li>
-          <li>8 designs monthly</li>
-          <li>Simple landing page</li>
-          <li>Email technical support</li>
-        </ul>
-        
-        <a href="https://ecode.sa/contact-en/" class="plan-cta">Request Quote</a>
-      </div>
-
-      <div class="plan-card featured">
-        <span class="plan-tag">⭐ Most Popular</span>
-        <div class="plan-icon">
-          <i class="fas fa-star"></i>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic</div>
+              <div class="plan-desc">For Startups</div>
+              <div class="plan-price">2,000 <span class="plan-period">SAR / Month</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>1 Platform (Instagram/TikTok/X)</li>
+              <li>8 Static Posts Monthly</li>
+              <li>4 Stories</li>
+              <li>Content Writing & Basic Design</li>
+              <li>End of Month Report</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-desc">Most Popular</div>
+              <div class="plan-price">3,500 <span class="plan-period">SAR / Month</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>2 Platforms (e.g. IG + TikTok)</li>
+              <li>12 Static Posts + 6 Stories</li>
+              <li>1 Short Video (Reel/TikTok)</li>
+              <li>Community Management</li>
+              <li>Analytical Report</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-desc">Full Management</div>
+              <div class="plan-price">6,000 <span class="plan-period">SAR / Month</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>3 Platforms</li>
+              <li>16 Static Posts + 8 Stories</li>
+              <li>2 Short Videos</li>
+              <li>Mini Product Photoshoot (10 pics)</li>
+              <li>Daily Community Management</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
         </div>
-        <h3>Growth Plan</h3>
-        <p>The optimal plan for ambitious companies looking to expand their digital presence</p>
-        
-        <ul class="plan-features">
-          <li>Complete visual identity</li>
-          <li>Two accounts management (3 months)</li>
-          <li>15 designs monthly</li>
-          <li>Marketing content</li>
-          <li>Monthly ad campaign</li>
-          <li>Monthly performance reports</li>
-          <li>One photoshoot session</li>
-          <li>Direct technical support</li>
-        </ul>
-        
-        <a href="https://ecode.sa/contact-en/" class="plan-cta">Request Quote</a>
       </div>
+    </details>
 
-      <div class="plan-card">
-        <span class="plan-tag">For Enterprises</span>
-        <div class="plan-icon">
-          <i class="fas fa-crown"></i>
+    <!-- 2. Branding -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-fingerprint"></i></div>
+          <div>
+            <div class="category-title">Branding & Visual Identity</div>
+            <div class="category-subtitle">Create a unique identity for your business</div>
+          </div>
         </div>
-        <h3>Excellence Plan</h3>
-        <p>Comprehensive solution for major brands with integrated services and continuous support</p>
-        
-        <ul class="plan-features">
-          <li>Complete visual identity + guidelines</li>
-          <li>3+ accounts management (6 months)</li>
-          <li>25 designs monthly</li>
-          <li>Diverse creative content</li>
-          <li>Advanced ad campaigns</li>
-          <li>Detailed analytical reports</li>
-          <li>2 photoshoot sessions monthly</li>
-          <li>Complete website</li>
-          <li>Dedicated account manager</li>
-          <li>24/7 technical support</li>
-        </ul>
-        
-        <a href="https://ecode.sa/contact-en/" class="plan-cta">Request Quote</a>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic</div>
+              <div class="plan-desc">Core Identity</div>
+              <div class="plan-price">2,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Main Logo + Submark</li>
+              <li>Color Palette & Fonts</li>
+              <li>3 Mockups</li>
+              <li>PNG + JPG Files</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-desc">Full Brand Identity</div>
+              <div class="plan-price">4,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Main Logo + Icon</li>
+              <li>Mini Brand Guidelines</li>
+              <li>5 Ready-to-use Assets</li>
+              <li>Social Media Templates</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-desc">Corporate Identity</div>
+              <div class="plan-price">7,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Full Identity + Moodboard</li>
+              <li>Comprehensive Brand Book (20-30 pages)</li>
+              <li>10 Ready-to-use Assets</li>
+              <li>Open Source Files (AI)</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </details>
 
-    <div class="comparison-section">
-      <h2>Comprehensive Plans Comparison</h2>
-      <div class="comparison-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Launch</th>
-              <th>Growth</th>
-              <th>Excellence</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Logo Design</td>
-              <td><i class="fas fa-check check-icon"></i></td>
-              <td><i class="fas fa-check check-icon"></i></td>
-              <td><i class="fas fa-check check-icon"></i></td>
-            </tr>
-            <tr>
-              <td>Visual Identity</td>
-              <td>Basic</td>
-              <td>Complete</td>
-              <td>Full + Guidelines</td>
-            </tr>
-            <tr>
-              <td>Number of Accounts</td>
-              <td>1</td>
-              <td>2</td>
-              <td>3+</td>
-            </tr>
-            <tr>
-              <td>Monthly Designs</td>
-              <td>8</td>
-              <td>15</td>
-              <td>25</td>
-            </tr>
-            <tr>
-              <td>Ad Campaigns</td>
-              <td>-</td>
-              <td>Monthly</td>
-              <td>Advanced</td>
-            </tr>
-            <tr>
-              <td>Photoshoot Sessions</td>
-              <td>-</td>
-              <td>1</td>
-              <td>2 monthly</td>
-            </tr>
-            <tr>
-              <td>Website</td>
-              <td>Landing Page</td>
-              <td>-</td>
-              <td><i class="fas fa-check check-icon"></i></td>
-            </tr>
-            <tr>
-              <td>Reports</td>
-              <td>-</td>
-              <td>Monthly</td>
-              <td>Detailed</td>
-            </tr>
-            <tr>
-              <td>Technical Support</td>
-              <td>Email</td>
-              <td>Direct</td>
-              <td>24/7</td>
-            </tr>
-            <tr>
-              <td>Dedicated Account Manager</td>
-              <td>-</td>
-              <td>-</td>
-              <td><i class="fas fa-check check-icon"></i></td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- 3. Motion Graphics -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-video"></i></div>
+          <div>
+            <div class="category-title">Motion Graphics</div>
+            <div class="category-subtitle">Engaging animated videos</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic Motion</div>
+              <div class="plan-desc">Short Ad</div>
+              <div class="plan-price">700 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>15 Seconds</li>
+              <li>Short Script</li>
+              <li>Light Animation</li>
+              <li>No Voiceover</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard Motion</div>
+              <div class="plan-desc">Interactive Video</div>
+              <div class="plan-price">1,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>30 Seconds</li>
+              <li>Professional Animation</li>
+              <li>Pro Music</li>
+              <li>2 Revisions</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium Motion</div>
+              <div class="plan-desc">Full Ad</div>
+              <div class="plan-price">2,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>60 Seconds</li>
+              <li>Full Design + Storyboard</li>
+              <li>Pro Voiceover</li>
+              <li>Full HD Delivery</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </details>
 
+    <!-- 4. Product Photography -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-box-open"></i></div>
+          <div>
+            <div class="category-title">Product Photography</div>
+            <div class="category-subtitle">Professional shots for your products</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic</div>
+              <div class="plan-price">1,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>10 Products</li>
+              <li>White Background</li>
+              <li>3 Angles per product</li>
+              <li>Basic Editing</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-price">3,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>20 Products</li>
+              <li>White/Custom Background</li>
+              <li>Pro Retouching</li>
+              <li>Web Optimized</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-price">5,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>30 Products</li>
+              <li>Creative Lifestyle</li>
+              <li>Full Retouching</li>
+              <li>Ultra High Quality</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 5. Corporate Photography -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-camera"></i></div>
+          <div>
+            <div class="category-title">Corporate Photography</div>
+            <div class="category-subtitle">Professional sessions for your team & office</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic</div>
+              <div class="plan-desc">1 Hour Session</div>
+              <div class="plan-price">1,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>1 Location</li>
+              <li>10 High Quality Photos</li>
+              <li>Basic Editing</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-desc">2 Hours Session</div>
+              <div class="plan-price">2,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>1 Location</li>
+              <li>15-20 Photos</li>
+              <li>Pro Lighting</li>
+              <li>Pro Retouching</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-desc">3 Hours Session</div>
+              <div class="plan-price">3,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>1-2 Locations</li>
+              <li>20-30 Photos</li>
+              <li>Comprehensive Coverage</li>
+              <li>Full Retouching</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 6. Video Intro -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-film"></i></div>
+          <div>
+            <div class="category-title">Video Intro Production</div>
+            <div class="category-subtitle">Showcase your business professionally</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic Intro</div>
+              <div class="plan-price">2,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>30 Seconds</li>
+              <li>1 Location</li>
+              <li>General Shots</li>
+              <li>Pro Editing</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard Intro</div>
+              <div class="plan-price">3,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>60 Seconds</li>
+              <li>Multiple B-roll</li>
+              <li>On-screen Text</li>
+              <li>2 Revisions</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium Intro</div>
+              <div class="plan-price">5,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>90 Seconds</li>
+              <li>Cinematic Shots + Storyboard</li>
+              <li>Color Grading</li>
+              <li>Custom Music</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 7. Ads Management -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-ad"></i></div>
+          <div>
+            <div class="category-title">Ads Management</div>
+            <div class="category-subtitle">Paid campaigns on social platforms</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic Ads</div>
+              <div class="plan-desc">Small Campaign</div>
+              <div class="plan-price">1,500 <span class="plan-period">SAR / Month</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>1 Platform</li>
+              <li>1 Campaign Setup</li>
+              <li>1 Ad Design</li>
+              <li>Basic Targeting</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard Ads</div>
+              <div class="plan-desc">Sales Campaign</div>
+              <div class="plan-price">3,000 <span class="plan-period">SAR / Month</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>2 Platforms</li>
+              <li>2 Campaigns</li>
+              <li>3 Ad Designs</li>
+              <li>Pro Copywriting</li>
+              <li>Detailed Targeting + Lookalike</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium Ads</div>
+              <div class="plan-desc">Full Management</div>
+              <div class="plan-price">3,500 <span class="plan-period">SAR / Month</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>3 Platforms</li>
+              <li>4 Campaigns</li>
+              <li>5 Pro Ad Designs</li>
+              <li>Advanced Targeting + Re-targeting</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 8. Website Design -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
+          <div>
+            <div class="category-title">Website Design</div>
+            <div class="category-subtitle">Professional web development packages</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Landing Page</div>
+              <div class="plan-price">3,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>One Page Responsive</li>
+              <li>Services & Info</li>
+              <li>Contact Form</li>
+              <li>Hosting Setup</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Business Site</div>
+              <div class="plan-desc">Complete Website</div>
+              <div class="plan-price">5,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>4-6 Pages</li>
+              <li>Responsive Design</li>
+              <li>Basic SEO</li>
+              <li>Maps & Advanced Forms</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium Site</div>
+              <div class="plan-desc">Pro Corporate Site</div>
+              <div class="plan-price">7,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>6-10 Pages</li>
+              <li>Custom UX Design</li>
+              <li>Full Content</li>
+              <li>Advanced Integration</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 9. E-Commerce (Salla) -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div>
+            <div class="category-title">E-Commerce Setup (Salla) <span class="coming-soon-badge">Soon</span></div>
+            <div class="category-subtitle">Launch your online store</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic Store</div>
+              <div class="plan-desc">Ready Store</div>
+              <div class="plan-price">3,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Account Setup</li>
+              <li>20 Products</li>
+              <li>Payment & Shipping Integration</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Business Store</div>
+              <div class="plan-desc">Pro Store</div>
+              <div class="plan-price">4,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Pro Interface Design</li>
+              <li>50 Products</li>
+              <li>Coupons & Advanced Shipping</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium Store</div>
+              <div class="plan-desc">Full Marketing Store</div>
+              <div class="plan-price">5,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Extra Pages</li>
+              <li>100 Products</li>
+              <li>Campaigns & Notifications</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 10. Digital Analytics -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-chart-pie"></i></div>
+          <div>
+            <div class="category-title">Digital Analytics</div>
+            <div class="category-subtitle">Analytics Packages</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic</div>
+              <div class="plan-desc">Simple Analysis</div>
+              <div class="plan-price">1,200 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>15-20 Posts Analysis</li>
+              <li>Engagement Analysis</li>
+              <li>Audience Analysis</li>
+              <li>Brief PDF Report</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-desc">Specialized Analysis</div>
+              <div class="plan-price">1,800 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>30 Posts Analysis</li>
+              <li>3 Competitors Analysis</li>
+              <li>Content Recommendations</li>
+              <li>Pro PDF Report</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-desc">Full Analysis + Strategy</div>
+              <div class="plan-price">2,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>1 Year Analysis</li>
+              <li>5 Competitors</li>
+              <li>Full Posting Strategy</li>
+              <li>Detailed PDF Report</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 11. UX Audit (Coming Soon) -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-mouse-pointer"></i></div>
+          <div>
+            <div class="category-title">UX Audit <span class="coming-soon-badge">Soon</span></div>
+            <div class="category-subtitle">User Experience Improvement</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic UX</div>
+              <div class="plan-desc">Quick Check</div>
+              <div class="plan-price">2,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Homepage Review</li>
+              <li>Basic Elements Check</li>
+              <li>Simple Recommendations</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Standard UX</div>
+              <div class="plan-desc">Pro Analysis</div>
+              <div class="plan-price">2,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>3 Main Pages Review</li>
+              <li>User Journey Analysis</li>
+              <li>Actionable Recommendations</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium UX</div>
+              <div class="plan-desc">Full Audit + Plan</div>
+              <div class="plan-price">3,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>5 Key Pages</li>
+              <li>Full Journey Analysis</li>
+              <li>Ready Improvement Plan</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 12. Privacy Policy (Coming Soon) -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-file-contract"></i></div>
+          <div>
+            <div class="category-title">Legal Policies <span class="coming-soon-badge">Soon</span></div>
+            <div class="category-subtitle">Privacy & Cookies Policy</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic Policy</div>
+              <div class="plan-desc">Simple Policy</div>
+              <div class="plan-price">800 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Simple Privacy Policy</li>
+              <li>Basic Clauses</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-desc">Saudi Compliance</div>
+              <div class="plan-price">1,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>PDPL Compliant</li>
+              <li>Cookies Policy</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-desc">Full Compliance</div>
+              <div class="plan-price">2,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>PDPL & GDPR Compliant</li>
+              <li>Advanced Cookies Policy</li>
+              <li>Terms & Conditions</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 13. Events Coverage (Coming Soon) -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-calendar-check"></i></div>
+          <div>
+            <div class="category-title">Events Coverage <span class="coming-soon-badge">Soon</span></div>
+            <div class="category-subtitle">Photo & Video Coverage</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic Event</div>
+              <div class="plan-desc">Photography Only</div>
+              <div class="plan-price">1,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>3 Hours Coverage</li>
+              <li>30-50 Photos</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Standard Event</div>
+              <div class="plan-desc">Photo + Video</div>
+              <div class="plan-price">3,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>4 Hours Coverage</li>
+              <li>Photos + Highlight Video</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium Event</div>
+              <div class="plan-desc">Full Pro Coverage</div>
+              <div class="plan-price">7,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>6 Hours Coverage</li>
+              <li>Full Team (Photo + Video)</li>
+              <li>Professional Cinematic Shots</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 14. Full Animation -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-film"></i></div>
+          <div>
+            <div class="category-title">Full Animation (Explainer)</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic</div>
+              <div class="plan-price">2,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>30 Seconds</li>
+              <li>Stock Graphics</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Standard</div>
+              <div class="plan-price">4,500 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>60 Seconds</li>
+              <li>Custom Illustration</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium</div>
+              <div class="plan-price">7,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>90-120 Seconds</li>
+              <li>Advanced Animation + Characters</li>
+            </ul>
+            <a href="https://ecode.sa/contact-en/" class="plan-btn">Request Plan</a>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 15. Mobile App (Coming Soon) -->
+    <details class="category-accordion">
+      <summary class="category-summary">
+        <div class="category-header">
+          <div class="category-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div>
+            <div class="category-title">Mobile App Development <span class="coming-soon-badge">Soon</span></div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </summary>
+      <div class="category-content">
+        <div class="plans-grid">
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Basic App</div>
+              <div class="plan-price">7,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>3 Main Screens</li>
+              <li>Android Only</li>
+              <li>Simple UI</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Standard App</div>
+              <div class="plan-price">12,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>5-7 Screens</li>
+              <li>iOS & Android</li>
+              <li>Simple Database</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-name">Premium App</div>
+              <div class="plan-price">15,000 <span class="plan-period">SAR</span></div>
+            </div>
+            <ul class="plan-features">
+              <li>Full App</li>
+              <li>Full Database + Dashboard</li>
+            </ul>
+            <span class="plan-btn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-grid">
@@ -933,7 +1186,7 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
+<div class="footer-bottom">
         © 2025 Electronic Code Company. All rights reserved.
       </div>
     </div>
@@ -944,37 +1197,18 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <script>
-    // --- Theme Toggle Logic ---
+</body>
     function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        html.setAttribute('data-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        updateThemeIcon(nextTheme);
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme', nextTheme);
     }
-
-    function updateThemeIcon(theme) {
-        const icon = document.querySelector('.theme-toggle i');
-        if (!icon) return; 
-        
-        if (theme === 'light') {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-
-    // Initialize Theme
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-    });
+    
+    // Load Theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
   </script>
 
 </body>
