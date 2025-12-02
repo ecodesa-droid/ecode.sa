@@ -115,12 +115,17 @@
       border-radius: 50%; animation: float 25s ease-in-out infinite;
     }
     @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-80px, 60px) scale(1.1); } }
+
     .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
     .page-hero p { font-size: 20px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
 
-    .plans-container { max-width: 1200px; margin: 0 auto; padding: 64px 24px; }
+    .plans-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
 
-    /* Accordion Styles */
+    /* Main Accordion Container Styles */
     .category-accordion {
       margin-bottom: 24px;
       background: var(--bg-secondary);
@@ -128,35 +133,84 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
     }
+
     .category-summary {
-      padding: 24px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
-      background: var(--bg-elevated); transition: background 0.3s;
+      padding: 24px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-elevated);
+      transition: background 0.3s;
     }
-    .category-summary:hover { background: var(--bg-secondary); }
-    .category-summary::-webkit-details-marker { display: none; }
-    .category-header { display: flex; align-items: center; gap: 16px; flex-grow: 1; }
+    
+    .category-summary:hover {
+      background: var(--bg-secondary);
+    }
+
+    .category-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-grow: 1;
+    }
+
     .category-icon {
       width: 50px; height: 50px; background: rgba(139, 127, 255, 0.1); border-radius: 12px;
       display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--lavender-light);
       border: 1px solid rgba(139, 127, 255, 0.2);
     }
-    [data-theme="light"] .category-icon { background: rgba(139, 127, 255, 0.1); color: var(--lavender-dark); border-color: rgba(139, 127, 255, 0.2); }
+    [data-theme="light"] .category-icon {
+      background: rgba(139, 127, 255, 0.1); color: var(--lavender-dark); border-color: rgba(139, 127, 255, 0.2);
+    }
+    
     .category-title { font-size: 20px; font-weight: 700; color: var(--text-primary); }
     .category-subtitle { font-size: 14px; color: var(--text-secondary); display: block; margin-top: 4px; }
-    .accordion-icon { font-size: 20px; color: var(--text-muted); transition: transform 0.3s ease; }
-    details[open] .accordion-icon { transform: rotate(180deg); }
+
+    .accordion-icon {
+        font-size: 20px;
+        color: var(--text-muted);
+        transition: transform 0.3s ease;
+    }
+
+    details[open] .accordion-icon {
+        transform: rotate(180deg);
+    }
+
     .category-content {
-        padding: 32px; border-top: 1px solid var(--border-color); background: var(--bg-primary);
+        padding: 32px;
+        border-top: 1px solid var(--border-color);
+        background: var(--bg-primary);
         animation: slideDown 0.3s ease-out;
     }
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Plans Grid */
-    .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Plans Grid inside Accordion */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
     .plan-card {
-      background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 32px;
-      border: 1px solid var(--border-color); transition: var(--transition-base);
-      position: relative; overflow: hidden; display: flex; flex-direction: column;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     .plan-card:hover { transform: translateY(-5px); border-color: var(--lavender-dark); box-shadow: var(--shadow-lg); }
     
@@ -168,29 +222,54 @@
 
     .plan-features { list-style: none; margin-bottom: 32px; flex-grow: 1; padding: 0; }
     .plan-features li { 
-      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 15px; color: var(--text-secondary); 
-      display: flex; align-items: flex-start; gap: 10px; 
+      padding: 8px 0; 
+      border-bottom: 1px solid rgba(255,255,255,0.05); 
+      font-size: 15px; 
+      color: var(--text-secondary); 
+      display: flex; 
+      align-items: flex-start; 
+      gap: 10px; 
     }
     .plan-features li::before { content: '✓'; color: var(--mint-green); font-weight: bold; flex-shrink: 0; }
     .plan-features li:last-child { border-bottom: none; }
 
     .plan-btn {
-      display: block; width: 100%; padding: 12px; text-align: center; background: transparent;
-      border: 2px solid var(--lavender-dark); color: var(--text-primary); border-radius: var(--radius-full);
-      font-weight: 700; text-decoration: none; transition: 0.3s; cursor: pointer;
+      display: block;
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      background: transparent;
+      border: 2px solid var(--lavender-dark);
+      color: var(--text-primary);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+      cursor: pointer;
     }
     .plan-btn:hover { background: var(--lavender-dark); color: #fff; }
 
-    /* Featured & Badges */
+    /* Featured Plan */
     .plan-card.featured { border: 2px solid var(--lavender-dark); background: rgba(139, 127, 255, 0.03); }
     .plan-card.featured .plan-btn { background: var(--lavender-dark); color: #fff; border: none; }
     .plan-card.featured .plan-btn:hover { background: var(--lavender-light); }
-    .coming-soon-badge { background: rgba(255, 184, 108, 0.2); color: var(--soft-orange); padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 600; margin-left: 10px; }
+    
+    /* Coming Soon Badge */
+    .coming-soon-badge {
+      background: rgba(255, 184, 108, 0.2);
+      color: var(--soft-orange);
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
 
     /* Footer Styles */
     .footer { background: var(--bg-secondary); padding: 64px 24px 24px; border-top: 1px solid var(--border-color); }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; margin-bottom: 32px; }
+    
     .footer h4 { margin-bottom: 16px; font-size: 20px; color: var(--text-primary); }
     .footer p { color: var(--text-secondary); margin-bottom: 8px; font-size: 16px; }
     .footer a { color: var(--text-secondary); text-decoration: none; transition: var(--transition-base); }
@@ -200,10 +279,18 @@
 
     .social-bar { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
     .social-link { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-color); text-decoration: none; transition: 0.3s; }
-    .footer .social-bar .social-link:hover { background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue)); color: #ffffff !important; transform: translateY(-4px); box-shadow: var(--shadow-glow); border-color: transparent; }
+    
+    .footer .social-bar .social-link:hover {
+      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
+      color: #ffffff !important;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      border-color: transparent;
+    }
     .footer .social-bar .social-link:hover i { color: #ffffff !important; }
-    .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 16px; text-align: center; font-size: 14px; color: var(--text-muted); }
 
+    .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 16px; text-align: center; font-size: 14px; color: var(--text-muted); }
+    
     /* WhatsApp Float */
     .whatsapp-float {
       position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
@@ -221,7 +308,10 @@
       .plans-grid { grid-template-columns: 1fr; }
       .page-hero h1 { font-size: 40px; }
     }
-    @media (max-width: 640px) { .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; } }
+    
+    @media (max-width: 640px) {
+        .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -261,7 +351,7 @@
 
   <div class="plans-container">
 
-    <!-- 1. Social Media -->
+    <!-- 1. Social Media Management -->
     <details class="category-accordion" open>
       <summary class="category-summary">
         <div class="category-header">
@@ -685,7 +775,7 @@
           <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
           <div>
             <div class="category-title">Website Design</div>
-            <div class="category-subtitle">Professional web development packages</div>
+            <div class="category-subtitle">Website Packages</div>
           </div>
         </div>
         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -861,7 +951,7 @@
           <div class="category-icon"><i class="fas fa-mouse-pointer"></i></div>
           <div>
             <div class="category-title">UX Audit <span class="coming-soon-badge">Soon</span></div>
-            <div class="category-subtitle">User Experience Improvement</div>
+            <div class="category-subtitle">UX Audit Packages</div>
           </div>
         </div>
         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -973,7 +1063,7 @@
           <div class="category-icon"><i class="fas fa-calendar-check"></i></div>
           <div>
             <div class="category-title">Events Coverage <span class="coming-soon-badge">Soon</span></div>
-            <div class="category-subtitle">Photo & Video Coverage</div>
+            <div class="category-subtitle">Events Coverage</div>
           </div>
         </div>
         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -1028,6 +1118,7 @@
           <div class="category-icon"><i class="fas fa-film"></i></div>
           <div>
             <div class="category-title">Full Animation (Explainer)</div>
+            <div class="category-subtitle">Full Animation</div>
           </div>
         </div>
         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -1078,6 +1169,7 @@
           <div class="category-icon"><i class="fas fa-mobile-alt"></i></div>
           <div>
             <div class="category-title">Mobile App Development <span class="coming-soon-badge">Soon</span></div>
+            <div class="category-subtitle">Mobile App Packages</div>
           </div>
         </div>
         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -1124,78 +1216,64 @@
     </details>
 
   </div>
-</script>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
           <h4>eCode – Electronic Code</h4>
           <p>Making an Impact</p>
-          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
-          
           <div class="social-bar">
-            <a class="social-link" href="mailto:info@ecode.sa" title="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
-              <i class="fa-brands fa-snapchat"></i>
-            </a>
-            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
+            <a href="mailto:info@ecode.sa" class="social-link"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/966503666316" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@eCode_sa" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/ecode.sa" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@ecode_sa" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/ecode_sa" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.snapchat.com/add/ecode_sa" class="social-link"><i class="fa-brands fa-snapchat"></i></a>
+            <a href="https://www.linkedin.com/company/ecode-sa" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://x.com/eCode_sa" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
-
-        <div class="footer-links">
+        <div>
           <h4>Quick Links</h4>
-          <ul>
-            <li><a href="https://ecode.sa/en/">Home</a></li>
-            <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
-            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
-            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
-            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
-            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
-            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
-          </ul>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <a href="https://ecode.sa/en/" style="text-decoration: none; color: var(--text-secondary);">Home</a>
+            <a href="https://ecode.sa/services-en/" style="text-decoration: none; color: var(--text-secondary);">Our Services</a>
+            <a href="https://ecode.sa/plans-en/" style="text-decoration: none; color: var(--text-secondary);">Plans</a>
+            <a href="https://ecode.sa/portfolio-en/" style="text-decoration: none; color: var(--text-secondary);">Portfolio</a>
+            <a href="https://ecode.sa/contact-en/" style="text-decoration: none; color: var(--text-secondary);">Contact Us</a>
+            <li><a href="https://ecode.sa/terms-en/"style="text-decoration: none; color: var(--text-secondary);">Terms & Conditions</a></li>
+            <li><a href="https://ecode.sa/privacy-en/"style="text-decoration: none; color: var(--text-secondary);">Privacy Policy</a></li>
+          </div>
         </div>
-
         <div>
           <h4>Contact Us</h4>
           <p>Riyadh – Kingdom of Saudi Arabia</p>
-          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
-          <p>Email: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
+          <p>Phone: <a href="tel:0503666316" style="color: var(--lavender-light);">0503666316</a></p>
+          <p>Email: <a href="mailto:info@ecode.sa" style="color: var(--lavender-light);">info@ecode.sa</a></p>
         </div>
       </div>
-
-<div class="footer-bottom">
-        © 2025 Electronic Code Company. All rights reserved.
-      </div>
+      <div class="footer-bottom">© 2025 Electronic Code Company. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme', nextTheme);
+    }
+    
+    // Load Theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
 
 </body>
 </html>
