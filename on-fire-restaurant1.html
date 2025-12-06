@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Fire Restaurant - مطعم أون فاير</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .font-cairo { font-family: 'Cairo', sans-serif; }
+        .font-roboto { font-family: 'Roboto', sans-serif; }
+        html { scroll-behavior: smooth; }
+        [dir="ltr"] .rotate-rtl { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="font-cairo bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-black text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-600">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    🔥
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-wider">ON FIRE</span>
+                    <span class="text-xs text-yellow-400 uppercase tracking-widest">Egyptian Taste</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="hover:text-orange-600 transition" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                <a href="#offers" class="hover:text-orange-600 transition" data-ar="العروض" data-en="Offers">العروض</a>
+                <a href="#menu" class="hover:text-orange-600 transition" data-ar="المنيو" data-en="Menu">المنيو</a>
+                <a href="#location" class="hover:text-orange-600 transition" data-ar="الموقع" data-en="Location">الموقع</a>
+                
+                <button onclick="toggleLanguage()" class="flex items-center gap-1 hover:text-yellow-400 border px-2 py-1 rounded border-gray-600">
+                    <i class="fas fa-globe"></i> <span id="langBtn">EN</span>
+                </button>
+
+                <a href="tel:0557006635" class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-full font-bold transition transform hover:scale-105 shadow-lg">
+                    اطلب الآن 📞
+                </a>
+            </div>
+
+            <div class="md:hidden flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="font-bold text-yellow-400" id="langBtnMobile">EN</button>
+                <button onclick="toggleMenu()" class="text-white focus:outline-none" id="menuToggle">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="md:hidden bg-zinc-900 border-t border-zinc-800 hidden">
+            <div class="flex flex-col p-4 gap-4 text-center">
+                <a href="#home" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800">الرئيسية</a>
+                <a href="#offers" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800">العروض</a>
+                <a href="#menu" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800">المنيو</a>
+                <a href="tel:0557006635" class="bg-orange-600 text-white py-3 rounded-lg font-bold mt-2">
+                    اطلب الآن 📞
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-zinc-900 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop" alt="Food" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center text-white relative">
+            <div class="inline-block px-3 py-1 bg-yellow-400 text-black font-bold text-sm rounded-full mb-4 animate-bounce">
+                🔥 أكل يملى العين والبطن!
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight max-w-4xl mx-auto drop-shadow-lg">
+                طعم مصري.. على أصوله ويولّع حواسك! 🔥
+            </h1>
+            <p class="text-lg md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto">
+                من فطور الصباح وحتى عشاء الليل، نقدم لك أشهى المأكولات المصرية الشعبية والمشويات بأسعار ما تتفوت.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#offers" class="bg-orange-600 hover:bg-orange-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2">
+                    شاهد العروض النارية <i class="fas fa-chevron-left rotate-rtl"></i>
+                </a>
+                <a href="https://wa.me/966557006635" class="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-4 rounded-full font-bold transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-2xl"></i> تواصل واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
+            <div class="p-6 rounded-2xl bg-orange-50 hover:bg-orange-100 transition duration-300">
+                <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">⚡</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">طازج يومياً</h3>
+                <p class="text-gray-600">لحوم وخضروات طازجة تحضر بعناية كل صباح.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-yellow-50 hover:bg-yellow-100 transition duration-300">
+                <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">💰</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">أسعار منافسة</h3>
+                <p class="text-gray-600">وجبات مشبعة تبدأ من 15 ريال فقط.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-orange-50 hover:bg-orange-100 transition duration-300">
+                <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🇪🇬</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">نكهة أصيلة</h3>
+                <p class="text-gray-600">تتبيلات مصرية خاصة تأخذك لقلب القاهرة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers -->
+    <section id="offers" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-orange-600 font-bold tracking-wider uppercase text-sm">On Fire Offers</span>
+                <h2 class="text-4xl font-bold text-white mt-2">عروضنا ما تخلص.. اختار وجبتك!</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Offer 15 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition border-t-8 border-yellow-400">
+                    <div class="bg-yellow-400 p-4 text-center">
+                        <h3 class="text-2xl font-black text-black">15 <span class="text-sm">ريال</span></h3>
+                        <p class="text-black font-medium">عرض الـ 15 ريال</p>
+                    </div>
+                    <div class="p-6 space-y-4 text-sm">
+                        <div class="border-b pb-3">
+                            <h4 class="font-bold text-orange-600 mb-2">الخيار الأول</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بشاميل</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <div class="border-b pb-3">
+                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثاني</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> دجاج مشوي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثالث</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> أي ساندويتش</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 25 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition border-t-8 border-orange-600 relative md:-mt-4 z-10">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">BEST SELLER</div>
+                    <div class="bg-orange-600 p-6 text-center">
+                        <h3 class="text-4xl font-black text-white">25 <span class="text-lg">ريال</span></h3>
+                        <p class="text-white font-medium text-lg">عرض الـ 25 ريال</p>
+                    </div>
+                    <div class="p-6 space-y-4 text-sm">
+                        <div class="border-b pb-3">
+                            <h4 class="font-bold text-orange-600 mb-2">الخيار الأول</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> نصف دجاج على الفحم</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> رز + خبز</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سلطات + بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <div class="border-b pb-3">
+                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثاني</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سيخين مشاوي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> رز + خبز</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سلطات + بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثالث</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مكرونة بشاميل + سيخ</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سلطات + بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <a href="tel:0557006635" class="block w-full py-3 border-2 border-orange-600 text-orange-600 font-bold rounded-lg hover:bg-orange-600 hover:text-white transition text-center mt-4">
+                            اطلب الآن 📞
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Offer 35 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition border-t-8 border-red-800">
+                    <div class="bg-red-800 p-4 text-center">
+                        <h3 class="text-2xl font-black text-white">35 <span class="text-sm">ريال</span></h3>
+                        <p class="text-white font-medium">عرض الـ 35 ريال</p>
+                    </div>
+                    <div class="p-6 space-y-4 text-sm">
+                        <div class="border-b pb-3">
+                            <h4 class="font-bold text-red-800 mb-2">الخيار الأول</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> طاجن خضار باللحمة</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> رز + خبز</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> سلطات + بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <div class="border-b pb-3">
+                            <h4 class="font-bold text-red-800 mb-2">الخيار الثاني</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> طاجن لحم بالبصل</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> رز + خبز</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> سلطات + بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-800 mb-2">الخيار الثالث</h4>
+                            <ul class="space-y-1">
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> نفر مشاوي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> رز + خبز</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> سلطات + بطاطس</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="py-20 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">تشكيلة ترضي كل الأذواق</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                استمتع بأشهى الأطباق المصرية التقليدية المحضرة بعناية فائقة
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-10" id="menuTabs"></div>
+            <div id="menuContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+
+            <div class="text-center mt-12">
+                <a href="tel:0557006635" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white text-lg px-10 py-4 rounded-full font-bold transition shadow-lg">
+                    <i class="fas fa-phone"></i> اطلب الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="location" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">جلسات هادية.. ولقمة هنية</h2>
+            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">زورونا في فرعنا بالعوالي، مكان نظيف ومناسب للأفراد والعائلات.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-96">
+                <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070" class="w-full h-full object-cover transition group-hover:scale-110" alt="Interior">
+                </div>
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047" class="w-full h-full object-cover" alt="Seating">
+                </div>
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1615719413546-198b18360211?q=80&w=2070" class="w-full h-full object-cover" alt="Juice">
+                </div>
+                <div class="col-span-2 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070" class="w-full h-full object-cover" alt="Exterior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-white pt-16 pb-8 border-t-4 border-orange-600">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-12">
+            <div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center">🔥</div>
+                    <span class="text-2xl font-bold">ON FIRE</span>
+                </div>
+                <p class="text-gray-400 mb-6">مكة المكرمة - العوالي - محطة مجمع الدوائر الحكومية</p>
+                <div class="space-y-3">
+                    <a href="tel:0557006635" class="flex items-center gap-3 text-lg hover:text-orange-600 transition">
+                        <i class="fas fa-phone text-orange-600"></i> <span dir="ltr">0557006635</span>
+                    </a>
+                    <div class="flex items-center gap-3 text-lg text-gray-300">
+                        <i class="fas fa-clock text-orange-600"></i> Daily: 6:00 AM - 2:00 AM
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center md:text-start">
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">تجدنا على تطبيقات التوصيل</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 px-2 rounded-lg transition flex flex-col items-center gap-1">
+                        <i class="fas fa-motorcycle text-2xl"></i>
+                        <span class="text-xs">HungerStation</span>
+                    </a>
+                    <a href="#" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 px-2 rounded-lg transition flex flex-col items-center gap-1">
+                        <i class="fas fa-utensils text-2xl"></i>
+                        <span class="text-xs">Jahez</span>
+                    </a>
+                    <a href="#" class="bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-2 rounded-lg col-span-2 flex flex-col items-center gap-1">
+                        <i class="fas fa-shopping-bag text-2xl"></i>
+                        <span class="text-xs">Keyta</span>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">تابعونا</h4>
+                <div class="flex gap-4 mb-8">
+                    <a href="#" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
+                        <i class="fab fa-tiktok text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
+                        <i class="fab fa-snapchat-ghost text-xl"></i>
+                    </a>
+                </div>
+                <a href="https://maps.app.goo.gl/O2FsF5QzZUhpMg9Q7" target="_blank" class="w-full h-32 bg-zinc-800 rounded-lg flex items-center justify-center hover:text-orange-600 text-sm border border-zinc-700 transition">
+                    <i class="fas fa-map-marker-alt text-orange-600 ml-2"></i> شاهد موقعنا على خرائط جوجل
+                </a>
+            </div>
+        </div>
+
+        <div class="border-t border-zinc-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+            جميع الحقوق محفوظة © 2025 مطعم أون فاير
+        </div>
+    </footer>
+
+    <script>
+        const menuData = {
+            grilled: [
+                {name: 'دجاج مشوي', price: '13', desc: 'صدر دجاج مضاف إليه دهن الخروف، والبصل، والبقدونس الطازج'},
+                {name: 'كباب لحم', price: '15', desc: 'لحم مفروم مضاف إليه دهن الخروف، والبصل، والبقدونس الطازج'},
+                {name: 'حواوشي', price: '19', desc: 'لحم بقري مفروم مع فلفل طازج، وطماطم مفرومة، وبصل مفروم'},
+                {name: 'سجق', price: '13', desc: 'ساندويتش سجق مع خضار طازجة وتوابل غنية'},
+                {name: 'شيش طاووق', price: '13', desc: 'ساندويتش شيش طاووق متبل مع بصل وفلفل وبندورة'}
+            ],
+            soups: [
+                {name: 'شوربة لسان عصفور', price: '13', desc: 'لسان العصفور مع الزبدة والمرق بطعم دافئ'},
+                {name: 'ملوخية', price: '13', desc: 'أوراق الملوخية الخضراء مع المرق وصوص الثوم'}
+            ],
+            sandwiches: [
+                {name: 'فلافل صاج', price: '7', desc: 'فلافل مع ملفوف وبندورة وخيار وصوص طحينة'},
+                {name: 'فلافل صامولي', price: '4', desc: 'فلافل مع ملفوف وبندورة وخيار وصوص طحينة'},
+                {name: 'كبدة جامبو', price: '13', desc: 'كبدة مع بصل وفلفل متبلة بتوابل غنية'},
+                {name: 'كبدة صامولي', price: '7', desc: 'كبدة مع بصل وفلفل متبلة بتوابل غنية'},
+                {name: 'سجق جامبو', price: '13', desc: 'سجق مع خضار طازجة وتوابل غنية'},
+                {name: 'سجق صامولي', price: '7', desc: 'سجق مع خضار طازجة وتوابل غنية'},
+                {name: 'شكشوكة - خبز لبناني', price: '5', desc: 'بيض مع خضار طازجة ونكهات طبيعية غنية'},
+                {name: 'شكشوكة - صامولي', price: '5', desc: 'بيض مع خضار طازجة ونكهة طبيعية غنية'},
+                {name: 'بيض مقلي - خبز لبناني', price: '4', desc: 'بيض مع الزبدة والملح والفلفل الأسود'},
+                {name: 'بيض مقلي - صامولي', price: '4', desc: 'بيض مع الزبدة والملح والفلفل الأسود'},
+                {name: 'بيض مسلوق - خبز لبناني', price: '4', desc: 'بيض مسلوق متبل محضر بعناية'},
+                {name: 'بيض مسلوق - صامولي', price: '4', desc: 'بيض مسلوق متبل بنكهة بسيطة'},
+                {name: 'تونة - خبز لبناني', price: '5', desc: 'تونة مع خضار طازجة متبلة'},
+                {name: 'تونة - صامولي', price: '5', desc: 'تونة مع خضار طازجة متبلة'},
+                {name: 'جبنة فيتا مع خضار', price: '5', desc: 'جبنة فيتا مع خضار طازجة'},
+                {name: 'فلافل صاج مع حمص وبيض', price: '9', desc: 'فلافل مع حمص وبيض محضرة بعناية'}
+            ],
+            plates: [
+                {name: 'طبق فلافل مشكل', price: '17', desc: 'طبق فلافل مشكل مع إضافات خاصة'},
+                {name: 'طبق كبدة', price: '22', desc: 'كبدة مع بصل وفلفل معززة بتوابل غنية'},
+                {name: 'طبق سجق', price: '22', desc: 'سجق مع خضار طازجة وتوابل غنية'},
+                {name: 'طبق شكشوكة', price: '10', desc: 'بيض مع خضار طازجة غنية بالنكهة'}
+            ],
+            tagines: [
+                {name: 'مكرونة بالبشاميل', price: '19', desc: 'صوص بشاميل من الحليب والقشطة ومكعب المرق'},
+                {name: 'طاجن لحم وبصل', price: '50', desc: 'لحم وبصل وفلفل وصلصة طماطم مخبوز بالفخار'},
+                {name: 'طاجن خضار بالدجاج', price: '50', desc: 'خضار مشكلة مع دجاج وتوابل غنية'},
+                {name: 'طاجن خضار باللحم', price: '50', desc: 'خضار مشكلة مع لحم وتوابل غنية'},
+                {name: 'كبدة إسكندراني', price: '22', desc: 'كبدة مع الفلفل والثوم المهروس والصوص الخاص'},
+                {name: 'مسقعة', price: '13', desc: 'باذنجان وصلصة طماطم وفلفل رومي وبطاطس'},
+                {name: 'طاجن أرز محشي', price: '19', desc: 'أرز مخبوز بقدر الفخار بطريقة منزلية'}
+            ],
+            rice: [
+                {name: 'أرز أبيض', price: '8', desc: 'أرز أبيض مع السمن البلدي والملح ومرق'},
+                {name: 'أرز بالشعيرية', price: '8', desc: 'أرز أبيض مع الشعيرية والسمن البلدي'},
+                {name: 'أرز بشاور', price: '8', desc: 'أرز بشاور غني بالبهارات الشرقية'}
+            ],
+            grills: [
+                {name: 'كباب دجاج 250 جم', price: '38', desc: 'صدور دجاج مع دهن خروف وبصل وبقدونس'},
+                {name: 'كباب لحم 250 جم', price: '44', desc: 'لحم مفروم مع دهن الخروف وبصل وبقدونس'},
+                {name: 'شيش طاووق 250 جم', price: '38', desc: 'قطع دجاج متبلة مع بصل وفلفل وبندورة'},
+                {name: 'أوصال لحم 250 جم', price: '50', desc: 'لحم متبل مع بصل وفلفل وبندورة'},
+                {name: 'لفائف اللحم 250 جم', price: '50', desc: 'قطع لحم مع بصل وبندورة وثوم وفلفل رومي'},
+                {name: '3 أسياخ ترب 250 جم', price: '50', desc: 'لحم مفروم مع بصل مشوي على الفحم'},
+                {name: 'مشكل مشاوي 320 جم', price: '57', desc: 'تشكيلة مشاوي محضرة بعناية وبمذاق لا يقاوم'},
+                {name: 'دجاج مشوي - نصف دجاجة', price: '20', desc: 'دجاج مشوي على الفحم برائحة مدخنة'},
+                {name: 'دجاج مشوي - دجاجة كاملة', price: '40', desc: 'دجاج مشوي على الفحم برائحة مدخنة'}
+            ],
+            appetizers: [
+                {name: 'سلطة خضراء', price: '8', desc: 'طماطم وخيار وبصل وفلفل رومي وليمون وزيت زيتون'},
+                {name: 'حمص', price: '13', desc: 'حمص مع عصير الليمون الطازج وزيت الزيتون'},
+                {name: 'بابا غنوج', price: '13', desc: 'باذنجان مشوي مع ثوم وطحينة وليمون وكمون'},
+                {name: 'مخلل باذنجان', price: '8', desc: 'باذنجان مع ثوم مهروس وملح وتتبيلة خاصة'}
+            ],
+            desserts: [
+                {name: 'مهلبية بالأرز', price: '13', desc: 'حليب وأرز وكريمة وسكر محضرة بعناية'}
+            ],
+            juices: [
+                {name: 'عصير برتقال - صغير', price: '10', desc: 'عصير برتقال طبيعي طازج'},
+                {name: 'عصير برتقال - كبير', price: '13', desc: 'عصير برتقال طبيعي بنكهة منعشة'},
+                {name: 'عصير مانجو - صغير', price: '10', desc: 'عصير مانجو طازج بنكهة طبيعية'},
+                {name: 'عصير مانجو - كبير', price: '13', desc: 'عصير مانجو طازج بنكهة غنية'},
+                {name: 'عصير فراولة - صغير', price: '10', desc: 'عصير فراولة طازج منعش'},
+                {name: 'عصير فراولة - كبير', price: '13', desc: 'عصير فراولة طبيعي بطعم غني'},
+                {name: 'عصير جوافة - صغير', price: '10', desc: 'عصير جوافة طازج منعش'},
+                {name: 'عصير جوافة - كبير', price: '13', desc: 'عصير جوافة طازج بمذاق حلو'},
+                {name: 'عصير رمان - صغير', price: '10', desc: 'عصير رمان طبيعي بنكهة قوية'},
+                {name: 'عصير رمان - كبير', price: '13', desc: 'عصير رمان طازج بطعم قوي'},
+                {name: 'ليمون بالنعناع - صغير', price: '10', desc: 'ليمون طبيعي مع نعناع طازج'},
+                {name: 'ليمون بالنعناع - كبير', price: '13', desc: 'ليمون مع نعناع طازج منعش'},
+                {name: 'كركديه - صغير', price: '10', desc: 'كركديه بارد ومنعش بنكهات طبيعية'},
+                {name: 'كركديه - كبير', price: '13', desc: 'كركديه بارد ومنعش بطعم مميز'},
+                {name: 'كوكتيل - صغير', price: '13', desc: 'عصير فواكه مشكل طازج بطعم غني'},
+                {name: 'كوكتيل - كبير', price: '15', desc: 'عصير فواكه مشكل يجمع نكهات الفواكه'}
+            ],
+            drinks: [
+                {name: 'شاي', price: '2'},
+                {name: 'مياه معدنية', price: '2'},
+                {name: 'كينزا كولا', price: '3'},
+                {name: 'كينزا ليمون', price: '3'},
+                {name: 'كينزا دايت', price: '3'},
+                {name: 'كينزا حمضيات', price: '3'},
+                {name: 'بيبسي', price: '4'},
+                {name: 'سفن أب', price: '4'},
+                {name: 'ميرندا برتقال', price: '4'}
+            ]
+        };
+
+        const menuTitles = {
+            grilled: 'الساندويتشات المشوية',
+            soups: 'الشوربات',
+            sandwiches: 'الساندويتشات',
+            plates: 'الأطباق',
+            tagines: 'الطواجن',
+            rice: 'الأرز',
+            grills: 'المشاوي',
+            appetizers: 'المقبلات',
+            desserts: 'الحلويات',
+            juices: 'العصائر',
+            drinks: 'المشروبات'
+        };
+
+        function renderMenuTabs() {
+            const tabs = document.getElementById('menuTabs');
+            tabs.innerHTML = Object.keys(menuData).map((cat, i) => `
+                <button onclick="showMenu('${cat}')" data-cat="${cat}" 
+                    class="menu-tab px-6 py-3 rounded-full font-bold transition ${i === 0 ? 'bg-orange-600 text-white shadow-lg' : 'bg-white text-gray-700 hover:bg-orange-100'}">
+                    ${menuTitles[cat]}
+                </button>
+            `).join('');
+        }
+
+        function showMenu(cat) {
+            document.querySelectorAll('.menu-tab').forEach(t => {
+                t.classList.remove('bg-orange-600', 'text-white', 'shadow-lg');
+                t.classList.add('bg-white', 'text-gray-700');
+            });
+            document.querySelector(`[data-cat="${cat}"]`).classList.add('bg-orange-600', 'text-white', 'shadow-lg');
+            document.querySelector(`[data-cat="${cat}"]`).classList.remove('bg-white', 'text-gray-700');
+
+            document.getElementById('menuContent').innerHTML = menuData[cat].map(item => `
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition group">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-orange-600 transition mb-2">
+                                ${item.name}
+                            </h3>
+                            ${item.desc ? `<p class="text-sm text-gray-600">${item.desc}</p>` : ''}
+                        </div>
+                        <div class="text-right mr-4">
+                            <span class="text-2xl font-black text-orange-600">${item.price}</span>
+                            <span class="text-sm text-gray-600 mr-1">ريال</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleLanguage() {
+            alert('تبديل اللغة - سيتم إضافته قريباً');
+        }
+
+        window.onload = () => {
+            renderMenuTabs();
+            showMenu('grilled');
+        };
+    </script>
+</body>
+</html>
