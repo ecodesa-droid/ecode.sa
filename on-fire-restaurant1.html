@@ -4,223 +4,264 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>On Fire Restaurant - مطعم أون فاير</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         .font-cairo { font-family: 'Cairo', sans-serif; }
         .font-roboto { font-family: 'Roboto', sans-serif; }
-        html { scroll-behavior: smooth; }
-        [dir="ltr"] .rotate-rtl { transform: rotate(180deg); }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* Language handling classes */
+        body.lang-en { font-family: 'Roboto', sans-serif; direction: ltr; }
+        body.lang-en .rotate-rtl { transform: rotate(180deg); }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
+        
+        /* Mobile Sticky Bar padding */
+        body { padding-bottom: 60px; } 
+        @media (min-width: 768px) { body { padding-bottom: 0; } }
+
+        /* Offer list checkmark alignment fix for LTR */
+        body.lang-en .offer-check { margin-right: 0.5rem; margin-left: 0; }
     </style>
 </head>
-<body class="font-cairo bg-gray-50 text-gray-800">
+<body class="font-cairo bg-gray-50 text-gray-800 transition-all duration-300">
 
     <!-- Navbar -->
     <nav class="bg-black text-white sticky top-0 z-50 shadow-lg border-b-4 border-orange-600">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:animate-pulse">
                     🔥
                 </div>
                 <div class="flex flex-col">
                     <span class="text-xl font-bold tracking-wider">ON FIRE</span>
                     <span class="text-xs text-yellow-400 uppercase tracking-widest">Egyptian Taste</span>
                 </div>
-            </div>
+            </a>
 
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#home" class="hover:text-orange-600 transition" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-                <a href="#offers" class="hover:text-orange-600 transition" data-ar="العروض" data-en="Offers">العروض</a>
-                <a href="#menu" class="hover:text-orange-600 transition" data-ar="المنيو" data-en="Menu">المنيو</a>
-                <a href="#location" class="hover:text-orange-600 transition" data-ar="الموقع" data-en="Location">الموقع</a>
+                <a href="#home" class="hover:text-orange-600 transition nav-link" data-key="home">الرئيسية</a>
+                <a href="#offers" class="hover:text-orange-600 transition nav-link" data-key="offers">العروض</a>
+                <a href="#menu" class="hover:text-orange-600 transition nav-link" data-key="menu">المنيو</a>
+                <a href="#location" class="hover:text-orange-600 transition nav-link" data-key="location">الموقع</a>
                 
-                <button onclick="toggleLanguage()" class="flex items-center gap-1 hover:text-yellow-400 border px-2 py-1 rounded border-gray-600">
-                    <i class="fas fa-globe"></i> <span id="langBtn">EN</span>
+                <button onclick="toggleLanguage()" class="flex items-center gap-1 hover:text-yellow-400 border px-3 py-1 rounded border-gray-600 transition hover:border-yellow-400">
+                    <i class="fas fa-globe"></i> <span id="langBtnText">English</span>
                 </button>
 
-                <a href="tel:0557006635" class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-full font-bold transition transform hover:scale-105 shadow-lg">
-                    اطلب الآن 📞
+                <a href="tel:0557006635" class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-full font-bold transition transform hover:scale-105 shadow-lg flex items-center gap-2">
+                    <span class="nav-link" data-key="call_now">اطلب الآن</span> 📞
                 </a>
             </div>
 
+            <!-- Mobile Buttons -->
             <div class="md:hidden flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="font-bold text-yellow-400" id="langBtnMobile">EN</button>
-                <button onclick="toggleMenu()" class="text-white focus:outline-none" id="menuToggle">
+                <button onclick="toggleLanguage()" class="font-bold text-yellow-400 border border-zinc-700 px-2 py-1 rounded">
+                    <span id="langBtnMobile">EN</span>
+                </button>
+                <button onclick="toggleMenu()" class="text-white focus:outline-none p-2">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobileMenu" class="md:hidden bg-zinc-900 border-t border-zinc-800 hidden">
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="md:hidden bg-zinc-900 border-t border-zinc-800 hidden absolute w-full left-0 z-40 shadow-2xl">
             <div class="flex flex-col p-4 gap-4 text-center">
-                <a href="#home" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800">الرئيسية</a>
-                <a href="#offers" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800">العروض</a>
-                <a href="#menu" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800">المنيو</a>
-                <a href="tel:0557006635" class="bg-orange-600 text-white py-3 rounded-lg font-bold mt-2">
-                    اطلب الآن 📞
-                </a>
+                <a href="#home" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800 nav-link" data-key="home">الرئيسية</a>
+                <a href="#offers" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800 nav-link" data-key="offers">العروض</a>
+                <a href="#menu" onclick="toggleMenu()" class="hover:text-orange-600 py-2 border-b border-zinc-800 nav-link" data-key="menu">المنيو</a>
+                <a href="#location" onclick="toggleMenu()" class="hover:text-orange-600 py-2 nav-link" data-key="location">الموقع</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center bg-zinc-900 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop" alt="Food" class="w-full h-full object-cover">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop" alt="Food" class="w-full h-full object-cover animate-pulse-slow">
         </div>
         
-        <div class="container mx-auto px-4 z-10 text-center text-white relative">
-            <div class="inline-block px-3 py-1 bg-yellow-400 text-black font-bold text-sm rounded-full mb-4 animate-bounce">
-                🔥 أكل يملى العين والبطن!
+        <div class="container mx-auto px-4 z-20 text-center text-white relative">
+            <div class="inline-block px-4 py-2 bg-yellow-400 text-black font-bold text-sm rounded-full mb-6 animate-bounce shadow-lg" data-aos="fade-down">
+                🔥 <span class="nav-link" data-key="hero_badge">أكل يملى العين والبطن!</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight max-w-4xl mx-auto drop-shadow-lg">
-                طعم مصري.. على أصوله ويولّع حواسك! 🔥
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight max-w-4xl mx-auto drop-shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
+                <span class="text-orange-500">ON FIRE</span> <br>
+                <span class="nav-link" data-key="hero_title">طعم مصري.. على أصوله!</span>
             </h1>
-            <p class="text-lg md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto">
-                من فطور الصباح وحتى عشاء الليل، نقدم لك أشهى المأكولات المصرية الشعبية والمشويات بأسعار ما تتفوت.
+            <p class="text-lg md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto font-light" data-aos="fade-up" data-aos-delay="400">
+                <span class="nav-link" data-key="hero_desc">من فطور الصباح وحتى عشاء الليل، نقدم لك أشهى المأكولات المصرية الشعبية والمشويات.</span>
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#offers" class="bg-orange-600 hover:bg-orange-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2">
-                    شاهد العروض النارية <i class="fas fa-chevron-left rotate-rtl"></i>
+            <div class="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+                <a href="#menu" class="bg-orange-600 hover:bg-orange-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2 hover:-translate-y-1">
+                    <span class="nav-link" data-key="view_menu">شاهد المنيو</span> <i class="fas fa-utensils"></i>
                 </a>
-                <a href="https://wa.me/966557006635" class="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-4 rounded-full font-bold transition flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-2xl"></i> تواصل واتساب
+                <a href="https://wa.me/966557006635" target="_blank" class="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2 hover:-translate-y-1">
+                    <i class="fab fa-whatsapp text-2xl"></i> <span class="nav-link" data-key="whatsapp_btn">تواصل واتساب</span>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white relative -mt-10 z-30 rounded-t-3xl shadow-inner">
         <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
-            <div class="p-6 rounded-2xl bg-orange-50 hover:bg-orange-100 transition duration-300">
-                <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">⚡</div>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">طازج يومياً</h3>
-                <p class="text-gray-600">لحوم وخضروات طازجة تحضر بعناية كل صباح.</p>
+            <div class="p-8 rounded-2xl bg-orange-50 hover:bg-orange-100 transition duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">⚡</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="feat_fresh_title">طازج يومياً</h3>
+                <p class="text-gray-600 nav-link" data-key="feat_fresh_desc">لحوم وخضروات طازجة تحضر بعناية كل صباح.</p>
             </div>
-            <div class="p-6 rounded-2xl bg-yellow-50 hover:bg-yellow-100 transition duration-300">
-                <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">💰</div>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">أسعار منافسة</h3>
-                <p class="text-gray-600">وجبات مشبعة تبدأ من 15 ريال فقط.</p>
+            <div class="p-8 rounded-2xl bg-yellow-50 hover:bg-yellow-100 transition duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">💰</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="feat_price_title">أسعار منافسة</h3>
+                <p class="text-gray-600 nav-link" data-key="feat_price_desc">وجبات مشبعة تبدأ من أسعار في متناول الجميع.</p>
             </div>
-            <div class="p-6 rounded-2xl bg-orange-50 hover:bg-orange-100 transition duration-300">
-                <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🇪🇬</div>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">نكهة أصيلة</h3>
-                <p class="text-gray-600">تتبيلات مصرية خاصة تأخذك لقلب القاهرة.</p>
+            <div class="p-8 rounded-2xl bg-orange-50 hover:bg-orange-100 transition duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">🇪🇬</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="feat_taste_title">نكهة أصيلة</h3>
+                <p class="text-gray-600 nav-link" data-key="feat_taste_desc">تتبيلات مصرية خاصة تأخذك لقلب القاهرة.</p>
             </div>
         </div>
     </section>
 
-    <!-- Offers -->
-    <section id="offers" class="py-20 bg-gray-900">
+    <!-- Offers Section -->
+    <section id="offers" class="py-20 bg-gray-900 text-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-orange-600 font-bold tracking-wider uppercase text-sm">On Fire Offers</span>
-                <h2 class="text-4xl font-bold text-white mt-2">عروضنا ما تخلص.. اختار وجبتك!</h2>
+            <div class="text-center mb-16" data-aos="fade-down">
+                <span class="text-orange-500 font-bold tracking-wider uppercase text-sm">On Fire Offers</span>
+                <h2 class="text-4xl font-bold mt-2 nav-link" data-key="offers_title">عروضنا ما تخلص.. اختار وجبتك!</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Offer 15 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition border-t-8 border-yellow-400">
+                <div class="bg-white text-gray-800 rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition border-t-8 border-yellow-400" data-aos="flip-right">
                     <div class="bg-yellow-400 p-4 text-center">
-                        <h3 class="text-2xl font-black text-black">عرض الـ 15 ريال </h3>
+                        <h3 class="text-2xl font-black text-black"><span class="nav-link" data-key="offer_15_title">عرض الـ 15 ريال</span></h3>
                     </div>
                     <div class="p-6 space-y-4 text-sm">
-                        <div class="border-b pb-3">
-                            <h4 class="font-bold text-orange-600 mb-2">الخيار الأول</h4>
+                        <!-- Option 1 -->
+                        <div class="border-b pb-3 border-gray-200">
+                            <h4 class="font-bold text-orange-600 mb-2 nav-link" data-key="opt1">الخيار الأول</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بشاميل</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="bechamel">بشاميل</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="potatoes">بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
-                        <div class="border-b pb-3">
-                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثاني</h4>
+                        <!-- Option 2 -->
+                        <div class="border-b pb-3 border-gray-200">
+                            <h4 class="font-bold text-orange-600 mb-2 nav-link" data-key="opt2">الخيار الثاني</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> دجاج مشوي</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="grilled_chicken">دجاج مشوي</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="potatoes">بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
+                        <!-- Option 3 -->
                         <div>
-                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثالث</h4>
+                            <h4 class="font-bold text-orange-600 mb-2 nav-link" data-key="opt3">الخيار الثالث</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> أي ساندويتش</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="any_sandwich">أي ساندويتش</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="potatoes">بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- Offer 25 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition border-t-8 border-orange-600 relative md:-mt-4 z-10">
-                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">BEST SELLER</div>
+                <div class="bg-white text-gray-800 rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition border-t-8 border-orange-600 relative md:-mt-8 z-10" data-aos="zoom-in">
+                    <div class="absolute top-0 right-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 text-center">BEST SELLER</div>
                     <div class="bg-orange-600 p-6 text-center">
-                        <h3 class="text-4xl font-black text-white">عرض الـ 25 ريال</h3>
+                        <h3 class="text-3xl font-black text-white"><span class="nav-link" data-key="offer_25_title">عرض الـ 25 ريال</span></h3>
                     </div>
                     <div class="p-6 space-y-4 text-sm">
-                        <div class="border-b pb-3">
-                            <h4 class="font-bold text-orange-600 mb-2">الخيار الأول</h4>
+                        <!-- Option 1 -->
+                        <div class="border-b pb-3 border-gray-200">
+                            <h4 class="font-bold text-orange-600 mb-2 nav-link" data-key="opt1">الخيار الأول</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> نصف دجاج على الفحم</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> رز + خبز</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سلطات + بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="half_chicken_coal">نصف دجاج على الفحم</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="rice_bread">رز + خبز</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="salad_potato">سلطات + بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
-                        <div class="border-b pb-3">
-                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثاني</h4>
+                        <!-- Option 2 -->
+                        <div class="border-b pb-3 border-gray-200">
+                            <h4 class="font-bold text-orange-600 mb-2 nav-link" data-key="opt2">الخيار الثاني</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سيخين مشاوي</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> رز + خبز</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سلطات + بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="two_skewers">سيخين مشاوي</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="rice_bread">رز + خبز</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="salad_potato">سلطات + بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
+                        <!-- Option 3 -->
                         <div>
-                            <h4 class="font-bold text-orange-600 mb-2">الخيار الثالث</h4>
+                            <h4 class="font-bold text-orange-600 mb-2 nav-link" data-key="opt3">الخيار الثالث</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مكرونة بشاميل + سيخ</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> سلطات + بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="bechamel_skewer">مكرونة بشاميل + سيخ</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="salad_potato">سلطات + بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-orange-600 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- Offer 35 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition border-t-8 border-red-800">
+                <div class="bg-white text-gray-800 rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-2 transition border-t-8 border-red-800" data-aos="flip-left">
                     <div class="bg-red-800 p-4 text-center">
-                        <h3 class="text-2xl font-black text-white">عرض الـ 35 ريال</h3>
+                        <h3 class="text-2xl font-black text-white"><span class="nav-link" data-key="offer_35_title">عرض الـ 35 ريال</span></h3>
                     </div>
                     <div class="p-6 space-y-4 text-sm">
-                        <div class="border-b pb-3">
-                            <h4 class="font-bold text-red-800 mb-2">الخيار الأول</h4>
+                        <!-- Option 1 -->
+                        <div class="border-b pb-3 border-gray-200">
+                            <h4 class="font-bold text-red-800 mb-2 nav-link" data-key="opt1">الخيار الأول</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> طاجن خضار باللحمة</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> رز + خبز</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> سلطات + بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="veg_tagine_meat">طاجن خضار باللحمة</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="rice_bread">رز + خبز</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="salad_potato">سلطات + بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
-                        <div class="border-b pb-3">
-                            <h4 class="font-bold text-red-800 mb-2">الخيار الثاني</h4>
+                        <!-- Option 2 -->
+                        <div class="border-b pb-3 border-gray-200">
+                            <h4 class="font-bold text-red-800 mb-2 nav-link" data-key="opt2">الخيار الثاني</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> طاجن لحم بالبصل</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> رز + خبز</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> سلطات + بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="meat_onion_tagine">طاجن لحم بالبصل</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="rice_bread">رز + خبز</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="salad_potato">سلطات + بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
+                        <!-- Option 3 -->
                         <div>
-                            <h4 class="font-bold text-red-800 mb-2">الخيار الثالث</h4>
+                            <h4 class="font-bold text-red-800 mb-2 nav-link" data-key="opt3">الخيار الثالث</h4>
                             <ul class="space-y-1">
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> نفر مشاوي</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> رز + خبز</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> سلطات + بطاطس</li>
-                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500">✔</span> مشروب غازي</li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="bbq_plate">نفر مشاوي</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="rice_bread">رز + خبز</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="salad_potato">سلطات + بطاطس</span></li>
+                                <li class="flex items-start gap-2 text-gray-700"><span class="text-green-500 offer-check">✔</span> <span class="nav-link" data-key="drink">مشروب غازي</span></li>
                             </ul>
                         </div>
                     </div>
@@ -229,57 +270,62 @@
         </div>
     </section>
 
-    <!-- Menu -->
+    <!-- Menu Section -->
     <section id="menu" class="py-20 bg-orange-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">تشكيلة ترضي كل الأذواق</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 nav-link" data-key="menu_title" data-aos="fade-up">تشكيلة ترضي كل الأذواق</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto nav-link" data-key="menu_subtitle" data-aos="fade-up" data-aos-delay="100">
                 استمتع بأشهى الأطباق المصرية التقليدية المحضرة بعناية فائقة
             </p>
             
-            <div class="flex flex-wrap justify-center gap-3 mb-10" id="menuTabs"></div>
-            <div id="menuContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+            <!-- Category Scroll wrapper for mobile -->
+            <div class="overflow-x-auto pb-4 mb-8" data-aos="fade-right">
+                <div class="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-3 min-w-max px-2" id="menuTabs">
+                    <!-- Tabs generated by JS -->
+                </div>
+            </div>
 
-            <div class="text-center mt-12">
-                <a href="tel:0557006635" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white text-lg px-10 py-4 rounded-full font-bold transition shadow-lg">
-                    <i class="fas fa-phone"></i> اطلب الآن
-                </a>
+            <div id="menuContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto min-h-[400px]">
+                <!-- Menu Items generated by JS -->
             </div>
         </div>
     </section>
 
-    <!-- Gallery -->
+    <!-- Gallery / Location -->
     <section id="location" class="py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">جلسات هادية.. ولقمة هنية</h2>
-            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">زورونا في فرعنا بالعوالي.</p>
+        <div class="container mx-auto px-4">
+             <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 nav-link" data-key="loc_title">جلسات هادية.. ولقمة هنية</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto nav-link" data-key="loc_desc">زورونا في فرعنا بالعوالي.</p>
+            </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-96">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-96" data-aos="zoom-in">
                 <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden relative group">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070" class="w-full h-full object-cover transition group-hover:scale-110" alt="Interior">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Interior">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-10 transition"></div>
                 </div>
-                <div class="rounded-2xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047" class="w-full h-full object-cover" alt="Seating">
+                <div class="rounded-2xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Seating">
                 </div>
-                <div class="rounded-2xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1615719413546-198b18360211?q=80&w=2070" class="w-full h-full object-cover" alt="Juice">
+                <div class="rounded-2xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1615719413546-198b18360211?q=80&w=2070" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Juice">
                 </div>
-                <div class="col-span-2 rounded-2xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070" class="w-full h-full object-cover" alt="Exterior">
+                <div class="col-span-2 rounded-2xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Exterior">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-zinc-900 text-white pt-16 pb-8 border-t-4 border-orange-600">
+    <footer class="bg-zinc-900 text-white pt-16 pb-24 md:pb-8 border-t-4 border-orange-600">
         <div class="container mx-auto px-4 grid md:grid-cols-3 gap-12">
-            <div>
+            <div data-aos="fade-up">
                 <div class="flex items-center gap-2 mb-6">
                     <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center">🔥</div>
                     <span class="text-2xl font-bold">ON FIRE</span>
                 </div>
-                <p class="text-gray-400 mb-6">مكة المكرمة - العوالي - محطة مجمع الدوائر الحكومية</p>
+                <p class="text-gray-400 mb-6 nav-link" data-key="address">مكة المكرمة - العوالي - محطة مجمع الدوائر الحكومية</p>
                 <div class="space-y-3">
                     <a href="tel:0557006635" class="flex items-center gap-3 text-lg hover:text-orange-600 transition">
                         <i class="fas fa-phone text-orange-600"></i> <span dir="ltr">0557006635</span>
@@ -290,195 +336,290 @@
                 </div>
             </div>
 
-            <div class="text-center md:text-start">
-                    <h4 class="text-xl font-bold mb-6 text-yellow-400">تجدنا على تطبيقات التوصيل</h4>
-                <div class="flex gap-4 mb-8">
-                    <a href="#" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
-                        <i class="fab hungerstation.png text-xl"></i>
+            <div class="text-center md:text-start" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-xl font-bold mb-6 text-yellow-400 nav-link" data-key="delivery_apps">تطبيقات التوصيل</h4>
+                <div class="flex justify-center md:justify-start gap-4 mb-8">
+                    <!-- HungerStation -->
+                    <a href="https://hungerstation.com/sa-ar/restaurant/mecca/al-mashair/154467?utm_campaign=google_reserve_place_order_action_CH-SEO_" target="_blank" title="HungerStation" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition transform hover:rotate-12 border border-zinc-700">
+                        <i class="fas fa-motorcycle text-xl"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
-                        <i class="fab Jahez.png text-xl"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
-                        <i class="fab keeta.png text-xl"></i>
+                    <!-- Keeta -->
+                    <a href="https://url.mykeeta.com/2zWw8Sez" target="_blank" title="Keeta" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition transform hover:rotate-12 border border-zinc-700">
+                        <i class="fas fa-shopping-bag text-xl"></i>
                     </a>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-xl font-bold mb-6 text-yellow-400">تابعونا</h4>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-xl font-bold mb-6 text-yellow-400 nav-link" data-key="follow_us">تابعونا</h4>
                 <div class="flex gap-4 mb-8">
-                    <a href="https://www.instagram.com/on_fire_restaurant" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
+                    <a href="https://www.instagram.com/on_fire_restaurant" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition hover:-translate-y-1">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="https://www.facebook.com/onfirerestaurant/" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
+                    <a href="https://www.facebook.com/onfirerestaurant/" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition hover:-translate-y-1">
                         <i class="fab fa-facebook text-xl"></i>
                     </a>
-                    <a href="https://www.snapchat.com/@onfirrestaurant" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition">
+                    <a href="https://www.snapchat.com/@onfirrestaurant" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-orange-600 transition hover:-translate-y-1">
                         <i class="fab fa-snapchat-ghost text-xl"></i>
                     </a>
                 </div>
-                <a href="https://maps.app.goo.gl/O2FsF5QzZUhpMg9Q7" target="_blank" class="w-full h-32 bg-zinc-800 rounded-lg flex items-center justify-center hover:text-orange-600 text-sm border border-zinc-700 transition">
-                    <i class="fas fa-map-marker-alt text-orange-600 ml-2"></i> شاهد موقعنا على خرائط جوجل
+                <a href="https://www.google.com/maps/search/?api=1&query=On+Fire+Restaurant+Makkah+Awali" target="_blank" class="w-full py-3 bg-zinc-800 rounded-lg flex items-center justify-center hover:text-orange-600 hover:bg-zinc-700 text-sm border border-zinc-700 transition gap-2">
+                    <i class="fas fa-map-marker-alt text-orange-600"></i> <span class="nav-link" data-key="google_maps">شاهد الموقع على الخريطة</span>
                 </a>
             </div>
         </div>
 
         <div class="border-t border-zinc-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            جميع الحقوق محفوظة © 2025 مطعم أون فاير
+             &copy; 2025 On Fire Restaurant. All rights reserved.
         </div>
     </footer>
 
+    <!-- Mobile Bottom Sticky Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-800 md:hidden z-50 flex justify-around items-center h-[60px] pb-1">
+        <a href="#menu" class="flex flex-col items-center justify-center text-gray-400 hover:text-orange-500 w-full h-full">
+            <i class="fas fa-book-open text-lg mb-1"></i>
+            <span class="text-xs nav-link" data-key="mobile_menu">المنيو</span>
+        </a>
+        <a href="tel:0557006635" class="flex flex-col items-center justify-center bg-orange-600 text-white w-16 h-16 rounded-full -mt-8 shadow-lg border-4 border-gray-50">
+            <i class="fas fa-phone text-2xl animate-pulse"></i>
+        </a>
+        <a href="https://wa.me/966557006635" class="flex flex-col items-center justify-center text-gray-400 hover:text-green-500 w-full h-full">
+            <i class="fab fa-whatsapp text-lg mb-1"></i>
+            <span class="text-xs nav-link" data-key="mobile_wa">واتساب</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Init Animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Data with dual language support and Image Placeholder
         const menuData = {
             grilled: [
-                {name: 'دجاج مشوي', price: '13', desc: 'صدر دجاج مضاف إليه دهن الخروف، والبصل، والبقدونس الطازج'},
-                {name: 'كباب لحم', price: '15', desc: 'لحم مفروم مضاف إليه دهن الخروف، والبصل، والبقدونس الطازج'},
-                {name: 'حواوشي', price: '19', desc: 'لحم بقري مفروم مع فلفل طازج، وطماطم مفرومة، وبصل مفروم'},
-                {name: 'سجق', price: '13', desc: 'ساندويتش سجق مع خضار طازجة وتوابل غنية'},
-                {name: 'شيش طاووق', price: '13', desc: 'ساندويتش شيش طاووق متبل مع بصل وفلفل وبندورة'}
+                {name: {ar: 'دجاج مشوي', en: 'Grilled Chicken'}, price: '13', desc: {ar: 'صدر دجاج مضاف إليه دهن الخروف، والبصل، والبقدونس الطازج', en: 'Chicken breast with lamb fat, onion, and fresh parsley'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كباب لحم', en: 'Meat Kebab'}, price: '15', desc: {ar: 'لحم مفروم مضاف إليه دهن الخروف، والبصل، والبقدونس الطازج', en: 'Minced meat with lamb fat, onion, and fresh parsley'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'حواوشي', en: 'Hawawshi'}, price: '19', desc: {ar: 'لحم بقري مفروم مع فلفل طازج، وطماطم مفرومة، وبصل مفروم', en: 'Minced beef with fresh pepper, tomatoes, and onion'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'سجق', en: 'Sausage Sandwich'}, price: '13', desc: {ar: 'ساندويتش سجق مع خضار طازجة وتوابل غنية', en: 'Sausage sandwich with fresh vegetables and rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'شيش طاووق', en: 'Shish Tawook'}, price: '13', desc: {ar: 'ساندويتش شيش طاووق متبل مع بصل وفلفل وبندورة', en: 'Marinated Shish Tawook with onion, pepper, and tomato'}, img: 'https://placehold.co/600x400'}
             ],
             soups: [
-                {name: 'شوربة لسان عصفور', price: '13', desc: 'لسان العصفور مع الزبدة والمرق بطعم دافئ'},
-                {name: 'ملوخية', price: '13', desc: 'أوراق الملوخية الخضراء مع المرق وصوص الثوم'}
+                {name: {ar: 'شوربة لسان عصفور', en: 'Orzo Soup'}, price: '13', desc: {ar: 'لسان العصفور مع الزبدة والمرق بطعم دافئ', en: 'Orzo with butter and warm broth'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'ملوخية', en: 'Molokhia'}, price: '13', desc: {ar: 'أوراق الملوخية الخضراء مع المرق وصوص الثوم', en: 'Green Molokhia leaves with broth and garlic sauce'}, img: 'https://placehold.co/600x400'}
             ],
             sandwiches: [
-                {name: 'فلافل صاج', price: '7', desc: 'فلافل مع ملفوف وبندورة وخيار وصوص طحينة'},
-                {name: 'فلافل صامولي', price: '4', desc: 'فلافل مع ملفوف وبندورة وخيار وصوص طحينة'},
-                {name: 'كبدة جامبو', price: '13', desc: 'كبدة مع بصل وفلفل متبلة بتوابل غنية'},
-                {name: 'كبدة صامولي', price: '7', desc: 'كبدة مع بصل وفلفل متبلة بتوابل غنية'},
-                {name: 'سجق جامبو', price: '13', desc: 'سجق مع خضار طازجة وتوابل غنية'},
-                {name: 'سجق صامولي', price: '7', desc: 'سجق مع خضار طازجة وتوابل غنية'},
-                {name: 'شكشوكة - خبز لبناني', price: '5', desc: 'بيض مع خضار طازجة ونكهات طبيعية غنية'},
-                {name: 'شكشوكة - صامولي', price: '5', desc: 'بيض مع خضار طازجة ونكهة طبيعية غنية'},
-                {name: 'بيض مقلي - خبز لبناني', price: '4', desc: 'بيض مع الزبدة والملح والفلفل الأسود'},
-                {name: 'بيض مقلي - صامولي', price: '4', desc: 'بيض مع الزبدة والملح والفلفل الأسود'},
-                {name: 'بيض مسلوق - خبز لبناني', price: '4', desc: 'بيض مسلوق متبل محضر بعناية'},
-                {name: 'بيض مسلوق - صامولي', price: '4', desc: 'بيض مسلوق متبل بنكهة بسيطة'},
-                {name: 'تونة - خبز لبناني', price: '5', desc: 'تونة مع خضار طازجة متبلة'},
-                {name: 'تونة - صامولي', price: '5', desc: 'تونة مع خضار طازجة متبلة'},
-                {name: 'جبنة فيتا مع خضار', price: '5', desc: 'جبنة فيتا مع خضار طازجة'},
-                {name: 'فلافل صاج مع حمص وبيض', price: '9', desc: 'فلافل مع حمص وبيض محضرة بعناية'}
+                {name: {ar: 'فلافل صاج', en: 'Falafel Saj'}, price: '7', desc: {ar: 'فلافل مع ملفوف وبندورة وخيار وصوص طحينة', en: 'Falafel with cabbage, tomato, cucumber, and tahini'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'فلافل صامولي', en: 'Falafel Samoli'}, price: '4', desc: {ar: 'فلافل مع ملفوف وبندورة وخيار وصوص طحينة', en: 'Falafel with cabbage, tomato, cucumber, and tahini'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كبدة جامبو', en: 'Liver Jumbo'}, price: '13', desc: {ar: 'كبدة مع بصل وفلفل متبلة بتوابل غنية', en: 'Liver with onion and pepper, seasoned with rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كبدة صامولي', en: 'Liver Samoli'}, price: '7', desc: {ar: 'كبدة مع بصل وفلفل متبلة بتوابل غنية', en: 'Liver with onion and pepper, seasoned with rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'سجق جامبو', en: 'Sausage Jumbo'}, price: '13', desc: {ar: 'سجق مع خضار طازجة وتوابل غنية', en: 'Sausage with fresh vegetables and rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'سجق صامولي', en: 'Sausage Samoli'}, price: '7', desc: {ar: 'سجق مع خضار طازجة وتوابل غنية', en: 'Sausage with fresh vegetables and rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'شكشوكة - خبز لبناني', en: 'Shakshuka (Lebanese)'}, price: '5', desc: {ar: 'بيض مع خضار طازجة ونكهات طبيعية غنية', en: 'Eggs with fresh vegetables and rich natural flavors'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'شكشوكة - صامولي', en: 'Shakshuka (Samoli)'}, price: '5', desc: {ar: 'بيض مع خضار طازجة ونكهة طبيعية غنية', en: 'Eggs with fresh vegetables and rich natural flavors'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'بيض مقلي - خبز لبناني', en: 'Fried Eggs (Lebanese)'}, price: '4', desc: {ar: 'بيض مع الزبدة والملح والفلفل الأسود', en: 'Eggs with butter, salt, and black pepper'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'بيض مقلي - صامولي', en: 'Fried Eggs (Samoli)'}, price: '4', desc: {ar: 'بيض مع الزبدة والملح والفلفل الأسود', en: 'Eggs with butter, salt, and black pepper'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'بيض مسلوق - خبز لبناني', en: 'Boiled Eggs (Lebanese)'}, price: '4', desc: {ar: 'بيض مسلوق متبل محضر بعناية', en: 'Seasoned boiled eggs prepared with care'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'بيض مسلوق - صامولي', en: 'Boiled Eggs (Samoli)'}, price: '4', desc: {ar: 'بيض مسلوق متبل بنكهة بسيطة', en: 'Seasoned boiled eggs with simple flavor'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'تونة - خبز لبناني', en: 'Tuna (Lebanese)'}, price: '5', desc: {ar: 'تونة مع خضار طازجة متبلة', en: 'Tuna with seasoned fresh vegetables'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'تونة - صامولي', en: 'Tuna (Samoli)'}, price: '5', desc: {ar: 'تونة مع خضار طازجة متبلة', en: 'Tuna with seasoned fresh vegetables'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'جبنة فيتا مع خضار', en: 'Feta Cheese w/ Veg'}, price: '5', desc: {ar: 'جبنة فيتا مع خضار طازجة', en: 'Feta cheese with fresh vegetables'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'فلافل صاج مع حمص وبيض', en: 'Falafel Saj w/ Hummus & Egg'}, price: '9', desc: {ar: 'فلافل مع حمص وبيض محضرة بعناية', en: 'Falafel with hummus and eggs prepared with care'}, img: 'https://placehold.co/600x400'}
             ],
             plates: [
-                {name: 'طبق فلافل مشكل', price: '17', desc: 'طبق فلافل مشكل مع إضافات خاصة'},
-                {name: 'طبق كبدة', price: '22', desc: 'كبدة مع بصل وفلفل معززة بتوابل غنية'},
-                {name: 'طبق سجق', price: '22', desc: 'سجق مع خضار طازجة وتوابل غنية'},
-                {name: 'طبق شكشوكة', price: '10', desc: 'بيض مع خضار طازجة غنية بالنكهة'}
+                {name: {ar: 'طبق فلافل مشكل', en: 'Mixed Falafel Plate'}, price: '17', desc: {ar: 'طبق فلافل مشكل مع إضافات خاصة', en: 'Mixed falafel plate with special additions'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طبق كبدة', en: 'Liver Plate'}, price: '22', desc: {ar: 'كبدة مع بصل وفلفل معززة بتوابل غنية', en: 'Liver with onion and pepper enhanced with rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طبق سجق', en: 'Sausage Plate'}, price: '22', desc: {ar: 'سجق مع خضار طازجة وتوابل غنية', en: 'Sausage with fresh vegetables and rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طبق شكشوكة', en: 'Shakshuka Plate'}, price: '10', desc: {ar: 'بيض مع خضار طازجة غنية بالنكهة', en: 'Eggs with flavorful fresh vegetables'}, img: 'https://placehold.co/600x400'}
             ],
             tagines: [
-                {name: 'مكرونة بالبشاميل', price: '19', desc: 'صوص بشاميل من الحليب والقشطة ومكعب المرق'},
-                {name: 'طاجن لحم وبصل', price: '50', desc: 'لحم وبصل وفلفل وصلصة طماطم مخبوز بالفخار'},
-                {name: 'طاجن خضار بالدجاج', price: '50', desc: 'خضار مشكلة مع دجاج وتوابل غنية'},
-                {name: 'طاجن خضار باللحم', price: '50', desc: 'خضار مشكلة مع لحم وتوابل غنية'},
-                {name: 'كبدة إسكندراني', price: '22', desc: 'كبدة مع الفلفل والثوم المهروس والصوص الخاص'},
-                {name: 'مسقعة', price: '13', desc: 'باذنجان وصلصة طماطم وفلفل رومي وبطاطس'},
-                {name: 'طاجن أرز محشي', price: '19', desc: 'أرز مخبوز بقدر الفخار بطريقة منزلية'}
+                {name: {ar: 'مكرونة بالبشاميل', en: 'Béchamel Pasta'}, price: '19', desc: {ar: 'صوص بشاميل من الحليب والقشطة ومكعب المرق', en: 'Béchamel sauce with milk, cream, and broth'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طاجن لحم وبصل', en: 'Meat Onion Tagine'}, price: '50', desc: {ar: 'لحم وبصل وفلفل وصلصة طماطم مخبوز بالفخار', en: 'Meat, onion, pepper, and tomato sauce baked in clay pot'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طاجن خضار بالدجاج', en: 'Veggie Tagine w/ Chicken'}, price: '50', desc: {ar: 'خضار مشكلة مع دجاج وتوابل غنية', en: 'Mixed vegetables with chicken and rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طاجن خضار باللحم', en: 'Veggie Tagine w/ Meat'}, price: '50', desc: {ar: 'خضار مشكلة مع لحم وتوابل غنية', en: 'Mixed vegetables with meat and rich spices'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كبدة إسكندراني', en: 'Alexandrian Liver'}, price: '22', desc: {ar: 'كبدة مع الفلفل والثوم المهروس والصوص الخاص', en: 'Liver with pepper, crushed garlic, and special sauce'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'مسقعة', en: 'Moussaka'}, price: '13', desc: {ar: 'باذنجان وصلصة طماطم وفلفل رومي وبطاطس', en: 'Eggplant, tomato sauce, bell pepper, and potatoes'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'طاجن أرز محشي', en: 'Stuffed Rice Tagine'}, price: '19', desc: {ar: 'أرز مخبوز بقدر الفخار بطريقة منزلية', en: 'Rice baked in clay pot home-style'}, img: 'https://placehold.co/600x400'}
             ],
             rice: [
-                {name: 'أرز أبيض', price: '8', desc: 'أرز أبيض مع السمن البلدي والملح ومرق'},
-                {name: 'أرز بالشعيرية', price: '8', desc: 'أرز أبيض مع الشعيرية والسمن البلدي'},
-                {name: 'أرز بشاور', price: '8', desc: 'أرز بشاور غني بالبهارات الشرقية'}
+                {name: {ar: 'أرز أبيض', en: 'White Rice'}, price: '8', desc: {ar: 'أرز أبيض مع السمن البلدي والملح ومرق', en: 'White rice with ghee, salt, and broth'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'أرز بالشعيرية', en: 'Rice with Vermicelli'}, price: '8', desc: {ar: 'أرز أبيض مع الشعيرية والسمن البلدي', en: 'White rice with vermicelli and ghee'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'أرز بشاور', en: 'Peshaoari Rice'}, price: '8', desc: {ar: 'أرز بشاور غني بالبهارات الشرقية', en: 'Peshaoari rice rich with oriental spices'}, img: 'https://placehold.co/600x400'}
             ],
             grills: [
-                {name: 'كباب دجاج 250 جم', price: '38', desc: 'صدور دجاج مع دهن خروف وبصل وبقدونس'},
-                {name: 'كباب لحم 250 جم', price: '44', desc: 'لحم مفروم مع دهن الخروف وبصل وبقدونس'},
-                {name: 'شيش طاووق 250 جم', price: '38', desc: 'قطع دجاج متبلة مع بصل وفلفل وبندورة'},
-                {name: 'أوصال لحم 250 جم', price: '50', desc: 'لحم متبل مع بصل وفلفل وبندورة'},
-                {name: 'لفائف اللحم 250 جم', price: '50', desc: 'قطع لحم مع بصل وبندورة وثوم وفلفل رومي'},
-                {name: '3 أسياخ ترب 250 جم', price: '50', desc: 'لحم مفروم مع بصل مشوي على الفحم'},
-                {name: 'مشكل مشاوي 320 جم', price: '57', desc: 'تشكيلة مشاوي محضرة بعناية وبمذاق لا يقاوم'},
-                {name: 'دجاج مشوي - نصف دجاجة', price: '20', desc: 'دجاج مشوي على الفحم برائحة مدخنة'},
-                {name: 'دجاج مشوي - دجاجة كاملة', price: '40', desc: 'دجاج مشوي على الفحم برائحة مدخنة'}
+                {name: {ar: 'كباب دجاج 250 جم', en: 'Chicken Kebab 250g'}, price: '38', desc: {ar: 'صدور دجاج مع دهن خروف وبصل وبقدونس', en: 'Chicken breasts with lamb fat, onion, and parsley'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كباب لحم 250 جم', en: 'Meat Kebab 250g'}, price: '44', desc: {ar: 'لحم مفروم مع دهن الخروف وبصل وبقدونس', en: 'Minced meat with lamb fat, onion, and parsley'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'شيش طاووق 250 جم', en: 'Shish Tawook 250g'}, price: '38', desc: {ar: 'قطع دجاج متبلة مع بصل وفلفل وبندورة', en: 'Marinated chicken pieces with onion, pepper, and tomato'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'أوصال لحم 250 جم', en: 'Meat Awsaal 250g'}, price: '50', desc: {ar: 'لحم متبل مع بصل وفلفل وبندورة', en: 'Marinated meat with onion, pepper, and tomato'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'لفائف اللحم 250 جم', en: 'Meat Rolls 250g'}, price: '50', desc: {ar: 'قطع لحم مع بصل وبندورة وثوم وفلفل رومي', en: 'Meat pieces with onion, tomato, garlic, and bell pepper'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: '3 أسياخ ترب 250 جم', en: '3 Tarb Skewers 250g'}, price: '50', desc: {ar: 'لحم مفروم مع بصل مشوي على الفحم', en: 'Minced meat with onion grilled on charcoal'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'مشكل مشاوي 320 جم', en: 'Mixed Grill 320g'}, price: '57', desc: {ar: 'تشكيلة مشاوي محضرة بعناية وبمذاق لا يقاوم', en: 'Assortment of grills prepared with care'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'دجاج مشوي - نصف دجاجة', en: 'Grilled Chicken - Half'}, price: '20', desc: {ar: 'دجاج مشوي على الفحم برائحة مدخنة', en: 'Charcoal grilled chicken with smoky aroma'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'دجاج مشوي - دجاجة كاملة', en: 'Grilled Chicken - Full'}, price: '40', desc: {ar: 'دجاج مشوي على الفحم برائحة مدخنة', en: 'Charcoal grilled chicken with smoky aroma'}, img: 'https://placehold.co/600x400'}
             ],
             appetizers: [
-                {name: 'سلطة خضراء', price: '8', desc: 'طماطم وخيار وبصل وفلفل رومي وليمون وزيت زيتون'},
-                {name: 'حمص', price: '13', desc: 'حمص مع عصير الليمون الطازج وزيت الزيتون'},
-                {name: 'بابا غنوج', price: '13', desc: 'باذنجان مشوي مع ثوم وطحينة وليمون وكمون'},
-                {name: 'مخلل باذنجان', price: '8', desc: 'باذنجان مع ثوم مهروس وملح وتتبيلة خاصة'}
+                {name: {ar: 'سلطة خضراء', en: 'Green Salad'}, price: '8', desc: {ar: 'طماطم وخيار وبصل وفلفل رومي وليمون وزيت زيتون', en: 'Tomato, cucumber, onion, bell pepper, lemon, and olive oil'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'حمص', en: 'Hummus'}, price: '13', desc: {ar: 'حمص مع عصير الليمون الطازج وزيت الزيتون', en: 'Hummus with fresh lemon juice and olive oil'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'بابا غنوج', en: 'Baba Ghanoush'}, price: '13', desc: {ar: 'باذنجان مشوي مع ثوم وطحينة وليمون وكمون', en: 'Grilled eggplant with garlic, tahini, lemon, and cumin'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'مخلل باذنجان', en: 'Pickled Eggplant'}, price: '8', desc: {ar: 'باذنجان مع ثوم مهروس وملح وتتبيلة خاصة', en: 'Eggplant with crushed garlic, salt, and special seasoning'}, img: 'https://placehold.co/600x400'}
             ],
             desserts: [
-                {name: 'مهلبية بالأرز', price: '13', desc: 'حليب وأرز وكريمة وسكر محضرة بعناية'}
+                {name: {ar: 'مهلبية بالأرز', en: 'Rice Pudding'}, price: '13', desc: {ar: 'حليب وأرز وكريمة وسكر محضرة بعناية', en: 'Milk, rice, cream, and sugar prepared with care'}, img: 'https://placehold.co/600x400'}
             ],
             juices: [
-                {name: 'عصير برتقال - صغير', price: '10', desc: 'عصير برتقال طبيعي طازج'},
-                {name: 'عصير برتقال - كبير', price: '13', desc: 'عصير برتقال طبيعي بنكهة منعشة'},
-                {name: 'عصير مانجو - صغير', price: '10', desc: 'عصير مانجو طازج بنكهة طبيعية'},
-                {name: 'عصير مانجو - كبير', price: '13', desc: 'عصير مانجو طازج بنكهة غنية'},
-                {name: 'عصير فراولة - صغير', price: '10', desc: 'عصير فراولة طازج منعش'},
-                {name: 'عصير فراولة - كبير', price: '13', desc: 'عصير فراولة طبيعي بطعم غني'},
-                {name: 'عصير جوافة - صغير', price: '10', desc: 'عصير جوافة طازج منعش'},
-                {name: 'عصير جوافة - كبير', price: '13', desc: 'عصير جوافة طازج بمذاق حلو'},
-                {name: 'عصير رمان - صغير', price: '10', desc: 'عصير رمان طبيعي بنكهة قوية'},
-                {name: 'عصير رمان - كبير', price: '13', desc: 'عصير رمان طازج بطعم قوي'},
-                {name: 'ليمون بالنعناع - صغير', price: '10', desc: 'ليمون طبيعي مع نعناع طازج'},
-                {name: 'ليمون بالنعناع - كبير', price: '13', desc: 'ليمون مع نعناع طازج منعش'},
-                {name: 'كركديه - صغير', price: '10', desc: 'كركديه بارد ومنعش بنكهات طبيعية'},
-                {name: 'كركديه - كبير', price: '13', desc: 'كركديه بارد ومنعش بطعم مميز'},
-                {name: 'كوكتيل - صغير', price: '13', desc: 'عصير فواكه مشكل طازج بطعم غني'},
-                {name: 'كوكتيل - كبير', price: '15', desc: 'عصير فواكه مشكل يجمع نكهات الفواكه'}
+                {name: {ar: 'عصير برتقال - صغير', en: 'Orange Juice - S'}, price: '10', desc: {ar: 'عصير برتقال طبيعي طازج', en: 'Fresh natural orange juice'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير برتقال - كبير', en: 'Orange Juice - L'}, price: '13', desc: {ar: 'عصير برتقال طبيعي بنكهة منعشة', en: 'Fresh natural orange juice'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير مانجو - صغير', en: 'Mango Juice - S'}, price: '10', desc: {ar: 'عصير مانجو طازج بنكهة طبيعية', en: 'Fresh mango juice with natural flavor'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير مانجو - كبير', en: 'Mango Juice - L'}, price: '13', desc: {ar: 'عصير مانجو طازج بنكهة غنية', en: 'Rich flavored fresh mango juice'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير فراولة - صغير', en: 'Strawberry Juice - S'}, price: '10', desc: {ar: 'عصير فراولة طازج منعش', en: 'Refreshing fresh strawberry juice'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير فراولة - كبير', en: 'Strawberry Juice - L'}, price: '13', desc: {ar: 'عصير فراولة طبيعي بطعم غني', en: 'Natural strawberry juice with rich taste'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير جوافة - صغير', en: 'Guava Juice - S'}, price: '10', desc: {ar: 'عصير جوافة طازج منعش', en: 'Refreshing fresh guava juice'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير جوافة - كبير', en: 'Guava Juice - L'}, price: '13', desc: {ar: 'عصير جوافة طازج بمذاق حلو', en: 'Fresh guava juice with sweet taste'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير رمان - صغير', en: 'Pomegranate Juice - S'}, price: '10', desc: {ar: 'عصير رمان طبيعي بنكهة قوية', en: 'Natural pomegranate juice with strong flavor'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'عصير رمان - كبير', en: 'Pomegranate Juice - L'}, price: '13', desc: {ar: 'عصير رمان طازج بطعم قوي', en: 'Fresh pomegranate juice with strong taste'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'ليمون بالنعناع - صغير', en: 'Lemon Mint - S'}, price: '10', desc: {ar: 'ليمون طبيعي مع نعناع طازج', en: 'Natural lemon with fresh mint'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'ليمون بالنعناع - كبير', en: 'Lemon Mint - L'}, price: '13', desc: {ar: 'ليمون مع نعناع طازج منعش', en: 'Lemon with refreshing fresh mint'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كركديه - صغير', en: 'Hibiscus - S'}, price: '10', desc: {ar: 'كركديه بارد ومنعش بنكهات طبيعية', en: 'Cold and refreshing hibiscus'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كركديه - كبير', en: 'Hibiscus - L'}, price: '13', desc: {ar: 'كركديه بارد ومنعش بطعم مميز', en: 'Cold and refreshing hibiscus with distinct taste'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كوكتيل - صغير', en: 'Cocktail - S'}, price: '13', desc: {ar: 'عصير فواكه مشكل طازج بطعم غني', en: 'Fresh mixed fruit juice with rich taste'}, img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كوكتيل - كبير', en: 'Cocktail - L'}, price: '15', desc: {ar: 'عصير فواكه مشكل يجمع نكهات الفواكه', en: 'Mixed fruit juice combining fruit flavors'}, img: 'https://placehold.co/600x400'}
             ],
             drinks: [
-                {name: 'شاي', price: '2'},
-                {name: 'مياه معدنية', price: '2'},
-                {name: 'كينزا كولا', price: '3'},
-                {name: 'كينزا ليمون', price: '3'},
-                {name: 'كينزا دايت', price: '3'},
-                {name: 'كينزا حمضيات', price: '3'},
-                {name: 'بيبسي', price: '4'},
-                {name: 'سفن أب', price: '4'},
-                {name: 'ميرندا برتقال', price: '4'}
+                {name: {ar: 'شاي', en: 'Tea'}, price: '2', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'مياه معدنية', en: 'Mineral Water'}, price: '2', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كينزا كولا', en: 'Kinza Cola'}, price: '3', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كينزا ليمون', en: 'Kinza Lemon'}, price: '3', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كينزا دايت', en: 'Kinza Diet'}, price: '3', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'كينزا حمضيات', en: 'Kinza Citrus'}, price: '3', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'بيبسي', en: 'Pepsi'}, price: '4', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'سفن أب', en: '7 Up'}, price: '4', img: 'https://placehold.co/600x400'},
+                {name: {ar: 'ميرندا برتقال', en: 'Mirinda Orange'}, price: '4', img: 'https://placehold.co/600x400'}
             ]
         };
 
-        const menuTitles = {
-            grilled: 'الساندويتشات المشوية',
-            soups: 'الشوربات',
-            sandwiches: 'الساندويتشات',
-            plates: 'الأطباق',
-            tagines: 'الطواجن',
-            rice: 'الأرز',
-            grills: 'المشاوي',
-            appetizers: 'المقبلات',
-            desserts: 'الحلويات',
-            juices: 'العصائر',
-            drinks: 'المشروبات'
+        const translations = {
+            ar: {
+                home: 'الرئيسية', offers: 'العروض', menu: 'المنيو', location: 'الموقع', call_now: 'اطلب الآن',
+                hero_badge: 'أكل يملى العين والبطن!', hero_title: 'طعم مصري.. على أصوله!', hero_desc: 'من فطور الصباح وحتى عشاء الليل، نقدم لك أشهى المأكولات المصرية الشعبية والمشويات.',
+                view_menu: 'شاهد المنيو', whatsapp_btn: 'تواصل واتساب',
+                feat_fresh_title: 'طازج يومياً', feat_fresh_desc: 'لحوم وخضروات طازجة تحضر بعناية كل صباح.',
+                feat_price_title: 'أسعار منافسة', feat_price_desc: 'وجبات مشبعة تبدأ من أسعار في متناول الجميع.',
+                feat_taste_title: 'نكهة أصيلة', feat_taste_desc: 'تتبيلات مصرية خاصة تأخذك لقلب القاهرة.',
+                offers_title: 'عروضنا ما تخلص.. اختار وجبتك!',
+                menu_title: 'تشكيلة ترضي كل الأذواق', menu_subtitle: 'استمتع بأشهى الأطباق المصرية التقليدية المحضرة بعناية فائقة',
+                loc_title: 'جلسات هادية.. ولقمة هنية', loc_desc: 'زورونا في فرعنا بالعوالي.',
+                address: 'مكة المكرمة - العوالي - محطة مجمع الدوائر الحكومية', delivery_apps: 'تجدنا على تطبيقات التوصيل',
+                follow_us: 'تابعونا', google_maps: 'شاهد موقعنا على خرائط جوجل',
+                mobile_menu: 'المنيو', mobile_wa: 'واتساب',
+                // Offer Translations
+                offer_15_title: 'عرض الـ 15 ريال', offer_25_title: 'عرض الـ 25 ريال', offer_35_title: 'عرض الـ 35 ريال',
+                opt1: 'الخيار الأول', opt2: 'الخيار الثاني', opt3: 'الخيار الثالث',
+                bechamel: 'بشاميل', potatoes: 'بطاطس', drink: 'مشروب غازي', 
+                grilled_chicken: 'دجاج مشوي', any_sandwich: 'أي ساندويتش',
+                half_chicken_coal: 'نصف دجاج على الفحم', rice_bread: 'رز + خبز', salad_potato: 'سلطات + بطاطس',
+                two_skewers: 'سيخين مشاوي', bechamel_skewer: 'مكرونة بشاميل + سيخ',
+                veg_tagine_meat: 'طاجن خضار باللحمة', meat_onion_tagine: 'طاجن لحم بالبصل', bbq_plate: 'نفر مشاوي',
+                cats: {
+                    grilled: 'الساندويتشات المشوية', soups: 'الشوربات', sandwiches: 'الساندويتشات', plates: 'الأطباق',
+                    tagines: 'الطواجن', rice: 'الأرز', grills: 'المشاوي', appetizers: 'المقبلات', desserts: 'الحلويات',
+                    juices: 'العصائر', drinks: 'المشروبات'
+                }
+            },
+            en: {
+                home: 'Home', offers: 'Offers', menu: 'Menu', location: 'Location', call_now: 'Order Now',
+                hero_badge: 'Food that fills the eye and the stomach!', hero_title: 'Authentic Egyptian Taste!', hero_desc: 'From breakfast to dinner, we serve you the most delicious popular Egyptian dishes and grills.',
+                view_menu: 'View Menu', whatsapp_btn: 'WhatsApp Us',
+                feat_fresh_title: 'Fresh Daily', feat_fresh_desc: 'Fresh meat and vegetables prepared with care every morning.',
+                feat_price_title: 'Competitive Prices', feat_price_desc: 'Filling meals starting at affordable prices.',
+                feat_taste_title: 'Authentic Taste', feat_taste_desc: 'Special Egyptian spices taking you to the heart of Cairo.',
+                offers_title: 'Endless Offers.. Pick Your Meal!',
+                menu_title: 'A Variety for Every Taste', menu_subtitle: 'Enjoy the most delicious traditional Egyptian dishes prepared with great care.',
+                loc_title: 'Cozy Seating.. Great Food', loc_desc: 'Visit us at our Awali branch.',
+                address: 'Makkah - Al Awali - Government Complex Station', delivery_apps: 'Find us on Delivery Apps',
+                follow_us: 'Follow Us', google_maps: 'View on Google Maps',
+                mobile_menu: 'Menu', mobile_wa: 'WhatsApp',
+                // Offer Translations
+                offer_15_title: '15 SAR Offer', offer_25_title: '25 SAR Offer', offer_35_title: '35 SAR Offer',
+                opt1: 'Option 1', opt2: 'Option 2', opt3: 'Option 3',
+                bechamel: 'Béchamel Pasta', potatoes: 'Fries', drink: 'Soft Drink',
+                grilled_chicken: 'Grilled Chicken', any_sandwich: 'Any Sandwich',
+                half_chicken_coal: 'Half Grilled Chicken', rice_bread: 'Rice + Bread', salad_potato: 'Salad + Fries',
+                two_skewers: '2 BBQ Skewers', bechamel_skewer: 'Béchamel + Skewer',
+                veg_tagine_meat: 'Veggie Tagine w/ Meat', meat_onion_tagine: 'Meat Onion Tagine', bbq_plate: 'BBQ Plate',
+                cats: {
+                    grilled: 'Grilled Sandwiches', soups: 'Soups', sandwiches: 'Sandwiches', plates: 'Plates',
+                    tagines: 'Tagines', rice: 'Rice', grills: 'Grills', appetizers: 'Appetizers', desserts: 'Desserts',
+                    juices: 'Juices', drinks: 'Drinks'
+                }
+            }
         };
+
+        const icons = {
+            grilled: 'fa-hamburger', soups: 'fa-mug-hot', sandwiches: 'fa-bread-slice', plates: 'fa-utensils',
+            tagines: 'fa-bowl-food', rice: 'fa-spoon', grills: 'fa-fire', appetizers: 'fa-carrot',
+            desserts: 'fa-ice-cream', juices: 'fa-glass-cheers', drinks: 'fa-wine-bottle'
+        };
+
+        let currentLang = 'ar';
+        let activeCategory = 'grilled';
 
         function renderMenuTabs() {
             const tabs = document.getElementById('menuTabs');
-            tabs.innerHTML = Object.keys(menuData).map((cat, i) => `
-                <button onclick="showMenu('${cat}')" data-cat="${cat}" 
-                    class="menu-tab px-6 py-3 rounded-full font-bold transition ${i === 0 ? 'bg-orange-600 text-white shadow-lg' : 'bg-white text-gray-700 hover:bg-orange-100'}">
-                    ${menuTitles[cat]}
+            tabs.innerHTML = Object.keys(menuData).map((cat) => {
+                const isActive = cat === activeCategory;
+                const activeClass = isActive ? 'bg-orange-600 text-white shadow-lg scale-105' : 'bg-white text-gray-700 hover:bg-orange-100';
+                return `
+                <button onclick="changeCategory('${cat}')" 
+                    class="menu-tab flex items-center gap-2 px-6 py-3 rounded-full font-bold transition whitespace-nowrap ${activeClass}">
+                    <i class="fas ${icons[cat]}"></i>
+                    <span>${translations[currentLang].cats[cat]}</span>
                 </button>
-            `).join('');
+            `}).join('');
         }
 
-        function showMenu(cat) {
-            document.querySelectorAll('.menu-tab').forEach(t => {
-                t.classList.remove('bg-orange-600', 'text-white', 'shadow-lg');
-                t.classList.add('bg-white', 'text-gray-700');
-            });
-            document.querySelector(`[data-cat="${cat}"]`).classList.add('bg-orange-600', 'text-white', 'shadow-lg');
-            document.querySelector(`[data-cat="${cat}"]`).classList.remove('bg-white', 'text-gray-700');
+        function changeCategory(cat) {
+            activeCategory = cat;
+            renderMenuTabs();
+            renderMenuContent(cat);
+        }
 
-            document.getElementById('menuContent').innerHTML = menuData[cat].map(item => `
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition group">
-                    <div class="flex justify-between items-start">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-orange-600 transition mb-2">
-                                ${item.name}
-                            </h3>
-                            ${item.desc ? `<p class="text-sm text-gray-600">${item.desc}</p>` : ''}
+        function renderMenuContent(cat) {
+            const content = document.getElementById('menuContent');
+            content.style.opacity = '0';
+            
+            setTimeout(() => {
+                content.innerHTML = menuData[cat].map((item, index) => {
+                    const itemName = item.name[currentLang] || item.name.ar;
+                    const itemDesc = item.desc ? (item.desc[currentLang] || item.desc.ar) : '';
+                    
+                    return `
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 group relative overflow-hidden border border-gray-100 flex flex-col h-full">
+                        <!-- Image Container -->
+                        <div class="h-48 overflow-hidden bg-gray-100">
+                             <img src="${item.img}" alt="${itemName}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
-                        <div class="text-right mr-4">
-                            <span class="text-2xl font-black text-orange-600">${item.price}</span>
-                            <span class="text-sm text-gray-600 mr-1">ريال</span>
+                        <div class="p-6 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-bold text-lg text-gray-900 group-hover:text-orange-600 transition flex-1">
+                                        ${itemName}
+                                    </h3>
+                                    <div class="text-left rtl:text-right min-w-[70px] whitespace-nowrap">
+                                        <span class="text-2xl font-black text-orange-600">${item.price}</span>
+                                        <span class="text-xs text-gray-400 block font-bold">SAR</span>
+                                    </div>
+                                </div>
+                                ${itemDesc ? `<p class="text-sm text-gray-500 leading-relaxed">${itemDesc}</p>` : ''}
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                `}).join('');
+                content.style.opacity = '1';
+            }, 200);
         }
 
         function toggleMenu() {
@@ -487,12 +628,41 @@
         }
 
         function toggleLanguage() {
-            alert('تبديل اللغة - سيتم إضافته قريباً');
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const body = document.body;
+            const html = document.documentElement;
+            
+            // UI Toggle
+            if(currentLang === 'en') {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                body.classList.add('lang-en');
+                document.getElementById('langBtnText').innerText = 'عربي';
+                document.getElementById('langBtnMobile').innerText = 'AR';
+            } else {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                body.classList.remove('lang-en');
+                document.getElementById('langBtnText').innerText = 'English';
+                document.getElementById('langBtnMobile').innerText = 'EN';
+            }
+
+            // Update Static Text Content
+            document.querySelectorAll('.nav-link').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            // Re-render Dynamic Content
+            renderMenuTabs();
+            renderMenuContent(activeCategory);
         }
 
         window.onload = () => {
             renderMenuTabs();
-            showMenu('grilled');
+            renderMenuContent('grilled');
         };
     </script>
 </body>
