@@ -888,7 +888,7 @@
 
    /* === Partners Section (Clients & Success Partners) === */
 .partners-section {
-  padding: 50px 0;
+  padding: 60px 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
@@ -903,50 +903,60 @@
   position: relative;
 }
 
-/* التراك اللي يمشي */
+/* المسار */
 .partners-track {
   display: flex;
   align-items: center;
+  gap: 28px;
+  padding: 20px 0;
   width: max-content;
-  gap: 32px;
-  padding: 10px 0;
-  animation: scrollLeft 28s linear infinite;
+  animation: scrollLeft 25s linear infinite;
 }
 
-/* إيقاف الحركة عند الوقوف بالماوس */
 .partners-slider:hover .partners-track {
   animation-play-state: paused;
 }
 
-/* كل شعار */
-.partners-section .partner-item {
+/* الكارد */
+.partner-item {
   flex: 0 0 auto;
-  height: 70px;          /* ارتفاع موحّد */
+  height: 80px;
+  width: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
-  background: transparent !important;
-  border: none !important;
+  background: rgba(255,255,255,0.06);    /* خلفية رمادية خفيفة */
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px 15px;
+  transition: 0.25s ease;
 }
 
-/* صورة الشعار نفسها */
-.partners-section .partner-item img {
-  max-height: 40px;      /* مقاس الشعار */
+/* الشعار (رمادي افتراضيًا) */
+.partner-item img {
+  max-height: 45px;
   width: auto;
   object-fit: contain;
-  opacity: 1 !important;
-  filter: none !important;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.6;                      /* رمادي باهت */
+  filter: grayscale(100%);           /* يخليه رمادي */
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
 
-/* هوفر بسيط */
-.partners-section .partner-item:hover img {
-  transform: scale(1.04);
+/* عند المرور بالماوس — اللوجو يظهر بلونه */
+.partner-item:hover img {
   opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.06);
 }
 
-/* حركة السلايدر */
+/* تأثير رفع الكارد */
+.partner-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--lavender-light);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.18);
+}
+
+/* أنيميشن السلايدر */
 @keyframes scrollLeft {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
