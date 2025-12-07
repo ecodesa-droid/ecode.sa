@@ -881,7 +881,7 @@
   overflow: hidden;
 }
 
-/* السلايدر نفسه */
+/* السلايدر */
 .partners-slider {
   width: 100%;
   overflow: hidden;
@@ -889,60 +889,50 @@
   position: relative;
 }
 
-/* التراك اللي يمشي */
+/* المسار */
 .partners-track {
   display: flex;
-  width: max-content;
-  gap: 20px;              /* مسافة بين الشعارات */
+  align-items: center;
+  gap: 32px;
   padding: 20px 0;
-  animation: scrollLeft 30s linear infinite;
+  width: max-content;
+  animation: scrollLeft 25s linear infinite;
 }
 
-/* إيقاف الحركة عند الوقوف بالماوس */
 .partners-slider:hover .partners-track {
   animation-play-state: paused;
 }
 
-/* البوكس حق كل شعار */
+/* عنصر الشعار (بدون صندوق) */
 .partner-item {
   flex: 0 0 auto;
-  height: 80px;           /* ارتفاع موحّد للكار্ড */
-  width: 160px;           /* عرض موحّد للكار্ড */
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: var(--radius-base);
-  border: 1px solid var(--border-color);
-  padding: 10px 15px;
-  transition: 0.25s ease;
+  padding: 0 10px;
+  background: transparent !important;
+  border: none !important;
 }
 
-/* اللوجو داخل الكارد */
+/* الشعار نفسه – رمادي افتراضياً */
 .partner-item img {
-  height: 55px;           /* مقاس الشعار نفسه */
+  max-height: 40px;        /* توحيد ارتفاع الشعارات */
   width: auto;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.6;
   filter: grayscale(100%);
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
 
-/* هوفر على الكارد */
-.partner-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--lavender-light);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-}
-
-/* هوفر على الشعار */
+/* لما يجي عليه الماوس يتلوّن */
 .partner-item:hover img {
-  filter: grayscale(0%);
   opacity: 1;
-  transform: scale(1.05);
+  filter: grayscale(0%);
+  transform: scale(1.06);
 }
 
-/* حركة السلايدر (لأننا مكررين العناصر، نحرّكه نص العرض) */
+/* حركة السلايدر */
 @keyframes scrollLeft {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1307,12 +1297,11 @@
   <div class="section-inner">
     <h2 class="section-title">Our Clients & Success Partners</h2>
     <p class="section-subtitle">We are proud to serve a diverse group of clients across various industries</p>
-      
-      <!-- إضافة dir="ltr" مهمة جداً لضبط اتجاه السلايدر -->
-      <div class="partners-slider" dir="ltr">
+
+    <div class="partners-slider" dir="ltr">
       <div class="partners-track">
 
-        <!-- المجموعة الأولى من الشعارات -->
+        <!-- مجموعة الشعارات -->
         <div class="partner-item">
           <a href="https://ait.sa/" target="_blank">
             <img src="partners-slider/Andromeda.png" alt="Andromeda">
@@ -1357,12 +1346,11 @@
 
         <div class="partner-item">
           <a href="https://ecode.sa/" target="_blank">
-            <img src="partners-slider/favicon.png" alt="Client">
+            <img src="partners-slider/favicon.png" alt="eCode">
           </a>
         </div>
 
-
-        <!-- تكرار المجموعة لضمان الحركة المستمرة -->
+        <!-- تكرار لضمان الحركة المستمرة -->
         <div class="partner-item">
           <a href="https://ait.sa/" target="_blank">
             <img src="partners-slider/Andromeda.png" alt="Andromeda">
@@ -1407,7 +1395,7 @@
 
         <div class="partner-item">
           <a href="https://ecode.sa/" target="_blank">
-            <img src="partners-slider/favicon.png" alt="Client">
+            <img src="partners-slider/favicon.png" alt="eCode">
           </a>
         </div>
 
