@@ -872,16 +872,16 @@
       white-space: pre-wrap; /* Maintains formatting */
     }
 
-    /* === Partners Section Styles (Fixed for smooth scroll) === */
+   /* === Partners Section (Clients & Success Partners) === */
 .partners-section {
-  padding: 80px 0;
+  padding: 60px 0;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   overflow: hidden;
 }
 
-/* Important: Use LTR logic for seamless infinite scroll even in RTL site */
+/* السلايدر نفسه */
 .partners-slider {
   width: 100%;
   overflow: hidden;
@@ -889,61 +889,64 @@
   position: relative;
 }
 
+/* التراك اللي يمشي */
 .partners-track {
   display: flex;
   width: max-content;
-  gap: 40px;
+  gap: 20px;              /* مسافة بين الشعارات */
   padding: 20px 0;
   animation: scrollLeft 30s linear infinite;
 }
 
+/* إيقاف الحركة عند الوقوف بالماوس */
 .partners-slider:hover .partners-track {
   animation-play-state: paused;
 }
 
-/* شريك واحد */
+/* البوكس حق كل شعار */
 .partner-item {
   flex: 0 0 auto;
-  width: 200px;
-  height: 100px;
+  height: 80px;           /* ارتفاع موحّد للكار্ড */
+  width: 160px;           /* عرض موحّد للكار্ড */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-elevated);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-base);
   border: 1px solid var(--border-color);
-  padding: 15px;
-  transition: var(--transition-base);
+  padding: 10px 15px;
+  transition: 0.25s ease;
 }
 
-/* توحيد مقاسات الشعارات */
+/* اللوجو داخل الكارد */
 .partner-item img {
-  height: 60px;        /* ← غيرها إلى 50 أو 70 حسب ذوقك */
+  height: 55px;           /* مقاس الشعار نفسه */
   width: auto;
   object-fit: contain;
+  opacity: 0.85;
   filter: grayscale(100%);
-  opacity: 0.7;
-  transition: all 0.25s ease;
+  transition: 0.25s ease;
 }
 
-/* عند المرور */
+/* هوفر على الكارد */
 .partner-item:hover {
-  border-color: var(--lavender-light);
   transform: translateY(-5px);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--lavender-light);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
+/* هوفر على الشعار */
 .partner-item:hover img {
   filter: grayscale(0%);
   opacity: 1;
   transform: scale(1.05);
 }
 
-/* حركة السلايدر */
+/* حركة السلايدر (لأننا مكررين العناصر، نحرّكه نص العرض) */
 @keyframes scrollLeft {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-    }
+}
 
     /* === Footer Styles (Matching Main Page Exactly) === */
     .footer {
