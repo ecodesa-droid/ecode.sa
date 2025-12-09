@@ -1,62 +1,43 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>لا يوجد اتصال | eCode</title>
-  <style>
-    body {
-      font-family: "Tajawal", sans-serif;
-      background: #0F1419;
-      color: #E6EDF3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
-      padding: 20px;
-    }
-    .offline-card {
-      max-width: 500px;
-      padding: 40px;
-      background: #1A1F2E;
-      border-radius: 24px;
-      border: 1px solid #2D3748;
-    }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #A99BFF, #5BC0F8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p {
-      font-size: 18px;
-      color: #9DA5B4;
-      margin-bottom: 24px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 32px;
-      background: linear-gradient(135deg, #8B7FFF, #A99BFF);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-  </style>
+  
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Linking to main CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-  <div class="offline-card">
-    <h1>📡</h1>
-    <h2>لا يوجد اتصال بالإنترنت</h2>
-    <p>تحقق من اتصالك بالإنترنت وحاول مرة أخرى</p>
-    <a href="/" class="btn">الرجوع للرئيسية</a>
-  </div>
+
+  <main class="offline-wrapper">
+    <div class="offline-card">
+      <span class="offline-icon">📡</span>
+      <h1 class="offline-title">لا يوجد اتصال بالإنترنت</h1>
+      <p class="offline-text">تحقق من اتصالك بالإنترنت وحاول مرة أخرى للوصول إلى eCode</p>
+      
+      <!-- زر إعادة المحاولة (يقوم بتحديث الصفحة) -->
+      <button onclick="window.location.reload()" class="btn-primary" style="margin-left: 10px;">
+        إعادة المحاولة
+      </button>
+      
+      <a href="https://ecode.sa/ar/" class="btn-secondary">
+        الرئيسية
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Simple Theme Loader for Offline Page
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
 </body>
 </html>
