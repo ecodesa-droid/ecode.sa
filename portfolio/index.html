@@ -18,984 +18,214 @@
   <meta property="og:url" content="https://ecode.sa/portfolio/">
   <meta property="og:type" content="website">
   
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="أعمالنا | eCode">
-  <meta name="twitter:description" content="استعرض معرض أعمال eCode من مشاريع التسويق الرقمي، تصميم الهويات البصرية، إنتاج المحتوى، والحلول التقنية المنفذة لعملائنا">
-  <meta name="twitter:image" content="https://ecode.sa/favicon.png">
-  
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
   
-  <style>
-    :root {
-      /* الألوان الأساسية (الوضع الداكن - الافتراضي) */
-      --lavender-light: #A99BFF;
-      --lavender-dark: #8B7FFF;
-      --sky-blue: #5BC0F8;
-      --mint-green: #7EDDA3;
-      --soft-orange: #FFB86C;
-      --coral-pink: #FF79C6;
-      
-      --bg-primary: #0F1419;
-      --bg-secondary: #1A1F2E;
-      --bg-elevated: #242B3D;
-      --text-primary: #E6EDF3;
-      --text-secondary: #9DA5B4;
-      --text-muted: #6B7280;
-      --border-color: #2D3748;
-      --border-hover: #4A5568;
-      
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-12: 48px;
-      --space-16: 64px;
-      
-      --radius-base: 16px;
-      --radius-lg: 24px;
-      --radius-full: 999px;
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
-      
-      --transition-fast: 150ms ease;
-      --transition-base: 250ms ease;
-    }
-
-    /* === إعدادات الوضع المضيء === */
-    [data-theme="light"] {
-      --bg-primary: #F3F4F6;
-      --bg-secondary: #FFFFFF;
-      --bg-elevated: #FFFFFF;
-      --text-primary: #1F2937;
-      --text-secondary: #4B5563;
-      --text-muted: #9CA3AF;
-      --border-color: #E5E7EB;
-      --border-hover: #D1D5DB;
-      
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Tajawal", system-ui, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
-    h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
-    h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
-    p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
-    
-    .main-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-color);
-      transition: var(--transition-base);
-    }
-    
-    @supports (backdrop-filter: blur(12px)) {
-        .main-header {
-            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
-            backdrop-filter: blur(12px);
-        }
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-4) var(--space-6);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-
-    .logo-container:hover { transform: scale(1.02); }
-
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    .logo-icon img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .logo-text { display: flex; flex-direction: column; }
-
-    .logo-text .brand-name {
-      font-size: 24px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .logo-text .brand-tagline {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-6);
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      position: relative;
-      padding: var(--space-2) 0;
-      transition: var(--transition-fast);
-      font-weight: 600;
-    }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      transition: var(--transition-base);
-    }
-
-    .nav a:hover { color: var(--lavender-light); }
-    .nav a:hover::after { width: 100%; }
-    .nav a.active { color: var(--lavender-light); }
-    .nav a.active::after { width: 100%; }
-
-    /* === الأزرار الدائرية (اللغة والثيم) === */
-    .lang-switcher, .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      border-radius: 50%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition-base);
-      text-decoration: none;
-    }
-
-    .lang-switcher:hover, .theme-toggle:hover {
-      background: var(--bg-secondary);
-      border-color: var(--lavender-dark);
-      color: var(--lavender-light);
-      box-shadow: var(--shadow-glow);
-    }
-
-    /* === زر تواصل معنا (واسع) === */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      min-width: 140px;
-      border-radius: var(--radius-full);
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: inherit;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff !important;
-      text-decoration: none;
-      transition: var(--transition-base);
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      white-space: nowrap;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      filter: brightness(1.1);
-      color: #fff !important;
-    }
-
-    .btn-secondary {
-      padding: 10px var(--space-6);
-      border-radius: var(--radius-full);
-      border: 2px solid var(--text-primary);
-      background: transparent;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
-      transition: var(--transition-base);
-      display: inline-block;
-    }
-
-    .btn-secondary:hover {
-      background: var(--text-primary);
-      color: var(--bg-primary);
-      transform: translateY(-2px);
-    }
-
-    .page-hero {
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
-      padding: 100px var(--space-6) 80px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-color);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 25s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-80px, 60px) scale(1.1); }
-    }
-
-    .page-hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page-hero p {
-      font-size: 20px;
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .portfolio-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-16) var(--space-6);
-    }
-
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-3);
-      margin-bottom: var(--space-12);
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 12px 24px;
-      border-radius: var(--radius-full);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition-base);
-    }
-
-    .filter-btn:hover {
-      border-color: var(--lavender-dark);
-      color: var(--lavender-light);
-    }
-
-    .filter-btn.active {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff;
-      border: none;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .portfolio-grid {
-      display: grid;
-      /* تعديل لعرض 3 أعمدة على الشاشات الكبيرة */
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-16);
-    }
-
-    .portfolio-item {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      transition: var(--transition-base);
-      cursor: pointer;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--lavender-dark);
-    }
-
-    .portfolio-image {
-      width: 100%;
-      height: 250px;
-      background: linear-gradient(135deg, var(--bg-elevated), var(--bg-secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .portfolio-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .portfolio-image::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(139, 127, 255, 0.1), rgba(91, 192, 248, 0.1));
-      z-index: 0;
-    }
-
-    .portfolio-image i {
-      font-size: 64px;
-      color: var(--lavender-light);
-      position: relative;
-      z-index: 1;
-    }
-
-    .portfolio-content {
-      padding: var(--space-6);
-    }
-
-    .portfolio-category {
-      display: inline-block;
-      padding: var(--space-1) var(--space-3);
-      border-radius: var(--radius-full);
-      background: rgba(139, 127, 255, 0.15);
-      color: var(--lavender-light);
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: var(--space-3);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    [data-theme="light"] .portfolio-category {
-        color: var(--lavender-dark);
-        border-color: var(--lavender-dark);
-    }
-
-    .portfolio-item h3 {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--space-3);
-    }
-
-    .portfolio-item p {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: var(--space-4);
-    }
-
-    .portfolio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-    }
-
-    .portfolio-tag {
-      padding: var(--space-1) var(--space-3);
-      background: var(--bg-elevated);
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
-    }
-
-    .stats-section {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-12);
-      border: 1px solid var(--border-color);
-      margin-top: var(--space-16);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-8);
-      text-align: center;
-    }
-
-    .stat-item {
-      transition: var(--transition-base);
-    }
-
-    .stat-item:hover {
-      transform: scale(1.05);
-    }
-
-    .stat-number {
-      font-size: 48px;
-      font-weight: 700;
-      display: block;
-      margin-bottom: var(--space-2);
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .stat-label {
-      font-size: 16px;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    /* === Footer Styles (Standardized) === */
-    .footer {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      padding: var(--space-16) var(--space-6) var(--space-6);
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-16);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-8);
-    }
-
-    .footer h4 {
-      margin-bottom: var(--space-4);
-      font-size: 20px;
-      color: var(--text-primary);
-    }
-
-    .footer p {
-      color: var(--text-secondary);
-      margin-bottom: var(--space-2);
-      font-size: 16px;
-    }
-
-    .footer a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-
-    .footer a:hover {
-      color: var(--lavender-light);
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: var(--space-2);
-    }
-
-    /* Standardized Footer Social Bar */
-    .social-bar {
-      margin-top: var(--space-4);
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
-      background: rgba(139, 127, 255, 0.05); /* Same as main page */
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-elevated);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-      font-size: 18px;
-      border: 1px solid var(--border-color);
-    }
-
-    /* Correct hover contrast: White Icon + Gradient Bg */
-    .footer .social-bar .social-link:hover {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      color: #ffffff !important;
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-      border-color: transparent;
-    }
-    
-    .footer .social-bar .social-link:hover i {
-      color: #ffffff !important;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-8);
-      padding-top: var(--space-4);
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Floating WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 32px;
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition-base);
-      animation: pulse-whatsapp 2s infinite;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .whatsapp-float:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      color: #FFF;
-      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
-    }
-
-    @keyframes pulse-whatsapp {
-      0% {
-        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(139, 127, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0);
-      }
-    }
-
-    @media (max-width: 968px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .page-hero h1 { font-size: 40px; }
-      .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
-    }
-    
-    @media (max-width: 640px) {
-        .whatsapp-float {
-            width: 55px;
-            height: 55px;
-            font-size: 28px;
-            bottom: 20px;
-            left: 20px;
-        }
-    }
-  </style>
+  <!-- استدعاء ملف الستايل الرئيسي -->
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="https://ecode.sa/" class="logo-container">
-        <div class="logo-icon">
-          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
-        </div>
-        <div class="logo-text">
-          <div class="brand-name">eCode</div>
-          <div class="brand-tagline">تصنع الأثر</div>
-        </div>
-      </a>
+  <!-- الهيدر (يتم تحميله تلقائياً) -->
+  <header id="main-header" class="main-header"></header>
 
-      <nav class="nav">
-        <a href="https://ecode.sa/ar/">الرئيسية</a>
-        <a href="https://ecode.sa/services/">خدماتنا</a>
-        <a href="https://ecode.sa/plans/">الباقات</a>
-        <a href="https://ecode.sa/portfolio/" class="active">أعمالنا</a>
-        
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="تبديل المظهر">
-            <i class="fas fa-sun"></i>
-        </button>
+  <main>
+    <section class="page-hero">
+        <h1>معرض أعمالنا</h1>
+        <p>نماذج من مشاريعنا الناجحة التي ساهمت في نمو أعمال عملائنا</p>
+    </section>
 
-        <!-- Circular Language Button -->
-        <a href="https://ecode.sa/portfolio-en/" class="lang-switcher" aria-label="English">
-          <span style="font-size: 20px; line-height: 1;">🇬🇧</span>
-        </a>
-        
-        <a href="https://ecode.sa/contact/" class="btn-primary">تواصل معنا</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="page-hero">
-    <h1>معرض أعمالنا</h1>
-    <p>نماذج من مشاريعنا الناجحة التي ساهمت في نمو أعمال عملائنا</p>
-  </section>
-
-  <section class="portfolio-section">
-    <div class="filter-tabs">
-      <button class="filter-btn active" data-filter="all">الكل</button>
-      <button class="filter-btn" data-filter="branding">الهوية البصرية</button>
-      <button class="filter-btn" data-filter="social">إدارة حسابات</button>
-      <button class="filter-btn" data-filter="photography">تصوير</button>
-      <button class="filter-btn" data-filter="web">مواقع إلكترونية</button>
-      <button class="filter-btn" data-filter="campaigns">حملات إعلانية</button>
-    </div>
-
-    <div class="portfolio-grid">
-      <div class="portfolio-item" data-category="branding">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/bq.png" alt="مشروع منصة عقارية ">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">تجربة المستخدم</span>
-          <h3>مشروع منصة عقارية </h3>
-          <p>تصميم واجهة مستخدم متكاملة لمنصة متخصصة بالخدمات العقارية </p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">واجهة رئيسية</span>
-            <span class="portfolio-tag">صياغة الشروط والاحكام</span>
-            <span class="portfolio-tag">تصميم تجربة المستخدم</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="social">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/DutiesBook-ad.jpg" alt="إدارة حسابات شركة">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">سوشال ميديا</span>
-          <h3>إدارة حسابات شركة</h3>
-          <p>إدارة شاملة لحسابات التواصل الاجتماعي مع زيادة التفاعل بنسبة 250% خلال 3 أشهر</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">إنستقرام</span>
-            <span class="portfolio-tag">تيك توك</span>
-            <span class="portfolio-tag">محتوى</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="photography">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/Product-Photography-Session.png" alt="جلسة تصوير منتجات">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">تصوير</span>
-          <h3>جلسة تصوير منتجات</h3>
-          <p>تصوير احترافي لمجموعة منتجات عناية بالبشرة مع إضاءة استديو وتعديل احترافي</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">منتجات</span>
-            <span class="portfolio-tag">استديو</span>
-            <span class="portfolio-tag">تعديل</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/androhealth-ux.png" alt="واجهة نظام طبي">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">واجهة نظام طبي</span>
-          <h3>واجهة نظام طبي</h3>
-          <p>تصميم وتطوير تجربة المستخدم لنظام ادارة منشآت طبية</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">تصميم</span>
-            <span class="portfolio-tag">تجربة مستخدم</span>
-            <span class="portfolio-tag">اختبار</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="campaigns">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/New-Product-Launch-Campaign.png" alt="حملة إطلاق منتج جديد">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">حملة إعلانية</span>
-          <h3>حملة إطلاق منتج جديد</h3>
-          <p>حملة إعلانية متكاملة على منصات التواصل حققت 150 ألف مشاهدة و500+ تحويل</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">فيسبوك</span>
-            <span class="portfolio-tag">إنستقرام</span>
-            <span class="portfolio-tag">سناب شات</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="branding social">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/Coffee-Shop-Project.png" alt="مشروع كوفي شوب">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">هوية + محتوى</span>
-          <h3>مشروع كوفي شوب</h3>
-          <p>هوية بصرية كاملة مع إنشاء وإدارة الحسابات وإنتاج محتوى يومي مميز</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">شعار</span>
-            <span class="portfolio-tag">قوالب</span>
-            <span class="portfolio-tag">تصوير</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="photography">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/Product-Promotional-Video.png" alt="فيديو ترويجي لمنتج">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">فيديو</span>
-          <h3>فيديو ترويجي لمنتج</h3>
-          <p>إنتاج فيديو ترويجي احترافي بجودة 4K مع مونتاج إبداعي وموسيقى مميزة</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">تصوير</span>
-            <span class="portfolio-tag">مونتاج</span>
-            <span class="portfolio-tag">4K</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/cyancare-ad.png" alt="طب اتصالي">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">تجربة مستخدم</span>
-          <h3>منصة طب اتصالي</h3>
-          <p>منصة طب اتصالي وزيارات منزلية تم اختبار تجربة المستخدم وانشاء التصاميم الدعائية والبصرية</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">اختبار</span>
-            <span class="portfolio-tag">تصميم</span>
-            <span class="portfolio-tag">مواد اعلانية</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="campaigns social">
-        <div class="portfolio-image">
-          <img src="https://ecode.sa/Ramadan-Campaign.png" alt="حملة رمضان">
-        </div>
-        <div class="portfolio-content">
-          <span class="portfolio-category">حملة موسمية</span>
-          <h3>حملة رمضان</h3>
-          <p>حملة تسويقية موسمية متكاملة مع محتوى يومي خاص وعروض ترويجية حصرية</p>
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">موسمي</span>
-            <span class="portfolio-tag">عروض</span>
-            <span class="portfolio-tag">محتوى</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <h4>eCode – إلكترونيك كود</h4>
-          <p>تصنع الأثر</p>
-          <p style="margin-top: 16px;">شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية.</p>
-          
-          <div class="social-bar">
-            <a class="social-link" href="mailto:info@ecode.sa" title="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
-              <i class="fa-brands fa-snapchat"></i>
-            </a>
-            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-          </div>
+    <section class="portfolio-section">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="branding">الهوية البصرية</button>
+            <button class="filter-btn" data-filter="social">إدارة حسابات</button>
+            <button class="filter-btn" data-filter="photography">تصوير</button>
+            <button class="filter-btn" data-filter="web">مواقع إلكترونية</button>
+            <button class="filter-btn" data-filter="campaigns">حملات إعلانية</button>
         </div>
 
-        <div class="footer-links">
-          <h4>روابط سريعة</h4>
-          <ul>
-            <li><a href="https://ecode.sa/">الرئيسية</a></li>
-            <li><a href="https://ecode.sa/services">خدماتنا</a></li>
-            <li><a href="https://ecode.sa/plans">الباقات</a></li>
-            <li><a href="https://ecode.sa/portfolio">أعمالنا</a></li>
-            <li><a href="https://ecode.sa/contact">تواصل معنا</a></li>
-            <li><a href="https://ecode.sa/terms">الشروط والأحكام</a></li>
-            <li><a href="https://ecode.sa/privacy">سياسة الخصوصية</a></li>
-          </ul>
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item" data-category="branding web">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/bq.png" alt="مشروع منصة عقارية">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">تجربة المستخدم</span>
+                    <h3>مشروع منصة عقارية</h3>
+                    <p>تصميم واجهة مستخدم متكاملة لمنصة متخصصة بالخدمات العقارية</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">واجهة رئيسية</span>
+                        <span class="portfolio-tag">شروط وأحكام</span>
+                        <span class="portfolio-tag">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="social">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/DutiesBook-ad.jpg" alt="إدارة حسابات شركة">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">سوشال ميديا</span>
+                    <h3>إدارة حسابات شركة</h3>
+                    <p>إدارة شاملة لحسابات التواصل الاجتماعي مع زيادة التفاعل بنسبة 250% خلال 3 أشهر</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">إنستقرام</span>
+                        <span class="portfolio-tag">تيك توك</span>
+                        <span class="portfolio-tag">محتوى</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="photography">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/Product-Photography-Session.png" alt="جلسة تصوير منتجات">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">تصوير</span>
+                    <h3>جلسة تصوير منتجات</h3>
+                    <p>تصوير احترافي لمجموعة منتجات عناية بالبشرة مع إضاءة استديو وتعديل احترافي</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">منتجات</span>
+                        <span class="portfolio-tag">استديو</span>
+                        <span class="portfolio-tag">تعديل</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/androhealth-ux.png" alt="واجهة نظام طبي">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">واجهة نظام طبي</span>
+                    <h3>واجهة نظام طبي</h3>
+                    <p>تصميم وتطوير تجربة المستخدم لنظام ادارة منشآت طبية</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">تصميم</span>
+                        <span class="portfolio-tag">تجربة مستخدم</span>
+                        <span class="portfolio-tag">اختبار</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="campaigns">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/New-Product-Launch-Campaign.png" alt="حملة إطلاق منتج جديد">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">حملة إعلانية</span>
+                    <h3>حملة إطلاق منتج جديد</h3>
+                    <p>حملة إعلانية متكاملة على منصات التواصل حققت 150 ألف مشاهدة و500+ تحويل</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">فيسبوك</span>
+                        <span class="portfolio-tag">إنستقرام</span>
+                        <span class="portfolio-tag">سناب شات</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="branding social">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/Coffee-Shop-Project.png" alt="مشروع كوفي شوب">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">هوية + محتوى</span>
+                    <h3>مشروع كوفي شوب</h3>
+                    <p>هوية بصرية كاملة مع إنشاء وإدارة الحسابات وإنتاج محتوى يومي مميز</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">شعار</span>
+                        <span class="portfolio-tag">قوالب</span>
+                        <span class="portfolio-tag">تصوير</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="photography">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/Product-Promotional-Video.png" alt="فيديو ترويجي لمنتج">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">فيديو</span>
+                    <h3>فيديو ترويجي لمنتج</h3>
+                    <p>إنتاج فيديو ترويجي احترافي بجودة 4K مع مونتاج إبداعي وموسيقى مميزة</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">تصوير</span>
+                        <span class="portfolio-tag">مونتاج</span>
+                        <span class="portfolio-tag">4K</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/cyancare-ad.png" alt="طب اتصالي">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">تجربة مستخدم</span>
+                    <h3>منصة طب اتصالي</h3>
+                    <p>منصة طب اتصالي وزيارات منزلية تم اختبار تجربة المستخدم وانشاء التصاميم الدعائية والبصرية</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">اختبار</span>
+                        <span class="portfolio-tag">تصميم</span>
+                        <span class="portfolio-tag">مواد اعلانية</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="campaigns social">
+                <div class="portfolio-image">
+                    <img src="https://ecode.sa/Ramadan-Campaign.png" alt="حملة رمضان">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">حملة موسمية</span>
+                    <h3>حملة رمضان</h3>
+                    <p>حملة تسويقية موسمية متكاملة مع محتوى يومي خاص وعروض ترويجية حصرية</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">موسمي</span>
+                        <span class="portfolio-tag">عروض</span>
+                        <span class="portfolio-tag">محتوى</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div>
-          <h4>تواصل معنا</h4>
-          <p>الرياض – المملكة العربية السعودية</p>
-          <p>جوال: <a href="tel:0503666316">0503666316</a></p>
-          <p>البريد: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
+        <!-- Stats Section (Specific to Portfolio) -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">+50</span>
+                    <span class="stat-label">مشروع ناجح</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+10</span>
+                    <span class="stat-label">قطاعات مختلفة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">التزام بالوقت</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">تقييم العملاء</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+  </main>
 
-      <div class="footer-bottom">
-        © 2025 شركة إلكترونيك كود. جميع الحقوق محفوظة.
-      </div>
-    </div>
-  </footer>
+  <!-- الفوتر (يتم تحميله تلقائياً) -->
+  <footer id="main-footer" class="footer"></footer>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <script>
-    // Filter functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-        
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        portfolioItems.forEach(item => {
-          if (filter === 'all') {
-            item.style.display = 'block';
-          } else {
-            const categories = item.getAttribute('data-category').split(' ');
-            if (categories.includes(filter)) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          }
-        });
-      });
-    });
-
-    // --- Theme Toggle Logic ---
-    function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        html.setAttribute('data-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        updateThemeIcon(nextTheme);
-    }
-
-    function updateThemeIcon(theme) {
-        const icon = document.querySelector('.theme-toggle i');
-        if (!icon) return; 
-        
-        if (theme === 'light') {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-
-    // Initialize Theme
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-    });
-  </script>
-
+  <!-- استدعاء ملفات الجافاسكريبت المشتركة -->
+  <script src="../assets/js/layout.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
