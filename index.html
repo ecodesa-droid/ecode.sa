@@ -3,36 +3,312 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eCode | الرئيسية</title>
-  <!-- ... باقي وسوم الـ Meta ... -->
+  <title>eCode | إلكترونيك كود - تصنع الأثر</title>
+  <meta name="description" content="شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية">
 
-  <!-- ملف التنسيقات (الذي يفترض أنك فصلته كما اتفقنا سابقاً) -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- iOS Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="eCode">
+  <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+   
+  <!-- Android/Chrome -->
+  <meta name="theme-color" content="#8B7FFF">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- SEO Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://ecode.sa/ar/">
+   
+  <!-- Open Graph -->
+  <meta property="og:title" content="eCode | إلكترونيك كود - تصنع الأثر">
+  <meta property="og:description" content="شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية">
+  <meta property="og:image" content="https://ecode.sa/favicon.png">
+  <meta property="og:url" content="https://ecode.sa/ar/">
+  <meta property="og:type" content="website">
+   
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- ملف التنسيق الخارجي -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- 1. مكان الهيدر: فارغ وسيمتلئ تلقائياً -->
+  <!-- 1. الهيدر (يتم تحميله تلقائياً) -->
   <header id="main-header" class="main-header"></header>
 
-  <!-- محتوى الصفحة المتغير -->
   <main>
+    <!-- Hero Section -->
     <section id="hero" class="hero">
-        <!-- محتوى الهيرو الخاص بهذه الصفحة فقط -->
-        <h1>نطوّر. نبتكر. ننمّي أعمالك.</h1>
-        <!-- ... الخ ... -->
+        <div class="hero-inner">
+        <div class="hero-content">
+            <h1>نطوّر. نبتكر. ننمّي أعمالك.</h1>
+            <p>نقدم حلول تقنية وتسويقية حديثة ترفع جودة الأعمال، وتدعم نمو الشركات عبر الابتكار، السرعة، والدقة.</p>
+            
+            <div class="hero-actions">
+            <a href="#contact" class="btn-primary">ابدأ الآن</a>
+            <a href="#services" class="btn-secondary">استعراض الخدمات</a>
+            </div>
+
+            <div class="hero-tagline">
+            <strong>eCode</strong> تصنع الأثر — تقنية واضحة. أداء ثابت. تجربة محترفة.
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <h3>حلول متكاملة في منصة واحدة</h3>
+            <p>تسويق رقمي، محتوى، تصوير، وتصميم مواقع — ننفّذ كل ما تحتاجه علامتك.</p>
+
+            <div class="hero-stats">
+            <div class="hero-stat">
+                <strong>مرونة كاملة</strong>
+                <span>نموذج عمل يعتمد على شبكة متعاونين</span>
+            </div>
+            <div class="hero-stat">
+                <strong>تنفيذ منظم</strong>
+                <span>مراحل واضحة حتى التسليم</span>
+            </div>
+            <div class="hero-stat">
+                <strong>هوية متناسقة</strong>
+                <span>أسلوب موحد عبر كل المنصات</span>
+            </div>
+            <div class="hero-stat">
+                <strong>دعم مستمر</strong>
+                <span>تواصل مباشر خلال المشروع</span>
+            </div>
+            </div>
+        </div>
+        </div>
     </section>
 
-    <!-- ... باقي أقسام الصفحة ... -->
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-number">+20</span>
+            <span class="stat-label">مشروع منجز</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">+15</span>
+            <span class="stat-label">عميل راضي</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">نسبة الرضا</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">دعم مستمر</span>
+        </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-inner">
+        <h2 class="section-title">ماذا نقدم؟</h2>
+        <p class="section-subtitle">حلول تقنية وتسويقية شاملة لنمو مستدام</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+            <h3>التسويق الرقمي وإدارة الحسابات</h3>
+            <ul>
+                <li>إدارة يومية لحسابات التواصل الاجتماعي</li>
+                <li>إعداد وتنفيذ الحملات الإعلانية المدفوعة</li>
+                <li>تقارير أداء دورية واقتراحات تحسين</li>
+            </ul>
+            <a href="#plans" class="feature-link">عرض الباقات المناسبة ←</a>
+            </div>
+
+            <div class="feature-card">
+            <h3>المحتوى والإنتاج الإبداعي</h3>
+            <ul>
+                <li>تصميم بوستات، بنرات، وهويات بصرية</li>
+                <li>تصوير منتجات، فعاليات، ومحتوى سوشال</li>
+                <li>مونتاج فيديوهات قصيرة وطويلة</li>
+            </ul>
+            <a href="#portfolio" class="feature-link">شاهد نماذج من الأعمال ←</a>
+            </div>
+
+            <div class="feature-card">
+            <h3>الحلول التقنية والتمكين الرقمي</h3>
+            <ul>
+                <li>تصميم مواقع تعريفية ومتاجر إلكترونية</li>
+                <li>ربط بوابات الدفع والنماذج التفاعلية</li>
+                <li>تهيئة أساسية لمحركات البحث SEO</li>
+            </ul>
+            <a href="#contact" class="feature-link">اطلب استشارة أولية ←</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section>
+        <div class="section-inner">
+        <h2 class="section-title">لماذا eCode؟</h2>
+        <p class="section-subtitle">نموذج عمل مرن، تنفيذ احترافي، وتواصل واضح</p>
+
+        <div class="why-grid">
+            <div class="why-item">
+            <h3>شبكة متعاونين متخصصين</h3>
+            <p>نعمل مع مصممين، مصورين، وكتّاب محتوى مختارين لكل نوع مشروع.</p>
+            </div>
+            <div class="why-item">
+            <h3>اتفاق واضح قبل التنفيذ</h3>
+            <p>نحدد نطاق العمل، عدد التعديلات، والمدة المتوقعة قبل أن نبدأ.</p>
+            </div>
+            <div class="why-item">
+            <h3>حماية قانونية للطرفين</h3>
+            <p>الشروط والأحكام وسياسة الخصوصية تحمي حقوقك وحقوقنا.</p>
+            </div>
+            <div class="why-item">
+            <h3>مخرجات جاهزة للاستخدام</h3>
+            <p>نسلّم ملفات نهائية محسّنة للنشر على المنصات أو الطباعة.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="section-inner">
+        <h2 class="section-title">عملاؤنا وشركاء النجاح</h2>
+        <p class="section-subtitle">نفخر بخدمة مجموعة متنوعة من العملاء في مختلف القطاعات</p>
+
+        <div class="partners-slider" dir="ltr">
+            <div class="partners-track">
+            <!-- المجموعة الأولى -->
+            <div class="partner-item"><a href="https://ait.sa/" target="_blank"><img src="partners-slider/Andromeda.png" alt="Andromeda"></a></div>
+            <div class="partner-item"><a href="https://realestate.bqauctions.com/" target="_blank"><img src="partners-slider/BQAuctions.png" alt="BQ Auctions"></a></div>
+            <div class="partner-item"><a href="https://cyancare.sa/" target="_blank"><img src="partners-slider/CyanCare.png" alt="CyanCare"></a></div>
+            <div class="partner-item"><a href="https://dutiesbook.com" target="_blank"><img src="partners-slider/DutiesBook.png" alt="DutiesBook"></a></div>
+            <div class="partner-item"><a href="https://ahhis.com/" target="_blank"><img src="partners-slider/androhealth.png" alt="AndroHealth"></a></div>
+            <div class="partner-item"><a href="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/" target="_blank"><img src="partners-slider/alipasha.png" alt="Ali Pasha"></a></div>
+            <div class="partner-item"><a href="https://onfirrestaurant.github.io/onfire/" target="_blank"><img src="partners-slider/OnFire-logo.png" alt="On Fire"></a></div>
+            <div class="partner-item"><a href="https://ecode.sa/" target="_blank"><img src="partners-slider/favicon.png" alt="Client"></a></div>
+            <!-- تكرار للمجموعة -->
+            <div class="partner-item"><a href="https://ait.sa/" target="_blank"><img src="partners-slider/Andromeda.png" alt="Andromeda"></a></div>
+            <div class="partner-item"><a href="https://realestate.bqauctions.com/" target="_blank"><img src="partners-slider/BQAuctions.png" alt="BQ Auctions"></a></div>
+            <div class="partner-item"><a href="https://cyancare.sa/" target="_blank"><img src="partners-slider/CyanCare.png" alt="CyanCare"></a></div>
+            <div class="partner-item"><a href="https://dutiesbook.com" target="_blank"><img src="partners-slider/DutiesBook.png" alt="DutiesBook"></a></div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- AI Tool Section -->
+    <section class="ai-section" id="ai-tool">
+        <div class="section-inner">
+        <h2 class="section-title">مستشار التسويق الذكي ✨</h2>
+        <p class="section-subtitle">احصل على خطة تسويقية مبدئية لمشروعك خلال ثوانٍ باستخدام الذكاء الاصطناعي</p>
+        
+        <div class="ai-card">
+            <textarea id="ai-project-desc" class="ai-textarea" placeholder="أدخل وصفًا موجزًا لمشروعك (مثال: متجر إلكتروني لبيع العطور الفاخرة يستهدف الشباب في السعودية)"></textarea>
+            <button onclick="analyzeProjectWithAI()" id="ai-btn" class="ai-btn">
+            <span>حلل مشروعي</span>
+            <i class="fas fa-magic"></i>
+            </button>
+            
+            <div id="ai-result" class="ai-result">
+            <h3><i class="fas fa-lightbulb"></i> مقترحات الذكاء الاصطناعي:</h3>
+            <div id="ai-result-content" class="ai-result-content"></div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="section-inner">
+        <h2 class="section-title">الأسئلة المتكررة</h2>
+        <p class="section-subtitle">إجابات سريعة على أكثر الأسئلة شيوعًا</p>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+            <div class="faq-q">كيف تتم طريقة الدفع؟</div>
+            <div class="faq-a">يتم دفع عربون غير قابل للاسترداد عند اعتماد العرض، ثم استكمال الدفعات حسب المراحل أو قبل التسليم النهائي حسب ما يتم الاتفاق عليه.</div>
+            </div>
+            <div class="faq-item">
+            <div class="faq-q">كم مدة تنفيذ المشروع؟</div>
+            <div class="faq-a">تختلف حسب نوع الخدمة وحجم المحتوى، ويتم ذكر مدة تقديرية في العرض. أي تأخير في الردود أو تزويد المواد من جهة العميل يؤثر على المدة.</div>
+            </div>
+            <div class="faq-item">
+            <div class="faq-q">هل أستطيع استرجاع العربون بعد البدء؟</div>
+            <div class="faq-a">العربون يحجز وقت وجهد الفريق، ولذلك فهو غير قابل للاسترداد بعد بدء العمل، كما هو موضح في الشروط والأحكام.</div>
+            </div>
+            <div class="faq-item">
+            <div class="faq-q">هل أستلم الملفات المفتوحة (Editable)؟</div>
+            <div class="faq-a">يتم تسليم الملفات النهائية الجاهزة للنشر، ويمكن تسليم الملفات المفتوحة برسوم إضافية يتم الاتفاق عليها مسبقًا.</div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-inner">
+        <h2 class="section-title">جاهز للبدء؟</h2>
+        <p class="section-subtitle">عبّي النموذج وراح نتواصل معك خلال 24 ساعة</p>
+        <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+            
+            <div class="form-group">
+            <label>الاسم الكامل *</label>
+            <input type="text" name="name" id="name" required placeholder="أدخل اسمك الكامل">
+            </div>
+            
+            <div class="form-group">
+            <label>البريد الإلكتروني *</label>
+            <input type="email" name="email" id="email" required placeholder="example@email.com">
+            </div>
+            
+            <div class="form-group">
+            <label>رقم الجوال *</label>
+            <input type="tel" name="phone" id="phone" required placeholder="05X XXX XXXX">
+            </div>
+            
+            <div class="form-group">
+            <label>نوع الخدمة المطلوبة *</label>
+            <select name="service" id="service" required>
+                <option value="">اختر الخدمة</option>
+                <option>إدارة حسابات التواصل</option>
+                <option>تصميم هوية بصرية</option>
+                <option>إنتاج محتوى</option>
+                <option>تصميم موقع إلكتروني</option>
+                <option>حملات إعلانية</option>
+                <option>أخرى</option>
+            </select>
+            </div>
+            
+            <div class="form-group">
+            <label>تفاصيل المشروع</label>
+            <textarea name="message" id="message" placeholder="اكتب نبذة عن مشروعك واحتياجاتك..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; font-size: 18px; padding: 16px;">
+            احصل على عرض
+            </button>
+        </form>
+        </div>
+    </section>
   </main>
 
-  <!-- 2. مكان الفوتر: فارغ وسيمتلئ تلقائياً -->
+  <!-- 2. الفوتر (يتم تحميله تلقائياً) -->
   <footer id="main-footer" class="footer"></footer>
 
-  <!-- ملف الجافاسكريبت الذي يركب القطع -->
+  <!-- ملف تحميل الهيدر والفوتر -->
   <script src="assets/js/layout.js"></script>
   
-  <!-- باقي السكربتات الخاصة بهذه الصفحة فقط -->
+  <!-- ملف وظائف الصفحة (السلايدر والذكاء الاصطناعي) -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
