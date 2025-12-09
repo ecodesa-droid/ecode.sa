@@ -3,745 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | eCode</title>
-  <meta name="description" content="eCode's Privacy Policy. Learn how we collect, use, and protect your personal data according to the regulations in Saudi Arabia">
+  <title>Our Portfolio | eCode</title>
+  <meta name="description" content="Explore eCode's portfolio of digital marketing projects, visual identity design, content production, and technical solutions delivered to our clients">
   
   <!-- SEO Tags -->
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <link rel="canonical" href="https://ecode.sa/privacy/">
+  <link rel="canonical" href="https://ecode.sa/en/portfolio/">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Privacy Policy | eCode">
-  <meta property="og:description" content="eCode's Privacy Policy. Learn how we collect, use, and protect your personal data according to the regulations in Saudi Arabia">
+  <meta property="og:title" content="Our Portfolio | eCode">
+  <meta property="og:description" content="Explore eCode's portfolio of digital marketing projects, visual identity design, content production, and technical solutions delivered to our clients">
   <meta property="og:image" content="https://ecode.sa/favicon.png">
-  <meta property="og:url" content="https://ecode.sa/privacy/">
+  <meta property="og:url" content="https://ecode.sa/en/portfolio/">
   <meta property="og:type" content="website">
   
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privacy Policy | eCode">
-  <meta name="twitter:description" content="eCode's Privacy Policy. Learn how we collect, use, and protect your personal data according to the regulations in Saudi Arabia">
-  <meta name="twitter:image" content="https://ecode.sa/favicon.png">
+  <!-- Favicons (Back 2 levels) -->
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="icon" type="image/png" href="../../favicon.png" />
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <style>
-    :root {
-      /* Base Colors (Dark Mode - Default) */
-      --lavender-light: #A99BFF;
-      --lavender-dark: #8B7FFF;
-      --sky-blue: #5BC0F8;
-      --mint-green: #7EDDA3;
-      --soft-orange: #FFB86C;
-      --coral-pink: #FF79C6;
-      
-      --bg-primary: #0F1419;
-      --bg-secondary: #1A1F2E;
-      --bg-elevated: #242B3D;
-      --text-primary: #E6EDF3;
-      --text-secondary: #9DA5B4;
-      --text-muted: #6B7280;
-      --border-color: #2D3748;
-      --border-hover: #4A5568;
-      
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-12: 48px;
-      --space-16: 64px;
-      
-      --radius-base: 16px;
-      --radius-lg: 24px;
-      --radius-full: 999px;
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-      --shadow-glow: 0 0 20px rgba(139, 127, 255, 0.3);
-      
-      --transition-fast: 150ms ease;
-      --transition-base: 250ms ease;
-    }
-
-    /* === Light Mode Settings === */
-    [data-theme="light"] {
-      --bg-primary: #F3F4F6;
-      --bg-secondary: #FFFFFF;
-      --bg-elevated: #FFFFFF;
-      --text-primary: #1F2937;
-      --text-secondary: #4B5563;
-      --text-muted: #9CA3AF;
-      --border-color: #E5E7EB;
-      --border-hover: #D1D5DB;
-      
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --shadow-glow: 0 0 15px rgba(139, 127, 255, 0.2);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    h1 { font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--text-primary); }
-    h2 { font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--text-primary); }
-    h3 { font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
-    p { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
-    
-    .main-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-color);
-      transition: var(--transition-base);
-    }
-    
-    @supports (backdrop-filter: blur(12px)) {
-        .main-header {
-            background: color-mix(in srgb, var(--bg-primary), transparent 10%);
-            backdrop-filter: blur(12px);
-        }
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-4) var(--space-6);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-
-    .logo-container:hover { transform: scale(1.02); }
-
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    .logo-icon img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .logo-text { display: flex; flex-direction: column; }
-
-    .logo-text .brand-name {
-      font-size: 24px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .logo-text .brand-tagline {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-6);
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      position: relative;
-      padding: var(--space-2) 0;
-      transition: var(--transition-fast);
-      font-weight: 600;
-    }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      transition: var(--transition-base);
-    }
-
-    .nav a:hover { color: var(--lavender-light); }
-    .nav a:hover::after { width: 100%; }
-    .nav a.active { color: var(--lavender-light); }
-    .nav a.active::after { width: 100%; }
-
-    /* === Circular Buttons (Language & Theme) === */
-    .lang-switcher, .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      border-radius: 50%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition-base);
-      text-decoration: none;
-    }
-
-    .lang-switcher:hover, .theme-toggle:hover {
-      background: var(--bg-secondary);
-      border-color: var(--lavender-dark);
-      color: var(--lavender-light);
-      box-shadow: var(--shadow-glow);
-    }
-
-    /* === "Contact Us" Button (Wide) === */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      min-width: 140px;
-      border-radius: var(--radius-full);
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: inherit;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #fff !important;
-      text-decoration: none;
-      transition: var(--transition-base);
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      white-space: nowrap;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      filter: brightness(1.1);
-      color: #fff !important;
-    }
-
-    .page-hero {
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
-      padding: 100px var(--space-6) 80px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-color);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 25s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-80px, 60px) scale(1.1); }
-    }
-
-    .page-hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-      background: linear-gradient(135deg, var(--lavender-light), var(--sky-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page-hero p {
-      font-size: 20px;
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .legal-content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: var(--space-16) var(--space-6);
-    }
-
-    .legal-card {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-12);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .legal-section {
-      margin-bottom: var(--space-8);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: var(--space-8);
-    }
-
-    .legal-section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .legal-section h2 {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--lavender-light);
-      margin-bottom: var(--space-4);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .legal-section p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: var(--space-4);
-    }
-
-    .legal-section ul {
-      list-style: none;
-      margin-bottom: var(--space-4);
-    }
-
-    .legal-section ul li {
-      padding: var(--space-2) 0;
-      padding-left: var(--space-6);
-      position: relative;
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .legal-section ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--lavender-dark);
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    /* === Footer Styles (Standardized) === */
-    .footer {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      padding: var(--space-16) var(--space-6) var(--space-6);
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-16);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-8);
-      margin-bottom: var(--space-8);
-    }
-
-    .footer h4 {
-      margin-bottom: var(--space-4);
-      font-size: 20px;
-      color: var(--text-primary);
-    }
-
-    .footer p {
-      color: var(--text-secondary);
-      margin-bottom: var(--space-2);
-      font-size: 16px;
-    }
-
-    .footer a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-    }
-
-    .footer a:hover {
-      color: var(--lavender-light);
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: var(--space-2);
-    }
-
-    /* Standardized Footer Social Bar */
-    .social-bar {
-      margin-top: var(--space-4);
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
-      background: rgba(139, 127, 255, 0.05); /* Same as main page */
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-elevated);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-base);
-      font-size: 18px;
-      border: 1px solid var(--border-color);
-    }
-
-    /* Correct hover contrast: White Icon + Gradient Bg */
-    .footer .social-bar .social-link:hover {
-      background: linear-gradient(135deg, var(--lavender-dark), var(--sky-blue));
-      color: #ffffff !important;
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-      border-color: transparent;
-    }
-    
-    .footer .social-bar .social-link:hover i {
-      color: #ffffff !important;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border-color);
-      margin-top: var(--space-8);
-      padding-top: var(--space-4);
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Floating WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px; /* Right for LTR */
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--lavender-dark), var(--lavender-light));
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 32px;
-      box-shadow: 0 4px 20px rgba(139, 127, 255, 0.4);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition-base);
-      animation: pulse-whatsapp 2s infinite;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .whatsapp-float:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 30px rgba(139, 127, 255, 0.6);
-      color: #FFF;
-      background: linear-gradient(135deg, var(--sky-blue), var(--lavender-light));
-    }
-
-    @keyframes pulse-whatsapp {
-      0% {
-        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(139, 127, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(139, 127, 255, 0);
-      }
-    }
-
-    @media (max-width: 968px) {
-      .page-hero h1 { font-size: 40px; }
-      .nav { flex-wrap: wrap; gap: var(--space-3); font-size: 14px; }
-    }
-    
-    @media (max-width: 640px) {
-        .whatsapp-float {
-            width: 55px;
-            height: 55px;
-            font-size: 28px;
-            bottom: 20px;
-            right: 20px;
-        }
-    }
-  </style>
+  
+  <!-- Main CSS (Back 2 levels) -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="header-inner">
-      <a href="https://ecode.sa/en/" class="logo-container">
-        <div class="logo-icon">
-          <img src="https://ecode.sa/favicon.png" alt="eCode Logo">
-        </div>
-        <div class="logo-text">
-          <div class="brand-name">eCode</div>
-          <div class="brand-tagline">Making an Impact</div>
-        </div>
-      </a>
+  <!-- English Header (Loaded automatically) -->
+  <header id="main-header" class="main-header"></header>
 
-      <nav class="nav">
-        <a href="https://ecode.sa/en/">Home</a>
-        <a href="https://ecode.sa/services-en/">Our Services</a>
-        <a href="https://ecode.sa/plans-en/">Plans</a>
-        <a href="https://ecode.sa/portfolio-en/">Portfolio</a>
-        
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
-            <i class="fas fa-sun"></i>
-        </button>
+  <main>
+    <section class="page-hero">
+        <h1>Our Portfolio</h1>
+        <p>Examples of our successful projects that contributed to our clients' business growth</p>
+    </section>
 
-        <!-- Circular Language Button -->
-        <a href="https://ecode.sa/privacy/" class="lang-switcher" aria-label="Arabic">
-          <span style="font-size: 20px; line-height: 1;">🇸🇦</span>
-        </a>
-        
-        <a href="https://ecode.sa/contact-en/" class="btn-primary">Contact Us</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="page-hero">
-    <h1>Privacy Policy</h1>
-    <p>We are committed to protecting your privacy and personal data</p>
-  </section>
-
-  <section class="legal-content">
-    <div class="legal-card">
-      <div class="legal-section">
-        <h2>1. Introduction</h2>
-        <p>Welcome to eCode ("we", "us", or "our"). We respect your privacy and are committed to protecting your personal data in accordance with the Personal Data Protection Law (PDPL) in the Kingdom of Saudi Arabia.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>2. Information We Collect</h2>
-        <p>We may collect the following types of information:</p>
-        <ul>
-          <li><strong>Personal Information:</strong> Name, email address, phone number, and any other information you provide when filling out forms on our website.</li>
-          <li><strong>Project Information:</strong> Details about your project, budget, and specific requirements you share with us.</li>
-          <li><strong>Technical Data:</strong> IP address, browser type, device information, and usage data collected through cookies.</li>
-        </ul>
-      </div>
-
-      <div class="legal-section">
-        <h2>3. How We Use Your Information</h2>
-        <p>We use the collected data for the following purposes:</p>
-        <ul>
-          <li>To provide and improve our services to you.</li>
-          <li>To communicate with you regarding your project or inquiries.</li>
-          <li>To send you marketing communications (if you have opted in).</li>
-          <li>To analyze website usage and improve user experience.</li>
-          <li>To comply with legal obligations.</li>
-        </ul>
-      </div>
-
-      <div class="legal-section">
-        <h2>4. Data Sharing and Disclosure</h2>
-        <p>We do not sell your personal data to third parties. We may share your information with:</p>
-        <ul>
-          <li><strong>Service Providers:</strong> Trusted third-party partners who assist us in operating our website and conducting our business (e.g., hosting providers, analytics services).</li>
-          <li><strong>Legal Authorities:</strong> If required by law or to protect our rights and safety.</li>
-        </ul>
-      </div>
-
-      <div class="legal-section">
-        <h2>5. Data Security</h2>
-        <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>6. Your Rights</h2>
-        <p>Under the PDPL, you have the right to:</p>
-        <ul>
-          <li>Access your personal data.</li>
-          <li>Request correction of inaccurate data.</li>
-          <li>Request deletion of your data.</li>
-          <li>Withdraw your consent for data processing.</li>
-        </ul>
-        <p>To exercise these rights, please contact us at <a href="mailto:info@ecode.sa" style="color: var(--lavender-light);">info@ecode.sa</a>.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>7. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Modified" date.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>8. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us:</p>
-        <ul>
-          <li>Email: info@ecode.sa</li>
-          <li>Phone: 0503666316</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <h4>eCode – Electronic Code</h4>
-          <p>Making an Impact</p>
-          <p style="margin-top: 16px;">A Saudi company providing digital marketing solutions, content management, creative production, and technical solutions.</p>
-          
-          <div class="social-bar">
-            <a class="social-link" href="mailto:info@ecode.sa" title="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a class="social-link" href="https://wa.me/966503666316" target="_blank" title="WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a class="social-link" href="https://www.youtube.com/@eCode_sa" target="_blank" title="YouTube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a class="social-link" href="https://www.facebook.com/ecode.sa" target="_blank" title="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="social-link" href="https://www.tiktok.com/@ecode_sa" target="_blank" title="TikTok">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a class="social-link" href="https://www.instagram.com/ecode_sa" target="_blank" title="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="social-link" href="https://www.snapchat.com/add/ecode_sa" target="_blank" title="Snapchat">
-              <i class="fa-brands fa-snapchat"></i>
-            </a>
-            <a class="social-link" href="https://www.linkedin.com/company/ecode-sa" target="_blank" title="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a class="social-link" href="https://x.com/eCode_sa" target="_blank" title="X">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-          </div>
+    <section class="portfolio-section">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="social">Social Media</button>
+            <button class="filter-btn" data-filter="photography">Photography</button>
+            <button class="filter-btn" data-filter="web">Web Design</button>
+            <button class="filter-btn" data-filter="campaigns">Ad Campaigns</button>
         </div>
 
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="https://ecode.sa/en/">Home</a></li>
-            <li><a href="https://ecode.sa/services-en/">Our Services</a></li>
-            <li><a href="https://ecode.sa/plans-en/">Plans</a></li>
-            <li><a href="https://ecode.sa/portfolio-en/">Portfolio</a></li>
-            <li><a href="https://ecode.sa/contact-en/">Contact Us</a></li>
-            <li><a href="https://ecode.sa/terms-en/">Terms & Conditions</a></li>
-            <li><a href="https://ecode.sa/privacy-en/">Privacy Policy</a></li>
-          </ul>
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item" data-category="branding web">
+                <div class="portfolio-image">
+                    <!-- Images path also needs to go back 2 levels -->
+                    <img src="../../bq.png" alt="Real Estate Platform Project" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">UX Design</span>
+                    <h3>Real Estate Platform Project</h3>
+                    <p>Complete user interface design for a specialized real estate services platform</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Main Interface</span>
+                        <span class="portfolio-tag">Terms & Conditions</span>
+                        <span class="portfolio-tag">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="social">
+                <div class="portfolio-image">
+                    <img src="../../DutiesBook-ad.jpg" alt="Company Social Media Management" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Social Media</span>
+                    <h3>Company Social Media Management</h3>
+                    <p>Full social media management achieving a 250% increase in engagement within 3 months</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Instagram</span>
+                        <span class="portfolio-tag">TikTok</span>
+                        <span class="portfolio-tag">Content</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="photography">
+                <div class="portfolio-image">
+                    <img src="../../Product-Photography-Session.png" alt="Product Photography Session" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Photography</span>
+                    <h3>Product Photography Session</h3>
+                    <p>Professional photoshoot for skincare products with full studio lighting and editing</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Products</span>
+                        <span class="portfolio-tag">Studio</span>
+                        <span class="portfolio-tag">Editing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="../../androhealth-ux.png" alt="Medical System Interface" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Medical System UI</span>
+                    <h3>Medical System Interface</h3>
+                    <p>UX/UI design and development for a complete medical facility management system</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Design</span>
+                        <span class="portfolio-tag">User Experience</span>
+                        <span class="portfolio-tag">Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="campaigns">
+                <div class="portfolio-image">
+                    <img src="../../New-Product-Launch-Campaign.png" alt="New Product Launch Campaign" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Advertising Campaign</span>
+                    <h3>New Product Launch Campaign</h3>
+                    <p>End-to-end launch campaign achieving over 150K views and 500+ conversions</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Facebook</span>
+                        <span class="portfolio-tag">Instagram</span>
+                        <span class="portfolio-tag">Snapchat</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="branding social">
+                <div class="portfolio-image">
+                    <img src="../../Coffee-Shop-Project.png" alt="Coffee Shop Project" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Branding + Content</span>
+                    <h3>Coffee Shop Project</h3>
+                    <p>Full visual identity creation, account setup, and daily content production</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Logo</span>
+                        <span class="portfolio-tag">Templates</span>
+                        <span class="portfolio-tag">Photography</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="photography">
+                <div class="portfolio-image">
+                    <img src="../../Product-Promotional-Video.png" alt="Product Promotional Video" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Video</span>
+                    <h3>Product Promotional Video</h3>
+                    <p>Professional 4K promotional video production with creative editing and soundtrack</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Filming</span>
+                        <span class="portfolio-tag">Editing</span>
+                        <span class="portfolio-tag">4K</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="../../cyancare-ad.png" alt="Telehealth Platform" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">User Experience</span>
+                    <h3>Telehealth Platform</h3>
+                    <p>Telehealth and home-visits platform with UX testing and visual/advertising design</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Testing</span>
+                        <span class="portfolio-tag">Design</span>
+                        <span class="portfolio-tag">Marketing Materials</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="campaigns social">
+                <div class="portfolio-image">
+                    <img src="../../Ramadan-Campaign.png" alt="Ramadan Campaign" onerror="this.src='../../favicon.png'">
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Seasonal Campaign</span>
+                    <h3>Ramadan Campaign</h3>
+                    <p>Full seasonal marketing campaign with daily themed content and exclusive promotions</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Seasonal</span>
+                        <span class="portfolio-tag">Offers</span>
+                        <span class="portfolio-tag">Content</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div>
-          <h4>Contact Us</h4>
-          <p>Riyadh – Kingdom of Saudi Arabia</p>
-          <p>Phone: <a href="tel:0503666316">0503666316</a></p>
-          <p>Email: <a href="mailto:info@ecode.sa">info@ecode.sa</a></p>
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">+50</span>
+                    <span class="stat-label">Successful Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+10</span>
+                    <span class="stat-label">Different Sectors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">On-Time Delivery</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Client Rating</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+  </main>
 
-      <div class="footer-bottom">
-        © 2025 Electronic Code Company. All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <!-- English Footer (Loaded automatically) -->
+  <footer id="main-footer" class="footer"></footer>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/966503666316" class="whatsapp-float" target="_blank" title="Contact us via WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <script>
-    // --- Theme Toggle Logic ---
-    function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        html.setAttribute('data-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        updateThemeIcon(nextTheme);
-    }
-
-    function updateThemeIcon(theme) {
-        const icon = document.querySelector('.theme-toggle i');
-        if (!icon) return; 
-        
-        if (theme === 'light') {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-
-    // Initialize Theme
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-    });
-  </script>
-
+  <!-- Common JS Scripts (Back 2 levels) -->
+  <script src="../../assets/js/layout.js"></script>
+  <script src="../../assets/js/main.js"></script>
 </body>
 </html>
