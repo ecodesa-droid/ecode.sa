@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="ar">
-  <head>
-    <meta charset="UTF-8" />
-    <title>eCode</title>
-    <meta http-equiv="refresh" content="0; url=https://ecode.sa/" />
-    <script>
-      window.location.href = "https://ecode.sa/";
-    </script>
-  </head>
-  <body>
-    <p>جاري تحويلك إلى الصفحة الرئيسية... <a href="https://ecode.sa/">اضغط هنا إذا لم يتم التحويل</a></p>
-  </body>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eCode | الرئيسية</title>
+  <!-- ... باقي وسوم الـ Meta ... -->
+
+  <!-- ملف التنسيقات (الذي يفترض أنك فصلته كما اتفقنا سابقاً) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <!-- 1. مكان الهيدر: فارغ وسيمتلئ تلقائياً -->
+  <header id="main-header" class="main-header"></header>
+
+  <!-- محتوى الصفحة المتغير -->
+  <main>
+    <section id="hero" class="hero">
+        <!-- محتوى الهيرو الخاص بهذه الصفحة فقط -->
+        <h1>نطوّر. نبتكر. ننمّي أعمالك.</h1>
+        <!-- ... الخ ... -->
+    </section>
+
+    <!-- ... باقي أقسام الصفحة ... -->
+  </main>
+
+  <!-- 2. مكان الفوتر: فارغ وسيمتلئ تلقائياً -->
+  <footer id="main-footer" class="footer"></footer>
+
+  <!-- ملف الجافاسكريبت الذي يركب القطع -->
+  <script src="assets/js/layout.js"></script>
+  
+  <!-- باقي السكربتات الخاصة بهذه الصفحة فقط -->
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
