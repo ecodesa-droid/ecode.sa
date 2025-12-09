@@ -1048,11 +1048,12 @@ section {
   .hero-stats { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   
+  /* تحديث زر الواتساب للجوال: تكبير الحجم وإبعاد المسافة عن الحافة */
   .whatsapp-float {
-    width: 55px;
-    height: 55px;
-    font-size: 28px;
-    bottom: 20px;
-    left: 20px;
+    width: 60px;      /* زيادة الحجم ليسهل اللمس */
+    height: 60px;
+    font-size: 30px;
+    bottom: 35px;     /* رفع الزر للأعلى بعيداً عن شريط التنقل السفلي للهاتف */
+    left: 35px;       /* إبعاده عن الحافة اليسرى لتجنب التعارض مع إيماءات السحب */
   }
 }
