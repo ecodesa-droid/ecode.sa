@@ -2,14 +2,16 @@
   "name": "eCode - إلكترونيك كود",
   "short_name": "eCode",
   "description": "شركة سعودية تقدم حلول التسويق الرقمي، إدارة المحتوى، الإنتاج الإبداعي، والحلول التقنية",
-  "start_url": "/ar/",
+  "id": "/?source=pwa",
+  "start_url": "/ar/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0F1419",
   "theme_color": "#8B7FFF",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "lang": "ar",
   "dir": "rtl",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-72x72.png",
@@ -64,29 +66,45 @@
     {
       "src": "/screenshots/screenshot1.png",
       "sizes": "540x720",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "narrow"
     },
     {
       "src": "/screenshots/screenshot2.png",
       "sizes": "540x720",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ],
-  "categories": ["business", "marketing", "productivity"],
+  "categories": [
+    "business",
+    "marketing",
+    "productivity"
+  ],
   "shortcuts": [
     {
       "name": "خدماتنا",
       "short_name": "خدمات",
       "description": "استعراض خدماتنا",
       "url": "/services/",
-      "icons": [{ "src": "/icons/services-icon.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "تواصل معنا",
       "short_name": "تواصل",
       "description": "تواصل مع فريقنا",
       "url": "/contact/",
-      "icons": [{ "src": "/icons/contact-icon.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ]
 }
