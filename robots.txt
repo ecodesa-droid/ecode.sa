@@ -1,35 +1,14 @@
-# robots.txt for ecode.sa
+robots.txt for ecode.sa
 
-# السماح لجميع محركات البحث
 User-agent: *
 Allow: /
 
-# منع فهرسة صفحات 404
-Disallow: /ar/404
-Disallow: /en/404
+Disallow: /404.html
+Disallow: /ar/404.html
+Disallow: /en/404.html
 
-# منع فهرسة الملفات الإدارية (إذا كان فيه)
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /cgi-bin/
+Disallow: /assets/
 
-# السماح بفهرسة الصور والملفات الثابتة
-Allow: /images/
-Allow: /css/
-Allow: /js/
-Allow: /favicon.png
+Disallow: /components/
 
-# رابط ملف Sitemap
 Sitemap: https://ecode.sa/sitemap.xml
-
-# تعليمات خاصة لـ Google
-User-agent: Googlebot
-Allow: /
-
-# تعليمات خاصة لـ Bing
-User-agent: Bingbot
-Allow: /
-
-# Crawl-delay (اختياري - تأخير بين الطلبات)
-# Crawl-delay: 10
