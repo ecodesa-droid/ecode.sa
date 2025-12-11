@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Falafel Ali Pasha - فلافل علي باشا</title>
+    
+    <!-- =========================================
+         SOCIAL MEDIA & SHARING META TAGS
+    ========================================== -->
+    <meta name="description" content="فلافل علي باشا - أشهى ساندويتشات الفلافل والفطائر والأطباق الشامية في مكة المكرمة.">
+    <meta property="og:title" content="Falafel Ali Pasha - فلافل علي باشا">
+    <meta property="og:description" content="طعم الفلافل الأصلي. زورونا في الشوقية أو ولي العهد أو اطلب عبر تطبيقات التوصيل.">
+    <meta property="og:image" content="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/alipasha.png">
+    <meta property="og:url" content="https://alipasha.example.com">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#dc2626">
+
+    <!-- =========================================
+         PWA / MOBILE APP CAPABILITIES
+    ========================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ali Pasha">
+    <link rel="apple-touch-icon" href="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/alipasha.png">
+    
+    <link rel="manifest" id="my-manifest-placeholder">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .font-cairo { font-family: 'Cairo', sans-serif; }
+        .font-roboto { font-family: 'Roboto', sans-serif; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* Language handling classes */
+        body.lang-en { font-family: 'Roboto', sans-serif; direction: ltr; }
+        body.lang-en .rotate-rtl { transform: rotate(180deg); }
+        
+        /* Custom scrollbar - Red Theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
+        
+        body { padding-bottom: 60px; } 
+        @media (min-width: 768px) { body { padding-bottom: 0; } }
+
+        /* Marquee Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); } /* Positive for RTL logical direction or adjust based on layout */
+        }
+        /* Forcing LTR for the marquee track to make math easier: 0 to -50% */
+        @keyframes scroll-ltr {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .animate-scroll {
+            animation: scroll-ltr 30s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-cairo bg-gray-50 text-gray-800 transition-all duration-300">
+
+    <!-- Navbar -->
+    <nav class="bg-black text-white sticky top-0 z-40 shadow-lg border-b-4 border-red-600">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- Added bg-white, rounded-full, and p-1 to give it a white background -->
+                <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/alipasha.png" alt="Falafel Ali Pasha Logo" class="h-14 w-auto object-contain bg-white rounded-full p-1 hover:scale-105 transition duration-300">
+                
+                <span class="text-xl font-bold tracking-wide group-hover:text-red-500 transition hidden sm:block nav-link" data-key="site_name">فلافل علي باشا</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="hover:text-red-600 transition nav-link" data-key="home">الرئيسية</a>
+                <a href="#menu" class="hover:text-red-600 transition nav-link" data-key="menu">المنيو</a>
+                <a href="#location" class="hover:text-red-600 transition nav-link" data-key="location">فروعنا</a>
+                
+                <button onclick="toggleLanguage()" class="flex items-center gap-1 hover:text-yellow-400 border px-3 py-1 rounded border-gray-600 transition hover:border-yellow-400">
+                    <i class="fas fa-globe"></i> <span id="langBtnText">English</span>
+                </button>
+
+                <!-- Call Button (Redirects to Branches) -->
+                <a href="#location" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-full font-bold transition transform hover:scale-105 shadow-lg flex items-center gap-2">
+                    <span class="nav-link" data-key="call_now">تواصل معنا</span> 📞
+                </a>
+            </div>
+
+            <!-- Mobile Buttons -->
+            <div class="md:hidden flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="font-bold text-yellow-400 border border-zinc-700 px-2 py-1 rounded">
+                    <span id="langBtnMobile">EN</span>
+                </button>
+                <button onclick="toggleMenu()" class="text-white focus:outline-none p-2">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="md:hidden bg-zinc-900 border-t border-zinc-800 hidden absolute w-full left-0 z-40 shadow-2xl">
+            <div class="flex flex-col p-4 gap-4 text-center">
+                <a href="#home" onclick="toggleMenu()" class="hover:text-red-600 py-2 border-b border-zinc-800 nav-link" data-key="home">الرئيسية</a>
+                <a href="#menu" onclick="toggleMenu()" class="hover:text-red-600 py-2 border-b border-zinc-800 nav-link" data-key="menu">المنيو</a>
+                <a href="#location" onclick="toggleMenu()" class="hover:text-red-600 py-2 nav-link" data-key="location">فروعنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-zinc-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
+            <!-- Updated hero image to match restaurant theme -->
+            <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/07.png" alt="Falafel" class="w-full h-full object-cover animate-pulse-slow">
+        </div>
+        
+        <div class="container mx-auto px-4 z-20 text-center text-white relative">
+            <div class="inline-block px-4 py-2 bg-red-600 text-white font-bold text-sm rounded-full mb-6 animate-bounce shadow-lg" data-aos="fade-down">
+                🥙 <span class="nav-link" data-key="hero_badge">أصل الفلافل عندنا!</span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight max-w-4xl mx-auto drop-shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
+                <!-- تم إضافة nav-link و data-key هنا ليتغير الاسم مع اللغة -->
+                <span class="text-red-500 nav-link" data-key="site_name">فلافل علي باشا</span> <br>
+                <span class="nav-link" data-key="hero_title">طعم القرمشة الأصيلة</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto font-light" data-aos="fade-up" data-aos-delay="400">
+                <span class="nav-link" data-key="hero_desc">استمتع بألذ ساندويتشات الفلافل، الفطائر الطازجة، والأطباق الشامية المميزة.</span>
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+                <a href="#menu" class="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2 hover:-translate-y-1">
+                    <span class="nav-link" data-key="view_menu">شاهد المنيو</span> <i class="fas fa-utensils"></i>
+                </a>
+                <a href="#location" class="bg-white hover:bg-gray-100 text-red-700 text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2 hover:-translate-y-1">
+                    <i class="fas fa-map-marker-alt text-2xl"></i> <span class="nav-link" data-key="loc_btn">فروعنا</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-white relative -mt-10 z-30 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
+            <div class="p-8 rounded-2xl bg-red-50 hover:bg-red-100 transition duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">🔥</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="feat_fresh_title">ساخن ومقرمش</h3>
+                <p class="text-gray-600 nav-link" data-key="feat_fresh_desc">فلافل تحضر طازجة عند الطلب لقرمشة لا تقاوم.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-yellow-50 hover:bg-yellow-100 transition duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">🥟</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="feat_pies_title">فطائر مميزة</h3>
+                <p class="text-gray-600 nav-link" data-key="feat_pies_desc">تشكيلة فطائر بعجينة هشة وحشوات غنية.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-red-50 hover:bg-red-100 transition duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">🥬</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="feat_healthy_title">مكونات طازجة</h3>
+                <p class="text-gray-600 nav-link" data-key="feat_healthy_desc">خضروات ومكونات يومية تضمن لك الجودة والطعم.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-red-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 nav-link" data-key="menu_title" data-aos="fade-up">قائمة علي باشا</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto nav-link" data-key="menu_subtitle" data-aos="fade-up" data-aos-delay="100">
+                تذوق الطعم الأصيل في كل لقمة
+            </p>
+            
+            <!-- Category Scroll wrapper for mobile -->
+            <div class="overflow-x-auto pb-4 mb-8" data-aos="fade-right">
+                <div class="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-3 min-w-max px-2" id="menuTabs">
+                    <!-- Tabs generated by JS -->
+                </div>
+            </div>
+
+            <div id="menuContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto min-h-[400px]">
+                <!-- Menu Items generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Marquee Section (NEW) -->
+    <section class="py-12 bg-zinc-900 overflow-hidden border-t-4 border-red-600">
+        <div class="container mx-auto px-4 mb-8 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-white nav-link" data-key="gallery_title">معرض الصور</h2>
+        </div>
+        
+        <!-- Marquee Track - Using LTR to simplify direction logic for marquee -->
+        <div class="relative w-full overflow-hidden" dir="ltr">
+            <div class="flex animate-scroll w-max gap-4">
+                <!-- Images Set 1 -->
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/01.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 1">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/02.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 2">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/03.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 3">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/04.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 4">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/05.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 5">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/06.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 6">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/07.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 7">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/08.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 8">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/09.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 9">
+                </div>
+
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/01.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 1">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/02.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 2">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/03.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 3">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/04.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 4">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/05.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 5">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/06.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 6">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/07.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 7">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/08.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 8">
+                </div>
+                <div class="w-64 h-64 rounded-xl overflow-hidden shadow-lg border-2 border-zinc-700 shrink-0">
+                    <img src="https://onfirrestaurant.github.io/Falafel-Ali-Pasha/09.png" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Gallery 9">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Branches -->
+    <section id="location" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+             <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 nav-link" data-key="loc_title">فروعنا في مكة المكرمة</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto nav-link" data-key="loc_desc">نسعد بخدمتكم في فروعنا، زورونا الآن.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Shawqiya Branch -->
+                <div class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-red-500 transition shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-zinc-800 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="branch_shawqiya">فرع الشوقية</h3>
+                    <p class="text-gray-500 mb-6 nav-link" data-key="branch_shawqiya_desc">حي الشوقية، مكة المكرمة</p>
+                    <a href="https://maps.app.goo.gl/yHJdZod41PwX7Exn7?g_st=ipc" target="_blank" class="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition">
+                        <span class="nav-link" data-key="view_map">الاتجاهات</span> <i class="fas fa-arrow-left rotate-rtl"></i>
+                    </a>
+                </div>
+
+                <!-- Waly Al Ahd Branch -->
+                <div class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-red-500 transition shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 nav-link" data-key="branch_waly">فرع ولي العهد</h3>
+                    <p class="text-gray-500 mb-6 nav-link" data-key="branch_waly_desc">حي ولي العهد، مكة المكرمة</p>
+                    <a href="https://maps.app.goo.gl/FXEsT4AztKHHtxgP9?g_st=ipc" target="_blank" class="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition">
+                        <span class="nav-link" data-key="view_map">الاتجاهات</span> <i class="fas fa-arrow-left rotate-rtl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-white pt-16 pb-24 md:pb-8 border-t-4 border-red-600">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-12">
+            <div data-aos="fade-up">
+                 <div class="text-2xl font-bold text-red-500 mb-6 nav-link" data-key="site_name">فلافل علي باشا</div>
+                
+                <p class="text-gray-400 mb-6 nav-link" data-key="footer_desc">نقدم أشهى المأكولات الشامية والفلافل المحضرة يومياً بكل حب.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-lg text-gray-300">
+                        <i class="fas fa-clock text-red-500"></i> <span dir="ltr">6:00 AM - 12:00 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center md:text-start" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-xl font-bold mb-6 text-yellow-400 nav-link" data-key="delivery_apps">اطلب عبر التطبيقات</h4>
+                <div class="flex justify-center md:justify-start gap-4 mb-8">
+                    <!-- HungerStation -->
+                    <a href="https://hungerstation.com/sa-ar/restaurant/%D9%85%D9%83%D8%A9-%D8%A7%D9%84%D9%85%D9%83%D8%B1%D9%85%D8%A9/%D9%88%D9%84%D9%8A-%D8%A7%D9%84%D8%B9%D9%87%D8%AF/51215" target="_blank" title="HungerStation" class="w-12 h-12 rounded-full bg-yellow-500 text-black flex items-center justify-center hover:bg-white transition transform hover:rotate-12">
+                        <i class="fas fa-motorcycle text-xl"></i>
+                    </a>
+                    <!-- Ninja -->
+                    <a href="https://ananinja.com/sa/ar/restaurants/falafel-ali-basha-19435?srsltid=AfmBOopxNPF2JNSp7hF-hqsdfeOgfKAVkZnAnVtp-TBagxnlVwwBp8uw#all" target="_blank" title="Ninja" class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-500 transition transform hover:rotate-12">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-xl font-bold mb-6 text-yellow-400 nav-link" data-key="follow_us">تابعونا</h4>
+                <div class="flex gap-4 mb-8">
+                    <a href="https://www.instagram.com/alipasha_ap" class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-red-600 transition hover:-translate-y-1">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+                <div class="flex flex-col gap-2">
+                     <a href="https://maps.app.goo.gl/yHJdZod41PwX7Exn7?g_st=ipc" target="_blank" class="w-full py-2 bg-zinc-800 rounded-lg flex items-center justify-center hover:text-red-500 hover:bg-zinc-700 text-sm border border-zinc-700 transition gap-2">
+                        <i class="fas fa-map-marker-alt text-red-500"></i> <span class="nav-link" data-key="branch_shawqiya">فرع الشوقية</span>
+                    </a>
+                    <a href="https://maps.app.goo.gl/FXEsT4AztKHHtxgP9?g_st=ipc" target="_blank" class="w-full py-2 bg-zinc-800 rounded-lg flex items-center justify-center hover:text-red-500 hover:bg-zinc-700 text-sm border border-zinc-700 transition gap-2">
+                        <i class="fas fa-map-marker-alt text-red-500"></i> <span class="nav-link" data-key="branch_waly">فرع ولي العهد</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-zinc-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+             &copy; 2025 Falafel Ali Pasha. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Sticky Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-800 md:hidden z-40 flex justify-around items-center h-[60px] pb-1">
+        <a href="#menu" class="flex flex-col items-center justify-center text-gray-400 hover:text-red-500 w-full h-full">
+            <i class="fas fa-book-open text-lg mb-1"></i>
+            <span class="text-xs nav-link" data-key="mobile_menu">المنيو</span>
+        </a>
+        <a href="#location" class="flex flex-col items-center justify-center text-gray-400 hover:text-red-500 w-full h-full">
+            <i class="fas fa-map-marker-alt text-lg mb-1"></i>
+            <span class="text-xs nav-link" data-key="loc_btn">فروعنا</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- 1. PWA Manifest ---
+        const manifest = {
+            "name": "Falafel Ali Pasha",
+            "short_name": "Ali Pasha",
+            "start_url": ".",
+            "display": "standalone",
+            "background_color": "#18181b", 
+            "theme_color": "#dc2626",
+            "orientation": "portrait",
+            "icons": [
+                {
+                    "src": "https://onfirrestaurant.github.io/Falafel-Ali-Pasha/alipasha.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "https://onfirrestaurant.github.io/Falafel-Ali-Pasha/alipasha.png",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                }
+            ]
+        };
+        const stringManifest = JSON.stringify(manifest);
+        const blob = new Blob([stringManifest], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(blob);
+        document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
+
+        // --- 2. Init Animation ---
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // --- 3. Data & Translations ---
+        const menuData = {
+            sandwiches: [
+                {name: {ar: 'ساندويتش فلافل عربي مع البيض', en: 'Arabic Falafel w/ Egg'}, price: '10.00', desc: {ar: 'ساندويتش فلافل عربية مقرمشة مع البيض لذيذة ومشبعة.', en: 'Crispy Arabic falafel sandwich with egg, delicious and filling.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Sandwiches/Arabic-Falafel-Sandwich.png'},
+                {name: {ar: 'ساندويتش فلافل عادي', en: 'Classic Falafel Sandwich'}, price: '6.00', desc: {ar: 'ساندويتش فلافل بسيط ولذيذ بطعم أصيل.', en: 'Simple and delicious falafel sandwich with authentic taste.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Sandwiches/Falafel-Sandwich.png'},
+                {name: {ar: 'ساندويتش فلافل مع بيض وحمص', en: 'Falafel w/ Egg & Hummus'}, price: '8.00', desc: {ar: 'ساندويتش فلافل على طريقتنا الخاصة مع البيض والحمص.', en: 'Our special falafel sandwich with egg and hummus.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Sandwiches/Falafel-Sandwich.png'},
+                {name: {ar: 'ساندويتش فلافل مع بيض', en: 'Falafel w/ Egg'}, price: '7.00', desc: {ar: 'ساندويتش فلافل على أسلوبنا الخاص مع إضافة البيض لتحلية النكهة.', en: 'Our style falafel sandwich with added egg for extra flavor.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Sandwiches/Falafel-Sandwich.png'},
+                {name: {ar: 'ساندويتش فلافل مع حمص', en: 'Falafel w/ Hummus'}, price: '7.00', desc: {ar: 'ساندويتش فلافل ممزوج بالحمص لمذاق غني ومميز.', en: 'Falafel sandwich mixed with hummus for a rich taste.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Sandwiches/Falafel-Sandwich.png'},
+                {name: {ar: 'ساندويتش فلافل عربي', en: 'Arabic Falafel Sandwich'}, price: '9.00', desc: {ar: 'ساندويتش فلافل عربية مقرمشة بطعم أصيل.', en: 'Crispy Arabic falafel sandwich with authentic taste.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Sandwiches/Arabic-Falafel-Sandwich.png'}
+            ],
+            plates: [
+                {name: {ar: 'طبق فلافل – كبير', en: 'Falafel Plate - Large'}, price: '36.00', desc: {ar: 'كرات فلافل مقرمشة وطازجة.', en: 'Crispy and fresh falafel balls.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Plates/Falafel-Plate.webp'},
+                {name: {ar: 'طبق فلافل – صغير', en: 'Falafel Plate - Small'}, price: '18.00', desc: {ar: 'كرات فلافل مقرمشة بطعم أصيل ولذيذ.', en: 'Crispy falafel balls with authentic delicious taste.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Plates/Falafel-Plate.webp'},
+                {name: {ar: 'طبق حمص – كبير', en: 'Hummus Plate - Large'}, price: '11.00', desc: {ar: 'حمص مطبوخ ومهروس، ممزوج مع الطحينة وعصير الليمون والثوم.', en: 'Cooked and mashed hummus mixed with tahini, lemon, and garlic.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Plates/Hummus-Plate.png'},
+                {name: {ar: 'طبق حمص – صغير', en: 'Hummus Plate - Small'}, price: '6.00', desc: {ar: 'حمص مطبوخ ومهروس مع الطحينة والليمون والثوم.', en: 'Cooked and mashed hummus with tahini, lemon, and garlic.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Plates/Hummus-Plate.png'},
+                {name: {ar: 'طبق بطاطس مقلية – وسط', en: 'French Fries - Medium'}, price: '11.00', desc: {ar: 'بطاطس مقلية مقرمشة ومحضّرة بعناية.', en: 'Crispy fries prepared with care.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Plates/French-Fries.png'},
+                {name: {ar: 'طبق بطاطس مقلية – صغير', en: 'French Fries - Small'}, price: '8.00', desc: {ar: 'بطاطس مقلية مقرمشة ومحضّرة بطريقة لذيذة.', en: 'Crispy fries prepared deliciously.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Plates/French-Fries.png'}
+            ],
+            pies: [
+                {name: {ar: 'فطيرة علي باشا', en: 'Ali Pasha Pie'}, price: '11.00', desc: {ar: 'عجينة طرية محشوة بحشوة مميزة تُحضّر على طريقتنا الخاصة.', en: 'Soft dough stuffed with special filling prepared our way.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Pies/Falafel-Pie.png'},
+                {name: {ar: 'فطيرة فلافل', en: 'Falafel Pie'}, price: '9.00', desc: {ar: 'فطيرة محشوة بقطع الفلافل اللذيذة لمذاق مميز وشهي.', en: 'Pie stuffed with delicious falafel pieces.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/Pies/Falafel-Pie.png'}
+            ],
+            drinks: [
+                {name: {ar: 'حمضيات', en: 'Citrus'}, price: '4.00', desc: {ar: 'مشروب غازي منعش بنكهة الحمضيات.', en: 'Refreshing citrus soda.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/Citrus.png'},
+                {name: {ar: 'سفن دايت', en: '7Up Diet'}, price: '4.00', desc: {ar: 'مشروب غازي بنكهة الليمون واللايم بدون سعرات.', en: 'Lemon-lime soda zero calories.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/7Up-Diet.png'},
+                {name: {ar: 'سفن أب', en: '7Up'}, price: '4.00', desc: {ar: 'مشروب غازي بنكهة الليمون واللايم.', en: 'Lemon-lime soda.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/7Up.png'},
+                {name: {ar: 'بيبسي', en: 'Pepsi'}, price: '4.00', desc: {ar: 'مشروب غازي منعش بطعم الكولا الكلاسيكي.', en: 'Classic refreshing cola.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/Pepsi.png'},
+                {name: {ar: 'ماونتن ديو', en: 'Mountain Dew'}, price: '4.00', desc: {ar: 'مشروب غازي بطعم مميز.', en: 'Distinctive tasting soda.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/Mountain-Dew.png'},
+                {name: {ar: 'ميرندا برتقال', en: 'Mirinda Orange'}, price: '4.00', desc: {ar: 'مشروب غازي منعش بنكهة البرتقال.', en: 'Orange flavored soda.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/Mirinda-Orange.png'},
+                {name: {ar: 'بيبسي دايت', en: 'Pepsi Diet'}, price: '4.00', desc: {ar: 'مشروب كولا غازي بدون سعرات حرارية.', en: 'Zero calorie cola.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/Pepsi-Diet.png'},
+                {name: {ar: 'مياه معدنية', en: 'Mineral Water'}, price: '2.00', desc: {ar: 'مياه شرب نقية ومنعشة.', en: 'Pure refreshing water.'}, img: 'https://onfirrestaurant.github.io/Falafel-Ali-Pasha/drinks/Mineral-Water.png'}
+            ]
+        };
+
+        const translations = {
+            ar: {
+                site_name: 'فلافل علي باشا',
+                home: 'الرئيسية', menu: 'المنيو', location: 'فروعنا', call_now: 'تواصل معنا',
+                hero_badge: 'أصل الفلافل عندنا!', hero_title: 'طعم القرمشة الأصيلة', hero_desc: 'استمتع بألذ ساندويتشات الفلافل، الفطائر الطازجة، والأطباق الشامية المميزة.',
+                view_menu: 'شاهد المنيو', loc_btn: 'فروعنا',
+                feat_fresh_title: 'ساخن ومقرمش', feat_fresh_desc: 'فلافل تحضر طازجة عند الطلب لقرمشة لا تقاوم.',
+                feat_pies_title: 'فطائر مميزة', feat_pies_desc: 'تشكيلة فطائر بعجينة هشة وحشوات غنية.',
+                feat_healthy_title: 'مكونات طازجة', feat_healthy_desc: 'خضروات ومكونات يومية تضمن لك الجودة والطعم.',
+                menu_title: 'قائمة علي باشا', menu_subtitle: 'تذوق الطعم الأصيل في كل لقمة',
+                gallery_title: 'معرض الصور',
+                loc_title: 'فروعنا في مكة المكرمة', loc_desc: 'نسعد بخدمتكم في فروعنا، زورونا الآن.',
+                branch_shawqiya: 'فرع الشوقية', branch_shawqiya_desc: 'حي الشوقية، مكة المكرمة',
+                branch_waly: 'فرع ولي العهد', branch_waly_desc: 'حي ولي العهد، مكة المكرمة',
+                view_map: 'الاتجاهات', footer_desc: 'نقدم أشهى المأكولات الشامية والفلافل المحضرة يومياً بكل حب.',
+                delivery_apps: 'اطلب عبر التطبيقات', follow_us: 'تابعونا',
+                mobile_menu: 'المنيو', mobile_wa: 'واتساب',
+                cats: {
+                    sandwiches: 'الساندويتشات', plates: 'الأطباق', pies: 'الفطائر', drinks: 'المشروبات'
+                }
+            },
+            en: {
+                site_name: 'Falafel Ali Pasha',
+                home: 'Home', menu: 'Menu', location: 'Branches', call_now: 'Contact Us',
+                hero_badge: 'The Original Falafel!', hero_title: 'Authentic Crispy Taste', hero_desc: 'Enjoy the most delicious falafel sandwiches, fresh pies, and special Levantine dishes.',
+                view_menu: 'View Menu', loc_btn: 'Branches',
+                feat_fresh_title: 'Hot & Crispy', feat_fresh_desc: 'Freshly made falafel on order for irresistible crunch.',
+                feat_pies_title: 'Special Pies', feat_pies_desc: 'Variety of pies with soft dough and rich fillings.',
+                feat_healthy_title: 'Fresh Ingredients', feat_healthy_desc: 'Daily fresh vegetables guaranteeing quality and taste.',
+                menu_title: 'Ali Pasha Menu', menu_subtitle: 'Taste authenticity in every bite',
+                gallery_title: 'Gallery',
+                loc_title: 'Our Branches in Makkah', loc_desc: 'We are happy to serve you, visit us now.',
+                branch_shawqiya: 'Shawqiya Branch', branch_shawqiya_desc: 'Al Shawqiya Dist, Makkah',
+                branch_waly: 'Waly Al Ahd Branch', branch_waly_desc: 'Waly Al Ahd Dist, Makkah',
+                view_map: 'Directions', footer_desc: 'Serving the most delicious Levantine food and falafel made with love daily.',
+                delivery_apps: 'Order via Apps', follow_us: 'Follow Us',
+                mobile_menu: 'Menu', mobile_wa: 'WhatsApp',
+                cats: {
+                    sandwiches: 'Sandwiches', plates: 'Plates', pies: 'Pies', drinks: 'Drinks'
+                }
+            }
+        };
+
+        const icons = {
+            sandwiches: 'fa-bread-slice', plates: 'fa-utensils', pies: 'fa-pizza-slice', drinks: 'fa-glass-water'
+        };
+
+        let currentLang = 'ar';
+        let activeCategory = 'sandwiches';
+
+        function renderMenuTabs() {
+            const tabs = document.getElementById('menuTabs');
+            tabs.innerHTML = Object.keys(menuData).map((cat) => {
+                const isActive = cat === activeCategory;
+                const activeClass = isActive ? 'bg-red-600 text-white shadow-lg scale-105' : 'bg-white text-gray-700 hover:bg-red-100';
+                return `
+                <button onclick="changeCategory('${cat}')" 
+                    class="menu-tab flex items-center gap-2 px-6 py-3 rounded-full font-bold transition whitespace-nowrap ${activeClass}">
+                    <i class="fas ${icons[cat]}"></i>
+                    <span>${translations[currentLang].cats[cat]}</span>
+                </button>
+            `}).join('');
+        }
+
+        function changeCategory(cat) {
+            activeCategory = cat;
+            renderMenuTabs();
+            renderMenuContent(cat);
+        }
+
+        function renderMenuContent(cat) {
+            const content = document.getElementById('menuContent');
+            content.style.opacity = '0';
+            
+            setTimeout(() => {
+                content.innerHTML = menuData[cat].map((item, index) => {
+                    const itemName = item.name[currentLang] || item.name.ar;
+                    const itemDesc = item.desc ? (item.desc[currentLang] || item.desc.ar) : '';
+                    
+                    return `
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 group relative overflow-hidden border border-gray-100 flex flex-col h-full">
+                        <!-- Image Container -->
+                        <div class="h-48 overflow-hidden bg-gray-100">
+                             <img src="${item.img}" alt="${itemName}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-bold text-lg text-gray-900 group-hover:text-red-600 transition flex-1">
+                                        ${itemName}
+                                    </h3>
+                                    <div class="text-left rtl:text-right min-w-[70px] whitespace-nowrap">
+                                        <span class="text-2xl font-black text-red-600">${item.price}</span>
+                                        <span class="text-xs text-gray-400 block font-bold">SAR</span>
+                                    </div>
+                                </div>
+                                ${itemDesc ? `<p class="text-sm text-gray-500 leading-relaxed">${itemDesc}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `}).join('');
+                content.style.opacity = '1';
+            }, 200);
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const body = document.body;
+            const html = document.documentElement;
+            
+            // UI Toggle
+            if(currentLang === 'en') {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                body.classList.add('lang-en');
+                document.getElementById('langBtnText').innerText = 'عربي';
+                document.getElementById('langBtnMobile').innerText = 'AR';
+            } else {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                body.classList.remove('lang-en');
+                document.getElementById('langBtnText').innerText = 'English';
+                document.getElementById('langBtnMobile').innerText = 'EN';
+            }
+
+            // Update Static Text Content
+            document.querySelectorAll('.nav-link').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            // Re-render Dynamic Content
+            renderMenuTabs();
+            renderMenuContent(activeCategory);
+        }
+
+        window.onload = () => {
+            renderMenuTabs();
+            renderMenuContent('sandwiches');
+        };
+    </script>
+</body>
+</html>
